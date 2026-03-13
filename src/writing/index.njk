@@ -1,40 +1,32 @@
-writing
 ---
 layout: layouts/base.njk
-title: Blog
+title: Writing
 permalink: /writing/
 ---
-
 <section class="section container">
   <p class="eyebrow">Blogs</p>
   <h1>Writing</h1>
   <p class="lead">Notes on cloud engineering, AI infrastructure, DevOps patterns, and the occasional story about being a student-engineer in Texas.</p>
 
   <div class="post-list">
-    {%- for post in collections.posts | reverse -%}
+    {% for post in collections.posts %}
     <a class="post-card" href="{{ post.url }}">
-      {%- if post.data.image %}
+      {% if post.data.image %}
       <img class="post-card__img" src="{{ post.data.image }}" alt="{{ post.data.title }}" loading="lazy" />
-      {%- endif %}
+      {% endif %}
       <div class="post-card__body">
         <p class="post-card__date">{{ post.date | readableDate }}</p>
         <h2>{{ post.data.title }}</h2>
-        {%- if post.data.description %}
         <p>{{ post.data.description }}</p>
-        {%- endif %}
-        {%- if post.data.tags %}
+        {% if post.data.tags %}
         <div class="tag-list">
-          {%- for t in post.data.tags %}
-            {%- if t != "posts" and t != "post" %}
-            <span class="tag tag--subtle">{{ t }}</span>
-            {%- endif %}
-          {%- endfor %}
+          {% for t in post.data.tags %}<span class="tag tag--subtle">{{ t }}</span>{% endfor %}
         </div>
-        {%- endif %}
+        {% endif %}
       </div>
     </a>
-    {%- else %}
+    {% else %}
     <p>No posts yet. Add a Markdown file to <code>src/writing/</code>.</p>
-    {%- endfor %}
+    {% endfor %}
   </div>
 </section>
