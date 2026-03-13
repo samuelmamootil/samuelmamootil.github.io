@@ -2,66 +2,72 @@
   {
     "role": "Student Web Developer (Part-time)",
     "company": "UTA College of Business",
-    "companyUrl": "https://www.uta.edu/academics/schools-colleges/business",
     "location": "Arlington, TX",
     "period": "Jan 2025 – Present",
-    "summary": "Maintain web applications, run digital campaigns, and was selected by faculty to appear in a college-wide promotional video — representing the department to the broader UTA community.",
+    "summary": "Maintain web applications, update content, and support high-visibility digital campaigns and college events.",
     "logoText": "UTA",
-    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/academia.svg",
-    "logoColor": "#0064A4",
-    "clients": [],
-    "tags": ["Web", "CMS", "Digital Marketing"]
+    "logoColor": "#BF5700",
+    "logoUrl": "",
+    "stack": [],
+    "clients": []
   },
   {
     "role": "Tech Lead",
     "company": "Wipro",
-    "companyUrl": "https://www.wipro.com/careers/",
     "location": "Mumbai, India",
     "period": "Feb 2024 – Apr 2025",
-    "summary": "Led a 7-engineer team modernizing Alight Solutions' cloud platform. Delivered reusable Terraform module library, blue-green deployment pipelines, and hardened AWS security posture with CloudWatch, IAM, and VPC controls.",
+    "summary": "Led a 7-engineer team modernizing cloud platforms with reusable Terraform modules, blue-green deployments, and secure AWS automation.",
     "logoText": "Wipro",
-    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wipro.svg",
-    "logoColor": "#341C63",
-    "clients": ["Alight Solutions"],
-    "tags": ["AWS", "Terraform", "CI/CD", "Team Lead"]
+    "logoColor": "#9b1c1c",
+    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/wipro.svg",
+    "stack": [],
+    "clients": [
+      "Alight Solutions"
+    ]
   },
   {
     "role": "Junior Tech Lead",
     "company": "IBM",
-    "companyUrl": "https://www.ibm.com/careers",
     "location": "Mumbai, India",
     "period": "Nov 2021 – Feb 2024",
-    "summary": "Delivered multi-cloud migrations and modernization for H&M, Siemens, Nokia, and Südzucker. Migrated 100+ servers to Azure for H&M. Built Terraform landing zones, GitHub Actions pipelines, EKS deployments, and secure network patterns.",
+    "summary": "Delivered cloud migration and modernization across AWS, Azure, and GCP with GitHub Actions, Azure DevOps, GitLab CI/CD, and Terraform.",
     "logoText": "IBM",
-    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg",
-    "logoColor": "#1261FE",
-    "clients": ["H&M", "Siemens", "Nokia", "Südzucker"],
-    "tags": ["AWS", "Azure", "GCP", "Terraform", "EKS"]
+    "logoColor": "#1F70C1",
+    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/ibm.svg",
+    "stack": [],
+    "clients": [
+      "H&M",
+      "Siemens",
+      "Nokia",
+      "Südzucker"
+    ]
   },
   {
     "role": "Software Engineer",
-    "company": "LTIMindtree",
-    "companyUrl": "https://www.ltimindtree.com/careers/",
+    "company": "Larsen & Toubro Infotech Ltd. (now LTIMindtree)",
     "location": "Bengaluru, India",
     "period": "Apr 2018 – Nov 2021",
-    "summary": "Built one-click migration automation with Terraform & REST APIs. Developed a PHP cloud-practice showcase portal. Implemented security controls (SonarQube, TLS 1.2, private endpoints) and automated Azure DevOps workflows.",
-    "logoText": "LTI",
-    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/laravel.svg",
-    "logoColor": "#FF2D20",
-    "clients": ["Parexel", "Regeneron", "Veolia Water"],
-    "tags": ["Azure", "Terraform", "DevOps", "Security"]
+    "summary": "Built internal automation and a cloud-practice showcase portal; supported Azure delivery, ETL workloads, and security controls.",
+    "logoText": "LTM",
+    "logoColor": "#e05b2b",
+    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/ltimindtree.svg",
+    "stack": [],
+    "clients": [
+      "Parexel",
+      "Regeneron",
+      "Veolia Water"
+    ]
   },
   {
     "role": "Junior Developer",
     "company": "Neurospeech Technologies",
-    "companyUrl": "#",
     "location": "Mumbai, India",
     "period": "Aug 2017 – Apr 2018",
-    "summary": "Developed Android applications using MVVM architecture, focusing on maintainable UI components and modular code design.",
-    "logoText": "Neuro",
+    "summary": "Developed Android applications using MVVM patterns and maintainable UI components.",
+    "logoText": "nS",
+    "logoColor": "#6366f1",
     "logoUrl": "",
-    "logoColor": "#6366F1",
-    "clients": [],
-    "tags": ["Android", "MVVM", "Mobile"]
+    "stack": [],
+    "clients": []
   }
 ]
