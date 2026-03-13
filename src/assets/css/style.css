@@ -294,7 +294,15 @@ p:last-child { margin-bottom: 0; }
 .postcard__body { padding: 1rem; }
 .postcard__date { font-size: .75rem; color: var(--accent-2); margin-bottom: .25rem; }
 .postcard__link { color: var(--accent); font-size: .85rem; font-weight: 600; }
-
+.btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--accent); color: #fff;
+  padding: .55rem 1.2rem; border-radius: var(--radius);
+  font-weight: 600; font-size: .9rem; cursor: pointer; border: none;
+  font-family: var(--font);        /* ← add this line */
+  letter-spacing: 0;               /* ← add this line */
+  transition: opacity .15s;
+}
 /* MEDIA */
 .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
 .media-card {
