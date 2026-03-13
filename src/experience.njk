@@ -1,10 +1,11 @@
 ---
 layout: layouts/base.njk
-title: Experience
+title: Work Experience
 ---
+
 <section class="section container">
   <p class="eyebrow">Career</p>
-  <h1>Experience &amp; Clients</h1>
+  <h1>Work Experience</h1>
   <p class="lead">7+ years across enterprise cloud programs, startup products, and academic research — spanning AWS, Azure, GCP, and AI infrastructure.</p>
 
   <div class="timeline">
@@ -13,19 +14,16 @@ title: Experience
       <div class="timeline__marker"></div>
       <div class="timeline__card">
         <div class="timeline__header">
-          <div class="company-logo-wrap">
-            {% if job.logoUrl %}
-            <img src="{{ job.logoUrl }}" alt="{{ job.company }} logo" class="company-logo" width="32" height="32"
-                 onerror="this.style.display='none'" />
-            {% else %}
-            <span class="company-logo-text" style="background: {{ job.logoColor }}">{{ job.logoText }}</span>
-            {% endif %}
-          </div>
+          {% if job.logoUrl %}
+          <img src="{{ job.logoUrl }}" alt="{{ job.company }} logo" class="company-logo" width="40" height="40" onerror="this.style.display='none'" />
+          {% else %}
+          <span class="company-logo-text" style="background:{{ job.logoColor }}">{{ job.logoText }}</span>
+          {% endif %}
           <div>
             <h2 class="timeline__role">{{ job.role }}</h2>
             <p class="timeline__company">
               <a href="{{ job.companyUrl }}" target="_blank" rel="noopener">{{ job.company }}</a>
-              · {{ job.location }} · <span class="timeline__period">{{ job.period }}</span>
+              &middot; {{ job.location }} &middot; <span class="timeline__period">{{ job.period }}</span>
             </p>
           </div>
         </div>
@@ -33,14 +31,105 @@ title: Experience
         {% if job.clients.length %}
         <p class="timeline__clients">
           <strong>Clients:</strong>
-          {% for c in job.clients %}<span class="tag">{{ c }}</span>{% endfor %}
+          {% for c in job.clients %}<span class="tag">{{ c }}</span> {% endfor %}
         </p>
         {% endif %}
         <div class="tag-list">
-          {% for t in job.tags %}<span class="tag tag--subtle">{{ t }}</span>{% endfor %}
+          {% for t in job.stack %}<span class="tag">{{ t }}</span>{% endfor %}
         </div>
       </div>
     </div>
     {% endfor %}
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="section section--alt">
+  <div class="container">
+    <p class="eyebrow">References</p>
+    <h2>People who can speak to my work</h2>
+    <p>These colleagues have worked with me directly and are happy to be contacted regarding my experience and contributions.</p>
+
+    <div class="ref-grid">
+
+      <div class="ref-card">
+        <div class="ref-card__header">
+          <div class="ref-card__avatar" style="background:#0078D4">SM</div>
+          <div>
+            <h3 class="ref-card__name">Sandeep Manthena</h3>
+            <p class="ref-card__title">Senior Solution Architect</p>
+            <span class="tag">Wipro / Alight Solutions</span>
+          </div>
+        </div>
+        <p class="ref-card__context">Worked alongside Samuel on cloud architecture and enterprise platform delivery at Alight Solutions.</p>
+        <a href="https://www.linkedin.com/search/results/people/?keywords=Sandeep+Manthena" target="_blank" rel="noopener" class="ref-card__link">View on LinkedIn →</a>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card__header">
+          <div class="ref-card__avatar" style="background:#0062a3">DM</div>
+          <div>
+            <h3 class="ref-card__name">Dara Lyne McCluskey</h3>
+            <p class="ref-card__title">Director of Marketing &amp; Communications</p>
+            <span class="tag">UTA</span>
+          </div>
+        </div>
+        <p class="ref-card__context">Supervised Samuel's work as a Student Web Developer at the University of Texas at Arlington.</p>
+        <a href="https://www.linkedin.com/search/results/people/?keywords=Dara+Lyne+McCluskey+UTA" target="_blank" rel="noopener" class="ref-card__link">View on LinkedIn →</a>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card__header">
+          <div class="ref-card__avatar" style="background:#1F70C1">ES</div>
+          <div>
+            <h3 class="ref-card__name">Elma Simons</h3>
+            <p class="ref-card__title">Senior Solution Architect</p>
+            <span class="tag">IBM</span>
+          </div>
+        </div>
+        <p class="ref-card__context">Worked with Samuel on enterprise cloud architecture and delivery projects at IBM.</p>
+        <a href="https://www.linkedin.com/search/results/people/?keywords=Elma+Simons+IBM" target="_blank" rel="noopener" class="ref-card__link">View on LinkedIn →</a>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card__header">
+          <div class="ref-card__avatar" style="background:#1F70C1">TB</div>
+          <div>
+            <h3 class="ref-card__name">Thierry Baudez</h3>
+            <p class="ref-card__title">Project Manager</p>
+            <span class="tag">IBM</span>
+          </div>
+        </div>
+        <p class="ref-card__context">Managed project delivery with Samuel during cloud transformation engagements at IBM.</p>
+        <a href="https://www.linkedin.com/search/results/people/?keywords=Thierry+Baudez+IBM" target="_blank" rel="noopener" class="ref-card__link">View on LinkedIn →</a>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card__header">
+          <div class="ref-card__avatar" style="background:#e05b2b">SK</div>
+          <div>
+            <h3 class="ref-card__name">Sanjog Kalav</h3>
+            <p class="ref-card__title">Project Manager</p>
+            <span class="tag">LTIMindtree</span>
+          </div>
+        </div>
+        <p class="ref-card__context">Collaborated with Samuel on cloud delivery and DevOps projects at LTIMindtree.</p>
+        <a href="https://www.linkedin.com/search/results/people/?keywords=Sanjog+Kalav+LTIMindtree" target="_blank" rel="noopener" class="ref-card__link">View on LinkedIn →</a>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card__header">
+          <div class="ref-card__avatar" style="background:#6366f1">SU</div>
+          <div>
+            <h3 class="ref-card__name">Suvarna</h3>
+            <p class="ref-card__title">HR Manager</p>
+            <span class="tag">Neurospeech Technologies</span>
+          </div>
+        </div>
+        <p class="ref-card__context">HR lead at Neurospeech Technologies who can speak to Samuel's early career performance and conduct.</p>
+        <a href="https://www.linkedin.com/search/results/people/?keywords=Suvarna+Neurospeech" target="_blank" rel="noopener" class="ref-card__link">View on LinkedIn →</a>
+      </div>
+
+    </div>
   </div>
 </section>
