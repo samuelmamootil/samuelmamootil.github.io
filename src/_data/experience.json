@@ -32,8 +32,8 @@
     "period": "Nov 2021 – Feb 2024",
     "summary": "Delivered cloud migration and modernization across AWS, Azure, and GCP with GitHub Actions, Azure DevOps, GitLab CI/CD, and Terraform.",
     "logoText": "IBM",
-    "logoColor": "#1F70C1",
-    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/ibm.svg",
+    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+  "logoColor": "#1F70C1",
     "stack": [],
     "clients": [
       "H&M",
@@ -49,8 +49,8 @@
     "period": "Apr 2018 – Nov 2021",
     "summary": "Built internal automation and a cloud-practice showcase portal; supported Azure delivery, ETL workloads, and security controls.",
     "logoText": "LTM",
+    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/LTIMindtree_Logo.svg/512px-LTIMindtree_Logo.svg.png",
     "logoColor": "#e05b2b",
-    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/ltimindtree.svg",
     "stack": [],
     "clients": [
       "Parexel",
@@ -64,9 +64,9 @@
     "location": "Mumbai, India",
     "period": "Aug 2017 – Apr 2018",
     "summary": "Developed Android applications using MVVM patterns and maintainable UI components.",
-    "logoText": "nS",
-    "logoColor": "#6366f1",
-    "logoUrl": "",
+    "logoText": "N",
+    "logoColor": "#0a0a0a",
+    "logoUrl": "https://www.neurospeech.com/",
     "stack": [],
     "clients": []
   }
