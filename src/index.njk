@@ -1,32 +1,123 @@
+@'
 ---
 layout: layouts/base.njk
-title: Writing
-permalink: /writing/
+title: Home
 ---
-<section class="section container">
-  <p class="eyebrow">Blog</p>
-  <h1>Writing</h1>
-  <p class="lead">Notes on cloud engineering, AI infrastructure, DevOps patterns, and the occasional story about being a student-engineer in Texas.</p>
 
-  <div class="post-list">
-    {% for post in collections.posts %}
-    <a class="post-card" href="{{ post.url }}">
-      {% if post.data.image %}
-      <img class="post-card__img" src="{{ post.data.image }}" alt="{{ post.data.title }}" loading="lazy" />
-      {% endif %}
-      <div class="post-card__body">
-        <p class="post-card__date">{{ post.date | readableDate }}</p>
-        <h2>{{ post.data.title }}</h2>
-        <p>{{ post.data.description }}</p>
-        {% if post.data.tags %}
-        <div class="tag-list">
-          {% for t in post.data.tags %}<span class="tag tag--subtle">{{ t }}</span>{% endfor %}
-        </div>
-        {% endif %}
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__inner container">
+    <div class="hero__text">
+      <p class="eyebrow">Cloud &amp; Platform Engineer · AI Infrastructure · DevOps</p>
+      <h1 class="hero__headline">{{ site.heroHeadline }}</h1>
+      <p class="hero__intro">{{ site.heroIntro }}</p>
+      <div class="hero__cta">
+        <a href="/experience/" class="btn">View Experience</a>
+        <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
       </div>
-    </a>
-    {% else %}
-    <p>No posts yet. Add a Markdown file to <code>src/writing/</code>.</p>
+    </div>
+    <div class="hero__avatar">
+      <img src="https://avatars.githubusercontent.com/samuelmamootil"
+           alt="Samuel Mamootil"
+           onerror="this.src='/images/profile.svg'"
+           width="220" height="220" />
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section container">
+  <p class="eyebrow">About me</p>
+  <h2>The short version</h2>
+  <div class="story-grid">
+    {% for line in site.story %}
+    <p>{{ line }}</p>
     {% endfor %}
   </div>
 </section>
+
+<!-- SKILLS -->
+<section class="section section--alt">
+  <div class="container">
+    <p class="eyebrow">Capabilities</p>
+    <h2>What I work with</h2>
+    <div class="skills-grid">
+      {% for category, items in site.skills %}
+      <div class="skill-card">
+        <h3>{{ category }}</h3>
+        <ul class="tag-list">
+          {% for item in items %}<li class="tag">{{ item }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- AI INFRASTRUCTURE -->
+<section class="section container">
+  <p class="eyebrow">AI Infrastructure</p>
+  <h2>Building the plumbing for AI systems</h2>
+  <div class="ai-callout-grid">
+    <div class="ai-card">
+      <div class="ai-card__icon">&#9729;</div>
+      <h3>AWS SageMaker</h3>
+      <p>End-to-end ML pipelines — training, model registry, and real-time endpoint deployment with IAM and VPC isolation.</p>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card__icon">&#129504;</div>
+      <h3>Azure Machine Learning</h3>
+      <p>MLOps on Azure — managed compute clusters, pipelines, model versioning, and private workspace networking.</p>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card__icon">&#128161;</div>
+      <h3>AWS Bedrock</h3>
+      <p>Built ReRhythm on Bedrock (Claude) — RAG pipelines, Textract parsing, Comprehend moderation, KMS-encrypted DynamoDB.</p>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card__icon">&#128202;</div>
+      <h3>MLOps Principles</h3>
+      <p>Reproducible pipelines, model drift monitoring, CI/CD-driven model deployment, and cost-optimised compute selection.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section section--alt">
+  <div class="container">
+    <p class="eyebrow">Certifications</p>
+    <h2>Microsoft Azure certified</h2>
+    <div class="cert-row">
+      {% for cert in site.certifications %}
+      <div class="cert-badge">
+        <span class="cert-badge__code" style="color:{{ cert.color }}">{{ cert.code }}</span>
+        <span class="cert-badge__name">{{ cert.name }}</span>
+        <span class="cert-badge__issuer">{{ cert.issuer }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- RECENT POSTS -->
+<section class="section container">
+  <p class="eyebrow">Writing</p>
+  <h2>Latest from the blog</h2>
+  <div class="post-list">
+    {% for post in collections.posts | reverse %}
+    {% if loop.index <= 3 %}
+    <a class="post-card" href="{{ post.url }}">
+      <div class="post-card__body">
+        <p class="post-card__date">{{ post.date | readableDate }}</p>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.description }}</p>
+      </div>
+    </a>
+    {% endif %}
+    {% else %}
+    <p>No posts yet.</p>
+    {% endfor %}
+  </div>
+  <a href="/writing/" class="btn btn--ghost mt-2">All posts →</a>
+</section>
+'@ | Out-File -FilePath "src\index.njk" -Encoding utf8
