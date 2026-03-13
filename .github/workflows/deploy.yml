@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # ← opts into Node 24 now
+
 permissions:
   contents: read
   pages: write
@@ -24,8 +27,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 24          # ← upgraded from 20 to 24
+          cache: npm                # ← works once package-lock.json exists
 
       - name: Install dependencies
         run: npm install
