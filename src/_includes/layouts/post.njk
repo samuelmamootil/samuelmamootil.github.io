@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+<article class="section container prose">
+  <p class="eyebrow">Writing · {{ date | readableDate }}</p>
+  {% if image %}
+  <img class="post-hero-img" src="{{ image }}" alt="{{ title }}" />
+  {% endif %}
+  <h1>{{ title }}</h1>
+  {% if description %}<p class="lead">{{ description }}</p>{% endif %}
+  <div class="tag-list">
+    {% for t in tags %}<span class="tag tag--subtle">{{ t }}</span>{% endfor %}
+  </div>
+  <hr />
+  {{ content | safe }}
+  <hr />
+  <p class="eyebrow">Comments &amp; Reactions</p>
+  <div class="giscus"></div>
+</article>

@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: Gallery
+permalink: /gallery/
+---
+<section class="section container">
+  <p class="eyebrow">Visual journal</p>
+  <h1>Gallery</h1>
+  <p class="lead">Moments, milestones, and places that shaped the engineer I'm becoming.</p>
+
+  <div class="postcard-board">
+    {% for item in gallery %}
+    <div class="postcard">
+      <div class="postcard__img-wrap">
+        <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy"
+             onerror="this.style.background='#1e293b';this.style.height='180px'" />
+      </div>
+      <div class="postcard__body">
+        {% if item.date %}<p class="postcard__date">{{ item.date | readableDate }}</p>{% endif %}
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.caption }}</p>
+        {% if item.link %}<a href="{{ item.link }}" target="_blank" rel="noopener" class="postcard__link">View →</a>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

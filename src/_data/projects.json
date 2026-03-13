@@ -1,0 +1,18 @@
+[
+  {
+    "name": "ReRhythm",
+    "type": "Competition Project",
+    "summary": "AI-powered 28-day career coaching platform — parses resumes with AWS Textract, generates personalised roadmaps via AWS Bedrock (Claude), deploys on ECS Fargate with CloudFormation, DynamoDB, and KMS.",
+    "highlight": "🏆 Second runner-up — AWS Competition, UTA Symposium 2026",
+    "url": "https://github.com/samuelmamootil/ReRhythm",
+    "tags": ["AWS Bedrock", "Textract", "ECS Fargate", ".NET", "GitHub Actions", "DynamoDB"]
+  },
+  {
+    "name": "Portfolio Website",
+    "type": "Featured Web Project",
+    "summary": "Story-first GitHub Pages portfolio built with Eleventy, Nunjucks, and GitHub Actions — auto-deploys on every push to main.",
+    "highlight": "This site.",
+    "url": "https://samuelmamootil.github.io",
+    "tags": ["Eleventy", "GitHub Pages", "GitHub Actions", "Nunjucks"]
+  }
+]

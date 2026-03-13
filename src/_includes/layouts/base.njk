@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <!-- Open Graph -->
+  <meta property="og:title"       content="{{ title }} — {{ site.title }}" />
+  <meta property="og:description" content="{{ site.description }}" />
+  <meta property="og:url"         content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:type"        content="website" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/">SM</a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/experience/">Experience</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/media/">In the Media</a></li>
+        <li><a href="{{ site.resume }}" target="_blank" rel="noopener" class="btn btn--sm">Résumé</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav__drawer" id="navDrawer">
+    <a href="/">Home</a>
+    <a href="/experience/">Experience</a>
+    <a href="/projects/">Projects</a>
+    <a href="/writing/">Writing</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/media/">In the Media</a>
+    <a href="{{ site.resume }}" target="_blank">Résumé ↗</a>
+  </div>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Built by Samuel Mamootil · 
+        <a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
+        {% if site.instagram %} · <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+      </p>
+      <p class="footer__copy">&copy; {{ "" | year }} Samuel Mamootil</p>
+    </div>
+  </footer>
+
+  <!-- Giscus comments (GitHub Discussions — works for static sites) -->
+  <script src="https://giscus.app/client.js"
+    data-repo="samuelmamootil/samuelmamootil.github.io"
+    data-repo-id="REPLACE_WITH_REPO_ID"
+    data-category="Blog Comments"
+    data-category-id="REPLACE_WITH_CATEGORY_ID"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="dark_dimmed"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: Projects
+---
+<section class="section container">
+  <p class="eyebrow">Work I've built</p>
+  <h1>Projects</h1>
+  <div class="project-grid">
+    {% for p in projects %}
+    <div class="project-card">
+      <h2><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }} ↗</a></h2>
+      <p class="project-card__type">{{ p.type }}</p>
+      <p>{{ p.summary }}</p>
+      {% if p.highlight %}<p class="project-card__highlight">{{ p.highlight }}</p>{% endif %}
+      <div class="tag-list">
+        {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

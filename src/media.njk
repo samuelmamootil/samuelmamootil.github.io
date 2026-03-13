@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: In the Media
+permalink: /media/
+---
+<section class="section container">
+  <p class="eyebrow">Press &amp; features</p>
+  <h1>In the Media</h1>
+  <p class="lead">Links to newsletters, marketing materials, Instagram posts, and press where I've been featured.</p>
+
+  <div class="media-grid">
+    {% for item in media %}
+    <div class="media-card media-card--{{ item.type }}">
+      <p class="media-card__type">{{ item.type | upper }}</p>
+      <p class="media-card__label">{{ item.label }}</p>
+      <p>{{ item.description }}</p>
+      {% if item.url %}
+      <a href="{{ item.url }}" target="_blank" rel="noopener" class="btn btn--sm">View ↗</a>
+      {% else %}
+      <span class="tag tag--subtle">Coming soon</span>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
