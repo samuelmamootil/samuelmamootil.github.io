@@ -49,7 +49,7 @@
     "period": "Apr 2018 – Nov 2021",
     "summary": "Built internal automation and a cloud-practice showcase portal; supported Azure delivery, ETL workloads, and security controls.",
     "logoText": "LTM",
-    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/LTIMindtree_Logo.svg/512px-LTIMindtree_Logo.svg.png",
+    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/LTIMindtree_Logo.svg",
     "logoColor": "#e05b2b",
     "stack": [],
     "clients": [
@@ -66,7 +66,7 @@
     "summary": "Developed Android applications using MVVM patterns and maintainable UI components.",
     "logoText": "N",
     "logoColor": "#0a0a0a",
-    "logoUrl": "https://www.neurospeech.com/",
+    "logoUrl": "",
     "stack": [],
     "clients": []
   }
