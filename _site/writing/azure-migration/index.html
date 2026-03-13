@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How I migrated 100+ servers to Azure without a single weekend outage — Samuel Mamootil</title>
+  <meta name="description" content="Portfolio of Samuel Mamootil — cloud architecture, platform engineering, DevOps, AI/ML infrastructure, blog, and visual stories." />
+  <link rel="canonical" href="https://samuelmamootil.github.io/writing/azure-migration/" />
+  <!-- Open Graph -->
+  <meta property="og:title"       content="How I migrated 100+ servers to Azure without a single weekend outage — Samuel Mamootil" />
+  <meta property="og:description" content="Portfolio of Samuel Mamootil — cloud architecture, platform engineering, DevOps, AI/ML infrastructure, blog, and visual stories." />
+  <meta property="og:url"         content="https://samuelmamootil.github.io/writing/azure-migration/" />
+  <meta property="og:type"        content="website" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/">SM</a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/experience/">Experience</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/media/">In the Media</a></li>
+        <li><a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn--sm">Résumé</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav__drawer" id="navDrawer">
+    <a href="/">Home</a>
+    <a href="/experience/">Experience</a>
+    <a href="/projects/">Projects</a>
+    <a href="/writing/">Writing</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/media/">In the Media</a>
+    <a href="/resume.pdf" target="_blank">Résumé ↗</a>
+  </div>
+
+  <main id="main">
+    <article class="section container prose">
+  <p class="eyebrow">Writing · February 28, 2026</p>
+  
+  <img class="post-hero-img" src="/images/posts/azure-migration.jpg" alt="How I migrated 100+ servers to Azure without a single weekend outage" />
+  
+  <h1>How I migrated 100+ servers to Azure without a single weekend outage</h1>
+  <p class="lead">Lessons from leading the H&amp;M Azure migration at IBM — planning, Terraform landing zones, and what I&#39;d do differently.</p>
+  <div class="tag-list">
+    <span class="tag tag--subtle">Azure</span><span class="tag tag--subtle">Terraform</span><span class="tag tag--subtle">Migration</span><span class="tag tag--subtle">DevOps</span>
+  </div>
+  <hr />
+  <p>When IBM tasked my team with migrating over 100 application servers for H&amp;M to Azure,
+the hardest part wasn't the Terraform code — it was the sequencing.</p>
+<h2>The approach</h2>
+<p>We used a phased migration model: assess → land zone → pilot → wave → cutover.
+Every wave was gated by smoke tests running in GitHub Actions before DNS cutoff.</p>
+<h2>What worked</h2>
+<ul>
+<li><strong>Reusable Terraform modules</strong> — one module per service, versioned in a private registry</li>
+<li><strong>Private endpoints everywhere</strong> — no public IP exposure for any backend service</li>
+<li><strong>Blue-green DNS switchover</strong> — instant rollback if a wave failed</li>
+</ul>
+<h2>What I'd do differently</h2>
+<p>Start instrumentation earlier. By the time we were in wave 3, we wanted application-level
+metrics that hadn't been instrumented yet.</p>
+<hr>
+<p><em>This is a template post — replace with your own story.</em></p>
+
+  <hr />
+  <p class="eyebrow">Comments &amp; Reactions</p>
+  <div class="giscus"></div>
+</article>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Built by Samuel Mamootil · 
+        <a href="https://linkedin.com/in/samuel-mamootil" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://github.com/samuelmamootil" target="_blank" rel="noopener">GitHub</a>
+        
+      </p>
+      <p class="footer__copy">&copy; 2026 Samuel Mamootil</p>
+    </div>
+  </footer>
+
+  <!-- Giscus comments (GitHub Discussions — works for static sites) -->
+  <script src="https://giscus.app/client.js"
+    data-repo="samuelmamootil/samuelmamootil.github.io"
+    data-repo-id="R_kgDORjZhAg"
+    data-category="Blog Comments"
+    data-category-id="DIC_kwDORjZhAs4C4RW1"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="dark_dimmed"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

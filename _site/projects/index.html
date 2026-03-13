@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Samuel Mamootil</title>
+  <meta name="description" content="Portfolio of Samuel Mamootil — cloud architecture, platform engineering, DevOps, AI/ML infrastructure, blog, and visual stories." />
+  <link rel="canonical" href="https://samuelmamootil.github.io/projects/" />
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Projects — Samuel Mamootil" />
+  <meta property="og:description" content="Portfolio of Samuel Mamootil — cloud architecture, platform engineering, DevOps, AI/ML infrastructure, blog, and visual stories." />
+  <meta property="og:url"         content="https://samuelmamootil.github.io/projects/" />
+  <meta property="og:type"        content="website" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/">SM</a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/experience/">Experience</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/media/">In the Media</a></li>
+        <li><a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn--sm">Résumé</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav__drawer" id="navDrawer">
+    <a href="/">Home</a>
+    <a href="/experience/">Experience</a>
+    <a href="/projects/">Projects</a>
+    <a href="/writing/">Writing</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/media/">In the Media</a>
+    <a href="/resume.pdf" target="_blank">Résumé ↗</a>
+  </div>
+
+  <main id="main">
+    <section class="section container">
+  <p class="eyebrow">Work I've built</p>
+  <h1>Projects</h1>
+  <div class="project-grid">
+    
+    <div class="project-card">
+      <h2><a href="https://github.com/samuelmamootil/ReRhythm" target="_blank" rel="noopener">ReRhythm ↗</a></h2>
+      <p class="project-card__type">Competition Project</p>
+      <p>AI-powered 28-day career coaching platform — parses resumes with AWS Textract, generates personalised roadmaps via AWS Bedrock (Claude), deploys on ECS Fargate with CloudFormation, DynamoDB, and KMS.</p>
+      <p class="project-card__highlight">🏆 Second runner-up — AWS Competition, UTA Symposium 2026</p>
+      <div class="tag-list">
+        <span class="tag">AWS Bedrock</span><span class="tag">Textract</span><span class="tag">ECS Fargate</span><span class="tag">.NET</span><span class="tag">GitHub Actions</span><span class="tag">DynamoDB</span>
+      </div>
+    </div>
+    
+    <div class="project-card">
+      <h2><a href="https://samuelmamootil.github.io" target="_blank" rel="noopener">Portfolio Website ↗</a></h2>
+      <p class="project-card__type">Featured Web Project</p>
+      <p>Story-first GitHub Pages portfolio built with Eleventy, Nunjucks, and GitHub Actions — auto-deploys on every push to main.</p>
+      <p class="project-card__highlight">This site.</p>
+      <div class="tag-list">
+        <span class="tag">Eleventy</span><span class="tag">GitHub Pages</span><span class="tag">GitHub Actions</span><span class="tag">Nunjucks</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Built by Samuel Mamootil · 
+        <a href="https://linkedin.com/in/samuel-mamootil" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://github.com/samuelmamootil" target="_blank" rel="noopener">GitHub</a>
+        
+      </p>
+      <p class="footer__copy">&copy; 2026 Samuel Mamootil</p>
+    </div>
+  </footer>
+
+  <!-- Giscus comments (GitHub Discussions — works for static sites) -->
+  <script src="https://giscus.app/client.js"
+    data-repo="samuelmamootil/samuelmamootil.github.io"
+    data-repo-id="R_kgDORjZhAg"
+    data-category="Blog Comments"
+    data-category-id="DIC_kwDORjZhAs4C4RW1"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="dark_dimmed"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
