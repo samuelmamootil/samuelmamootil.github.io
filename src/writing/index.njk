@@ -12,6 +12,7 @@ permalink: /writing/
     {% for post in collections.posts %}
     <a class="post-card" href="{{ post.url }}">
       {% if post.data.image %}
+      <a href="{{ post.url }}" class="blog-card__img-wrap">
       <img class="post-card__img" src="{{ post.data.image }}" alt="{{ post.data.title }}" loading="lazy" />
       {% endif %}
       <div class="post-card__body">
