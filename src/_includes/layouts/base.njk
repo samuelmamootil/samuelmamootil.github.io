@@ -1,17 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<style>
-  body { background: #0f172a !important; color: #e2e8f0 !important; font-family: Inter, sans-serif !important; }
-  .nav { background: #1e293b !important; padding: 1rem !important; }
-</style>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ title }} — {{ site.title }}</title>
+  <title>{{ title }} â€” {{ site.title }}</title>
   <meta name="description" content="{{ site.description }}" />
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
   <!-- Open Graph -->
-  <meta property="og:title"       content="{{ title }} — {{ site.title }}" />
+  <meta property="og:title"       content="{{ title }} â€” {{ site.title }}" />
   <meta property="og:description" content="{{ site.description }}" />
   <meta property="og:url"         content="{{ site.url }}{{ page.url }}" />
   <meta property="og:type"        content="website" />
@@ -20,11 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/style.css" />
-  <style>
-  body{background:#0f172a!important;color:#e2e8f0!important;font-family:Inter,sans-serif!important}
-  .nav{background:#1e293b!important;padding:1rem 1.5rem!important;display:flex!important}
-</style>
-</head>
+  </head>
 <body>
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -37,7 +29,7 @@
         <li><a href="/writing/">Writing</a></li>
         <li><a href="/gallery/">Gallery</a></li>
         <li><a href="/media/">In the Media</a></li>
-        <li><a href="{{ site.resume }}" target="_blank" rel="noopener" class="btn btn--sm">Résumé</a></li>
+        <li><a href="{{ site.resume }}" target="_blank" rel="noopener" class="btn btn--sm">RÃ©sumÃ©</a></li>
       </ul>
     </div>
   </nav>
@@ -50,7 +42,7 @@
     <a href="/writing/">Writing</a>
     <a href="/gallery/">Gallery</a>
     <a href="/media/">In the Media</a>
-    <a href="{{ site.resume }}" target="_blank">Résumé ↗</a>
+    <a href="{{ site.resume }}" target="_blank">RÃ©sumÃ© â†—</a>
   </div>
 
   <main id="main">
@@ -60,16 +52,16 @@
   <footer class="footer">
     <div class="container">
       <p>
-        Built by Samuel Mamootil · 
-        <a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> ·
+        Built by Samuel Mamootil Â· 
+        <a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> Â·
         <a href="{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
-        {% if site.instagram %} · <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+        {% if site.instagram %} Â· <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
       </p>
       <p class="footer__copy">&copy; {{ "" | year }} Samuel Mamootil</p>
     </div>
   </footer>
 
-  <!-- Giscus comments (GitHub Discussions — works for static sites) -->
+  <!-- Giscus comments (GitHub Discussions â€” works for static sites) -->
   <script src="https://giscus.app/client.js"
     data-repo="samuelmamootil/samuelmamootil.github.io"
     data-repo-id="R_kgDORjZhAg"
@@ -89,3 +81,4 @@
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
+
