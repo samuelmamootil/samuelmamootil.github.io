@@ -54,20 +54,24 @@ p:last-child { margin-bottom: 0; }
 .eyebrow { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
 .mt-2   { margin-top: 2rem; }
 
-/* BUTTONS */
+//* BUTTONS */
 .btn {
   display: inline-flex; align-items: center; gap: .4rem;
   background: var(--accent); color: #fff;
   padding: .55rem 1.2rem; border-radius: var(--radius);
   font-weight: 600; font-size: .9rem; cursor: pointer; border: none;
-  transition: opacity .15s;
+  font-family: var(--font); letter-spacing: 0;
+  text-decoration: none;
+  transition: opacity .15s, background .15s, color .15s;
 }
+.btn:hover { opacity: .85; text-decoration: none; color: #fff; }
 
 .btn--ghost {
   background: transparent;
   border: 1.5px solid var(--border);
   color: var(--text);
 }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 
 .btn--sm { padding: .35rem .85rem; font-size: .8rem; }
 
