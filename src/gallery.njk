@@ -8,12 +8,11 @@ permalink: /gallery/
   <h1 class="photo-wall__heading">Gallery</h1>
   <div class="photo-wall__grid">
     {% for item in gallery %}
-    <article class="instax instax--{{ loop.index }}"
+    <article class="instax"
              data-image="{{ item.image }}"
              data-caption="{{ item.caption }}"
              data-date="{{ item.date | readableDate }}"
-             data-title="{{ item.title }}"
-             onclick="openLightbox(this)">
+             data-title="{{ item.title }}">
       <div class="instax__pin"></div>
       <div class="instax__frame">
         <img src="{{ item.image }}" alt="{{ item.title }}"
@@ -31,10 +30,10 @@ permalink: /gallery/
   </div>
 </section>
 
-<!-- ── LIGHTBOX ── -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
   <div class="lightbox__card">
-    <button class="lightbox__close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox__close" id="lightboxClose">&times;</button>
     <div class="lightbox__img-wrap">
       <img src="" alt="" id="lightboxImg" class="lightbox__img" />
     </div>

@@ -1,16 +1,26 @@
 [
   {
-    "title": "UTA Symposium 2026 — ReRhythm Demo Day",
-    "caption": "Presented ReRhythm to judges and won 2nd runner-up at the UTA AWS Competition.",
-    "date": "2026-04-01",
-    "image": "/images/gallery-symposium.jpg",
-    "link": ""
+    "image": "/assets/img/gallery/hackathon.jpg",
+    "title": "AWS Hackathon Win",
+    "date": "2026-04-12",
+    "caption": "Won the AWS AI hackathon at UTA"
   },
   {
-    "title": "UTA College of Business Promo Video",
-    "caption": "Selected by faculty to represent the department in a college-wide video campaign.",
-    "date": "2025-09-01",
-    "image": "/images/gallery-uta-promo.jpg",
-    "link": ""
+    "image": "/assets/img/gallery/rerythm-demo.jpg",
+    "title": "ReRhythm Demo Day",
+    "date": "2026-04-01",
+    "caption": "Presented ReRhythm at UTA Symposium"
+  },
+  {
+    "image": "/assets/img/gallery/uta-campus.jpg",
+    "title": "UTA Campus",
+    "date": "2025-08-20",
+    "caption": "First day of fall semester at UTA"
+  },
+  {
+    "image": "/assets/img/gallery/team.jpg",
+    "title": "Team Collab",
+    "date": "2025-11-10",
+    "caption": "Building something great with the team"
   }
 ]
