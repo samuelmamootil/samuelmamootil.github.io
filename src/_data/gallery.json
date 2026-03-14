@@ -1,26 +1,62 @@
 [
   {
-    "image": "/assets/img/gallery/hackathon.jpg",
-    "title": "AWS Hackathon Win",
+    "image": "/assets/img/gallery/solo.jpg",
+    "title": "Solo Shot",
     "date": "2026-04-12",
-    "caption": "Won the AWS AI hackathon at UTA"
+    "caption": "AWS Hackathon day at UTA"
   },
   {
-    "image": "/assets/img/gallery/rerythm-demo.jpg",
-    "title": "ReRhythm Demo Day",
-    "date": "2026-04-01",
-    "caption": "Presented ReRhythm at UTA Symposium"
+    "image": "/assets/img/gallery/all groups.jpg",
+    "title": "Full Team",
+    "date": "2026-04-12",
+    "caption": "The whole crew at the AWS event"
   },
   {
-    "image": "/assets/img/gallery/uta-campus.jpg",
-    "title": "UTA Campus",
-    "date": "2025-08-20",
-    "caption": "First day of fall semester at UTA"
+    "image": "/assets/img/gallery/one group.jpg",
+    "title": "Group Photo",
+    "date": "2026-04-12",
+    "caption": "With the team at UTA Symposium"
   },
   {
-    "image": "/assets/img/gallery/team.jpg",
-    "title": "Team Collab",
-    "date": "2025-11-10",
-    "caption": "Building something great with the team"
+    "image": "/assets/img/gallery/aws round table.jpg",
+    "title": "AWS Round Table",
+    "date": "2026-04-12",
+    "caption": "Round table discussion at the AWS event"
+  },
+  {
+    "image": "/assets/img/gallery/aws sateesh.jpg",
+    "title": "With Sateesh",
+    "date": "2026-04-12",
+    "caption": "Catching up with Sateesh at AWS"
+  },
+  {
+    "image": "/assets/img/gallery/At&T.jpg",
+    "title": "AT&T Visit",
+    "date": "2026-03-01",
+    "caption": "AT&T campus visit"
+  },
+  {
+    "image": "/assets/img/gallery/budiman.jpg",
+    "title": "With Budiman",
+    "date": "2026-02-01",
+    "caption": "Great conversation with Budiman"
+  },
+  {
+    "image": "/assets/img/gallery/JEssica.jpg",
+    "title": "With Jessica",
+    "date": "2026-01-15",
+    "caption": "Connecting with Jessica"
+  },
+  {
+    "image": "/assets/img/gallery/one with junior.jpg",
+    "title": "With Junior",
+    "date": "2025-12-01",
+    "caption": "Mentoring session with a junior engineer"
+  },
+  {
+    "image": "/assets/img/gallery/head-shot.png",
+    "title": "Headshot",
+    "date": "2025-09-01",
+    "caption": "Official headshot"
   }
 ]
