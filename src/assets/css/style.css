@@ -611,3 +611,34 @@ p:last-child { margin-bottom: 0; }
   .lightbox__img-wrap { height: 220px; }
   .lightbox__title   { font-size: 1.1rem; }
 }
+/* ── Instagram embed wrapper ── */
+.media-card__embed {
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  /* Force Instagram iframe to fill card width */
+  display: flex;
+  justify-content: center;
+}
+
+.media-card__embed .instagram-media {
+  min-width: unset !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Make instagram embed cards wider */
+.media-card--instagram {
+  grid-column: span 1;
+  max-width: 480px;
+}
+
+/* On wider screens, instagram cards take more space */
+@media (min-width: 768px) {
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}

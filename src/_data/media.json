@@ -1,23 +1,4 @@
-[
-  {
-    "type": "instagram",
-    "label": "Instagram Feature",
-    "url": "",
-    "description": "Add your Instagram post URL where you have been featured."
-  },
-  {
-    "type": "newsletter",
-    "label": "UTA Newsletter",
-    "url": "",
-    "description": "Link to the UTA newsletter where you appeared."
-  },
-  {
-    "type": "press",
-    "label": "Marketing / Press",
-    "url": "",
-    "description": "Add any marketing material, press, or external links here."
-  },
-  
+[ 
   {
     "type": "instagram",
     "label": "UTA College of Business Feature",
