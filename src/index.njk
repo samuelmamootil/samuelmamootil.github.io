@@ -49,18 +49,33 @@ title: Home
 </section>
 
 <section class="section container">
-  <p class="eyebrow">Moments</p>
-  <h2>In the field</h2>
-  <a href="/gallery/" class="home-gallery-peek" aria-label="View full gallery">
+  <div class="section-header">
+    <div>
+      <p class="eyebrow">Moments</p>
+      <h2>In the field</h2>
+    </div>
+    <a href="/gallery/" class="btn btn--ghost btn--sm">View all photos &rarr;</a>
+  </div>
+
+  <div class="photo-timeline">
     {% for item in gallery %}
     {% if loop.index <= 3 %}
-    <div class="home-gallery-peek__img">
-      <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" />
+    <div class="photo-timeline__item">
+      <div class="photo-timeline__marker"></div>
+      <div class="photo-timeline__meta">
+        <time class="photo-timeline__date">{{ item.date | readableDate }}</time>
+      </div>
+      <div class="photo-timeline__card">
+        <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" />
+        <div class="photo-timeline__info">
+          <strong>{{ item.title }}</strong>
+          <span>{{ item.caption }}</span>
+        </div>
+      </div>
     </div>
     {% endif %}
     {% endfor %}
-    <div class="home-gallery-peek__cta">View Gallery &rarr;</div>
-  </a>
+  </div>
 </section>
 
 <section class="section section--alt">
