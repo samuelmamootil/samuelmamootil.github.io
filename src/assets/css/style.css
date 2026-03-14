@@ -383,10 +383,11 @@ p:last-child { margin-bottom: 0; }
 
 .photo-wall__heading {
   text-align: center;
-  font-size: 1.3rem; font-weight: 600;
-  color: #aaa; letter-spacing: .18em;
+  font-size: 1.8rem; font-weight: 700;
+  color: #bbb; letter-spacing: .2em;
   text-transform: uppercase;
   margin-bottom: 3rem;
+  font-family: 'Permanent Marker', cursive;  /* sketch marker heading */
 }
 
 /* CSS columns = natural vertical scatter, no JS */
@@ -468,18 +469,23 @@ p:last-child { margin-bottom: 0; }
 
 /* ── Label ── */
 .instax__label { text-align: center; padding: 0 .2rem; }
-.instax__date  {
+.instax__date {
   display: block;
-  font-size: .6rem; color: #aaa;
+  font-size: .72rem; color: #aaa;           /* slightly bigger */
   letter-spacing: .07em; text-transform: uppercase;
-  margin-bottom: .2rem; font-family: monospace;
+  margin-bottom: .25rem;
+  font-family: 'Caveat', cursive;            /* handwritten date */
+  font-weight: 600;
 }
 .instax__caption {
-  font-size: .82rem; color: #333; margin: 0;
+  font-size: 1rem;                           /* bigger — was .82rem */
+  color: #222; margin: 0;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  font-family: 'Caveat', cursive, sans-serif;
-  font-weight: 600; letter-spacing: .01em;
+  font-family: 'Permanent Marker', cursive;  /* bold sketch marker */
+  letter-spacing: .02em;
+  line-height: 1.3;
 }
+
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
