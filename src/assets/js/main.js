@@ -17,7 +17,13 @@ function track(event, props) {
 const SHEET_URL = document.body.dataset.sheetUrl;
 
 async function getGeo() {
-  try { return await fetch("https://ipapi.co/json/").then(r => r.json()); }
+  const cached = sessionStorage.getItem("geo");
+  if (cached) return JSON.parse(cached);
+  try {
+    const geo = await fetch("https://ipapi.co/json/").then(r => r.json());
+    sessionStorage.setItem("geo", JSON.stringify(geo));
+    return geo;
+  }
   catch (_) { return {}; }
 }
 
@@ -189,9 +195,16 @@ if (weatherWidget) {
       const { latitude: lat, longitude: lon, city } = geo;
       if (!lat || !lon) return;
 
-      const wx = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=celsius`
-      ).then(r => r.json());
+      let wx;
+      const cachedWx = sessionStorage.getItem("wx");
+      if (cachedWx) {
+        wx = JSON.parse(cachedWx);
+      } else {
+        wx = await fetch(
+          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=celsius`
+        ).then(r => r.json());
+        sessionStorage.setItem("wx", JSON.stringify(wx));
+      }
 
       const temp = Math.round(wx.current_weather.temperature);
       const code = wx.current_weather.weathercode;
