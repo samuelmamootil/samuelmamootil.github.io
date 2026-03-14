@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: "How I migrated 100+ servers to Azure for H&M without a weekend outage"
+title: "Migrating 100+ Servers to Azure for H&M — Zero Outages"
 description: "Lessons from leading the H&M Azure migration at IBM — phased planning, Terraform landing zones, blue-green DNS, and what I'd do differently."
 date: 2026-02-15
 image: /images/posts/azure-migration.jpg

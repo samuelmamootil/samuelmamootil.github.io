@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: "What 7 years of cloud engineering taught me about security"
+title: "7 Years of Cloud Engineering: Security Lessons Learned"
 description: "Hard-won lessons on IAM, network design, secrets management, and the security mistakes I see on almost every cloud project."
 date: 2026-03-08
 image: /images/posts/security.jpg
