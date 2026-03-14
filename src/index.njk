@@ -57,22 +57,19 @@ title: Home
     <a href="/gallery/" class="btn btn--ghost btn--sm">View all photos &rarr;</a>
   </div>
 
-  <div class="photo-timeline">
+  <div class="hpt">
+    <div class="hpt__line"></div>
     {% for item in gallery %}
     {% if loop.index <= 3 %}
-    <div class="photo-timeline__item">
-      <div class="photo-timeline__marker"></div>
-      <div class="photo-timeline__meta">
-        <time class="photo-timeline__date">{{ item.date | readableDate }}</time>
-      </div>
-      <div class="photo-timeline__card">
+    <a class="hpt__card" href="/gallery/">
+      <div class="hpt__dot"></div>
+      <div class="hpt__avatar">
         <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" />
-        <div class="photo-timeline__info">
-          <strong>{{ item.title }}</strong>
-          <span>{{ item.caption }}</span>
-        </div>
       </div>
-    </div>
+      <time class="hpt__date">{{ item.date | readableDate }}</time>
+      <strong class="hpt__title">{{ item.title }}</strong>
+      <span class="hpt__caption">{{ item.caption }}</span>
+    </a>
     {% endif %}
     {% endfor %}
   </div>
