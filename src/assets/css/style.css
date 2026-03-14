@@ -589,6 +589,29 @@ p:last-child { margin-bottom: 0; }
 .prose ul, .prose ol             { padding-left: 1.5rem; color: var(--text-muted); }
 .prose li                        { margin-bottom: .4rem; }
 .prose a                         { color: var(--accent); }
+.prose table {
+  width: 100%; border-collapse: collapse;
+  margin: 1.5rem 0; font-size: .88rem;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border);
+}
+.prose table thead { background: var(--bg-alt); }
+.prose table th {
+  padding: .65rem 1rem; text-align: left;
+  font-weight: 600; color: var(--text);
+  border-bottom: 2px solid var(--border);
+  font-size: .8rem; text-transform: uppercase; letter-spacing: .05em;
+}
+.prose table td {
+  padding: .6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted); vertical-align: top;
+}
+.prose table tr:last-child td { border-bottom: none; }
+.prose table tr:hover td { background: var(--bg-alt); }
+@media (max-width: 640px) {
+  .prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
 .post-hero-img {
   width: 100%; max-height: 400px;
   object-fit: cover;

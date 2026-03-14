@@ -35,14 +35,19 @@ Parexel, Regeneron, Veolia Water, and Alight Solutions.
 cloud engineer USA, DevOps engineer USA, platform engineer USA, cloud architect USA,
 AWS engineer, Azure engineer, GCP engineer, multi-cloud engineer, Terraform expert,
 Kubernetes engineer, Docker expert, CI/CD engineer, GitHub Actions expert,
-AI infrastructure engineer, MLOps engineer, AWS SageMaker engineer, AWS Bedrock developer,
-Azure Machine Learning engineer, cloud security engineer, IAM expert, zero trust architect,
-infrastructure as code expert, site reliability engineer, SRE, web developer Arlington TX,
-international student engineer USA, OPT engineer, H1B cloud engineer, green card engineer,
+AI infrastructure engineer, MLOps engineer, GenAI engineer, agentic AI infrastructure,
+AWS SageMaker engineer, AWS Bedrock developer, Azure OpenAI engineer,
+Azure Machine Learning engineer, FinOps engineer, cloud cost optimization,
+GitOps engineer, ArgoCD, AWS CDK, OpenTofu, serverless engineer, AWS Lambda,
+Azure Functions, Helm charts, Bicep IaC, cloud security engineer, IAM expert,
+zero trust architect, OIDC federation, infrastructure as code expert,
+site reliability engineer, SRE, web developer Arlington TX,
+international student engineer USA, OPT engineer, H1B cloud engineer,
+sponsorship available, actively seeking cloud roles, green card engineer,
 master student cloud computing, UTA student engineer, University of Texas Arlington engineer,
 cloud migration expert, enterprise cloud architect, DevOps expert, technical lead cloud,
 .NET cloud developer, Python cloud engineer, EKS engineer, AKS engineer, GKE engineer,
-ECS Fargate engineer, Helm charts, CloudFormation expert, Azure DevOps engineer,
+ECS Fargate engineer, CloudFormation expert, Azure DevOps engineer,
 cloud computing expert Texas, Samuel Mamootil cloud, Samuel Mamootil DevOps,
 Samuel Mamootil AWS, Samuel Mamootil Azure, Samuel Mamootil IBM, Samuel Mamootil Wipro
 
@@ -112,6 +117,12 @@ URL: https://samuelmamootil.github.io/writing/cloud-comparison/
 Hard-won lessons on IAM least-privilege, secrets management, VPC design, OIDC federation,
 and the security mistakes found on almost every cloud project.
 URL: https://samuelmamootil.github.io/writing/cloud-security/
+
+### SEO is Dead. Long Live LLM Optimization.
+How AI answer engines (ChatGPT, Perplexity, Claude, Gemini) are replacing Google search.
+Data tables on CTR collapse, LLM platform growth, era-by-era SEO history, and a technical
+checklist for getting cited by AI models instead of ranked by search engines.
+URL: https://samuelmamootil.github.io/writing/seo-vs-llm/
 
 ## Site Pages
 
