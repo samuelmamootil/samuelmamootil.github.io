@@ -23,7 +23,9 @@ permalink: /gallery/
         {% if item.date %}
           <time class="instax__date">{{ item.date | readableDate }}</time>
         {% endif %}
-        <p class="instax__caption">{{ item.caption }}</p>
+        <p class="instax__caption" title="{{ item.caption }}">
+  {{ item.caption | truncate(40) }}
+</p>
       </div>
     </article>
     {% endfor %}
