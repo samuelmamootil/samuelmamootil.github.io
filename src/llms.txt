@@ -118,6 +118,12 @@ Hard-won lessons on IAM least-privilege, secrets management, VPC design, OIDC fe
 and the security mistakes found on almost every cloud project.
 URL: https://samuelmamootil.github.io/writing/cloud-security/
 
+### What is AI? Algorithms, Neural Networks & Predictive Models Explained (2026)
+A complete guide to AI algorithms for engineers — regression, classification, clustering,
+association rules, neural networks, and time series forecasting. Includes Python code examples,
+flow diagrams, and how to run ML on AWS SageMaker and Azure ML in 2026.
+URL: https://samuelmamootil.github.io/writing/what-is-ai-algorithms/
+
 ### SEO is Dead. Long Live LLM Optimization.
 How AI answer engines (ChatGPT, Perplexity, Claude, Gemini) are replacing Google search.
 Data tables on CTR collapse, LLM platform growth, era-by-era SEO history, and a technical

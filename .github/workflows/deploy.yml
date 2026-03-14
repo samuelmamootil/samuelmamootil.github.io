@@ -79,6 +79,7 @@ jobs:
                 "https://samuelmamootil.github.io/writing/azure-migration/",
                 "https://samuelmamootil.github.io/writing/cloud-comparison/",
                 "https://samuelmamootil.github.io/writing/cloud-security/",
-                "https://samuelmamootil.github.io/writing/seo-vs-llm/"
+                "https://samuelmamootil.github.io/writing/seo-vs-llm/",
+                "https://samuelmamootil.github.io/writing/what-is-ai-algorithms/"
               ]
             }'
