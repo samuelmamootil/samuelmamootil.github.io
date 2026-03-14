@@ -88,40 +88,46 @@ permalink: /resume/
     submit.disabled = true;
     submit.textContent = "Logging…";
 
-    try {
-      let geo = {};
-      try { const c = sessionStorage.getItem("geo"); geo = c ? JSON.parse(c) : {}; } catch (_) {}
+    // Always show download — logging is fire-and-forget
+    const showDownload = () => {
+      gateForm.hidden = true;
+      download.hidden = false;
+    };
 
-      const ua = navigator.userAgent;
-      const payload = {
-        name,
-        email,
-        company,
-        city:     geo.city         || "",
-        country:  geo.country_name || "",
-        device:   /Mobi|Android/i.test(ua) ? "Mobile" : "Desktop",
-        os:       ua.includes("Windows") ? "Windows" : ua.includes("Mac") ? "macOS" : ua.includes("Linux") ? "Linux" : "Other",
-        browser:  ua.includes("Edg") ? "Edge" : ua.includes("Chrome") ? "Chrome" : ua.includes("Safari") ? "Safari" : ua.includes("Firefox") ? "Firefox" : "Other",
-        referrer: document.referrer || "direct",
-      };
+    // Fire log in background, never block the download
+    (async () => {
+      try {
+        let geo = {};
+        try { const c = sessionStorage.getItem("geo"); geo = c ? JSON.parse(c) : {}; } catch (_) {}
 
-      if (GH_TOKEN) {
-        await fetch("https://api.github.com/repos/" + GH_REPO + "/dispatches", {
-          method: "POST",
-          headers: {
-            "Authorization": "token " + GH_TOKEN,
-            "Accept": "application/vnd.github+json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ event_type: "resume-download", client_payload: payload }),
-        });
-      }
+        const ua = navigator.userAgent;
+        const payload = {
+          name, email, company,
+          city:     geo.city         || "",
+          country:  geo.country_name || "",
+          device:   /Mobi|Android/i.test(ua) ? "Mobile" : "Desktop",
+          os:       ua.includes("Windows") ? "Windows" : ua.includes("Mac") ? "macOS" : ua.includes("Linux") ? "Linux" : "Other",
+          browser:  ua.includes("Edg") ? "Edge" : ua.includes("Chrome") ? "Chrome" : ua.includes("Safari") ? "Safari" : ua.includes("Firefox") ? "Firefox" : "Other",
+          referrer: document.referrer || "direct",
+        };
 
-      if (typeof umami !== "undefined") umami.track("resume-download", { name, company, city: payload.city, country: payload.country });
-    } catch (_) {}
+        if (GH_TOKEN) {
+          fetch("https://api.github.com/repos/" + GH_REPO + "/dispatches", {
+            method: "POST",
+            headers: {
+              "Authorization": "token " + GH_TOKEN,
+              "Accept": "application/vnd.github+json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ event_type: "resume-download", client_payload: payload }),
+          }).catch(() => {});
+        }
 
-    gateForm.hidden = true;
-    download.hidden = false;
+        if (typeof umami !== "undefined") umami.track("resume-download", { name, company, city: payload.city, country: payload.country });
+      } catch (_) {}
+    })();
+
+    showDownload();
   });
 })();
 </script>
