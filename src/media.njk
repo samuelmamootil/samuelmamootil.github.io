@@ -24,7 +24,7 @@ permalink: /media/
           <blockquote
             class="instagram-media"
             data-instgrm-captioned
-            data-instgrm-permalink="{{ item.embed }}?utm_source=ig_embed&utm_campaign=loading"
+            data-instgrm-permalink="{{ item.embed }}{% if item.img_index %}?img_index={{ item.img_index }}&{% else %}?{% endif %}utm_source=ig_embed&utm_campaign=loading"
             data-instgrm-version="14">
           </blockquote>
         </div>
