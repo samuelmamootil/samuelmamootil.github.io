@@ -18,7 +18,17 @@ const SHEET_URL = document.body.dataset.sheetUrl;
 
 async function getGeo() {
   const cached = sessionStorage.getItem("geo");
-  if (cached) return JSON.parse(cached);
+  if (cached) {
+    // Reconstruct full shape; latitude/longitude are not persisted for privacy.
+    const cachedGeo = JSON.parse(cached);
+    return {
+      city:         cachedGeo.city         || "",
+      country_name: cachedGeo.country_name || "",
+      region:       cachedGeo.region       || "",
+      latitude:     undefined,
+      longitude:    undefined,
+    };
+  }
   try {
     const res = await fetch("https://ipwho.is/");
     if (!res.ok) return {};
@@ -31,7 +41,13 @@ async function getGeo() {
       latitude:     data.latitude,
       longitude:    data.longitude,
     };
-    sessionStorage.setItem("geo", JSON.stringify(geo));
+    // Cache only non-sensitive fields; avoid storing precise coordinates.
+    const geoForCache = {
+      city:         geo.city,
+      country_name: geo.country_name,
+      region:       geo.region,
+    };
+    sessionStorage.setItem("geo", JSON.stringify(geoForCache));
     return geo;
   }
   catch (_) { return {}; }
