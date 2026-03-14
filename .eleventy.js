@@ -12,6 +12,31 @@ export default function (eleventyConfig) {
     api.getFilteredByGlob("src/writing/*.md").reverse()
   );
 
+  // Maps post tags → a relevant Unsplash image URL (800×420, deterministic)
+  eleventyConfig.addFilter("postImage", (tags = []) => {
+    const map = {
+      "migration":   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=420&fit=crop",
+      "azure":       "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=420&fit=crop",
+      "aws":         "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&h=420&fit=crop",
+      "gcp":         "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&h=420&fit=crop",
+      "security":    "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=420&fit=crop",
+      "iam":         "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=420&fit=crop",
+      "terraform":   "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=420&fit=crop",
+      "devops":      "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=420&fit=crop",
+      "kubernetes":  "https://images.unsplash.com/photo-1667372393086-9d4001d51cf1?w=800&h=420&fit=crop",
+      "docker":      "https://images.unsplash.com/photo-1667372393086-9d4001d51cf1?w=800&h=420&fit=crop",
+      "mlops":       "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=420&fit=crop",
+      "ai":          "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=420&fit=crop",
+      "architecture":"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=420&fit=crop",
+      "cloud":       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=420&fit=crop",
+    };
+    const lower = (tags || []).map(t => t.toLowerCase());
+    for (const key of Object.keys(map)) {
+      if (lower.includes(key)) return map[key];
+    }
+    return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=420&fit=crop";
+  });
+
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("readableDate", (d) =>
     new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })

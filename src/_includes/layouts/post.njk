@@ -3,9 +3,7 @@ layout: layouts/base.njk
 ---
 <article class="section container prose">
   <p class="eyebrow">Writing · {{ date | readableDate }}</p>
-  {% if image %}
-  <img class="post-hero-img" src="{{ image }}" alt="{{ title }}" />
-  {% endif %}
+  <img class="post-hero-img" src="{{ tags | postImage }}" alt="{{ title }}" />
   <h1>{{ title }}</h1>
   {% if description %}<p class="lead">{{ description }}</p>{% endif %}
   <div class="tag-list">

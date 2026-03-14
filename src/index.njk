@@ -82,6 +82,7 @@ title: Home
     {% for post in collections.posts %}
     {% if loop.index <= 3 %}
     <a class="post-card" href="{{ post.url }}">
+      <img class="post-card__img" src="{{ post.data.tags | postImage }}" alt="{{ post.data.title }}" loading="lazy" />
       <div class="post-card__body">
         <p class="post-card__date">{{ post.date | readableDate }}</p>
         <h3>{{ post.data.title }}</h3>
