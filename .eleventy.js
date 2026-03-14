@@ -47,6 +47,7 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addGlobalData("sheetWebhookUrl", () => process.env.SHEET_WEBHOOK_URL || "");
+  eleventyConfig.addGlobalData("githubLogToken",   () => process.env.GITHUB_LOG_TOKEN  || "");
 
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("readableDate", (d) =>

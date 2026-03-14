@@ -15,6 +15,11 @@ permalink: /resume/
       I won't spam you — this just helps me verify identity if my resume is ever misused.
     </p>
     <form id="resumeForm" novalidate>
+      <!-- Honeypot — hidden from real users, bots fill it in -->
+      <div class="hp-field" aria-hidden="true">
+        <input id="rg-hp" name="website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
       <div class="resume-gate__fields">
         <div class="form-group">
           <label for="rg-name">Your name <span aria-hidden="true">*</span></label>
@@ -55,11 +60,15 @@ permalink: /resume/
   const submit   = document.getElementById("gateSubmit");
   const gateForm = document.getElementById("gateForm");
   const download = document.getElementById("gateDownload");
-  const SHEET_URL = document.body.dataset.sheetUrl;
+  const GH_TOKEN = "{{ githubLogToken }}";
+  const GH_REPO  = "samuelmamootil/samuelmamootil.github.io";
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     error.hidden = true;
+
+    // Honeypot check — bots fill the hidden field
+    if (form.elements["website"].value) return;
 
     const name    = form.elements["name"].value.trim();
     const email   = form.elements["email"].value.trim();
@@ -80,37 +89,37 @@ permalink: /resume/
     submit.textContent = "Logging…";
 
     try {
-      // Geo for the sheet log
       let geo = {};
-      try {
-        const cached = sessionStorage.getItem("geo");
-        geo = cached ? JSON.parse(cached) : {};
-      } catch (_) {}
+      try { const c = sessionStorage.getItem("geo"); geo = c ? JSON.parse(c) : {}; } catch (_) {}
 
+      const ua = navigator.userAgent;
       const payload = {
-        page:     "/resume-download",
-        referrer: document.referrer || "direct",
         name,
         email,
         company,
         city:     geo.city         || "",
         country:  geo.country_name || "",
-        region:   geo.region       || "",
-        device:   /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
-        os:       navigator.userAgent.includes("Windows") ? "Windows"
-                : navigator.userAgent.includes("Mac")     ? "macOS"
-                : navigator.userAgent.includes("Linux")   ? "Linux"  : "Other",
-        browser:  navigator.userAgent.includes("Edg")    ? "Edge"
-                : navigator.userAgent.includes("Chrome")  ? "Chrome"
-                : navigator.userAgent.includes("Safari")  ? "Safari"
-                : navigator.userAgent.includes("Firefox") ? "Firefox" : "Other",
+        device:   /Mobi|Android/i.test(ua) ? "Mobile" : "Desktop",
+        os:       ua.includes("Windows") ? "Windows" : ua.includes("Mac") ? "macOS" : ua.includes("Linux") ? "Linux" : "Other",
+        browser:  ua.includes("Edg") ? "Edge" : ua.includes("Chrome") ? "Chrome" : ua.includes("Safari") ? "Safari" : ua.includes("Firefox") ? "Firefox" : "Other",
+        referrer: document.referrer || "direct",
       };
 
-      if (SHEET_URL) navigator.sendBeacon(SHEET_URL, JSON.stringify(payload));
+      if (GH_TOKEN) {
+        await fetch("https://api.github.com/repos/" + GH_REPO + "/dispatches", {
+          method: "POST",
+          headers: {
+            "Authorization": "token " + GH_TOKEN,
+            "Accept": "application/vnd.github+json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ event_type: "resume-download", client_payload: payload }),
+        });
+      }
+
       if (typeof umami !== "undefined") umami.track("resume-download", { name, company, city: payload.city, country: payload.country });
     } catch (_) {}
 
-    // Show download regardless of sheet success
     gateForm.hidden = true;
     download.hidden = false;
   });

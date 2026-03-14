@@ -1114,3 +1114,6 @@ p:last-child { margin-bottom: 0; }
 }
 
 .resume-gate__hint a { color: var(--accent); }
+
+/* Honeypot — visually hidden, not accessible to real users */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

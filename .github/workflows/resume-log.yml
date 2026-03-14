@@ -1,0 +1,41 @@
+name: Log Resume Download
+
+on:
+  repository_dispatch:
+    types: [resume-download]
+
+permissions:
+  contents: write
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Append log entry
+        env:
+          NAME:     ${{ github.event.client_payload.name }}
+          EMAIL:    ${{ github.event.client_payload.email }}
+          COMPANY:  ${{ github.event.client_payload.company }}
+          CITY:     ${{ github.event.client_payload.city }}
+          COUNTRY:  ${{ github.event.client_payload.country }}
+          DEVICE:   ${{ github.event.client_payload.device }}
+          OS:       ${{ github.event.client_payload.os }}
+          BROWSER:  ${{ github.event.client_payload.browser }}
+          REFERRER: ${{ github.event.client_payload.referrer }}
+        run: |
+          FILE="resume-log.csv"
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          if [ ! -f "$FILE" ]; then
+            echo "timestamp,name,email,company,city,country,device,os,browser,referrer" > "$FILE"
+          fi
+          echo "\"$TIMESTAMP\",\"$NAME\",\"$EMAIL\",\"$COMPANY\",\"$CITY\",\"$COUNTRY\",\"$DEVICE\",\"$OS\",\"$BROWSER\",\"$REFERRER\"" >> "$FILE"
+
+      - name: Commit log
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add resume-log.csv
+          git commit -m "log: resume download $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
