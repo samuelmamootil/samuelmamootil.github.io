@@ -501,3 +501,94 @@ p:last-child { margin-bottom: 0; }
   .instax { width: 170px; }
 }
 
+/* ── LIGHTBOX ────────────────────────────────────────────── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  cursor: zoom-out;
+}
+.lightbox.open {
+  display: flex;
+  animation: lb-fade-in .2s ease;
+}
+@keyframes lb-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox__card {
+  position: relative;
+  background: #fefefe;
+  border-radius: 6px;
+  padding: 1rem 1rem 1.5rem;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 32px 80px rgba(0,0,0,.4);
+  cursor: default;
+  animation: lb-pop-in .25s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes lb-pop-in {
+  from { transform: scale(.85); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.lightbox__close {
+  position: absolute;
+  top: .6rem; right: .8rem;
+  background: none; border: none;
+  font-size: 1.6rem; line-height: 1;
+  color: #999; cursor: pointer;
+  transition: color .15s;
+}
+.lightbox__close:hover { color: #111; }
+
+.lightbox__img-wrap {
+  width: 100%;
+  height: 300px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.lightbox__img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+.lightbox__info { padding: 0 .25rem; text-align: center; }
+
+.lightbox__date {
+  display: block;
+  font-size: .72rem; color: #aaa;
+  letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: .4rem;
+  font-family: 'Caveat', cursive; font-weight: 600;
+}
+.lightbox__title {
+  font-size: 1.3rem; font-weight: 700;
+  color: #111; margin-bottom: .5rem;
+  font-family: 'Permanent Marker', cursive;
+}
+.lightbox__caption {
+  font-size: .95rem; color: #444;
+  font-family: 'Caveat', cursive;
+  font-weight: 600; font-size: 1.1rem;
+  line-height: 1.5; margin: 0;
+}
+
+/* instax card gets a pointer cursor to hint it's clickable */
+.instax { cursor: pointer; }
+
+/* Mobile lightbox */
+@media (max-width: 520px) {
+  .lightbox__card    { padding: .75rem .75rem 1.25rem; }
+  .lightbox__img-wrap { height: 220px; }
+  .lightbox__title   { font-size: 1.1rem; }
+}

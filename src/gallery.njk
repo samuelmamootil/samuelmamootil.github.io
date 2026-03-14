@@ -8,16 +8,17 @@ permalink: /gallery/
   <h1 class="photo-wall__heading">Gallery</h1>
   <div class="photo-wall__grid">
     {% for item in gallery %}
-    <article class="instax instax--{{ loop.index }}">
+    <article class="instax instax--{{ loop.index }}"
+             data-image="{{ item.image }}"
+             data-caption="{{ item.caption }}"
+             data-date="{{ item.date | readableDate }}"
+             data-title="{{ item.title }}"
+             onclick="openLightbox(this)">
       <div class="instax__pin"></div>
       <div class="instax__frame">
-        <img
-          src="{{ item.image }}"
-          alt="{{ item.title }}"
-          loading="lazy"
-          class="instax__photo"
-          onerror="this.parentElement.style.background='#1e293b'"
-        />
+        <img src="{{ item.image }}" alt="{{ item.title }}"
+             loading="lazy" class="instax__photo"
+             onerror="this.parentElement.style.background='#1e293b'" />
       </div>
       <div class="instax__label">
         {% if item.date %}
@@ -29,3 +30,18 @@ permalink: /gallery/
     {% endfor %}
   </div>
 </section>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox__card">
+    <button class="lightbox__close" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox__img-wrap">
+      <img src="" alt="" id="lightboxImg" class="lightbox__img" />
+    </div>
+    <div class="lightbox__info">
+      <time class="lightbox__date" id="lightboxDate"></time>
+      <h2 class="lightbox__title" id="lightboxTitle"></h2>
+      <p class="lightbox__caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+</div>
