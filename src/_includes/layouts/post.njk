@@ -15,3 +15,29 @@ layout: layouts/base.njk
   <p class="eyebrow">Comments &amp; Reactions</p>
   <div class="giscus"></div>
 </article>
+
+<script>
+  function loadGiscus() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'samuelmamootil/samuelmamootil.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDORjZhAg');
+    s.setAttribute('data-category', 'Blog Comments');
+    s.setAttribute('data-category-id', 'DIC_kwDORjZhAs4C4RW1');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', 'light');
+    s.setAttribute('data-lang', 'en');
+    s.setAttribute('crossorigin', 'anonymous');
+    s.async = true;
+    document.body.appendChild(s);
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadGiscus);
+  } else {
+    window.addEventListener('load', loadGiscus);
+  }
+</script>

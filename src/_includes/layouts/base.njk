@@ -109,10 +109,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-32x32.png" />
 
-  <!-- Google Fonts — single request, all 4 fonts -->
+  <!-- Preconnect critical origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api-gateway.umami.dev" />
+  <link rel="preconnect" href="https://api.open-meteo.com" />
+  <link rel="preconnect" href="https://giscus.app" />
+
+  <!-- Google Fonts — non-render-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap" /></noscript>
 
   <!-- Main stylesheet — single link -->
   <link rel="stylesheet" href="/assets/css/style.css" />
@@ -163,25 +170,7 @@
     </div>
   </footer>
 
-  <!-- Giscus comments -->
-  <script src="https://giscus.app/client.js"
-    data-repo="samuelmamootil/samuelmamootil.github.io"
-    data-repo-id="R_kgDORjZhAg"
-    data-category="Blog Comments"
-    data-category-id="DIC_kwDORjZhAs4C4RW1"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="light"
-    data-lang="en"
-    crossorigin="anonymous"
-    async>
-  </script>
-
   <script defer src="https://cloud.umami.is/script.js" data-website-id="b753327d-567d-41d7-b831-2ecd1b01c445"></script>
-  <script src="/assets/js/main.js"></script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/assets/js/main.js"></script>
 </body>
 </html>

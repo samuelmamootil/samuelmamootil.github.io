@@ -37,7 +37,7 @@ body {
   transition: background .3s, color .3s;
 }
 
-a { color: var(--accent); text-decoration: none; }
+a { color: #0369a1; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 code {
@@ -72,7 +72,7 @@ p:last-child { margin-bottom: 0; }
 .eyebrow {
   font-size: .75rem; font-weight: 600;
   letter-spacing: .12em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: .5rem;
+  color: #0369a1; margin-bottom: .5rem;
 }
 .mt-2 { margin-top: 2rem; }
 
@@ -88,7 +88,7 @@ p:last-child { margin-bottom: 0; }
   transition: opacity .15s, background .15s, color .15s;
 }
 .btn:hover,
-.btn:focus { opacity: .85; text-decoration: none !important; color: #000; }
+.btn:focus { opacity: .85; text-decoration: none !important; color: #fff; }
 
 .btn--ghost {
   background: transparent;
@@ -214,7 +214,7 @@ p:last-child { margin-bottom: 0; }
 }
 .skill-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
 .skill-card h3 {
-  color: var(--accent-2); font-size: .85rem;
+  color: #4338ca; font-size: .85rem;
   text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem;
 }
 
@@ -940,7 +940,12 @@ p:last-child { margin-bottom: 0; }
   .section { padding: 2.5rem 0; }
 }
 
-/* ── WEATHER WIDGET ──────────────────────────────────────── */
+/* ── FOOTER ─────────────────────────────────────────────── */
+.footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; }
+.footer p { font-size: .88rem; color: var(--text-muted); }
+.footer a { color: #0369a1; font-weight: 500; }
+.footer a:hover { text-decoration: underline; }
+.footer__copy { margin-top: .25rem; font-size: .8rem; }
 .weather-widget {
   display: inline-flex; align-items: center; gap: .4rem;
   background: var(--surface);

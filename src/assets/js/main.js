@@ -265,8 +265,8 @@ document.querySelectorAll(".instax").forEach((card) => {
 });
 
 if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+if (lightbox) lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+if (lightbox) document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
 
 // ── Caption tooltip ──
 const tooltip = document.createElement('div');
