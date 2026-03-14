@@ -51,21 +51,16 @@ title: Home
 <section class="section container">
   <p class="eyebrow">Moments</p>
   <h2>In the field</h2>
-  <div class="home-gallery">
+  <a href="/gallery/" class="home-gallery-peek" aria-label="View full gallery">
     {% for item in gallery %}
-    <div class="home-gallery__item"
-         data-image="{{ item.image }}"
-         data-title="{{ item.title }}"
-         data-date="{{ item.date | readableDate }}"
-         data-caption="{{ item.caption }}">
+    {% if loop.index <= 3 %}
+    <div class="home-gallery-peek__img">
       <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" />
-      <div class="home-gallery__overlay">
-        <span class="home-gallery__caption">{{ item.caption }}</span>
-      </div>
     </div>
+    {% endif %}
     {% endfor %}
-  </div>
-  <a href="/gallery/" class="btn btn--ghost mt-2">View full gallery →</a>
+    <div class="home-gallery-peek__cta">View Gallery &rarr;</div>
+  </a>
 </section>
 
 <section class="section section--alt">
