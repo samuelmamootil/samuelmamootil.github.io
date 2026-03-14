@@ -14,6 +14,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/humans.txt": "humans.txt" });
   eleventyConfig.addPassthroughCopy({ "src/googlefc31aa7984365772.html": "googlefc31aa7984365772.html" });
   eleventyConfig.addPassthroughCopy({ "src/BingSiteAuth.xml": "BingSiteAuth.xml" });
+  eleventyConfig.addPassthroughCopy({ "src/a1b2c3d4e1b2c3d4e1b2c3d4e1b2c3d4.txt": "a1b2c3d4e1b2c3d4e1b2c3d4e1b2c3d4.txt" });
   eleventyConfig.addWatchTarget("src/assets/css/");
 
   eleventyConfig.addCollection("posts", (api) =>
