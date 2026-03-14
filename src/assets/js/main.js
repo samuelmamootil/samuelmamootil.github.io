@@ -20,16 +20,15 @@ async function getGeo() {
   const cached = sessionStorage.getItem("geo");
   if (cached) return JSON.parse(cached);
   try {
-    const res = await fetch("https://ipwho.is/");
+    const res = await fetch("https://ip-api.com/json/?fields=city,country,regionName,lat,lon");
     if (!res.ok) return {};
     const data = await res.json();
-    // normalise to same shape the rest of the code expects
     const geo = {
-      city:         data.city         || "",
-      country_name: data.country      || "",
-      region:       data.region       || "",
-      latitude:     data.latitude,
-      longitude:    data.longitude,
+      city:         data.city       || "",
+      country_name: data.country    || "",
+      region:       data.regionName || "",
+      latitude:     data.lat,
+      longitude:    data.lon,
     };
     sessionStorage.setItem("geo", JSON.stringify(geo));
     return geo;
@@ -64,7 +63,7 @@ function getOS() {
 }
 
 function sendToSheet(payload) {
-  if (!SHEET_URL) return;
+  if (!SHEET_URL || !SHEET_URL.includes("script.google.com")) return;
   navigator.sendBeacon(SHEET_URL, JSON.stringify(payload));
 }
 
