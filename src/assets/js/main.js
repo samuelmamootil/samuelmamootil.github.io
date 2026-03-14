@@ -20,15 +20,15 @@ async function getGeo() {
   const cached = sessionStorage.getItem("geo");
   if (cached) return JSON.parse(cached);
   try {
-    const res = await fetch("https://ip-api.com/json/?fields=city,country,regionName,lat,lon");
+    const res = await fetch("https://freeipapi.com/api/json");
     if (!res.ok) return {};
     const data = await res.json();
     const geo = {
-      city:         data.city       || "",
-      country_name: data.country    || "",
-      region:       data.regionName || "",
-      latitude:     data.lat,
-      longitude:    data.lon,
+      city:         data.cityName    || "",
+      country_name: data.countryName || "",
+      region:       data.regionName  || "",
+      latitude:     data.latitude,
+      longitude:    data.longitude,
     };
     sessionStorage.setItem("geo", JSON.stringify(geo));
     return geo;
