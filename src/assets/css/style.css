@@ -611,34 +611,82 @@ p:last-child { margin-bottom: 0; }
   .lightbox__img-wrap { height: 220px; }
   .lightbox__title   { font-size: 1.1rem; }
 }
-/* ── Instagram embed wrapper ── */
-.media-card__embed {
-  margin-top: 1rem;
-  border-radius: var(--radius);
-  overflow: hidden;
-
-  /* Force Instagram iframe to fill card width */
-  display: flex;
-  justify-content: center;
+/* ── MEDIA ───────────────────────────────────────────────── */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: start;
 }
 
-.media-card__embed .instagram-media {
-  min-width: unset !important;
+.media-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.media-card__type {
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; color: var(--accent);
+  margin-bottom: .25rem;
+}
+.media-card__label {
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--text); margin-bottom: .35rem;
+}
+.media-card__desc {
+  font-size: .88rem; color: var(--text-muted);
+  margin-bottom: .75rem;
+}
+
+/* ── Instagram embed container — clips the iframe overflow ── */
+.media-card__embed {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;           /* clips instagram iframe */
+  border-radius: 8px;
+  margin-top: .5rem;
+}
+
+/* Force the blockquote + injected iframe to never exceed card width */
+.media-card__embed .instagram-media,
+.media-card__embed iframe {
   max-width: 100% !important;
+  min-width: unset !important;
   width: 100% !important;
   margin: 0 !important;
-  border-radius: var(--radius) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-/* Make instagram embed cards wider */
-.media-card--instagram {
-  grid-column: span 1;
-  max-width: 480px;
+/* Photo post — square-ish ratio */
+.media-card--instagram .media-card__embed {
+  aspect-ratio: 4 / 5;
+  overflow-y: auto;           /* scroll if caption is long */
 }
 
-/* On wider screens, instagram cards take more space */
-@media (min-width: 768px) {
-  .media-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
+/* Reel / Video — taller portrait ratio */
+.media-card--reel .media-card__embed {
+  aspect-ratio: 9 / 16;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.media-card--instagram .media-card__embed iframe,
+.media-card--reel .media-card__embed iframe {
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .media-grid { grid-template-columns: 1fr; }
+  .media-card--reel .media-card__embed { max-height: 480px; }
 }

@@ -7,18 +7,19 @@ permalink: /media/
 <section class="section container">
   <p class="eyebrow">Press &amp; features</p>
   <h1>In the Media</h1>
-  <p class="lead">Newsletters, press, and features where I've appeared.</p>
+  <p class="lead">Places I've been featured — press, newsletters, and social media.</p>
 
   <div class="media-grid">
     {% for item in media %}
     <div class="media-card media-card--{{ item.type }}">
 
-      <p class="media-card__type">{{ item.type | upper }}</p>
+      <p class="media-card__type">
+        {% if item.type == "reel" %}📹 REEL{% else %}📸 INSTAGRAM{% endif %}
+      </p>
       <p class="media-card__label">{{ item.label }}</p>
-      <p>{{ item.description }}</p>
+      <p class="media-card__desc">{{ item.description }}</p>
 
       {% if item.embed %}
-        <!-- Instagram embed -->
         <div class="media-card__embed">
           <blockquote
             class="instagram-media"
@@ -27,13 +28,9 @@ permalink: /media/
             data-instgrm-version="14">
           </blockquote>
         </div>
-      {% endif %}
-
-      {% if item.url and not item.embed %}
-        <a href="{{ item.url }}" target="_blank" rel="noopener" class="btn btn--sm mt-2">View ↗</a>
-      {% endif %}
-
-      {% if not item.url and not item.embed %}
+      {% elif item.url %}
+        <a href="{{ item.url }}" target="_blank" rel="noopener" class="btn btn--sm" style="margin-top:.75rem">View ↗</a>
+      {% else %}
         <span class="tag tag--subtle">Coming soon</span>
       {% endif %}
 
@@ -42,5 +39,4 @@ permalink: /media/
   </div>
 </section>
 
-<!-- Instagram oEmbed script — loads ALL embeds on the page at once -->
 <script async src="https://www.instagram.com/embed.js"></script>

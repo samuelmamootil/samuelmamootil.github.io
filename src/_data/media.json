@@ -1,15 +1,14 @@
-[ 
+[
   {
     "type": "instagram",
-    "label": "UTA College of Business Feature",
+    "label": "UTA College of Business — Photo Feature",
     "description": "Featured in UTA Business Instagram post showcasing ReRhythm demo day.",
-    "url": "https://www.instagram.com/p/DNgnCNYBrcc/",
     "embed": "https://www.instagram.com/p/DNgnCNYBrcc/"
   },
   {
-    "type": "newsletter",
-    "label": "AWS Community Newsletter",
-    "description": "Featured in the AWS community spotlight for hackathon win.",
-    "url": "https://example.com"
+    "type": "reel",
+    "label": "UTA College of Business — Reel Feature",
+    "description": "Featured in UTA Business Instagram reel video.",
+    "embed": "https://www.instagram.com/reel/DTyCnHxEQTG/"
   }
 ]
