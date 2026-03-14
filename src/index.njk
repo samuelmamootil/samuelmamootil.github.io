@@ -49,14 +49,23 @@ title: Home
 </section>
 
 <section class="section container">
-  <p class="eyebrow">AI Infrastructure</p>
-  <h2>Building the plumbing for AI systems</h2>
-  <div class="ai-callout-grid">
-    <div class="ai-card"><div class="ai-card__icon">&#9729;</div><h3>AWS SageMaker</h3><p>End-to-end ML pipelines — training, model registry, and real-time endpoint deployment with IAM and VPC isolation.</p></div>
-    <div class="ai-card"><div class="ai-card__icon">&#129504;</div><h3>Azure Machine Learning</h3><p>MLOps on Azure — managed compute clusters, pipelines, model versioning, and private workspace networking.</p></div>
-    <div class="ai-card"><div class="ai-card__icon">&#128161;</div><h3>AWS Bedrock</h3><p>Built ReRhythm on Bedrock (Claude) — RAG pipelines, Textract parsing, Comprehend moderation, KMS-encrypted DynamoDB.</p></div>
-    <div class="ai-card"><div class="ai-card__icon">&#128202;</div><h3>MLOps Principles</h3><p>Reproducible pipelines, model drift monitoring, CI/CD-driven model deployment, and cost-optimised compute selection.</p></div>
+  <p class="eyebrow">Moments</p>
+  <h2>In the field</h2>
+  <div class="home-gallery">
+    {% for item in gallery %}
+    <div class="home-gallery__item"
+         data-image="{{ item.image }}"
+         data-title="{{ item.title }}"
+         data-date="{{ item.date | readableDate }}"
+         data-caption="{{ item.caption }}">
+      <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" />
+      <div class="home-gallery__overlay">
+        <span class="home-gallery__caption">{{ item.caption }}</span>
+      </div>
+    </div>
+    {% endfor %}
   </div>
+  <a href="/gallery/" class="btn btn--ghost mt-2">View full gallery →</a>
 </section>
 
 <section class="section section--alt">

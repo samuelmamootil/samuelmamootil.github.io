@@ -31,7 +31,7 @@ function closeLightbox() {
   document.body.style.overflow = "";
 }
 
-document.querySelectorAll(".instax").forEach((card) => {
+document.querySelectorAll(".instax, .home-gallery__item").forEach((card) => {
   card.addEventListener("click", () => openLightbox(card));
 });
 
