@@ -14,12 +14,27 @@ permalink: /media/
     <div class="media-card media-card--{{ item.type }}">
 
       <p class="media-card__type">
-        {% if item.type == "reel" %}📹 REEL{% else %}📸 INSTAGRAM{% endif %}
+        {% if item.type == "reel" %}📹 REEL
+        {% elif item.type == "linkedin" %}💼 LINKEDIN
+        {% else %}📸 INSTAGRAM{% endif %}
       </p>
       <p class="media-card__label">{{ item.label }}</p>
       <p class="media-card__desc">{{ item.description }}</p>
 
-      {% if item.embed %}
+      {% if item.type == "linkedin" %}
+        <a href="{{ item.url }}" target="_blank" rel="noopener" class="li-card">
+          <div class="li-card__header">
+            <img src="{{ item.avatar }}" alt="{{ item.author }}" class="li-card__avatar" />
+            <div>
+              <p class="li-card__name">{{ item.author }}</p>
+              <p class="li-card__meta">{{ item.authorTitle }}</p>
+              <p class="li-card__meta">{{ item.date }}</p>
+            </div>
+          </div>
+          <p class="li-card__body">{{ item.description }}</p>
+          <span class="li-card__cta">View post on LinkedIn ↗</span>
+        </a>
+      {% elif item.embed %}
         <div class="media-card__embed">
           <blockquote
             class="instagram-media"

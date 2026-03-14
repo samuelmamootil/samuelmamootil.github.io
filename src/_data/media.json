@@ -1,5 +1,15 @@
 [
   {
+    "type": "linkedin",
+    "label": "3rd Place — Analytics Symposium, UTA 2025",
+    "description": "Recognised at the UTA Analytics Symposium for ReRhythm, an AI-powered career coaching platform built on AWS Bedrock, ECS Fargate, and DynamoDB.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436959650027171840/",
+    "author": "Samuel Mamootil",
+    "authorTitle": "Cloud & Platform Engineer · MBA Student at UTA",
+    "avatar": "https://github.com/samuelmamootil.png",
+    "date": "UTA Analytics Symposium · 2025"
+  },
+  {
     "type": "instagram",
     "label": "UTA College of Business — Photo Feature",
     "description": "Featured in UTA Business Instagram post showcasing ReRhythm demo day.",

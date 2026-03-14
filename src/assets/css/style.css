@@ -403,6 +403,59 @@ p:last-child { margin-bottom: 0; }
   padding: 1.5rem;
   box-shadow: 0 1px 4px rgba(0,0,0,.04);
 }
+/* ── LINKEDIN CARD ───────────────────────────────────────── */
+.li-card {
+  display: block;
+  margin-top: .75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-decoration: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.li-card:hover {
+  border-color: #0a66c2;
+  box-shadow: 0 4px 16px rgba(10,102,194,.12);
+  text-decoration: none;
+}
+.li-card__header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .75rem;
+}
+.li-card__avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.li-card__name {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+.li-card__meta {
+  font-size: .75rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+.li-card__body {
+  font-size: .88rem;
+  color: var(--text-muted);
+  margin-bottom: .75rem;
+  line-height: 1.6;
+}
+.li-card__cta {
+  font-size: .8rem;
+  font-weight: 600;
+  color: #0a66c2;
+}
+
 .media-card__type  { font-size: .7rem; font-weight: 700; letter-spacing: .1em; color: var(--accent); }
 .media-card__label { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
 
