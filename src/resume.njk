@@ -1,0 +1,118 @@
+---
+layout: layouts/base.njk
+title: Resume
+permalink: /resume/
+---
+
+<section class="section container resume-gate">
+  <p class="eyebrow">Resume</p>
+  <h1>Samuel Mamootil</h1>
+  <p class="resume-gate__sub">Senior Cloud &amp; Platform Engineer · AWS · Azure · GCP · Terraform · Kubernetes</p>
+
+  <div class="resume-gate__card" id="gateForm">
+    <p class="resume-gate__note">
+      To keep a record of who's viewing my resume, please leave your name and email before downloading.
+      I won't spam you — this just helps me verify identity if my resume is ever misused.
+    </p>
+    <form id="resumeForm" novalidate>
+      <div class="resume-gate__fields">
+        <div class="form-group">
+          <label for="rg-name">Your name <span aria-hidden="true">*</span></label>
+          <input id="rg-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="rg-email">Work email <span aria-hidden="true">*</span></label>
+          <input id="rg-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="rg-company">Company <span class="optional">(optional)</span></label>
+          <input id="rg-company" name="company" type="text" autocomplete="organization" placeholder="Acme Corp" />
+        </div>
+      </div>
+      <p class="resume-gate__error" id="gateError" hidden></p>
+      <button type="submit" class="btn" id="gateSubmit">Get Resume →</button>
+    </form>
+  </div>
+
+  <div class="resume-gate__download" id="gateDownload" hidden>
+    <div class="resume-gate__success">
+      <span class="resume-gate__check">✓</span>
+      <p>Thanks! Your access has been logged. The download link is below.</p>
+    </div>
+    <a href="/resume.pdf" class="btn resume-track" download="Samuel_Mamootil_Resume.pdf">
+      ⬇ Download Resume (PDF)
+    </a>
+    <p class="resume-gate__hint">
+      Verify authenticity: <a href="{{ site.linkedin }}" target="_blank" rel="noopener">linkedin.com/in/samuel-mamootil</a>
+    </p>
+  </div>
+</section>
+
+<script>
+(function () {
+  const form     = document.getElementById("resumeForm");
+  const error    = document.getElementById("gateError");
+  const submit   = document.getElementById("gateSubmit");
+  const gateForm = document.getElementById("gateForm");
+  const download = document.getElementById("gateDownload");
+  const SHEET_URL = document.body.dataset.sheetUrl;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    error.hidden = true;
+
+    const name    = form.elements["name"].value.trim();
+    const email   = form.elements["email"].value.trim();
+    const company = form.elements["company"].value.trim();
+
+    if (!name || !email) {
+      error.textContent = "Please fill in your name and email.";
+      error.hidden = false;
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      error.textContent = "Please enter a valid email address.";
+      error.hidden = false;
+      return;
+    }
+
+    submit.disabled = true;
+    submit.textContent = "Logging…";
+
+    try {
+      // Geo for the sheet log
+      let geo = {};
+      try {
+        const cached = sessionStorage.getItem("geo");
+        geo = cached ? JSON.parse(cached) : {};
+      } catch (_) {}
+
+      const payload = {
+        page:     "/resume-download",
+        referrer: document.referrer || "direct",
+        name,
+        email,
+        company,
+        city:     geo.city         || "",
+        country:  geo.country_name || "",
+        region:   geo.region       || "",
+        device:   /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+        os:       navigator.userAgent.includes("Windows") ? "Windows"
+                : navigator.userAgent.includes("Mac")     ? "macOS"
+                : navigator.userAgent.includes("Linux")   ? "Linux"  : "Other",
+        browser:  navigator.userAgent.includes("Edg")    ? "Edge"
+                : navigator.userAgent.includes("Chrome")  ? "Chrome"
+                : navigator.userAgent.includes("Safari")  ? "Safari"
+                : navigator.userAgent.includes("Firefox") ? "Firefox" : "Other",
+      };
+
+      if (SHEET_URL) navigator.sendBeacon(SHEET_URL, JSON.stringify(payload));
+      if (typeof umami !== "undefined") umami.track("resume-download", { name, company, city: payload.city, country: payload.country });
+    } catch (_) {}
+
+    // Show download regardless of sheet success
+    gateForm.hidden = true;
+    download.hidden = false;
+  });
+})();
+</script>
