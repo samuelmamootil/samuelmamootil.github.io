@@ -862,3 +862,18 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 768px) {
   .media-grid { grid-template-columns: 1fr; }
 }
+
+/* ── WEATHER WIDGET ──────────────────────────────────────── */
+.weather-widget {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: .35rem .9rem;
+  font-size: .85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.weather-widget[hidden] { display: none; }
+.weather-widget__sep { opacity: .4; }

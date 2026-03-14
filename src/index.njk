@@ -9,6 +9,14 @@ title: Home
       <p class="eyebrow">Cloud &amp; Platform Engineer · AI Infrastructure · DevOps</p>
       <h1 class="hero__headline">{{ site.heroHeadline }}</h1>
       <p class="hero__intro">{{ site.heroIntro }}</p>
+      <div id="weatherWidget" class="weather-widget" hidden>
+        <span id="weatherIcon"></span>
+        <span id="weatherTemp"></span>
+        <span id="weatherCity"></span>
+        <span class="weather-widget__sep">·</span>
+        <span id="weatherDesc"></span>
+      </div>
+
       <div class="hero__cta">
         <a href="/experience/" class="btn">View Experience</a>
         <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn">LinkedIn</a>

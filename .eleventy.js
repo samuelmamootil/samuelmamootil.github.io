@@ -40,6 +40,8 @@ export default function (eleventyConfig) {
     return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=420&fit=crop";
   });
 
+  eleventyConfig.addGlobalData("sheetWebhookUrl", () => process.env.SHEET_WEBHOOK_URL || "");
+
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("readableDate", (d) =>
     new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
