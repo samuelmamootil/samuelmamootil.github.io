@@ -667,16 +667,10 @@ p:last-child { margin-bottom: 0; }
   border: none !important;
 }
 
-/* Photo post — square-ish ratio */
-.media-card--instagram .media-card__embed {
-  aspect-ratio: 4 / 5;
-  overflow-y: auto;           /* scroll if caption is long */
-}
-
-/* Reel / Video — taller portrait ratio */
+/* Both card types — same fixed height */
+.media-card--instagram .media-card__embed,
 .media-card--reel .media-card__embed {
-  aspect-ratio: 9 / 16;
-  max-height: 600px;
+  aspect-ratio: 4 / 5;
   overflow-y: auto;
 }
 
@@ -688,5 +682,4 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 768px) {
   .media-grid { grid-template-columns: 1fr; }
-  .media-card--reel .media-card__embed { max-height: 480px; }
 }
