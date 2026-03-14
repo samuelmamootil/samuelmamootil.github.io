@@ -12,6 +12,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "src/llms.txt": "llms.txt" });
   eleventyConfig.addPassthroughCopy({ "src/humans.txt": "humans.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/googlefc31aa7984365772.html": "googlefc31aa7984365772.html" });
   eleventyConfig.addWatchTarget("src/assets/css/");
 
   eleventyConfig.addCollection("posts", (api) =>
