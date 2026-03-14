@@ -88,7 +88,7 @@ p:last-child { margin-bottom: 0; }
   transition: opacity .15s, background .15s, color .15s;
 }
 .btn:hover,
-.btn:focus { opacity: .85; text-decoration: none !important; color: #fff; }
+.btn:focus { opacity: .85; text-decoration: none !important; color: #000; }
 
 .btn--ghost {
   background: transparent;
