@@ -8,6 +8,11 @@ document.querySelectorAll(".nav__drawer a").forEach((a) => {
   a.addEventListener("click", () => drawer.classList.remove("open"));
 });
 
+// ── Umami helper ──
+function track(event, props) {
+  if (typeof umami !== "undefined") umami.track(event, props || {});
+}
+
 // ── Visitor + resume tracking ──
 const SHEET_URL = document.body.dataset.sheetUrl;
 
@@ -51,41 +56,129 @@ function sendToSheet(payload) {
 (async () => {
   const geo = await getGeo();
   const payload = {
-    page:    window.location.pathname,
+    page:     window.location.pathname,
     referrer: document.referrer || "direct",
-    city:    geo.city         || "",
-    country: geo.country_name || "",
-    region:  geo.region       || "",
-    device:  getDevice(),
-    os:      getOS(),
-    browser: getBrowser(),
+    city:     geo.city         || "",
+    country:  geo.country_name || "",
+    region:   geo.region       || "",
+    device:   getDevice(),
+    os:       getOS(),
+    browser:  getBrowser(),
   };
   sendToSheet(payload);
-  if (typeof umami !== "undefined") {
-    umami.track("page-visit", { city: payload.city, country: payload.country });
-  }
+  track("page-visit", { city: payload.city, country: payload.country });
 })();
 
-// Resume click — log with page = "/resume"
+// Resume click
 document.querySelectorAll(".resume-track").forEach((link) => {
   link.addEventListener("click", async () => {
     const geo = await getGeo();
     const payload = {
-      page:    "/resume",
+      page:     "/resume",
       referrer: window.location.pathname,
-      city:    geo.city         || "",
-      country: geo.country_name || "",
-      region:  geo.region       || "",
-      device:  getDevice(),
-      os:      getOS(),
-      browser: getBrowser(),
+      city:     geo.city         || "",
+      country:  geo.country_name || "",
+      region:   geo.region       || "",
+      device:   getDevice(),
+      os:       getOS(),
+      browser:  getBrowser(),
     };
     sendToSheet(payload);
-    if (typeof umami !== "undefined") {
-      umami.track("resume-view", { city: payload.city, country: payload.country });
-    }
+    track("resume-view", { city: payload.city, country: payload.country });
   });
 });
+
+// ── Nav clicks ──
+document.querySelectorAll(".nav__links a, .nav__drawer a").forEach((a) => {
+  a.addEventListener("click", () => {
+    track("nav-click", { label: a.textContent.trim(), href: a.getAttribute("href") });
+  });
+});
+
+// ── Hero CTA ──
+document.querySelectorAll(".hero__cta a").forEach((a) => {
+  a.addEventListener("click", () => {
+    track("hero-cta", { label: a.textContent.trim() });
+  });
+});
+
+// ── Gallery preview (homepage timeline cards) ──
+document.querySelectorAll(".hpt__card").forEach((card) => {
+  card.addEventListener("click", () => {
+    track("gallery-preview-click", { title: card.querySelector(".hpt__title") ? card.querySelector(".hpt__title").textContent.trim() : "" });
+  });
+});
+
+// ── Blog post cards (homepage + writing index) ──
+document.querySelectorAll(".post-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const title = card.querySelector("h2, h3");
+    track("blog-post-click", { title: title ? title.textContent.trim() : "", from: window.location.pathname });
+  });
+});
+
+// ── Project links ──
+document.querySelectorAll(".project-card a").forEach((a) => {
+  a.addEventListener("click", () => {
+    track("project-click", { name: a.textContent.trim() });
+  });
+});
+
+// ── Company links in experience timeline ──
+document.querySelectorAll(".timeline__company a").forEach((a) => {
+  a.addEventListener("click", () => {
+    track("company-click", { company: a.textContent.trim() });
+  });
+});
+
+// ── Reference LinkedIn links ──
+document.querySelectorAll(".ref-card__link").forEach((a) => {
+  a.addEventListener("click", () => {
+    const name = a.closest(".ref-card").querySelector(".ref-card__name");
+    track("reference-click", { name: name ? name.textContent.trim() : "" });
+  });
+});
+
+// ── Footer social links ──
+document.querySelectorAll(".footer a").forEach((a) => {
+  a.addEventListener("click", () => {
+    track("social-click", { platform: a.textContent.trim() });
+  });
+});
+
+// ── Visibility page — media card clicks ──
+document.querySelectorAll(".li-card, .media-card a").forEach((el) => {
+  el.addEventListener("click", () => {
+    const card = el.closest(".media-card");
+    const label = card ? card.querySelector(".media-card__label") : null;
+    track("media-click", { label: label ? label.textContent.trim() : "", type: card ? card.className.replace("media-card media-card--", "") : "" });
+  });
+});
+
+// ── Scroll depth ──
+(function () {
+  const marks = [25, 50, 75, 100];
+  const fired = new Set();
+  window.addEventListener("scroll", () => {
+    const scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+    marks.forEach((m) => {
+      if (scrolled >= m && !fired.has(m)) {
+        fired.add(m);
+        track("scroll-depth", { depth: m + "%", page: window.location.pathname });
+      }
+    });
+  }, { passive: true });
+})();
+
+// ── Time on page ──
+(function () {
+  [30, 60, 120].forEach((secs) => {
+    setTimeout(() => {
+      track("time-on-page", { seconds: secs, page: window.location.pathname });
+    }, secs * 1000);
+  });
+})();
+
 
 // ── Weather widget ──
 const weatherWidget = document.getElementById("weatherWidget");
