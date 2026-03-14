@@ -20,7 +20,17 @@ async function getGeo() {
   const cached = sessionStorage.getItem("geo");
   if (cached) return JSON.parse(cached);
   try {
-    const geo = await fetch("https://ipapi.co/json/").then(r => r.json());
+    const res = await fetch("https://ipwho.is/");
+    if (!res.ok) return {};
+    const data = await res.json();
+    // normalise to same shape the rest of the code expects
+    const geo = {
+      city:         data.city         || "",
+      country_name: data.country      || "",
+      region:       data.region       || "",
+      latitude:     data.latitude,
+      longitude:    data.longitude,
+    };
     sessionStorage.setItem("geo", JSON.stringify(geo));
     return geo;
   }
