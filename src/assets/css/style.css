@@ -11,7 +11,7 @@
   --border:     #e2e8f0;
   --text:       #0f172a;
   --text-muted: #475569;
-  --accent:     #0284c7;
+  --accent:     #0369a1;
   --accent-2:   #6366f1;
   --success:    #059669;
   --radius:     12px;
@@ -37,7 +37,7 @@ body {
   transition: background .3s, color .3s;
 }
 
-a { color: #0369a1; text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 code {
@@ -72,7 +72,7 @@ p:last-child { margin-bottom: 0; }
 .eyebrow {
   font-size: .75rem; font-weight: 600;
   letter-spacing: .12em; text-transform: uppercase;
-  color: #0369a1; margin-bottom: .5rem;
+  color: var(--accent); margin-bottom: .5rem;
 }
 .mt-2 { margin-top: 2rem; }
 
@@ -943,7 +943,7 @@ p:last-child { margin-bottom: 0; }
 /* ── FOOTER ─────────────────────────────────────────────── */
 .footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; }
 .footer p { font-size: .88rem; color: var(--text-muted); }
-.footer a { color: #0369a1; font-weight: 500; }
+.footer a { color: var(--accent); font-weight: 500; }
 .footer a:hover { text-decoration: underline; }
 .footer__copy { margin-top: .25rem; font-size: .8rem; }
 .weather-widget {
