@@ -380,99 +380,82 @@ p:last-child { margin-bottom: 0; }
   text-transform: uppercase;
   margin-bottom: 2.5rem; opacity: .7;
 }
+
+/* KEY: CSS columns = natural vertical stagger, no JS needed */
 .photo-wall__grid {
-  display: flex; flex-wrap: wrap;
-  gap: 2.5rem 2rem;
-  justify-content: center;
-  align-items: flex-start;
+  columns: 4 120px;
+  column-gap: 1.5rem;
 }
 
-/* Instax / Polaroid card */
+/* Instax card */
 .instax {
   position: relative;
   background: #faf8f4;
   border-radius: 4px;
-  padding: .55rem .55rem .8rem;
-  width: 155px;
+  padding: .45rem .45rem .7rem;
+  width: 115px;
+  display: inline-block;       /* required for columns layout */
+  margin-bottom: 1.8rem;
   box-shadow: 0 4px 8px rgba(0,0,0,.22), 0 10px 28px rgba(0,0,0,.14);
   transition: transform .25s ease, box-shadow .25s ease;
+  break-inside: avoid;         /* never split a card across columns */
   cursor: default;
 }
 .instax:hover {
-  transform: translateY(-6px) rotate(0deg) scale(1.04) !important;
+  transform: translateY(-6px) rotate(0deg) scale(1.06) !important;
   box-shadow: 0 12px 30px rgba(0,0,0,.28), 0 4px 8px rgba(0,0,0,.18);
   z-index: 10;
 }
 
-/* rotation variants  (nth-child covers unlimited items) */
-.instax:nth-child(12n+1)  { transform: rotate(-3deg); }
-.instax:nth-child(12n+2)  { transform: rotate(2.5deg); }
-.instax:nth-child(12n+3)  { transform: rotate(-1.5deg); }
-.instax:nth-child(12n+4)  { transform: rotate(3.5deg); }
-.instax:nth-child(12n+5)  { transform: rotate(-2deg); }
-.instax:nth-child(12n+6)  { transform: rotate(1deg); }
-.instax:nth-child(12n+7)  { transform: rotate(-4deg); }
-.instax:nth-child(12n+8)  { transform: rotate(2deg); }
-.instax:nth-child(12n+9)  { transform: rotate(-1deg); }
-.instax:nth-child(12n+10) { transform: rotate(3deg); }
-.instax:nth-child(12n+11) { transform: rotate(-2.5deg); }
-.instax:nth-child(12n+12) { transform: rotate(1.5deg); }
+/* Rotation + staggered top margin = scattered uneven wall look */
+.instax:nth-child(4n+1) { transform: rotate(-3deg);   margin-top: 0px;  }
+.instax:nth-child(4n+2) { transform: rotate(2.5deg);  margin-top: 30px; }
+.instax:nth-child(4n+3) { transform: rotate(-1.5deg); margin-top: 15px; }
+.instax:nth-child(4n+4) { transform: rotate(3.5deg);  margin-top: 45px; }
+.instax:nth-child(4n+5) { transform: rotate(-2deg);   margin-top: 10px; }
+.instax:nth-child(4n+6) { transform: rotate(1deg);    margin-top: 35px; }
+.instax:nth-child(4n+7) { transform: rotate(-4deg);   margin-top: 20px; }
+.instax:nth-child(4n+8) { transform: rotate(2deg);    margin-top: 50px; }
 
-/* magnetic pin */
+/* Magnetic pin */
 .instax__pin {
   position: absolute; top: -11px; left: 50%;
   transform: translateX(-50%);
-  width: 18px; height: 18px; border-radius: 50%;
+  width: 16px; height: 16px; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e53e3e 40%, #9b1c1c 100%);
   box-shadow: 0 2px 5px rgba(0,0,0,.4), inset 0 1px 2px rgba(255,255,255,.4);
   z-index: 5;
 }
 
-/* photo area */
+/* Photo area */
 .instax__frame {
-  width: 100%; height: 140px;
+  width: 100%; height: 105px;
   background: #1e293b;
   border-radius: 3px; overflow: hidden;
-  margin-bottom: .5rem;
+  margin-bottom: .4rem;
 }
 .instax__photo { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* label */
-.instax__label { text-align: center; padding: 0 .2rem; }
+/* Label */
+.instax__label { text-align: center; padding: 0 .15rem; }
 .instax__date  {
   display: block;
-  font-size: .62rem; color: #9ca3af;
+  font-size: .58rem; color: #9ca3af;
   letter-spacing: .06em; text-transform: uppercase;
-  margin-bottom: .2rem; font-family: monospace;
+  margin-bottom: .15rem; font-family: monospace;
 }
 .instax__caption {
-  font-size: .78rem; color: #374151; margin: 0;
+  font-size: .72rem; color: #374151; margin: 0;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   font-family: 'Caveat', cursive, sans-serif;
-  letter-spacing: .02em;
 }
 
-/* ── FOOTER ──────────────────────────────────────────────── */
-.footer { border-top: 1px solid var(--border); padding: 2.5rem 0; text-align: center; }
-.footer p      { color: var(--text-muted); font-size: .88rem; margin-bottom: .25rem; }
-.footer__copy  { font-size: .78rem; }
-.footer a      { color: var(--text-muted); }
-.footer a:hover { color: var(--accent); }
-
-/* ── RESPONSIVE ──────────────────────────────────────────── */
+/* Responsive */
 @media (max-width: 768px) {
-  .nav__links  { display: none; }
-  .nav__toggle { display: block; }
-  .hero__inner { grid-template-columns: 1fr; }
-  .hero__avatar { display: none; }
-  .post-card { grid-template-columns: 1fr; }
-  .post-card__img { width: 100%; height: 200px; }
-  .timeline { padding-left: 1rem; }
-  .timeline__header { flex-wrap: wrap; }
+  .photo-wall__grid { columns: 3 100px; }
 }
-@media (max-width: 540px) {
-  .post-card { flex-direction: column; }
-  .post-card__img { width: 100%; height: 180px; }
-  .instax { width: 130px; }
-  .instax__frame { height: 115px; }
+@media (max-width: 480px) {
+  .photo-wall__grid { columns: 2 100px; }
+  .instax { width: 100px; }
+  .instax__frame { height: 90px; }
 }
