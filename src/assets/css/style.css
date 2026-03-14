@@ -369,93 +369,129 @@ p:last-child { margin-bottom: 0; }
 /* ── PHOTO WALL (Gallery) ────────────────────────────────── */
 .photo-wall {
   min-height: 100vh;
-  padding: 3rem 2rem 5rem;
-  background-color: #c8a97e;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23c8a97e'/%3E%3Cpath d='M0 0h40v40H0zM40 40h40v40H40z' fill='%23bf9f73' opacity='.5'/%3E%3C/svg%3E");
+  padding: 4rem 3rem 6rem;
+
+  /* White/off-white whiteboard feel */
+  background-color: #f5f5f0;
+  background-image:
+    linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  border: none;
+  box-shadow: inset 0 0 80px rgba(0,0,0,.06);
 }
+
 .photo-wall__heading {
   text-align: center;
-  font-size: 1.4rem; font-weight: 600;
-  color: #3b1f0a; letter-spacing: .1em;
+  font-size: 1.3rem; font-weight: 600;
+  color: #aaa; letter-spacing: .18em;
   text-transform: uppercase;
-  margin-bottom: 2.5rem; opacity: .7;
+  margin-bottom: 3rem;
 }
 
-/* KEY: CSS columns = natural vertical stagger, no JS needed */
+/* CSS columns = natural vertical scatter, no JS */
 .photo-wall__grid {
-  columns: 4 120px;
-  column-gap: 1.5rem;
+  columns: 4 180px;
+  column-gap: 2rem;
 }
 
-/* Instax card */
+/* ── Instax card — real postcard proportions ── */
 .instax {
   position: relative;
-  background: #faf8f4;
-  border-radius: 4px;
-  padding: .45rem .45rem .7rem;
-  width: 115px;
-  display: inline-block;       /* required for columns layout */
-  margin-bottom: 1.8rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,.22), 0 10px 28px rgba(0,0,0,.14);
+  background: #fefefe;
+  border-radius: 3px;
+  /* Instax Mini real ratio: 54×86mm — we scale up nicely */
+  padding: .6rem .6rem 1.1rem;
+  width: 180px;
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.10),
+    0 8px 24px rgba(0,0,0,.12),
+    0 1px 2px rgba(0,0,0,.08);
   transition: transform .25s ease, box-shadow .25s ease;
-  break-inside: avoid;         /* never split a card across columns */
+  break-inside: avoid;
   cursor: default;
 }
 .instax:hover {
-  transform: translateY(-6px) rotate(0deg) scale(1.06) !important;
-  box-shadow: 0 12px 30px rgba(0,0,0,.28), 0 4px 8px rgba(0,0,0,.18);
+  transform: translateY(-8px) rotate(0deg) scale(1.04) !important;
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.18),
+    0 4px 8px rgba(0,0,0,.10);
   z-index: 10;
 }
 
-/* Rotation + staggered top margin = scattered uneven wall look */
-.instax:nth-child(4n+1) { transform: rotate(-3deg);   margin-top: 0px;  }
-.instax:nth-child(4n+2) { transform: rotate(2.5deg);  margin-top: 30px; }
-.instax:nth-child(4n+3) { transform: rotate(-1.5deg); margin-top: 15px; }
-.instax:nth-child(4n+4) { transform: rotate(3.5deg);  margin-top: 45px; }
-.instax:nth-child(4n+5) { transform: rotate(-2deg);   margin-top: 10px; }
-.instax:nth-child(4n+6) { transform: rotate(1deg);    margin-top: 35px; }
-.instax:nth-child(4n+7) { transform: rotate(-4deg);   margin-top: 20px; }
-.instax:nth-child(4n+8) { transform: rotate(2deg);    margin-top: 50px; }
+/* Rotation + vertical stagger per item */
+.instax:nth-child(8n+1) { transform: rotate(-3deg);   margin-top: 0px;  }
+.instax:nth-child(8n+2) { transform: rotate(2.5deg);  margin-top: 40px; }
+.instax:nth-child(8n+3) { transform: rotate(-1.5deg); margin-top: 20px; }
+.instax:nth-child(8n+4) { transform: rotate(3.5deg);  margin-top: 55px; }
+.instax:nth-child(8n+5) { transform: rotate(-2deg);   margin-top: 10px; }
+.instax:nth-child(8n+6) { transform: rotate(1deg);    margin-top: 45px; }
+.instax:nth-child(8n+7) { transform: rotate(-4deg);   margin-top: 25px; }
+.instax:nth-child(8n+8) { transform: rotate(2deg);    margin-top: 60px; }
 
-/* Magnetic pin */
+/* ── Magnetic pin — now slightly different colors per item ── */
 .instax__pin {
-  position: absolute; top: -11px; left: 50%;
+  position: absolute; top: -13px; left: 50%;
   transform: translateX(-50%);
-  width: 16px; height: 16px; border-radius: 50%;
+  width: 20px; height: 20px; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e53e3e 40%, #9b1c1c 100%);
-  box-shadow: 0 2px 5px rgba(0,0,0,.4), inset 0 1px 2px rgba(255,255,255,.4);
+  box-shadow: 0 3px 6px rgba(0,0,0,.35), inset 0 1px 2px rgba(255,255,255,.5);
   z-index: 5;
 }
-
-/* Photo area */
-.instax__frame {
-  width: 100%; height: 105px;
-  background: #1e293b;
-  border-radius: 3px; overflow: hidden;
-  margin-bottom: .4rem;
+/* Alternate pin colors for variety */
+.instax:nth-child(3n+1) .instax__pin {
+  background: radial-gradient(circle at 35% 30%, #fff 0%, #e53e3e 40%, #9b1c1c 100%);
 }
-.instax__photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.instax:nth-child(3n+2) .instax__pin {
+  background: radial-gradient(circle at 35% 30%, #fff 0%, #3b82f6 40%, #1d4ed8 100%);
+}
+.instax:nth-child(3n+3) .instax__pin {
+  background: radial-gradient(circle at 35% 30%, #fff 0%, #10b981 40%, #065f46 100%);
+}
 
-/* Label */
-.instax__label { text-align: center; padding: 0 .15rem; }
+/* ── Photo frame ── */
+.instax__frame {
+  width: 100%;
+  height: 160px;          /* taller, real postcard photo area */
+  background: #e2e8f0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: .5rem;
+}
+.instax__photo {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: opacity .3s;
+}
+
+/* ── Label ── */
+.instax__label { text-align: center; padding: 0 .2rem; }
 .instax__date  {
   display: block;
-  font-size: .58rem; color: #9ca3af;
-  letter-spacing: .06em; text-transform: uppercase;
-  margin-bottom: .15rem; font-family: monospace;
+  font-size: .6rem; color: #aaa;
+  letter-spacing: .07em; text-transform: uppercase;
+  margin-bottom: .2rem; font-family: monospace;
 }
 .instax__caption {
-  font-size: .72rem; color: #374151; margin: 0;
+  font-size: .82rem; color: #333; margin: 0;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   font-family: 'Caveat', cursive, sans-serif;
+  font-weight: 600; letter-spacing: .01em;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .photo-wall__grid { columns: 3 100px; }
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .photo-wall__grid { columns: 3 160px; }
 }
-@media (max-width: 480px) {
-  .photo-wall__grid { columns: 2 100px; }
-  .instax { width: 100px; }
-  .instax__frame { height: 90px; }
+@media (max-width: 600px) {
+  .photo-wall__grid { columns: 2 140px; }
+  .instax { width: 140px; }
+  .instax__frame { height: 130px; }
 }
+@media (max-width: 380px) {
+  .photo-wall__grid { columns: 1; }
+  .instax { width: 170px; }
+}
+
