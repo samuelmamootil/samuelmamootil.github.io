@@ -198,96 +198,109 @@ p:last-child { margin-bottom: 0; }
   text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem;
 }
 
-/* ── SECTION HEADER (title + action link row) ─────────────── */
+/* ── SECTION HEADER ────────────────────────────────────────── */
 .section-header {
-  display: flex;
-  align-items: flex-end;
+  display: flex; align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  gap: 1rem;
-  flex-wrap: wrap;
+  margin-bottom: 2rem; gap: 1rem; flex-wrap: wrap;
 }
 .section-header h2 { margin-bottom: 0; }
 
-/* ── PHOTO TIMELINE ────────────────────────────────────── */
-.photo-timeline {
-  position: relative;
-  padding-left: 2rem;
-  border-left: 2px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-.photo-timeline__item {
+/* ── HORIZONTAL PHOTO TIMELINE ────────────────────────────── */
+.hpt {
   position: relative;
   display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 1.25rem;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-top: 2.5rem;
+  margin-top: .5rem;
 }
-.photo-timeline__marker {
+
+/* the horizontal line */
+.hpt__line {
   position: absolute;
-  left: -2.55rem;
-  top: .6rem;
+  top: 0;
+  left: calc(100% / 6);        /* starts at centre of first card */
+  right: calc(100% / 6);       /* ends at centre of last card */
+  height: 2px;
+  background: var(--border);
+}
+
+/* each card is a link */
+.hpt__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem 1.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+  gap: .4rem;
+}
+.hpt__card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(2,132,199,.12);
+  transform: translateY(-4px);
+  text-decoration: none;
+}
+
+/* dot on the line */
+.hpt__dot {
+  position: absolute;
+  top: -2.15rem;               /* sits on the line */
+  left: 50%;
+  transform: translateX(-50%);
   width: 14px; height: 14px;
   border-radius: 50%;
   background: var(--accent);
   border: 2px solid var(--bg);
   box-shadow: 0 0 0 3px var(--border);
 }
-.photo-timeline__meta {
-  padding-top: .4rem;
+
+/* circular photo */
+.hpt__avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  margin-bottom: .5rem;
+  flex-shrink: 0;
 }
-.photo-timeline__date {
-  display: block;
-  font-size: .75rem;
+.hpt__avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.hpt__card:hover .hpt__avatar { border-color: var(--accent); }
+
+.hpt__date {
+  font-size: .7rem;
   font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.hpt__title {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.hpt__caption {
+  font-size: .82rem;
   color: var(--text-muted);
-  letter-spacing: .04em;
   line-height: 1.4;
 }
-.photo-timeline__card {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,.04);
-  transition: border-color .2s, box-shadow .2s;
-}
-.photo-timeline__card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 16px rgba(0,0,0,.08);
-}
-.photo-timeline__card img {
-  width: 160px;
-  height: 110px;
-  object-fit: cover;
-  flex-shrink: 0;
-  display: block;
-}
-.photo-timeline__info {
-  display: flex;
-  flex-direction: column;
-  gap: .3rem;
-  padding: .75rem 1rem .75rem 0;
-}
-.photo-timeline__info strong {
-  font-size: .95rem;
-  font-weight: 600;
-  color: var(--text);
-}
-.photo-timeline__info span {
-  font-size: .85rem;
-  color: var(--text-muted);
-}
 
-@media (max-width: 520px) {
-  .photo-timeline__item { grid-template-columns: 1fr; }
-  .photo-timeline__meta { display: none; }
-  .photo-timeline__card img { width: 110px; height: 80px; }
+@media (max-width: 600px) {
+  .hpt { grid-template-columns: 1fr; padding-top: 0; }
+  .hpt__line { display: none; }
+  .hpt__dot  { display: none; }
 }
 
 /* ── AI CALLOUT ──────────────────────────────────────────── */
