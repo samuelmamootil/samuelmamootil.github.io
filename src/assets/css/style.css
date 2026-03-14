@@ -137,8 +137,14 @@ p:last-child { margin-bottom: 0; }
   border-bottom: 1px solid var(--border);
   z-index: 99; flex-direction: column; gap: .75rem;
 }
-.nav__drawer a { color: var(--text); font-weight: 500; }
+.nav__drawer a { color: var(--text); font-weight: 500; font-size: 1rem; padding: .4rem 0; border-bottom: 1px solid var(--border); }
+.nav__drawer a:last-child { border-bottom: none; }
 .nav__drawer.open { display: flex; }
+
+@media (max-width: 768px) {
+  .nav__links  { display: none; }
+  .nav__toggle { display: block; }
+}
 
 /* ── THEME TOGGLE ────────────────────────────────────────── */
 .theme-toggle { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; }
@@ -173,6 +179,20 @@ p:last-child { margin-bottom: 0; }
   border-radius: 50%; object-fit: cover;
   border: 3px solid var(--border);
   box-shadow: 0 4px 24px rgba(0,0,0,.08);
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 3rem 0 2.5rem; }
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .hero__avatar { order: -1; display: flex; justify-content: center; }
+  .hero__avatar img { width: 140px; height: 140px; }
+  .hero__intro { max-width: 100%; }
+  .hero__cta { justify-content: center; }
+  .weather-widget { justify-content: center; }
 }
 
 /* ── STORY ───────────────────────────────────────────────── */
@@ -330,7 +350,7 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius);
   padding: 1rem 1.5rem;
   display: flex; flex-direction: column; gap: .25rem;
-  min-width: 220px;
+  min-width: 220px; flex: 1;
   box-shadow: 0 1px 4px rgba(0,0,0,.04);
 }
 .cert-badge__code   { font-family: var(--mono); font-size: .8rem; font-weight: 600; }
@@ -861,6 +881,17 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 768px) {
   .media-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .post-card { flex-direction: column; }
+  .post-card__img { width: 100%; height: 180px; }
+  .timeline { padding-left: 1.25rem; }
+  .timeline__marker { left: -1.8rem; }
+  .ref-grid { grid-template-columns: 1fr; }
+  .project-grid { grid-template-columns: 1fr; }
+  .cert-badge { min-width: unset; }
+  .section { padding: 2.5rem 0; }
 }
 
 /* ── WEATHER WIDGET ──────────────────────────────────────── */
