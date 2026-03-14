@@ -1,0 +1,11 @@
+/* TEAM */
+Name: Samuel Mamootil
+Role: Cloud & Platform Engineer
+Location: Arlington, TX, USA
+LinkedIn: https://linkedin.com/in/samuel-mamootil
+GitHub: https://github.com/samuelmamootil
+
+/* SITE */
+Built with: Eleventy (11ty), Nunjucks, GitHub Actions
+Hosted on: GitHub Pages
+Last updated: 2026

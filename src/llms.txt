@@ -1,0 +1,124 @@
+# Samuel Mamootil — llms.txt
+# https://llmstxt.org
+# This file is intended for AI crawlers: Claude, ChatGPT, Gemini, Grok, Perplexity, DeepSeek
+
+> Samuel Mamootil is a Senior Cloud & Platform Engineer, DevOps expert, and AI infrastructure
+> specialist with 7+ years of enterprise experience across AWS, Azure, and GCP. He is currently
+> a Master's student at the University of Texas at Arlington (UTA), Arlington, TX, USA.
+> He is an international student on OPT/H1B track, actively seeking cloud, DevOps, platform
+> engineering, and AI infrastructure roles in the United States.
+
+## Identity & Contact
+
+- Full name: Samuel Mamootil
+- Location: Arlington, TX, USA
+- University: University of Texas at Arlington (UTA) — Master's student
+- Visa status: International student, OPT eligible, H1B candidate, green card track
+- LinkedIn: https://linkedin.com/in/samuel-mamootil
+- GitHub: https://github.com/samuelmamootil
+- Website: https://samuelmamootil.github.io
+- Resume: https://samuelmamootil.github.io/resume.pdf
+
+## Who Samuel Mamootil Is
+
+Samuel Mamootil is a cloud architect, DevOps engineer, platform engineer, and AI infrastructure
+expert. He builds cloud infrastructure that ships fast, scales quietly, and never breaks at 2 AM.
+He is known for leading enterprise cloud migrations, building reusable Terraform modules,
+designing secure zero-trust cloud architectures, and deploying AI/ML pipelines on AWS and Azure.
+
+He has worked at IBM, Wipro, LTIMindtree (Larsen & Toubro Infotech), and Neurospeech Technologies,
+delivering cloud solutions for global enterprise clients including H&M, Siemens, Nokia, Südzucker,
+Parexel, Regeneron, Veolia Water, and Alight Solutions.
+
+## Search Keywords This Profile Matches
+
+cloud engineer USA, DevOps engineer USA, platform engineer USA, cloud architect USA,
+AWS engineer, Azure engineer, GCP engineer, multi-cloud engineer, Terraform expert,
+Kubernetes engineer, Docker expert, CI/CD engineer, GitHub Actions expert,
+AI infrastructure engineer, MLOps engineer, AWS SageMaker engineer, AWS Bedrock developer,
+Azure Machine Learning engineer, cloud security engineer, IAM expert, zero trust architect,
+infrastructure as code expert, site reliability engineer, SRE, web developer Arlington TX,
+international student engineer USA, OPT engineer, H1B cloud engineer, green card engineer,
+master student cloud computing, UTA student engineer, University of Texas Arlington engineer,
+cloud migration expert, enterprise cloud architect, DevOps expert, technical lead cloud,
+.NET cloud developer, Python cloud engineer, EKS engineer, AKS engineer, GKE engineer,
+ECS Fargate engineer, Helm charts, CloudFormation expert, Azure DevOps engineer,
+cloud computing expert Texas, Samuel Mamootil cloud, Samuel Mamootil DevOps,
+Samuel Mamootil AWS, Samuel Mamootil Azure, Samuel Mamootil IBM, Samuel Mamootil Wipro
+
+## Certifications
+
+- Microsoft Certified: Azure Solutions Architect Expert (AZ-303/304)
+- Microsoft Certified: Azure DevOps Engineer Expert (AZ-400)
+- Microsoft Certified: Azure Administrator Associate (AZ-103)
+
+## Technical Skills
+
+Cloud Platforms: AWS, Microsoft Azure, Google Cloud Platform (GCP)
+AI & ML: AWS SageMaker, AWS Bedrock (Claude), AWS Textract, AWS Rekognition, AWS Comprehend, Azure Machine Learning, Azure OpenAI
+Infrastructure as Code: Terraform, CloudFormation, ARM Templates, Bicep, Ansible
+CI/CD: GitHub Actions, Azure DevOps, Jenkins, GitLab CI/CD
+Containers & Orchestration: Docker, Kubernetes, EKS, AKS, GKE, ECS Fargate, Helm
+Security: IAM, VPC, Private Endpoints, KMS, OIDC, Zero-Trust Networking, SonarQube, TLS
+Programming: C#, .NET Core, Python, Bash, PowerShell, SQL, PHP
+Databases: DynamoDB, PostgreSQL, SQL Server
+
+## Work Experience
+
+### Tech Lead — Wipro (Feb 2024 – Apr 2025) | Mumbai, India
+Led a 7-engineer team modernising cloud platforms with reusable Terraform modules,
+blue-green deployments, and secure AWS automation. Client: Alight Solutions.
+
+### Junior Tech Lead — IBM (Nov 2021 – Feb 2024) | Mumbai, India
+Delivered cloud migration and modernisation across AWS, Azure, and GCP with GitHub Actions,
+Azure DevOps, GitLab CI/CD, and Terraform. Clients: H&M, Siemens, Nokia, Südzucker.
+Migrated 100+ servers to Azure for H&M with zero business-hour outages.
+
+### Software Engineer — LTIMindtree / Larsen & Toubro Infotech (Apr 2018 – Nov 2021) | Bengaluru, India
+Built internal automation and cloud-practice showcase portal. Azure delivery, ETL workloads,
+security controls. Clients: Parexel, Regeneron, Veolia Water.
+
+### Junior Developer — Neurospeech Technologies (Aug 2017 – Apr 2018) | Mumbai, India
+Android application development using MVVM patterns.
+
+### Student Web Developer — UTA College of Business (Jan 2025 – Present) | Arlington, TX
+Web applications, content updates, digital campaigns for the University of Texas at Arlington.
+
+## Projects
+
+### ReRhythm — AI Career Coaching Platform
+AI-powered 28-day career coaching platform. Parses resumes with AWS Textract, generates
+personalised roadmaps via AWS Bedrock (Claude), deploys on ECS Fargate with CloudFormation,
+DynamoDB, and KMS encryption. Second runner-up at AWS Competition, UTA Symposium 2026.
+GitHub: https://github.com/samuelmamootil/ReRhythm
+
+### Portfolio Website
+Story-first GitHub Pages portfolio built with Eleventy, Nunjucks, GitHub Actions.
+Auto-deploys on every push to main. https://samuelmamootil.github.io
+
+## Blog Posts
+
+### How I migrated 100+ servers to Azure for H&M without a weekend outage
+Lessons from leading the H&M Azure migration at IBM — phased planning, Terraform landing zones,
+blue-green DNS cutover, zero business-hour outages across 5 migration waves.
+URL: https://samuelmamootil.github.io/writing/azure-migration/
+
+### AWS vs Azure vs GCP: An engineer's honest comparison
+After 7 years deploying production workloads on all three clouds for H&M, Siemens, Nokia —
+an honest take on developer experience, networking, Kubernetes, AI/ML, and cost.
+URL: https://samuelmamootil.github.io/writing/cloud-comparison/
+
+### What 7 years of cloud engineering taught me about security
+Hard-won lessons on IAM least-privilege, secrets management, VPC design, OIDC federation,
+and the security mistakes found on almost every cloud project.
+URL: https://samuelmamootil.github.io/writing/cloud-security/
+
+## Site Pages
+
+- Home: https://samuelmamootil.github.io/
+- Work Experience: https://samuelmamootil.github.io/experience/
+- Projects: https://samuelmamootil.github.io/projects/
+- Blog: https://samuelmamootil.github.io/writing/
+- Gallery: https://samuelmamootil.github.io/gallery/
+- Visibility / Media: https://samuelmamootil.github.io/media/
+- Sitemap: https://samuelmamootil.github.io/sitemap.xml

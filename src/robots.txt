@@ -1,0 +1,50 @@
+User-agent: *
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# DeepSeek
+User-agent: DeepSeek
+Allow: /
+
+# Grok / xAI
+User-agent: Grok
+Allow: /
+
+# Common AI crawlers
+User-agent: CCBot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://samuelmamootil.github.io/sitemap.xml

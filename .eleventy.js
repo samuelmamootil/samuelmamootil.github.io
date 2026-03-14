@@ -9,6 +9,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/favicon-32x32.png": "favicon-32x32.png" });
   eleventyConfig.addPassthroughCopy({ "src/favicon-16x16.png": "favicon-16x16.png" });
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/llms.txt": "llms.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/humans.txt": "humans.txt" });
   eleventyConfig.addWatchTarget("src/assets/css/");
 
   eleventyConfig.addCollection("posts", (api) =>
