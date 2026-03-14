@@ -16,5 +16,19 @@
     "label": "Marketing / Press",
     "url": "",
     "description": "Add any marketing material, press, or external links here."
+  },
+  
+  {
+    "type": "instagram",
+    "label": "UTA College of Business Feature",
+    "description": "Featured in UTA Business Instagram post showcasing ReRhythm demo day.",
+    "url": "https://www.instagram.com/p/DNgnCNYBrcc/",
+    "embed": "https://www.instagram.com/p/DNgnCNYBrcc/"
+  },
+  {
+    "type": "newsletter",
+    "label": "AWS Community Newsletter",
+    "description": "Featured in the AWS community spotlight for hackathon win.",
+    "url": "https://example.com"
   }
 ]

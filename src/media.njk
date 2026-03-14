@@ -3,23 +3,44 @@ layout: layouts/base.njk
 title: In the Media
 permalink: /media/
 ---
+
 <section class="section container">
   <p class="eyebrow">Press &amp; features</p>
   <h1>In the Media</h1>
-  <p class="lead">Links to newsletters, marketing materials, Instagram posts, and press where I've been featured.</p>
+  <p class="lead">Newsletters, press, and features where I've appeared.</p>
 
   <div class="media-grid">
     {% for item in media %}
     <div class="media-card media-card--{{ item.type }}">
+
       <p class="media-card__type">{{ item.type | upper }}</p>
       <p class="media-card__label">{{ item.label }}</p>
       <p>{{ item.description }}</p>
-      {% if item.url %}
-      <a href="{{ item.url }}" target="_blank" rel="noopener" class="btn btn--sm">View ↗</a>
-      {% else %}
-      <span class="tag tag--subtle">Coming soon</span>
+
+      {% if item.embed %}
+        <!-- Instagram embed -->
+        <div class="media-card__embed">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-captioned
+            data-instgrm-permalink="{{ item.embed }}?utm_source=ig_embed&utm_campaign=loading"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
       {% endif %}
+
+      {% if item.url and not item.embed %}
+        <a href="{{ item.url }}" target="_blank" rel="noopener" class="btn btn--sm mt-2">View ↗</a>
+      {% endif %}
+
+      {% if not item.url and not item.embed %}
+        <span class="tag tag--subtle">Coming soon</span>
+      {% endif %}
+
     </div>
     {% endfor %}
   </div>
 </section>
+
+<!-- Instagram oEmbed script — loads ALL embeds on the page at once -->
+<script async src="https://www.instagram.com/embed.js"></script>
