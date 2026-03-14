@@ -64,8 +64,17 @@ function getOS() {
 }
 
 function sendToSheet(payload) {
-  if (!SHEET_URL || !SHEET_URL.includes("script.google.com")) return;
-  navigator.sendBeacon(SHEET_URL, JSON.stringify(payload));
+  if (!SHEET_URL) return;
+  let url;
+  try {
+    url = new URL(SHEET_URL, window.location.origin);
+  }
+  catch (_) {
+    return;
+  }
+  const allowedHosts = ["script.google.com"];
+  if (!allowedHosts.includes(url.hostname)) return;
+  navigator.sendBeacon(url.toString(), JSON.stringify(payload));
 }
 
 // Fire on every page load
