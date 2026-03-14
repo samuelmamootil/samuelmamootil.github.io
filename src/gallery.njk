@@ -3,25 +3,29 @@ layout: layouts/base.njk
 title: Gallery
 permalink: /gallery/
 ---
-<section class="section container">
-  <p class="eyebrow">Visual journal</p>
-  <h1>Gallery</h1>
-  <p class="lead">Moments, milestones, and places that shaped the engineer I'm becoming.</p>
 
-  <div class="postcard-board">
+<section class="photo-wall">
+  <h1 class="photo-wall__heading">Gallery</h1>
+  <div class="photo-wall__grid">
     {% for item in gallery %}
-    <div class="postcard">
-      <div class="postcard__img-wrap">
-        <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy"
-             onerror="this.style.background='#1e293b';this.style.height='180px'" />
+    <article class="instax instax--{{ loop.index }}">
+      <div class="instax__pin"></div>
+      <div class="instax__frame">
+        <img
+          src="{{ item.image }}"
+          alt="{{ item.title }}"
+          loading="lazy"
+          class="instax__photo"
+          onerror="this.parentElement.style.background='#1e293b'"
+        />
       </div>
-      <div class="postcard__body">
-        {% if item.date %}<p class="postcard__date">{{ item.date | readableDate }}</p>{% endif %}
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.caption }}</p>
-        {% if item.link %}<a href="{{ item.link }}" target="_blank" rel="noopener" class="postcard__link">View →</a>{% endif %}
+      <div class="instax__label">
+        {% if item.date %}
+          <time class="instax__date">{{ item.date | readableDate }}</time>
+        {% endif %}
+        <p class="instax__caption">{{ item.caption | truncate(40) }}</p>
       </div>
-    </div>
+    </article>
     {% endfor %}
   </div>
 </section>
