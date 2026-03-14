@@ -20,15 +20,16 @@ async function getGeo() {
   const cached = sessionStorage.getItem("geo");
   if (cached) return JSON.parse(cached);
   try {
-    const res = await fetch("https://freeipapi.com/api/json");
+    const res = await fetch("https://ipinfo.io/json?token=");
     if (!res.ok) return {};
     const data = await res.json();
+    const [latitude, longitude] = (data.loc || ",").split(",").map(Number);
     const geo = {
-      city:         data.cityName    || "",
-      country_name: data.countryName || "",
-      region:       data.regionName  || "",
-      latitude:     data.latitude,
-      longitude:    data.longitude,
+      city:         data.city    || "",
+      country_name: data.country || "",
+      region:       data.region  || "",
+      latitude,
+      longitude,
     };
     sessionStorage.setItem("geo", JSON.stringify(geo));
     return geo;
