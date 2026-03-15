@@ -1317,3 +1317,15 @@ p:last-child { margin-bottom: 0; }
   .rv__job { page-break-inside: avoid; }
   .rv__section { page-break-inside: avoid; }
 }
+
+/* ── Post back link ──────────────────────────────────────── */
+.post-back {
+  display: inline-block;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  transition: color .15s;
+}
+.post-back:hover { color: var(--accent); text-decoration: none; }
