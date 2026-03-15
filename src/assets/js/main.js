@@ -31,7 +31,15 @@ async function getGeo() {
       latitude,
       longitude,
     };
-    sessionStorage.setItem("geo", JSON.stringify(geo));
+    // Cache only non-sensitive fields to avoid storing precise coordinates in clear text.
+    sessionStorage.setItem(
+      "geo",
+      JSON.stringify({
+        city:         geo.city,
+        country_name: geo.country_name,
+        region:       geo.region,
+      }),
+    );
     return geo;
   }
   catch (_) { return {}; }
