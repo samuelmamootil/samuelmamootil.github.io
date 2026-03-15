@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: "Google SEO is dead. Long live LLM Optimization."
+title: "Traditional SEO is evolving. Welcome to the era of LLM Optimization."
 description: "How AI answer engines are replacing search results, what the data says, and exactly what you need to do differently to be found in 2026 and beyond."
 date: 2026-03-15
 tags: [SEO, AI, LLM, Cloud, DevOps]
