@@ -124,6 +124,56 @@ association rules, neural networks, and time series forecasting. Includes Python
 flow diagrams, and how to run ML on AWS SageMaker and Azure ML in 2026.
 URL: https://samuelmamootil.github.io/writing/what-is-ai-algorithms/
 
+### Public vs Private vs Hybrid Cloud: The Complete Guide (2026)
+What is the difference between public, private, and hybrid cloud? Architecture diagrams,
+cost comparison, security tradeoffs, multi-cloud strategy, and how to choose.
+URL: https://samuelmamootil.github.io/writing/public-private-hybrid-cloud/
+
+### How to Optimize and Forecast Cloud Costs: A FinOps Guide (2026)
+FinOps framework, rightsizing with AWS Compute Optimizer, Reserved Instances vs Savings Plans,
+Spot Instances, tagging strategy, cost anomaly detection, and forecasting with Python.
+URL: https://samuelmamootil.github.io/writing/cloud-cost-optimization/
+
+### What is Serverless Computing and When Should You Use It? (2026)
+Serverless explained — AWS Lambda, Azure Functions, cold starts, event-driven architecture,
+cost model, and when to use containers instead.
+URL: https://samuelmamootil.github.io/writing/what-is-serverless/
+
+### How to Design a Secure VPC Architecture on AWS (2026)
+Production VPC design — subnet tiers, security groups vs NACLs, VPC endpoints,
+NAT Gateway, and complete Terraform implementation.
+URL: https://samuelmamootil.github.io/writing/secure-vpc-architecture/
+
+### What is Agentic AI and How Does It Work? (2026)
+Agentic AI explained — the ReAct pattern, tools and function calling, memory types,
+multi-agent systems, and building agents on AWS Bedrock.
+URL: https://samuelmamootil.github.io/writing/what-is-agentic-ai/
+
+### Decision Trees vs Random Forests: Which is Better for Classification? (2026)
+How each algorithm works, bias-variance tradeoff, feature importance, Python implementation,
+and when to use which for production ML.
+URL: https://samuelmamootil.github.io/writing/decision-trees-vs-random-forests/
+
+### How to Deploy a Machine Learning Model to Production (2026)
+Model packaging, FastAPI REST endpoint, Docker, AWS SageMaker deployment, CI/CD pipeline
+for ML, monitoring for drift, and MLOps architecture.
+URL: https://samuelmamootil.github.io/writing/deploy-ml-model-production/
+
+### CI/CD Explained: Continuous Integration vs Continuous Delivery (2026)
+CI vs CD vs Continuous Deployment, GitHub Actions pipeline, deployment strategies
+(blue/green, canary), and Terraform CI/CD.
+URL: https://samuelmamootil.github.io/writing/cicd-explained/
+
+### How to Parse and Process Documents Using Cloud AI Services (2026)
+AWS Textract, Azure Document Intelligence, table extraction, form parsing,
+document pipeline with Lambda, and LLM-powered extraction with Claude.
+URL: https://samuelmamootil.github.io/writing/document-parsing-cloud-ai/
+
+### Digital Transformation, BPR & Data Governance ROI: A Tech Leader's Guide (2026)
+Managing organisational change, Business Process Reengineering in the AI era,
+data governance framework, and measuring ROI with a Python calculator.
+URL: https://samuelmamootil.github.io/writing/digital-transformation-bpr-data-governance/
+
 ### SEO is Dead. Long Live LLM Optimization.
 How AI answer engines (ChatGPT, Perplexity, Claude, Gemini) are replacing Google search.
 Data tables on CTR collapse, LLM platform growth, era-by-era SEO history, and a technical
