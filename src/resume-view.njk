@@ -1,0 +1,226 @@
+---
+layout: layouts/base.njk
+title: Resume — Samuel Mamootil
+permalink: /resume-view/
+---
+
+<div class="rv-wrap">
+  <div class="rv-actions no-print">
+    <button class="btn btn--sm" onclick="window.print()">⬇ Save / Print as PDF</button>
+    <a href="/resume/" class="btn btn--ghost btn--sm">← Back</a>
+  </div>
+
+  <article class="rv" aria-label="Samuel Mamootil Resume">
+
+    <!-- HEADER -->
+    <header class="rv__header">
+      <h1 class="rv__name">Samuel Mamootil</h1>
+      <p class="rv__contact">
+        <a href="mailto:samuelrajumamootil@gmail.com">samuelrajumamootil@gmail.com</a>
+        &nbsp;|&nbsp; Arlington, TX
+        &nbsp;|&nbsp; <a href="{{ site.linkedin }}" target="_blank" rel="noopener">linkedin.com/in/samuel-mamootil</a>
+        &nbsp;|&nbsp; <a href="https://github.com/samuelmamootil/ReRhythm" target="_blank" rel="noopener">github.com/samuelmamootil/ReRhythm</a>
+      </p>
+    </header>
+
+    <hr class="rv__rule" />
+
+    <!-- SUMMARY -->
+    <section class="rv__section">
+      <h2 class="rv__section-title">Professional Summary</h2>
+      <p class="rv__body">
+        Senior Cloud and DevOps Engineer and platform specialist with 7+ years across AWS, Azure, and GCP,
+        making infrastructure "invisible" so developers ship faster.
+        Helps enterprises like H&amp;M and Siemens accelerate by automating routine operations and hardening
+        security with Terraform, CloudFormation, CI/CD, ECS, EKS, and Docker.
+        Led teams delivering cloud migration and platform engineering at Wipro and IBM; built award-winning
+        AWS solutions and hackathon projects at UTA.
+      </p>
+    </section>
+
+    <hr class="rv__rule" />
+
+    <!-- CERTIFICATIONS -->
+    <section class="rv__section">
+      <h2 class="rv__section-title">Certifications</h2>
+      <ul class="rv__list">
+        <li>Microsoft Certified: Azure Solutions Architect Expert (AZ-303, AZ-304)</li>
+        <li>Microsoft Certified: Azure DevOps Engineer Expert (AZ-400)</li>
+        <li>Microsoft Certified: Azure Administrator Associate (AZ-103)</li>
+      </ul>
+    </section>
+
+    <hr class="rv__rule" />
+
+    <!-- SKILLS -->
+    <section class="rv__section">
+      <h2 class="rv__section-title">Technical Skills</h2>
+      <dl class="rv__skills">
+        <div class="rv__skill-row">
+          <dt>Cloud Platforms</dt>
+          <dd>AWS, Azure, GCP</dd>
+        </div>
+        <div class="rv__skill-row">
+          <dt>Infrastructure as Code</dt>
+          <dd>Terraform, CloudFormation, ARM Templates, Bicep, Ansible</dd>
+        </div>
+        <div class="rv__skill-row">
+          <dt>CI/CD &amp; DevOps</dt>
+          <dd>GitHub Actions, Azure DevOps, Jenkins, GitLab CI/CD</dd>
+        </div>
+        <div class="rv__skill-row">
+          <dt>Containers &amp; Orchestration</dt>
+          <dd>Docker, EKS, ECS Fargate, Kubernetes, Helm</dd>
+        </div>
+        <div class="rv__skill-row">
+          <dt>Security &amp; Networking</dt>
+          <dd>IAM, VPC / Private Endpoints, Firewall Rules, TLS, SonarQube</dd>
+        </div>
+        <div class="rv__skill-row">
+          <dt>Programming &amp; Data</dt>
+          <dd>C#, .NET Core, Python, Bash, PowerShell, SQL, DynamoDB, PostgreSQL, PHP</dd>
+        </div>
+      </dl>
+    </section>
+
+    <hr class="rv__rule" />
+
+    <!-- EXPERIENCE -->
+    <section class="rv__section">
+      <h2 class="rv__section-title">Professional Experience</h2>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">Student Web Developer (Part-time)</span>
+          <span class="rv__job-dates">Jun 2025 – Present</span>
+        </div>
+        <div class="rv__job-meta">UTA College of Business · Arlington, TX</div>
+        <ul class="rv__list">
+          <li>Maintain and update College of Business web applications and site content to ensure high usability, reliability, and seamless platform operations.</li>
+          <li>Execute digital content updates under the direction of the Marketing and Communications Director, managing campaign pages and event-related site modifications.</li>
+          <li>Selected by faculty as a representative student for a college-wide promotional video campaign, collaborating with marketing to highlight departmental initiatives.</li>
+          <li>Troubleshoot and resolve site issues to support the digital infrastructure for major college events and communications.</li>
+        </ul>
+      </div>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">Tech Lead</span>
+          <span class="rv__job-dates">Feb 2024 – Apr 2025</span>
+        </div>
+        <div class="rv__job-meta">Wipro · Mumbai, India &nbsp;|&nbsp; Client: Alight Solutions</div>
+        <ul class="rv__list">
+          <li>Led a 7-engineer team to modernize Alight Solutions' cloud platform, improving deployment speed and predictability with standardized CI/CD and infrastructure automation.</li>
+          <li>Created and maintained a shared Terraform module library used across teams, reducing manual setup and guaranteeing consistent, secure infrastructure for new environments.</li>
+          <li>Implemented blue–green deployment pipelines for Alight Solutions, removing release-time outages and allowing the team to ship during business hours.</li>
+          <li>Provisioned AWS infrastructure across EC2, ECS, EKS, VPC, ALB, NLB, Route 53, S3, EBS, and EFS to support scalable production workloads with Redshift, Glue, and Lambda.</li>
+          <li>Hardened cloud security with tightened IAM permissions and real-time CloudWatch monitoring, catching potential issues before business impact.</li>
+        </ul>
+      </div>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">Junior Tech Lead</span>
+          <span class="rv__job-dates">Nov 2021 – Feb 2024</span>
+        </div>
+        <div class="rv__job-meta">IBM · Mumbai, India &nbsp;|&nbsp; Clients: H&amp;M, Siemens, Nokia, Südzucker</div>
+        <ul class="rv__list">
+          <li>Delivered cloud migration and modernization projects across AWS, Azure, and GCP, including landing zones, deployment automation, and secure infrastructure patterns.</li>
+          <li>Built Terraform-based cloud infrastructure for H&amp;M, Siemens, Nokia, and Südzucker, enabling scalable provisioning and environment standardization across client platforms.</li>
+          <li>Developed GitHub Actions YAML pipelines for infrastructure and application deployments, improving CI/CD automation, consistency, and release efficiency.</li>
+          <li>Led the migration of 100+ application servers to Azure for H&amp;M, supporting infrastructure provisioning, deployment automation, and cloud migration execution.</li>
+          <li>Implemented secure network patterns using private endpoints, VPC endpoints, firewall rules, and TLS controls to reduce public exposure of backend services.</li>
+          <li><strong>H&amp;M:</strong> Azure migration with Terraform, GitHub Actions, and Azure DevOps — landing zone setup, security scanning, and deployment automation.</li>
+          <li><strong>Siemens:</strong> AWS infrastructure with Terraform, containerized apps on EKS, Helm-based releases with GitHub Actions and GitLab CI/CD.</li>
+          <li><strong>Nokia:</strong> Azure landing zones and Terraform-based deployment workflows for migration consistency and environment standardization.</li>
+          <li><strong>Südzucker:</strong> GCP infrastructure provisioning and deployment automation using Terraform and GitHub Actions.</li>
+        </ul>
+      </div>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">Software Engineer</span>
+          <span class="rv__job-dates">Apr 2018 – Nov 2021</span>
+        </div>
+        <div class="rv__job-meta">Larsen &amp; Toubro Infotech (now LTIMindtree) · Bengaluru, India &nbsp;|&nbsp; Clients: Parexel, Regeneron, Veolia Water</div>
+        <ul class="rv__list">
+          <li>Built internal tools and automated Azure infrastructure delivery using infrastructure as code and DevOps workflows for cloud migration initiatives.</li>
+          <li>Developed a PHP-based web portal showcasing Cloud Practice service offerings, improving how clients understood and evaluated cloud capabilities.</li>
+          <li>Built a one-click migration automation platform using Terraform and REST APIs to streamline infrastructure provisioning and orchestration.</li>
+          <li>Implemented security controls for Azure environments using SonarQube, Coverity, WhiteSource, TLS 1.2, and private endpoint configurations.</li>
+          <li>Automated Azure DevOps workflows with PowerShell, DSC, and ARM templates; supported Azure Data Factory and ETL-related implementations.</li>
+        </ul>
+      </div>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">Junior Developer</span>
+          <span class="rv__job-dates">Aug 2017 – Apr 2018</span>
+        </div>
+        <div class="rv__job-meta">Neurospeech Technologies · Mumbai, India</div>
+        <ul class="rv__list">
+          <li>Developed Android applications using MVVM architecture to improve code maintainability, modular design, and feature scalability.</li>
+          <li>Implemented application features and UI components that improved code organization and supported long-term maintainability.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="rv__rule" />
+
+    <!-- COMPETITION PROJECTS -->
+    <section class="rv__section">
+      <h2 class="rv__section-title">Competition Projects</h2>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">ReRhythm — AI-Powered Career Coaching Platform</span>
+          <span class="rv__job-dates">UTA Symposium 2026</span>
+        </div>
+        <div class="rv__job-meta">Second Runner-up, AWS Competition</div>
+        <ul class="rv__list">
+          <li>Built an AI-powered career coach (.NET + AWS Bedrock) that won 2nd runner-up at UTA Symposium by turning resumes into personalized career growth maps.</li>
+          <li>Integrated AWS Textract for resume parsing and AWS Bedrock for personalized roadmap generation and skill-based learning paths.</li>
+          <li>Designed and deployed secure AWS infrastructure using CloudFormation, ECS Fargate, ECR, DynamoDB, VPC endpoints, private subnets, IAM, and KMS.</li>
+          <li>Automated deployments with GitHub Actions and OIDC authentication; enforced deployment-time firewall controls for secure access.</li>
+          <li>Implemented moderation and safety controls using AWS Rekognition, AWS Comprehend, profanity filtering, and spam detection.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="rv__rule" />
+
+    <!-- EDUCATION -->
+    <section class="rv__section">
+      <h2 class="rv__section-title">Education</h2>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">Master of Science in Information Systems</span>
+          <span class="rv__job-dates">Expected May 2026</span>
+        </div>
+        <div class="rv__job-meta">University of Texas at Arlington · Arlington, TX &nbsp;|&nbsp; GPA: 3.7 / 4.0</div>
+      </div>
+
+      <div class="rv__job">
+        <div class="rv__job-header">
+          <span class="rv__job-title">Bachelor of Engineering in Computer Science</span>
+          <span class="rv__job-dates"></span>
+        </div>
+        <div class="rv__job-meta">Mumbai University · Mumbai, India</div>
+      </div>
+    </section>
+
+    <hr class="rv__rule" />
+
+    <!-- HONORS -->
+    <section class="rv__section">
+      <h2 class="rv__section-title">Honors</h2>
+      <ul class="rv__list">
+        <li>Second Runner-up — ReRhythm AI Application | AWS Competition, UTA Symposium 2026</li>
+        <li>Best Team Award — Parexel Project | LTI</li>
+        <li>Best Team Award — Gen-Re Project | LTI</li>
+      </ul>
+    </section>
+
+  </article>
+</div>
