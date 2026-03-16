@@ -1332,9 +1332,9 @@ p:last-child { margin-bottom: 0; }
 
 /* ── Photo Credits ───────────────────────────────────────── */
 .photo-credits {
-  background: rgba(0,0,0,.35);
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding: 1.75rem 3rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 3rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1346,14 +1346,14 @@ p:last-child { margin-bottom: 0; }
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(255,220,160,.45);
+  color: var(--accent);
   margin: 0;
   flex-shrink: 0;
 }
 
 .photo-credits__text {
-  font-size: .82rem;
-  color: rgba(255,220,160,.35);
+  font-size: .85rem;
+  color: var(--text-muted);
   margin: 0;
   line-height: 1.5;
   flex: 1;
@@ -1361,7 +1361,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .photo-credits__text strong {
-  color: rgba(255,220,160,.55);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -1378,18 +1378,17 @@ p:last-child { margin-bottom: 0; }
   gap: .4rem;
   font-size: .8rem;
   font-weight: 600;
-  color: rgba(255,220,160,.6);
+  color: var(--accent);
   text-decoration: none;
-  border: 1px solid rgba(255,220,160,.2);
+  border: 1.5px solid var(--border);
   border-radius: 99px;
   padding: .3rem .85rem;
   transition: color .15s, border-color .15s, background .15s;
 }
 
 .photo-credits__link:hover {
-  color: rgba(255,220,160,.95);
-  border-color: rgba(255,220,160,.5);
-  background: rgba(255,220,160,.06);
+  border-color: var(--accent);
+  background: var(--bg-alt);
   text-decoration: none;
 }
 
