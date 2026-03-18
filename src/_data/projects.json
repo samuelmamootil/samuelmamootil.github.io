@@ -20,7 +20,7 @@
     "url": "https://samuelmamootil.github.io",
     "tags": ["Eleventy", "GitHub Pages", "GitHub Actions", "Nunjucks"],
     "images": [
-      { "src": "/assets/img/gallery/solo.jpg", "alt": "Portfolio site", "label": "Live Site" }
+      { "src": "/assets/img/gallery/samuelwebpagesnippet.png", "alt": "Portfolio site screenshot", "label": "Live Site" }
     ]
   }
 ]
