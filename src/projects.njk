@@ -15,10 +15,7 @@ title: Projects
     <div class="proj-slideshow" id="slideshow-{{ loop.index }}">
       <div class="proj-slideshow__track">
         {%- for img in p.images %}
-        <div class="proj-slide" data-index="{{ loop.index0 }}">
-          <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" class="proj-slide__img" />
-          <span class="proj-slide__label">{{ img.label }}</span>
-        </div>
+        <div class="proj-slide" data-index="{{ loop.index0 }}"><img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" class="proj-slide__img" /><span class="proj-slide__label">{{ img.label }}</span></div>
         {%- endfor %}
       </div>
       <button class="proj-slideshow__arrow proj-slideshow__arrow--prev" aria-label="Previous">&#8249;</button>
