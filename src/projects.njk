@@ -9,46 +9,32 @@ title: Projects
   {%- for p in projects %}
 
   {%- if p.images %}
-  <!-- Featured project card with slideshow -->
   <div class="proj-featured">
 
-    <!-- CSS Slideshow -->
-    <div class="proj-slideshow">
-      <input class="proj-slide__radio" type="radio" name="rr-slide" id="slide-1" checked />
-      <input class="proj-slide__radio" type="radio" name="rr-slide" id="slide-2" />
-      <input class="proj-slide__radio" type="radio" name="rr-slide" id="slide-3" />
-
+    <!-- Slideshow -->
+    <div class="proj-slideshow" id="slideshow-{{ loop.index }}">
       <div class="proj-slideshow__track">
         {%- for img in p.images %}
-        <div class="proj-slide">
+        <div class="proj-slide" data-index="{{ loop.index0 }}">
           <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" class="proj-slide__img" />
-          <span class="proj-slide__label">{{ img.alt | replace("ReRhythm — ", "") }}</span>
+          <span class="proj-slide__label">{{ img.label }}</span>
         </div>
         {%- endfor %}
       </div>
-
+      <button class="proj-slideshow__arrow proj-slideshow__arrow--prev" aria-label="Previous">&#8249;</button>
+      <button class="proj-slideshow__arrow proj-slideshow__arrow--next" aria-label="Next">&#8250;</button>
       <div class="proj-slideshow__dots">
-        <label for="slide-1" class="proj-slideshow__dot" aria-label="Slide 1"></label>
-        <label for="slide-2" class="proj-slideshow__dot" aria-label="Slide 2"></label>
-        <label for="slide-3" class="proj-slideshow__dot" aria-label="Slide 3"></label>
+        {%- for img in p.images %}
+        <button class="proj-slideshow__dot{% if loop.first %} active{% endif %}" aria-label="Slide {{ loop.index }}"></button>
+        {%- endfor %}
       </div>
-
-      <label for="slide-2" class="proj-slideshow__arrow proj-slideshow__arrow--next" id="arr-1-next" aria-label="Next">›</label>
-      <label for="slide-3" class="proj-slideshow__arrow proj-slideshow__arrow--next" id="arr-2-next" aria-label="Next">›</label>
-      <label for="slide-1" class="proj-slideshow__arrow proj-slideshow__arrow--next" id="arr-3-next" aria-label="Next">›</label>
-
-      <label for="slide-3" class="proj-slideshow__arrow proj-slideshow__arrow--prev" id="arr-1-prev" aria-label="Previous">‹</label>
-      <label for="slide-1" class="proj-slideshow__arrow proj-slideshow__arrow--prev" id="arr-2-prev" aria-label="Previous">‹</label>
-      <label for="slide-2" class="proj-slideshow__arrow proj-slideshow__arrow--prev" id="arr-3-prev" aria-label="Previous">‹</label>
     </div>
 
     <!-- Content -->
     <div class="proj-featured__body">
       <p class="eyebrow">{{ p.type }}</p>
       <h2 class="proj-featured__title">{{ p.name }}</h2>
-      {% if p.highlight %}
-      <p class="proj-featured__award">{{ p.highlight }}</p>
-      {% endif %}
+      {% if p.highlight %}<p class="proj-featured__award">{{ p.highlight }}</p>{% endif %}
       <p class="proj-featured__summary">{{ p.summary }}</p>
       <div class="tag-list" style="margin-bottom:1.5rem;">
         {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
@@ -59,7 +45,6 @@ title: Projects
   </div>
 
   {%- else %}
-  <!-- Standard project card -->
   <div class="project-grid" style="margin-top:2rem;">
     <div class="project-card">
       <h2><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }} ↗</a></h2>
@@ -76,3 +61,26 @@ title: Projects
   {%- endfor %}
 
 </section>
+
+<script>
+document.querySelectorAll('.proj-slideshow').forEach(function(ss) {
+  var slides = ss.querySelectorAll('.proj-slide');
+  var dots   = ss.querySelectorAll('.proj-slideshow__dot');
+  var prev   = ss.querySelector('.proj-slideshow__arrow--prev');
+  var next   = ss.querySelector('.proj-slideshow__arrow--next');
+  var cur    = 0;
+
+  function go(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+
+  slides[0].classList.add('active');
+  prev.addEventListener('click', function() { go(cur - 1); });
+  next.addEventListener('click', function() { go(cur + 1); });
+  dots.forEach(function(d, i) { d.addEventListener('click', function() { go(i); }); });
+});
+</script>

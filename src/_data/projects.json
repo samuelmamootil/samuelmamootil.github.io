@@ -7,9 +7,9 @@
     "url": "https://github.com/samuelmamootil/ReRhythm",
     "tags": ["AWS Bedrock", "Textract", "ECS Fargate", ".NET", "GitHub Actions", "DynamoDB"],
     "images": [
-      { "src": "/assets/img/gallery/reRhythm resume upload.png",        "alt": "ReRhythm — Resume upload screen" },
-      { "src": "/assets/img/gallery/reRhythm badges page.png",           "alt": "ReRhythm — Badges & progress page" },
-      { "src": "/assets/img/gallery/reRhythm architecture diagram.png",  "alt": "ReRhythm — AWS architecture diagram" }
+      { "src": "/assets/img/gallery/reRhythm resume upload.png",        "alt": "ReRhythm resume upload screen",    "label": "Resume Upload" },
+      { "src": "/assets/img/gallery/reRhythm badges page.png",           "alt": "ReRhythm badges and progress page", "label": "Badges & Progress" },
+      { "src": "/assets/img/gallery/reRhythm architecture diagram.png",  "alt": "ReRhythm AWS architecture diagram",  "label": "Architecture" }
     ]
   },
   {
