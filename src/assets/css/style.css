@@ -1615,3 +1615,11 @@ p:last-child { margin-bottom: 0; }
   .rr-spotlight__img-wrap { height: 140px; }
   .rr-spotlight__body { padding: 1rem; }
 }
+
+/* ── Mobile slideshow fix ────────────────────────────────── */
+@media (max-width: 480px) {
+  .proj-slideshow__track { height: 220px; }
+  .proj-slideshow__arrow { width: 28px; height: 28px; font-size: 1.1rem; }
+  .proj-featured { padding: 1.25rem; gap: 1.5rem; }
+  .proj-featured__title { font-size: 1.25rem; }
+}

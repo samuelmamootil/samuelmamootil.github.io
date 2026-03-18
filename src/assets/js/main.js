@@ -2,10 +2,16 @@
 const toggle = document.getElementById("navToggle");
 const drawer = document.getElementById("navDrawer");
 if (toggle && drawer) {
-  toggle.addEventListener("click", () => drawer.classList.toggle("open"));
+  toggle.addEventListener("click", () => {
+    const open = drawer.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+  });
 }
 document.querySelectorAll(".nav__drawer a").forEach((a) => {
-  a.addEventListener("click", () => drawer.classList.remove("open"));
+  a.addEventListener("click", () => {
+    drawer.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  });
 });
 
 // ── Umami helper ──
