@@ -9,19 +9,37 @@ title: Projects
   {%- for p in projects %}
 
   {%- if p.images %}
-  <!-- Featured project card -->
+  <!-- Featured project card with slideshow -->
   <div class="proj-featured">
 
-    <!-- Image gallery -->
-    <div class="proj-featured__gallery">
-      {%- for img in p.images %}
-      <div class="proj-featured__img-wrap {% if loop.first %}proj-featured__img-wrap--main{% endif %}">
-        <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" class="proj-featured__img" />
-        {% if loop.first %}<span class="proj-featured__badge">Resume Upload</span>{% endif %}
-        {% if loop.index == 2 %}<span class="proj-featured__badge">Badges &amp; Progress</span>{% endif %}
-        {% if loop.last %}<span class="proj-featured__badge">Architecture</span>{% endif %}
+    <!-- CSS Slideshow -->
+    <div class="proj-slideshow">
+      <input class="proj-slide__radio" type="radio" name="rr-slide" id="slide-1" checked />
+      <input class="proj-slide__radio" type="radio" name="rr-slide" id="slide-2" />
+      <input class="proj-slide__radio" type="radio" name="rr-slide" id="slide-3" />
+
+      <div class="proj-slideshow__track">
+        {%- for img in p.images %}
+        <div class="proj-slide">
+          <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" class="proj-slide__img" />
+          <span class="proj-slide__label">{{ img.alt | replace("ReRhythm — ", "") }}</span>
+        </div>
+        {%- endfor %}
       </div>
-      {%- endfor %}
+
+      <div class="proj-slideshow__dots">
+        <label for="slide-1" class="proj-slideshow__dot" aria-label="Slide 1"></label>
+        <label for="slide-2" class="proj-slideshow__dot" aria-label="Slide 2"></label>
+        <label for="slide-3" class="proj-slideshow__dot" aria-label="Slide 3"></label>
+      </div>
+
+      <label for="slide-2" class="proj-slideshow__arrow proj-slideshow__arrow--next" id="arr-1-next" aria-label="Next">›</label>
+      <label for="slide-3" class="proj-slideshow__arrow proj-slideshow__arrow--next" id="arr-2-next" aria-label="Next">›</label>
+      <label for="slide-1" class="proj-slideshow__arrow proj-slideshow__arrow--next" id="arr-3-next" aria-label="Next">›</label>
+
+      <label for="slide-3" class="proj-slideshow__arrow proj-slideshow__arrow--prev" id="arr-1-prev" aria-label="Previous">‹</label>
+      <label for="slide-1" class="proj-slideshow__arrow proj-slideshow__arrow--prev" id="arr-2-prev" aria-label="Previous">‹</label>
+      <label for="slide-2" class="proj-slideshow__arrow proj-slideshow__arrow--prev" id="arr-3-prev" aria-label="Previous">‹</label>
     </div>
 
     <!-- Content -->
@@ -35,9 +53,7 @@ title: Projects
       <div class="tag-list" style="margin-bottom:1.5rem;">
         {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
       </div>
-      <a href="{{ p.url }}" target="_blank" rel="noopener" class="btn">
-        View on GitHub ↗
-      </a>
+      <a href="{{ p.url }}" target="_blank" rel="noopener" class="btn">View on GitHub ↗</a>
     </div>
 
   </div>
