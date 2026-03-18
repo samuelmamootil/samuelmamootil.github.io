@@ -15,10 +15,11 @@
   {
     "name": "Portfolio Website",
     "type": "Featured Web Project",
-    "summary": "Story-first GitHub Pages portfolio built with Eleventy, Nunjucks, and GitHub Actions — auto-deploys on every push to main.",
+    "summary": "My portfolio page showcasing my work and skills.",
     "highlight": "This site.",
     "url": "https://samuelmamootil.github.io",
     "tags": ["Eleventy", "GitHub Pages", "GitHub Actions", "Nunjucks"],
+    "btnLabel": "View Live Project ↗",
     "images": [
       { "src": "/assets/img/gallery/samuelwebpagesnippet.png", "alt": "Portfolio site screenshot", "label": "Live Site" }
     ]

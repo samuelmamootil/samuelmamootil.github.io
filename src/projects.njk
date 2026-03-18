@@ -36,7 +36,7 @@ title: Projects
       <div class="tag-list" style="margin-bottom:1.5rem;">
         {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
       </div>
-      <a href="{{ p.url }}" target="_blank" rel="noopener" class="btn">View on GitHub ↗</a>
+      <a href="{{ p.url }}" target="_blank" rel="noopener" class="btn">{{ p.btnLabel if p.btnLabel else "View on GitHub ↗" }}</a>
     </div>
 
   </div>
