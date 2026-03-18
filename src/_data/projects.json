@@ -5,7 +5,12 @@
     "summary": "AI-powered 28-day career coaching platform — parses resumes with AWS Textract, generates personalised roadmaps via AWS Bedrock (Claude), deploys on ECS Fargate with CloudFormation, DynamoDB, and KMS.",
     "highlight": "🏆 Second runner-up — AWS Competition, UTA Symposium 2026",
     "url": "https://github.com/samuelmamootil/ReRhythm",
-    "tags": ["AWS Bedrock", "Textract", "ECS Fargate", ".NET", "GitHub Actions", "DynamoDB"]
+    "tags": ["AWS Bedrock", "Textract", "ECS Fargate", ".NET", "GitHub Actions", "DynamoDB"],
+    "images": [
+      { "src": "/assets/img/gallery/reRhythm resume upload.png",        "alt": "ReRhythm — Resume upload screen" },
+      { "src": "/assets/img/gallery/reRhythm badges page.png",           "alt": "ReRhythm — Badges & progress page" },
+      { "src": "/assets/img/gallery/reRhythm architecture diagram.png",  "alt": "ReRhythm — AWS architecture diagram" }
+    ]
   },
   {
     "name": "Portfolio Website",

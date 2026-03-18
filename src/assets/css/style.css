@@ -1396,3 +1396,202 @@ p:last-child { margin-bottom: 0; }
   .photo-credits { padding: 1.25rem 1.5rem; flex-direction: column; align-items: flex-start; gap: .75rem; }
   .photo-credits__links { flex-direction: column; }
 }
+
+/* ── Featured Project Card ───────────────────────────────── */
+.proj-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.proj-featured__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: .75rem;
+}
+
+.proj-featured__img-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  transition: box-shadow .2s, transform .2s;
+}
+
+.proj-featured__img-wrap--main {
+  grid-column: 1 / -1; /* spans full width */
+}
+
+.proj-featured__img-wrap:hover {
+  box-shadow: 0 8px 24px rgba(3,105,161,.15);
+  transform: translateY(-2px);
+}
+
+.proj-featured__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+.proj-featured__img-wrap--main .proj-featured__img {
+  max-height: 260px;
+  object-fit: cover;
+}
+
+.proj-featured__img-wrap:not(.proj-featured__img-wrap--main) .proj-featured__img {
+  max-height: 160px;
+}
+
+.proj-featured__img-wrap:hover .proj-featured__img {
+  transform: scale(1.03);
+}
+
+.proj-featured__badge {
+  position: absolute;
+  bottom: .5rem;
+  left: .5rem;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  padding: .2rem .55rem;
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+}
+
+.proj-featured__body {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.proj-featured__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.proj-featured__award {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--success);
+  margin: 0;
+}
+
+.proj-featured__summary {
+  font-size: .92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .proj-featured { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
+  .proj-featured__gallery { grid-template-columns: 1fr; }
+  .proj-featured__img-wrap--main { grid-column: 1; }
+}
+
+/* ── ReRhythm Home Spotlight ─────────────────────────────── */
+.rr-spotlight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  margin-top: 1.5rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.rr-spotlight:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px rgba(3,105,161,.12);
+  text-decoration: none;
+}
+
+.rr-spotlight__img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.rr-spotlight__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.rr-spotlight:hover .rr-spotlight__img {
+  transform: scale(1.04);
+}
+
+.rr-spotlight__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3,105,161,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.rr-spotlight__overlay span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .03em;
+}
+
+.rr-spotlight:hover .rr-spotlight__overlay {
+  opacity: 1;
+}
+
+.rr-spotlight__body {
+  padding: 1.75rem 1.75rem 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+
+.rr-spotlight__award {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--success);
+  margin: 0;
+}
+
+.rr-spotlight__desc {
+  font-size: .9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .rr-spotlight { grid-template-columns: 1fr; }
+  .rr-spotlight__body { padding: 1.25rem; }
+  .rr-spotlight__img-wrap { aspect-ratio: 16 / 9; }
+}

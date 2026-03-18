@@ -5,8 +5,46 @@ title: Projects
 <section class="section container">
   <p class="eyebrow">Work I've built</p>
   <h1>Projects</h1>
-  <div class="project-grid">
-    {% for p in projects %}
+
+  {%- for p in projects %}
+
+  {%- if p.images %}
+  <!-- Featured project card -->
+  <div class="proj-featured">
+
+    <!-- Image gallery -->
+    <div class="proj-featured__gallery">
+      {%- for img in p.images %}
+      <div class="proj-featured__img-wrap {% if loop.first %}proj-featured__img-wrap--main{% endif %}">
+        <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" class="proj-featured__img" />
+        {% if loop.first %}<span class="proj-featured__badge">Resume Upload</span>{% endif %}
+        {% if loop.index == 2 %}<span class="proj-featured__badge">Badges &amp; Progress</span>{% endif %}
+        {% if loop.last %}<span class="proj-featured__badge">Architecture</span>{% endif %}
+      </div>
+      {%- endfor %}
+    </div>
+
+    <!-- Content -->
+    <div class="proj-featured__body">
+      <p class="eyebrow">{{ p.type }}</p>
+      <h2 class="proj-featured__title">{{ p.name }}</h2>
+      {% if p.highlight %}
+      <p class="proj-featured__award">{{ p.highlight }}</p>
+      {% endif %}
+      <p class="proj-featured__summary">{{ p.summary }}</p>
+      <div class="tag-list" style="margin-bottom:1.5rem;">
+        {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+      <a href="{{ p.url }}" target="_blank" rel="noopener" class="btn">
+        View on GitHub ↗
+      </a>
+    </div>
+
+  </div>
+
+  {%- else %}
+  <!-- Standard project card -->
+  <div class="project-grid" style="margin-top:2rem;">
     <div class="project-card">
       <h2><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }} ↗</a></h2>
       <p class="project-card__type">{{ p.type }}</p>
@@ -16,6 +54,9 @@ title: Projects
         {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
       </div>
     </div>
-    {% endfor %}
   </div>
+  {%- endif %}
+
+  {%- endfor %}
+
 </section>
