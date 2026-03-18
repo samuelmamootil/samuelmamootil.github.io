@@ -1430,14 +1430,11 @@ p:last-child { margin-bottom: 0; }
 .proj-slide {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: opacity .4s ease;
-  pointer-events: none;
+  display: none;
 }
 
 .proj-slide.active {
-  opacity: 1;
-  pointer-events: auto;
+  display: block;
 }
 
 .proj-slide__img {

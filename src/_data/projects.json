@@ -7,9 +7,9 @@
     "url": "https://github.com/samuelmamootil/ReRhythm",
     "tags": ["AWS Bedrock", "Textract", "ECS Fargate", ".NET", "GitHub Actions", "DynamoDB"],
     "images": [
+      { "src": "/assets/img/gallery/reRhythm architecture diagram.png",  "alt": "ReRhythm AWS architecture diagram",  "label": "Architecture" },
       { "src": "/assets/img/gallery/reRhythm resume upload.png",        "alt": "ReRhythm resume upload screen",    "label": "Resume Upload" },
-      { "src": "/assets/img/gallery/reRhythm badges page.png",           "alt": "ReRhythm badges and progress page", "label": "Badges & Progress" },
-      { "src": "/assets/img/gallery/reRhythm architecture diagram.png",  "alt": "ReRhythm AWS architecture diagram",  "label": "Architecture" }
+      { "src": "/assets/img/gallery/reRhythm badges page.png",           "alt": "ReRhythm badges and progress page", "label": "Badges & Progress" }
     ]
   },
   {
@@ -18,6 +18,9 @@
     "summary": "Story-first GitHub Pages portfolio built with Eleventy, Nunjucks, and GitHub Actions — auto-deploys on every push to main.",
     "highlight": "This site.",
     "url": "https://samuelmamootil.github.io",
-    "tags": ["Eleventy", "GitHub Pages", "GitHub Actions", "Nunjucks"]
+    "tags": ["Eleventy", "GitHub Pages", "GitHub Actions", "Nunjucks"],
+    "images": [
+      { "src": "/assets/img/gallery/solo.jpg", "alt": "Portfolio site", "label": "Live Site" }
+    ]
   }
 ]

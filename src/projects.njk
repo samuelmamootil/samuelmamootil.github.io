@@ -66,6 +66,7 @@ document.querySelectorAll('.proj-slideshow').forEach(function(ss) {
   var prev   = ss.querySelector('.proj-slideshow__arrow--prev');
   var next   = ss.querySelector('.proj-slideshow__arrow--next');
   var cur    = 0;
+  var timer;
 
   function go(n) {
     slides[cur].classList.remove('active');
@@ -75,9 +76,15 @@ document.querySelectorAll('.proj-slideshow').forEach(function(ss) {
     dots[cur].classList.add('active');
   }
 
+  function startAuto() { timer = setInterval(function() { go(cur + 1); }, 3500); }
+  function stopAuto()  { clearInterval(timer); }
+
   slides[0].classList.add('active');
-  prev.addEventListener('click', function() { go(cur - 1); });
-  next.addEventListener('click', function() { go(cur + 1); });
-  dots.forEach(function(d, i) { d.addEventListener('click', function() { go(i); }); });
+  startAuto();
+  ss.addEventListener('mouseenter', stopAuto);
+  ss.addEventListener('mouseleave', startAuto);
+  prev.addEventListener('click', function() { stopAuto(); go(cur - 1); startAuto(); });
+  next.addEventListener('click', function() { stopAuto(); go(cur + 1); startAuto(); });
+  dots.forEach(function(d, i) { d.addEventListener('click', function() { stopAuto(); go(i); startAuto(); }); });
 });
 </script>
