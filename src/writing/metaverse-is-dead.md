@@ -2,7 +2,7 @@
 layout: layouts/post.njk
 title: "The Metaverse Is Dead: What Killed It and What Comes Next (2026)"
 description: "Meta spent $80 billion on the metaverse and shut it down. What killed virtual reality's biggest bet, why Horizon Worlds failed, and what Meta's pivot to AI means for the future of tech."
-date: 2026-05-20
+date: 2026-03-20
 tags: [AI, Cloud, Architecture, Industry]
 permalink: /writing/metaverse-is-dead/
 ---
