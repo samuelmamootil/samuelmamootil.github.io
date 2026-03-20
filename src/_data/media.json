@@ -1,5 +1,15 @@
 [
   {
+    "type": "press",
+    "label": "UTA News — 10th Annual AI & Analytics Symposium",
+    "description": "Quoted in the official UTA College of Business news release covering the 10th Annual AI & Analytics Symposium, where ReRhythm placed as second runner-up.",
+    "url": "https://www.uta.edu/academics/schools-colleges/business/news-and-events/releases/2026/03/20/10th-annual-ai-and-analytics-symposium",
+    "publication": "University of Texas at Arlington — College of Business",
+    "date": "March 20, 2026",
+    "quote": "The platform uses AWS Bedrock to generate a personalised 28-day career roadmap based on the user's resume — it was built to solve a real problem students face when entering the job market.",
+    "image": "/assets/img/gallery/solo.jpg"
+  },
+  {
     "type": "linkedin",
     "label": "3rd Place — Analytics Symposium, UTA 2025",
     "description": "Recognised at the UTA Analytics Symposium for ReRhythm, an AI-powered career coaching platform built on AWS Bedrock, ECS Fargate, and DynamoDB.",
