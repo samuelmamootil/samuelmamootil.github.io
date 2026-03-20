@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }} | {{ site.title }}</title>
-  <meta name="description" content="{{ pageDescription if pageDescription else site.description }}" />
+  <meta name="description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta name="author" content="{{ site.author }}" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="keywords" content="Samuel Mamootil, cloud engineer, DevOps engineer, platform engineer, cloud architect, AWS architect, Azure architect, GCP engineer, Terraform engineer, Kubernetes engineer, DevOps expert, AI infrastructure engineer, MLOps engineer, GenAI engineer, agentic AI infrastructure, cloud migration expert, FinOps engineer, cloud cost optimization, GitOps engineer, ArgoCD, AWS CDK, OpenTofu, serverless engineer, AWS Lambda, Azure Functions, Helm charts, Bicep IaC, Azure OpenAI engineer, international student USA, OPT engineer, H1B cloud engineer, sponsorship available, actively seeking cloud roles, green card engineer, master student cloud, UTA student, University of Texas Arlington, cloud computing expert, infrastructure as code, CI/CD expert, Docker Kubernetes, EKS AKS GKE, ECS Fargate, AWS SageMaker, Azure Machine Learning, AWS Bedrock, cloud security expert, zero trust networking, IAM expert, OIDC federation, web developer Arlington TX, site reliability engineer, SRE, platform engineering, enterprise cloud, multi-cloud architect, cloud engineer Texas, DevOps engineer Arlington TX" />
@@ -12,7 +12,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title"       content="{{ title }} | {{ site.title }}" />
-  <meta property="og:description" content="{{ pageDescription if pageDescription else site.description }}" />
+  <meta property="og:description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta property="og:url"         content="{{ site.url }}{{ page.url }}" />
   <meta property="og:type"        content="{% if layout == 'layouts/post.njk' %}article{% else %}website{% endif %}" />
   <meta property="og:image"       content="{{ site.url }}/assets/img/gallery/linkedin.png" />
@@ -25,7 +25,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="{{ title }} | {{ site.title }}" />
-  <meta name="twitter:description" content="{{ pageDescription if pageDescription else site.description }}" />
+  <meta name="twitter:description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta name="twitter:image"       content="{{ site.url }}/assets/img/gallery/linkedin.png" />
 
   <!-- JSON-LD Structured Data -->
@@ -109,7 +109,7 @@
         "@type": "BlogPosting",
         "@id": "{{ site.url }}{{ page.url }}#article",
         "headline": "{{ title }}",
-        "description": "{{ pageDescription if pageDescription else site.description }}",
+        "description": "{{ pageDescription if pageDescription else (description if description else site.description) }}",
         "url": "{{ site.url }}{{ page.url }}",
         "datePublished": "{{ date | isoDate }}",
         "author": { "@id": "{{ site.url }}/#person" },
