@@ -2,7 +2,7 @@
 layout: layouts/post.njk
 title: "DLSS 5 and Neural Rendering: Why Jensen Huang Says the Critics Are Wrong"
 description: "NVIDIA's DLSS 5 is not upscaling. It's not post-processing. Jensen Huang calls it neural rendering — generative AI fused with geometry control. Here's what that actually means, why gamers are skeptical, and who's right."
-date: 2026-05-21
+date: 2026-03-21
 tags: [AI, Industry, Architecture]
 permalink: /writing/dlss-5-neural-rendering/
 ---
