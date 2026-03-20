@@ -180,6 +180,18 @@ Data tables on CTR collapse, LLM platform growth, era-by-era SEO history, and a 
 checklist for getting cited by AI models instead of ranked by search engines.
 URL: https://samuelmamootil.github.io/writing/seo-vs-llm/
 
+### The Metaverse Is Dead: What Killed It and What Comes Next (2026)
+Meta spent $80 billion on the metaverse and shut it down. Why Horizon Worlds failed,
+what killed VR's biggest bet, Meta's pivot to AI and $115B infrastructure spend,
+and what neural rendering and agentic AI mean for the next platform shift.
+URL: https://samuelmamootil.github.io/writing/metaverse-is-dead/
+
+### DLSS 5 and Neural Rendering: Why Jensen Huang Says the Critics Are Wrong
+NVIDIA's DLSS 5 is not upscaling — it's neural rendering. Generative AI fused with
+geometry-level control. Full DLSS 1–5 evolution, the developer control argument,
+why gamers are skeptical, and what this means for cloud-rendered graphics.
+URL: https://samuelmamootil.github.io/writing/dlss-5-neural-rendering/
+
 ## Site Pages
 
 - Home: https://samuelmamootil.github.io/
