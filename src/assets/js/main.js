@@ -222,10 +222,78 @@ document.querySelectorAll(".li-card, .media-card a").forEach((el) => {
 // ── Weather widget ──
 const weatherWidget = document.getElementById("weatherWidget");
 if (weatherWidget) {
+  const icons = {
+    0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️",
+    45: "🌫️", 48: "🌫️",
+    51: "🌦️", 53: "🌦️", 55: "🌧️",
+    61: "🌧️", 63: "🌧️", 65: "🌧️",
+    71: "❄️", 73: "❄️", 75: "❄️",
+    80: "🌦️", 81: "🌧️", 82: "⛈️",
+    95: "⚡", 96: "⚡", 99: "⚡",
+  };
+  const descs = {
+    0: "Clear sky", 1: "Mainly clear", 2: "Partly cloudy", 3: "Overcast",
+    45: "Foggy", 48: "Foggy",
+    51: "Light drizzle", 53: "Drizzle", 55: "Heavy drizzle",
+    61: "Light rain", 63: "Rain", 65: "Heavy rain",
+    71: "Light snow", 73: "Snow", 75: "Heavy snow",
+    80: "Showers", 81: "Rain showers", 82: "Heavy showers",
+    95: "Thunderstorm", 96: "Thunderstorm", 99: "Thunderstorm",
+  };
+
+  let wxData = null;
+  let useFahrenheit = false;
+
+  function toF(c) { return Math.round(c * 9 / 5 + 32); }
+
+  function renderWeather() {
+    if (!wxData) return;
+    const { tempC, code, city, forecast } = wxData;
+    const temp = useFahrenheit ? toF(tempC) : tempC;
+    const unit = useFahrenheit ? "°F" : "°C";
+
+    document.getElementById("weatherIcon").textContent = icons[code] || "🌤️";
+    document.getElementById("weatherTemp").textContent = `${temp}${unit}`;
+    document.getElementById("weatherCity").textContent = city || "";
+    document.getElementById("weatherDesc").textContent = descs[code] || "";
+
+    // Forecast days
+    const forecastEl = document.getElementById("weatherForecast");
+    if (forecastEl && forecast) {
+      forecastEl.innerHTML = forecast.map(d => {
+        const hi = useFahrenheit ? toF(d.hi) : d.hi;
+        const lo = useFahrenheit ? toF(d.lo) : d.lo;
+        return `<span class="wx-day"><span class="wx-day__label">${d.label}</span><span class="wx-day__icon">${icons[d.code] || "🌤️"}</span><span class="wx-day__range">${hi}/${lo}${unit}</span></span>`;
+      }).join("");
+    }
+
+    weatherWidget.hidden = false;
+  }
+
+  // Toggle °C / °F on temp click
+  document.getElementById("weatherTemp").addEventListener("click", () => {
+    useFahrenheit = !useFahrenheit;
+    renderWeather();
+  });
+
   (async () => {
     try {
-      const geo = await getGeo();
-      const { latitude: lat, longitude: lon, city } = geo;
+      // Get coords — use dedicated cache key that preserves lat/lon
+      let lat, lon, city;
+      const coordCache = sessionStorage.getItem("wx_coords");
+      if (coordCache) {
+        ({ lat, lon, city } = JSON.parse(coordCache));
+      } else {
+        const geo = await getGeo();
+        // getGeo() strips lat/lon from its own cache — re-fetch coords directly
+        const res = await fetch("https://ipinfo.io/json?token=");
+        if (res.ok) {
+          const d = await res.json();
+          [lat, lon] = (d.loc || ",").split(",").map(Number);
+          city = d.city || "";
+          sessionStorage.setItem("wx_coords", JSON.stringify({ lat, lon, city }));
+        }
+      }
       if (!lat || !lon) return;
 
       let wx;
@@ -234,38 +302,25 @@ if (weatherWidget) {
         wx = JSON.parse(cachedWx);
       } else {
         wx = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=celsius`
+          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=celsius&timezone=auto&forecast_days=4`
         ).then(r => r.json());
         sessionStorage.setItem("wx", JSON.stringify(wx));
       }
 
-      const temp = Math.round(wx.current_weather.temperature);
-      const code = wx.current_weather.weathercode;
+      const tempC = Math.round(wx.current_weather.temperature);
+      const code  = wx.current_weather.weathercode;
 
-      const icons = {
-        0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️",
-        45: "🌫️", 48: "🌫️",
-        51: "🌦️", 53: "🌦️", 55: "🌧️",
-        61: "🌧️", 63: "🌧️", 65: "🌧️",
-        71: "❄️", 73: "❄️", 75: "❄️",
-        80: "🌦️", 81: "🌧️", 82: "⛈️",
-        95: "⚡", 96: "⚡", 99: "⚡",
-      };
-      const descs = {
-        0: "Clear sky", 1: "Mainly clear", 2: "Partly cloudy", 3: "Overcast",
-        45: "Foggy", 48: "Foggy",
-        51: "Light drizzle", 53: "Drizzle", 55: "Heavy drizzle",
-        61: "Light rain", 63: "Rain", 65: "Heavy rain",
-        71: "Light snow", 73: "Snow", 75: "Heavy snow",
-        80: "Showers", 81: "Rain showers", 82: "Heavy showers",
-        95: "Thunderstorm", 96: "Thunderstorm", 99: "Thunderstorm",
-      };
+      // Build 3-day forecast (skip today = index 0)
+      const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      const forecast = (wx.daily?.time || []).slice(1, 4).map((dateStr, i) => ({
+        label: days[new Date(dateStr).getDay()],
+        code:  wx.daily.weathercode[i + 1],
+        hi:    Math.round(wx.daily.temperature_2m_max[i + 1]),
+        lo:    Math.round(wx.daily.temperature_2m_min[i + 1]),
+      }));
 
-      document.getElementById("weatherIcon").textContent = icons[code] || "🌤️";
-      document.getElementById("weatherTemp").textContent = `${temp}°C`;
-      document.getElementById("weatherCity").textContent = city || "";
-      document.getElementById("weatherDesc").textContent = descs[code] || "";
-      weatherWidget.hidden = false;
+      wxData = { tempC, code, city, forecast };
+      renderWeather();
     } catch (_) {}
   })();
 }

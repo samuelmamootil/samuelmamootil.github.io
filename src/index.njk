@@ -11,11 +11,14 @@ fontPreload: true
       <h1 class="hero__headline">{{ site.heroHeadline }}</h1>
       <p class="hero__intro">{{ site.heroIntro }}</p>
       <div id="weatherWidget" class="weather-widget" hidden>
-        <span id="weatherIcon"></span>
-        <span id="weatherTemp"></span>
-        <span id="weatherCity"></span>
-        <span class="weather-widget__sep">·</span>
-        <span id="weatherDesc"></span>
+        <div class="weather-widget__current">
+          <span id="weatherIcon"></span>
+          <span id="weatherTemp" class="weather-widget__temp" title="Click to toggle °C / °F"></span>
+          <span id="weatherCity"></span>
+          <span class="weather-widget__sep">·</span>
+          <span id="weatherDesc"></span>
+        </div>
+        <div id="weatherForecast" class="weather-widget__forecast"></div>
       </div>
 
       <div class="hero__cta">
