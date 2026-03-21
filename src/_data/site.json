@@ -12,11 +12,11 @@
   "instagram": "",
   "resume": "/resume-view/",
   "heroHeadline": "AWS · Azure · Terraform · Kubernetes · AI Infrastructure — 8 years shipping cloud at enterprise scale.",
-  "heroIntro": "I architect cloud platforms that cut deployment time, eliminate toil, and scale without drama. From zero-trust VPCs to RAG pipelines on AWS Bedrock — I build the infrastructure that lets teams ship faster and sleep better.",
+  "heroIntro": "I architect cloud platforms that cut deployment time, eliminate toil, and scale without drama. From zero-trust VPCs to RAG pipelines on AWS Bedrock — I build the infrastructure that lets teams ship faster and sleep better. Open to Cloud, Platform Engineering, Data Engineering, and AI/ML Infrastructure roles.",
   "story": [
-    "I've spent 7 years building cloud infrastructure for companies like IBM, Wipro, H&M, Siemens, and Nokia — migrating 100+ servers, designing multi-cloud platforms, and shipping AI pipelines that run in production.",
+    "I've spent 8 years building cloud infrastructure for companies like IBM, Wipro, H&M, Siemens, and Nokia — migrating 100+ servers, designing multi-cloud platforms, and shipping AI pipelines that run in production.",
     "My stack is AWS, Azure, Terraform, Kubernetes, and GitHub Actions. My edge is knowing when to use each one — and how to make them work together without creating a maintenance nightmare.",
-    "Right now I'm finishing my Master's at UTA, building ReRhythm (an AI career coach on AWS Bedrock that placed 2nd at the UTA Analytics Symposium), and looking for my next cloud or platform engineering role in the US."
+    "Right now I'm finishing my Master's at UTA, building ReRhythm (an AI career coach on AWS Bedrock that placed 2nd at the UTA Analytics Symposium), and actively looking for Cloud, Platform Engineering, Data Engineering, and AI/ML Infrastructure roles in the US."
   ],
   "strengths": [
     "Cross-cloud delivery across AWS, Azure, and GCP",
