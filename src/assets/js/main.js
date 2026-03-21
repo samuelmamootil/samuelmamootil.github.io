@@ -241,6 +241,10 @@ if (weatherWidget) {
     95: "Thunderstorm", 96: "Thunderstorm", 99: "Thunderstorm",
   };
 
+  // Only US, Liberia (LR), and Myanmar (MM) use °F
+  const FAHRENHEIT_COUNTRIES = new Set(["US", "LR", "MM"]);
+  function usesFahrenheit(countryCode) { return FAHRENHEIT_COUNTRIES.has((countryCode || "").toUpperCase()); }
+
   let wxData = null;
   let useFahrenheit = false;
 
@@ -279,10 +283,10 @@ if (weatherWidget) {
   (async () => {
     try {
       // Get coords — use dedicated cache key that preserves lat/lon
-      let lat, lon, city;
+      let lat, lon, city, country;
       const coordCache = sessionStorage.getItem("wx_coords");
       if (coordCache) {
-        ({ lat, lon, city } = JSON.parse(coordCache));
+        ({ lat, lon, city, country } = JSON.parse(coordCache));
       } else {
         const geo = await getGeo();
         // getGeo() strips lat/lon from its own cache — re-fetch coords directly
@@ -291,7 +295,8 @@ if (weatherWidget) {
           const d = await res.json();
           [lat, lon] = (d.loc || ",").split(",").map(Number);
           city = d.city || "";
-          sessionStorage.setItem("wx_coords", JSON.stringify({ lat, lon, city }));
+          const country = d.country || "";
+          sessionStorage.setItem("wx_coords", JSON.stringify({ lat, lon, city, country }));
         }
       }
       if (!lat || !lon) return;
@@ -319,6 +324,8 @@ if (weatherWidget) {
         lo:    Math.round(wx.daily.temperature_2m_min[i + 1]),
       }));
 
+      const coordData = JSON.parse(sessionStorage.getItem("wx_coords") || "{}");
+      useFahrenheit = usesFahrenheit(country || coordData.country);
       wxData = { tempC, code, city, forecast };
       renderWeather();
     } catch (_) {}
