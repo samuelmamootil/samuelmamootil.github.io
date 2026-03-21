@@ -11,12 +11,12 @@
   "github": "https://github.com/samuelmamootil",
   "instagram": "",
   "resume": "/resume-view/",
-  "heroHeadline": "I build cloud infrastructure that ships fast, scales quietly, and never breaks at 2 AM.",
-  "heroIntro": "Bridging the gap between code and cloud. Building scalable enterprise apps and the resilient AI-driven infrastructure that powers them.",
+  "heroHeadline": "AWS · Azure · Terraform · Kubernetes · AI Infrastructure — 7 years shipping cloud at enterprise scale.",
+  "heroIntro": "I architect cloud platforms that cut deployment time, eliminate toil, and scale without drama. From zero-trust VPCs to RAG pipelines on AWS Bedrock — I build the infrastructure that lets teams ship faster and sleep better.",
   "story": [
-    "I enjoy making infrastructure invisible so builders can focus on what matters: shipping products, serving users, and learning faster.",
-    "My work sits at the intersection of platform engineering, DevOps automation, cloud architecture, and practical AI infrastructure — Azure Machine Learning, AWS SageMaker, and Bedrock.",
-    "This site is part portfolio, part living notebook — a place to share projects, ideas, and moments that shaped the engineer I am becoming."
+    "I've spent 7 years building cloud infrastructure for companies like IBM, Wipro, H&M, Siemens, and Nokia — migrating 100+ servers, designing multi-cloud platforms, and shipping AI pipelines that run in production.",
+    "My stack is AWS, Azure, Terraform, Kubernetes, and GitHub Actions. My edge is knowing when to use each one — and how to make them work together without creating a maintenance nightmare.",
+    "Right now I'm finishing my Master's at UTA, building ReRhythm (an AI career coach on AWS Bedrock that placed 2nd at the UTA Analytics Symposium), and looking for my next cloud or platform engineering role in the US."
   ],
   "strengths": [
     "Cross-cloud delivery across AWS, Azure, and GCP",
