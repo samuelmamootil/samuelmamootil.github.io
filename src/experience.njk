@@ -1,46 +1,47 @@
 ---
 layout: layouts/base.njk
 title: Work Experience
-pageDescription: "Samuel Mamootil's 7+ years of cloud engineering experience at IBM, Wipro, LTIMindtree — AWS, Azure, GCP, Terraform, Kubernetes, and AI infrastructure."
+pageDescription: "Samuel Mamootil's cloud engineering career — case studies from Wipro, IBM, LTIMindtree, and NeuroSpeech. AWS, Azure, GCP, Terraform, Kubernetes, DevOps, and AI infrastructure."
 ---
 
 <section class="section container">
   <p class="eyebrow">Career</p>
   <h1>Work Experience</h1>
-  <p class="lead">7+ years across enterprise cloud programs, startup products, and academic research — spanning AWS, Azure, GCP, and AI infrastructure.</p>
+  <p class="lead">Each role is presented as a case study — not just a job title and bullet points. Click any card to read the full context, architecture, and outcomes.</p>
 
-  <div class="timeline">
-    {% for job in experience %}
-    <div class="timeline__item">
-      <div class="timeline__marker"></div>
-      <div class="timeline__card">
-        <div class="timeline__header">
-          {% if job.logoUrl %}
-          <img src="{{ job.logoUrl }}" alt="{{ job.company }} logo" class="company-logo" width="40" height="40" onerror="this.style.display='none'" />
-          {% else %}
-          <span class="company-logo-text" style="background:{{ job.logoColor }}">{{ job.logoText }}</span>
-          {% endif %}
-          <div>
-            <h2 class="timeline__role">{{ job.role }}</h2>
-            <p class="timeline__company">
-              <a href="{{ job.companyUrl }}" target="_blank" rel="noopener">{{ job.company }}</a>
-              &middot; {{ job.location }} &middot; <span class="timeline__period">{{ job.period }}</span>
-            </p>
-          </div>
-        </div>
-        <p class="timeline__summary">{{ job.summary }}</p>
-        {% if job.clients.length %}
-        <p class="timeline__clients">
-          <strong>Clients:</strong>
-          {% for c in job.clients %}<span class="tag">{{ c }}</span> {% endfor %}
-        </p>
-        {% endif %}
-        <div class="tag-list">
-          {% for t in job.stack %}<span class="tag">{{ t }}</span>{% endfor %}
+  <div class="cs-index-grid cs-index-grid--full" style="margin-top:2rem;">
+    {% for cs in casestudies %}
+    <a class="cs-card" href="/work/{{ cs.slug }}/">
+      <div class="cs-card__header">
+        <span class="cs-card__logo" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
+        <div>
+          <p class="cs-card__eyebrow">{{ cs.eyebrow }}</p>
+          <h2 class="cs-card__company">{{ cs.company }}</h2>
+          <p class="cs-card__role">{{ cs.role }}</p>
+          <p class="cs-card__period">{{ cs.period }} &middot; {{ cs.location }}</p>
         </div>
       </div>
-    </div>
+      <p class="cs-card__headline">{{ cs.headline }}</p>
+      <div class="tag-list">
+        {% for t in cs.tags | slice(0, 5) %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+      <span class="cs-card__cta">Read case study →</span>
+    </a>
     {% endfor %}
+  </div>
+
+  <!-- UTA role — not a case study, shown as a simple card -->
+  <div class="cs-card cs-card--plain" style="margin-top:1.25rem;">
+    <div class="cs-card__header">
+      <span class="cs-card__logo" style="background:#BF5700">UTA</span>
+      <div>
+        <p class="cs-card__eyebrow">Web Development · Academic</p>
+        <h2 class="cs-card__company">UTA College of Business</h2>
+        <p class="cs-card__role">Student Web Developer (Part-time)</p>
+        <p class="cs-card__period">Jan 2025 – Present &middot; Arlington, TX</p>
+      </div>
+    </div>
+    <p class="cs-card__headline">Maintaining web applications, updating content, and supporting high-visibility digital campaigns and college events at the University of Texas at Arlington.</p>
   </div>
 </section>
 
@@ -70,7 +71,7 @@ pageDescription: "Samuel Mamootil's 7+ years of cloud engineering experience at 
         <div class="ref-card__header">
           <div class="ref-card__avatar" style="background:#BF5700">UTA</div>
           <div>
-            <h3 class="ref-card__name">Dara  McCluskey</h3>
+            <h3 class="ref-card__name">Dara McCluskey</h3>
             <p class="ref-card__title">Director of Marketing &amp; Communications</p>
             <span class="tag">UTA</span>
           </div>
@@ -120,7 +121,7 @@ pageDescription: "Samuel Mamootil's 7+ years of cloud engineering experience at 
 
       <div class="ref-card">
         <div class="ref-card__header">
-          <div class="ref-card__avatar" style="background:#0a0a0a; font-style:italic;">N</div>
+          <div class="ref-card__avatar" style="background:#0a0a0a;font-style:italic;">N</div>
           <div>
             <h3 class="ref-card__name">Suvarna Pharse</h3>
             <p class="ref-card__title">HR Manager</p>

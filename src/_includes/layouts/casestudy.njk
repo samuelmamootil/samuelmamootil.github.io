@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+---
+<article>
+
+  <section class="cs-hero">
+    <div class="container">
+      <a href="/work/" class="post-back">← Case Studies</a>
+      <p class="eyebrow">{{ eyebrow }}</p>
+      <h1>{{ headline }}</h1>
+      <div class="cs-hero__meta">
+        <span class="cs-meta-item">
+          <span class="cs-meta-label">Company</span>
+          <a href="{{ companyUrl }}" target="_blank" rel="noopener" class="cs-meta-value">{{ company }}</a>
+        </span>
+        <span class="cs-meta-item">
+          <span class="cs-meta-label">Role</span>
+          <span class="cs-meta-value">{{ role }}</span>
+        </span>
+        <span class="cs-meta-item">
+          <span class="cs-meta-label">Period</span>
+          <span class="cs-meta-value">{{ period }}</span>
+        </span>
+        <span class="cs-meta-item">
+          <span class="cs-meta-label">Location</span>
+          <span class="cs-meta-value">{{ location }}</span>
+        </span>
+      </div>
+      <div class="tag-list cs-hero__tags">
+        {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="cs-body container">
+
+    <div class="cs-grid">
+
+      <div class="cs-main">
+
+        <section class="cs-section">
+          <h2>Business Context</h2>
+          <p>{{ context }}</p>
+        </section>
+
+        <section class="cs-section">
+          <h2>The Challenge</h2>
+          <p>{{ challenge }}</p>
+        </section>
+
+        <section class="cs-section">
+          <h2>Approach &amp; Architecture</h2>
+          <p>{{ approach }}</p>
+          {% if architecture %}
+          <div class="cs-arch-block">
+            <p class="cs-arch-label">Architecture notes</p>
+            <p>{{ architecture }}</p>
+          </div>
+          {% endif %}
+        </section>
+
+        <section class="cs-section">
+          <h2>What I Owned</h2>
+          <ul class="cs-list">
+            {% for item in owned %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </section>
+
+        <section class="cs-section">
+          <h2>Outcomes</h2>
+          <ul class="cs-list cs-list--outcomes">
+            {% for item in outcomes %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </section>
+
+        {% if lessons %}
+        <section class="cs-section">
+          <h2>Lessons Learned</h2>
+          <blockquote class="cs-quote">{{ lessons }}</blockquote>
+        </section>
+        {% endif %}
+
+      </div>
+
+      <aside class="cs-sidebar">
+        <div class="cs-sidebar__card">
+          <p class="cs-sidebar__label">Tools &amp; Stack</p>
+          <div class="tag-list">
+            {% for t in tools %}<span class="tag">{{ t }}</span>{% endfor %}
+          </div>
+        </div>
+        <div class="cs-sidebar__card">
+          <p class="cs-sidebar__label">Explore more</p>
+          <a href="/work/" class="btn btn--ghost btn--sm" style="width:100%;justify-content:center;">All Case Studies</a>
+          <a href="/experience/" class="btn btn--ghost btn--sm" style="width:100%;justify-content:center;margin-top:.5rem;">Full Experience</a>
+          <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" style="width:100%;justify-content:center;margin-top:.5rem;">LinkedIn</a>
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+
+</article>

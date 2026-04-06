@@ -1,0 +1,77 @@
+---
+layout: layouts/base.njk
+title: Case Studies
+pageDescription: "Technical case studies from Samuel Mamootil's cloud engineering career — Wipro, IBM, LTIMindtree, and NeuroSpeech. Cloud migrations, DevOps platforms, data engineering, and more."
+---
+
+<section class="section container">
+  <p class="eyebrow">Selected Work</p>
+  <h1>Case Studies</h1>
+  <p class="lead">Each role below is presented as a case study — showing the business context, technical challenge, architecture decisions, what I owned, and what changed as a result. This is the depth behind the resume.</p>
+
+  <div class="cs-index-grid">
+    {% for cs in casestudies %}
+    <a class="cs-card" href="/work/{{ cs.slug }}/">
+      <div class="cs-card__header">
+        <span class="cs-card__logo" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
+        <div>
+          <p class="cs-card__eyebrow">{{ cs.eyebrow }}</p>
+          <h2 class="cs-card__company">{{ cs.company }}</h2>
+          <p class="cs-card__role">{{ cs.role }}</p>
+          <p class="cs-card__period">{{ cs.period }}</p>
+        </div>
+      </div>
+      <p class="cs-card__headline">{{ cs.headline }}</p>
+      <div class="tag-list">
+        {% for t in cs.tags | slice(0, 5) %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+      <span class="cs-card__cta">Read case study →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <p class="eyebrow">Themes across all work</p>
+    <h2>What runs through everything</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Cloud Platforms</h3>
+        <ul class="tag-list">
+          <li class="tag">AWS</li><li class="tag">Azure</li><li class="tag">GCP</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Infrastructure as Code</h3>
+        <ul class="tag-list">
+          <li class="tag">Terraform</li><li class="tag">Bicep</li><li class="tag">ARM Templates</li><li class="tag">CloudFormation</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>DevOps & CI/CD</h3>
+        <ul class="tag-list">
+          <li class="tag">GitHub Actions</li><li class="tag">Azure DevOps</li><li class="tag">GitLab CI/CD</li><li class="tag">Jenkins</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Containers & Orchestration</h3>
+        <ul class="tag-list">
+          <li class="tag">Kubernetes</li><li class="tag">Helm</li><li class="tag">Docker</li><li class="tag">EKS</li><li class="tag">ECS Fargate</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Data & AI</h3>
+        <ul class="tag-list">
+          <li class="tag">Redshift</li><li class="tag">AWS Glue</li><li class="tag">AWS Bedrock</li><li class="tag">SageMaker</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Governance & Security</h3>
+        <ul class="tag-list">
+          <li class="tag">Landing Zones</li><li class="tag">IAM</li><li class="tag">Zero Trust</li><li class="tag">Cloud Governance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

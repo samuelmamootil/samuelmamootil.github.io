@@ -1677,3 +1677,225 @@ p:last-child { margin-bottom: 0; }
   object-fit: cover; object-position: top;
   display: block;
 }
+
+/* ── CASE STUDY INDEX GRID ───────────────────────────────── */
+.cs-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.cs-card {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.cs-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 28px rgba(3,105,161,.1);
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+.cs-card--plain { cursor: default; }
+.cs-card--plain:hover { transform: none; border-color: var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.04); }
+
+.cs-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+}
+.cs-card__logo {
+  width: 42px; height: 42px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .7rem; color: #fff;
+  flex-shrink: 0; letter-spacing: .02em;
+}
+.cs-card__eyebrow {
+  font-size: .7rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 .2rem;
+}
+.cs-card__company {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--text); margin: 0 0 .1rem;
+  line-height: 1.2;
+}
+.cs-card__role {
+  font-size: .82rem; color: var(--text-muted); margin: 0;
+}
+.cs-card__period {
+  font-size: .78rem; color: var(--text-muted); margin: 0;
+}
+.cs-card__headline {
+  font-size: .9rem; color: var(--text-muted);
+  line-height: 1.55; margin: 0; flex: 1;
+}
+.cs-card__cta {
+  font-size: .82rem; font-weight: 600;
+  color: var(--accent); margin-top: auto;
+}
+.cs-card:hover .cs-card__cta { text-decoration: underline; }
+
+/* ── CASE STUDY PAGE ─────────────────────────────────────── */
+.cs-hero {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.cs-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700; line-height: 1.2;
+  max-width: 760px; margin: .75rem 0 1.5rem;
+}
+.cs-hero__meta {
+  display: flex; flex-wrap: wrap; gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.cs-meta-item {
+  display: flex; flex-direction: column; gap: .1rem;
+}
+.cs-meta-label {
+  font-size: .68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--text-muted);
+}
+.cs-meta-value {
+  font-size: .9rem; font-weight: 500; color: var(--text);
+}
+a.cs-meta-value { color: var(--accent); }
+a.cs-meta-value:hover { text-decoration: underline; }
+.cs-hero__tags { margin-top: .5rem; }
+
+.cs-body { padding: 3rem 0 5rem; }
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.cs-main { display: flex; flex-direction: column; gap: 0; }
+
+.cs-section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.cs-section:last-child { border-bottom: none; }
+.cs-section h2 {
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--text); margin-bottom: .85rem;
+}
+.cs-section p { color: var(--text-muted); line-height: 1.7; }
+
+.cs-arch-block {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+.cs-arch-label {
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--accent); margin-bottom: .4rem !important;
+}
+
+.cs-list {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.cs-list li {
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: .92rem; color: var(--text-muted); line-height: 1.6;
+}
+.cs-list li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--accent); font-weight: 700;
+}
+.cs-list--outcomes li::before { content: '✓'; color: var(--success); }
+
+.cs-quote {
+  border-left: 3px solid var(--accent-2);
+  padding: .85rem 1.25rem;
+  margin: 0;
+  font-style: italic;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: .95rem; line-height: 1.7;
+}
+
+.cs-sidebar {
+  position: sticky; top: calc(var(--nav-h) + 1.5rem);
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.cs-sidebar__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.cs-sidebar__label {
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--text-muted); margin-bottom: .75rem !important;
+}
+
+@media (max-width: 860px) {
+  .cs-grid { grid-template-columns: 1fr; }
+  .cs-sidebar { position: static; }
+}
+@media (max-width: 600px) {
+  .cs-hero { padding: 2.5rem 0 2rem; }
+  .cs-hero__meta { gap: .85rem; }
+  .cs-index-grid { grid-template-columns: 1fr; }
+}
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+.faq-list {
+  display: flex; flex-direction: column; gap: .75rem;
+  max-width: 760px; margin-top: 1.5rem;
+}
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq-item[open] { border-color: var(--accent); }
+.faq-item__q {
+  padding: 1rem 1.25rem;
+  font-weight: 600; font-size: .95rem;
+  color: var(--text); cursor: pointer;
+  list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem;
+}
+.faq-item__q::-webkit-details-marker { display: none; }
+.faq-item__q::after {
+  content: '+'; font-size: 1.2rem; font-weight: 400;
+  color: var(--accent); flex-shrink: 0;
+  transition: transform .2s;
+}
+.faq-item[open] .faq-item__q::after { content: '−'; }
+.faq-item__a {
+  padding: 0 1.25rem 1rem;
+  font-size: .9rem; color: var(--text-muted);
+  line-height: 1.7; margin: 0;
+  border-top: 1px solid var(--border);
+  padding-top: .85rem;
+}

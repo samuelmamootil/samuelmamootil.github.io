@@ -1,0 +1,130 @@
+[
+  {
+    "slug": "wipro",
+    "company": "Wipro",
+    "companyUrl": "https://www.wipro.com/",
+    "role": "Tech Lead — Cloud & Data Platform Engineering",
+    "period": "Feb 2024 – Apr 2025",
+    "location": "Mumbai, India",
+    "logoText": "Wipro",
+    "logoColor": "#9b1c1c",
+    "eyebrow": "AWS · Data Engineering · Infrastructure Automation",
+    "headline": "Enabling a cloud data platform that gave a global benefits provider reliable, automated infrastructure for its data workloads.",
+    "context": "Alight Solutions, a global HR and benefits technology company, needed a stable, scalable cloud data platform on AWS to support growing data engineering workloads. The existing infrastructure had gaps in automation, consistency, and operational reliability — slowing down the data engineering team's ability to ship.",
+    "challenge": "The team needed reusable, production-grade AWS infrastructure that could support Redshift clusters, Glue ETL jobs, and S3-based data pipelines — without requiring manual provisioning for every new workload. Deployment processes were inconsistent, and there was limited visibility into infrastructure state.",
+    "approach": "Led a 7-engineer team to design and deliver reusable Terraform modules for core AWS resources. Standardised the provisioning of Redshift, Glue, S3, and supporting IAM and networking components. Introduced blue-green deployment patterns to reduce deployment risk and implemented secure automation practices across the platform.",
+    "tools": ["AWS", "Terraform", "Amazon Redshift", "AWS Glue", "Amazon S3", "IAM", "VPC", "GitHub Actions", "Python"],
+    "architecture": "Modular Terraform codebase with environment-specific variable files. Redshift clusters provisioned behind private subnets with IAM role-based access. Glue jobs triggered via EventBridge schedules with S3 as the data lake layer. Blue-green deployment strategy applied to infrastructure changes to minimise blast radius.",
+    "owned": [
+      "Technical leadership of a 7-engineer cloud and data platform team",
+      "Terraform module design and reusability standards",
+      "AWS infrastructure provisioning for Redshift, Glue, and S3 workloads",
+      "Secure automation patterns and IAM governance",
+      "Blue-green deployment strategy for infrastructure changes"
+    ],
+    "outcomes": [
+      "Delivered reusable Terraform modules that reduced provisioning time for new data workloads",
+      "Standardised infrastructure across environments, reducing configuration drift",
+      "Blue-green deployment approach reduced deployment-related incidents",
+      "Data engineering team gained reliable, self-service infrastructure for pipeline development"
+    ],
+    "lessons": "Reusability in IaC pays off fastest when the team agrees on module boundaries early. Investing in blue-green patterns for infrastructure — not just application deployments — meaningfully reduces operational risk.",
+    "tags": ["AWS", "Terraform", "Redshift", "Glue", "S3", "Data Platform", "IaC", "Blue-Green Deployment"]
+  },
+  {
+    "slug": "ibm",
+    "company": "IBM",
+    "companyUrl": "https://www.ibm.com/",
+    "role": "Junior Tech Lead — Multi-Cloud DevOps & Platform Engineering",
+    "period": "Nov 2021 – Feb 2024",
+    "location": "Mumbai, India",
+    "logoText": "IBM",
+    "logoColor": "#1F70C1",
+    "eyebrow": "Azure · AWS · GCP · Multi-Cloud Modernisation · Client Delivery",
+    "headline": "Accelerating cloud modernisation for global enterprise clients across Azure, AWS, and GCP — from landing zones to production-grade CI/CD pipelines.",
+    "context": "IBM's Azure Cloud Practice works with large enterprise clients to design and deliver cloud modernisation programs. Clients including H&M, Südzucker, Nokia, and Siemens needed to migrate workloads, establish cloud governance, and build repeatable DevOps delivery patterns across multiple cloud providers.",
+    "challenge": "Each client had different starting points — legacy on-premise workloads, inconsistent deployment practices, and limited cloud governance. The challenge was to deliver cloud migration and modernisation at enterprise scale while maintaining security, compliance, and operational consistency across Azure, AWS, and GCP.",
+    "approach": "Worked as a DevOps engineer and lead within IBM's Azure Cloud Practice. Delivered cloud migrations and modernisation engagements across multiple clients. Built and maintained Helm charts for Kubernetes workloads, designed Docker-based deployment pipelines, and implemented GitHub Actions and Azure DevOps CI/CD workflows. Established Azure landing zones and cloud governance frameworks. Built POCs to demonstrate technology stacks and best practices to client stakeholders.",
+    "tools": ["Azure", "AWS", "GCP", "Terraform", "Helm", "Kubernetes", "Docker", "GitHub Actions", "Azure DevOps", "GitLab CI/CD", "ARM Templates", "Bicep", "Azure Landing Zones"],
+    "architecture": "Multi-cloud delivery using Azure landing zones as the governance foundation. Kubernetes workloads managed via Helm charts with environment-specific value overrides. CI/CD pipelines built on GitHub Actions and Azure DevOps with staged deployment gates. Terraform used for infrastructure provisioning across all three cloud providers. POC environments spun up rapidly using modular IaC to demonstrate patterns to clients.",
+    "owned": [
+      "End-to-end cloud migration delivery for enterprise clients",
+      "Helm chart design and Kubernetes deployment patterns",
+      "GitHub Actions and Azure DevOps pipeline implementation",
+      "Azure landing zone design and cloud governance frameworks",
+      "Client-facing POC development and technical storytelling",
+      "Multi-cloud Terraform provisioning across Azure, AWS, and GCP"
+    ],
+    "outcomes": [
+      "Delivered cloud migration and modernisation programs for H&M, Südzucker, Nokia, and Siemens",
+      "Established repeatable landing zone and governance patterns adopted across client engagements",
+      "Built POCs that accelerated client decision-making on cloud platform choices",
+      "Reduced deployment friction through standardised CI/CD pipeline templates",
+      "Enabled client teams to operate cloud workloads independently post-migration"
+    ],
+    "lessons": "Enterprise cloud migrations succeed when governance is designed in from day one, not retrofitted. POCs are most effective when they answer a specific client question — not just demonstrate a technology.",
+    "tags": ["Azure", "AWS", "GCP", "Terraform", "Helm", "Kubernetes", "Docker", "GitHub Actions", "Azure DevOps", "Landing Zones", "Multi-Cloud", "DevOps"]
+  },
+  {
+    "slug": "ltimindtree",
+    "company": "LTIMindtree",
+    "companyUrl": "https://www.ltimindtree.com/",
+    "role": "Software Engineer — Cloud Adoption & Platform Enablement",
+    "period": "Apr 2018 – Nov 2021",
+    "location": "Bengaluru, India",
+    "logoText": "LTM",
+    "logoColor": "#e05b2b",
+    "eyebrow": "Azure · Terraform · Cloud Adoption · Internal Tooling",
+    "headline": "Building internal cloud capability and client-facing enablement tools that helped a global IT services firm demonstrate and deliver cloud adoption at scale.",
+    "context": "LTIMindtree (then Larsen & Toubro Infotech) was growing its cloud practice and needed to both deliver cloud adoption projects for clients and build internal tools that showcased technical capabilities. Clients including Parexel, Regeneron, and Veolia Water needed cloud migration support and operational cloud delivery.",
+    "challenge": "The cloud practice needed a way to communicate technical capabilities clearly to clients and prospects — while also delivering real cloud adoption work. Internal tooling was limited, and there was no centralised way to showcase the team's cloud skills and POC work.",
+    "approach": "Supported Azure delivery, ETL workloads, and security controls for client engagements. Built an internal web portal using PHP to showcase the cloud practice's capabilities, case studies, and technical skills to internal stakeholders and clients. Used Terraform to build POCs that demonstrated cloud infrastructure patterns and accelerated client conversations. Contributed to cloud migration strategies and lift-and-shift planning.",
+    "tools": ["Azure", "Terraform", "PHP", "Azure DevOps", "ETL", "Cloud Security", "IAM"],
+    "architecture": "Internal capability portal built in PHP, hosted on Azure, serving as a living showcase of the cloud practice's work. Terraform-based POC environments used to demonstrate Azure infrastructure patterns to clients. Azure DevOps pipelines for CI/CD on client delivery projects.",
+    "owned": [
+      "Internal cloud practice web portal development (PHP)",
+      "Terraform POC development for client demonstrations",
+      "Azure cloud delivery support for Parexel, Regeneron, and Veolia Water",
+      "Lift-and-shift migration planning and execution support",
+      "ETL workload support and cloud security controls"
+    ],
+    "outcomes": [
+      "Internal portal improved visibility of the cloud practice's capabilities to stakeholders and clients",
+      "Terraform POCs accelerated client onboarding and reduced time-to-decision on cloud adoption",
+      "Supported successful cloud migrations for multiple enterprise clients",
+      "Contributed to growing the cloud practice's delivery capacity and technical credibility"
+    ],
+    "lessons": "Internal tooling that makes a team's work visible is often undervalued — but it directly influences how clients and leadership perceive capability. Engineering communication is a real skill.",
+    "tags": ["Azure", "Terraform", "PHP", "Cloud Migration", "ETL", "Azure DevOps", "Cloud Security", "Internal Tooling"]
+  },
+  {
+    "slug": "neurospeech",
+    "company": "NeuroSpeech",
+    "companyUrl": "https://www.neurospeech.com/",
+    "role": "Junior Developer — Application Engineering",
+    "period": "Aug 2017 – Apr 2018",
+    "location": "Mumbai, India",
+    "logoText": "NS",
+    "logoColor": "#0a0a0a",
+    "eyebrow": "Android · MVVM · Application Engineering",
+    "headline": "Building maintainable Android applications with clean architecture patterns at a product-focused software company.",
+    "context": "NeuroSpeech is a software product and services company focused on building technology solutions. As a junior developer, this was the foundation of a professional engineering career — learning to write production code, work within a team, and build software that real users depend on.",
+    "challenge": "Delivering Android application features that were maintainable, testable, and consistent with the team's architecture standards. The challenge was developing the discipline and engineering habits that would carry through an entire career.",
+    "approach": "Developed Android applications using MVVM architecture patterns. Built and maintained UI components with a focus on code readability and maintainability. Worked within a team codebase, following code review processes and engineering standards.",
+    "tools": ["Android", "Java", "MVVM", "XML Layouts", "Git"],
+    "architecture": "MVVM pattern separating UI, business logic, and data layers. Android UI components built with XML layouts and data binding. Version control via Git with team-based branching and code review.",
+    "owned": [
+      "Android application feature development",
+      "MVVM architecture implementation for UI components",
+      "Code quality and maintainability within team standards",
+      "Participation in code review and engineering processes"
+    ],
+    "outcomes": [
+      "Delivered Android application features that shipped to production",
+      "Developed foundational engineering habits — clean code, architecture discipline, team collaboration",
+      "Built the technical foundation that enabled rapid growth into cloud and platform engineering roles"
+    ],
+    "lessons": "The habits formed in early engineering roles — clean architecture, code review discipline, and thinking about maintainability — compound over time. This is where the foundation was built.",
+    "tags": ["Android", "Java", "MVVM", "Mobile Development", "Application Engineering"]
+  }
+]

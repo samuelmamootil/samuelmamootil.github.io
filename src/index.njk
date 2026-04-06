@@ -1,13 +1,14 @@
 ---
 layout: layouts/base.njk
 title: Home
+pageDescription: "Samuel Mamootil — Cloud & Platform Engineer in Arlington, TX. AWS, Azure, GCP, Terraform, Kubernetes, DevOps. Case studies from IBM, Wipro, and LTIMindtree. Azure certified. Open to Cloud, SRE, and Platform Engineering roles."
 fontPreload: true
 ---
 
 <section class="hero">
   <div class="hero__inner container">
     <div class="hero__text">
-      <p class="eyebrow">Cloud &amp; Platform Engineer · AI Infrastructure · DevOps</p>
+      <p class="eyebrow">Cloud · Platform Engineering · DevOps · SRE · AI Infrastructure</p>
       <h1 class="hero__headline">{{ site.heroHeadline }}</h1>
       <p class="hero__intro">{{ site.heroIntro }}</p>
       <div id="weatherWidget" class="weather-widget" hidden>
@@ -20,29 +21,63 @@ fontPreload: true
         </div>
         <div id="weatherForecast" class="weather-widget__forecast"></div>
       </div>
-
       <div class="hero__cta">
-        <a href="/experience/" class="btn">View Experience</a>
-        <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+        <a href="/work/" class="btn">View Case Studies</a>
+        <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
       </div>
     </div>
     <div class="hero__avatar">
-  <img src="https://github.com/samuelmamootil.png"
-       alt="Samuel Mamootil"
-       width="220" height="220" />
-</div>
-
+      <img src="https://github.com/samuelmamootil.png"
+           alt="Samuel Mamootil — Cloud and Platform Engineer, Arlington TX"
+           width="220" height="220" />
+    </div>
   </div>
 </section>
 
-<section class="section container">
-  <p class="eyebrow">About me</p>
+<!-- CASE STUDIES -->
+<section class="section section--alt" id="case-studies">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Selected Work</p>
+        <h2>Case Studies</h2>
+      </div>
+      <a href="/work/" class="btn btn--ghost btn--sm">All case studies &rarr;</a>
+    </div>
+    <p style="max-width:640px;margin-bottom:2rem;">Each role is presented as a case study — business context, technical challenge, architecture, what I owned, and what changed. This is the depth behind the resume.</p>
+
+    <div class="cs-index-grid">
+      {% for cs in casestudies %}
+      <a class="cs-card" href="/work/{{ cs.slug }}/">
+        <div class="cs-card__header">
+          <span class="cs-card__logo" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
+          <div>
+            <p class="cs-card__eyebrow">{{ cs.eyebrow }}</p>
+            <h3 class="cs-card__company">{{ cs.company }}</h3>
+            <p class="cs-card__period">{{ cs.period }}</p>
+          </div>
+        </div>
+        <p class="cs-card__headline">{{ cs.headline }}</p>
+        <div class="tag-list">
+          {% for t in cs.tags | slice(0, 4) %}<span class="tag">{{ t }}</span>{% endfor %}
+        </div>
+        <span class="cs-card__cta">Read case study →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section container" id="about">
+  <p class="eyebrow">About</p>
   <h2>The short version</h2>
   <div class="story-grid">
     {% for line in site.story %}<p>{{ line }}</p>{% endfor %}
   </div>
 </section>
 
+<!-- CAPABILITIES -->
 <section class="section section--alt">
   <div class="container">
     <p class="eyebrow">Capabilities</p>
@@ -60,6 +95,55 @@ fontPreload: true
   </div>
 </section>
 
+<!-- CERTIFICATIONS -->
+<section class="section container">
+  <p class="eyebrow">Certifications</p>
+  <h2>Microsoft Azure certified</h2>
+  <div class="cert-row">
+    {% for cert in site.certifications %}
+    <div class="cert-badge">
+      <span class="cert-badge__code" style="color:{{ cert.color }}">{{ cert.code }}</span>
+      <span class="cert-badge__name">{{ cert.name }}</span>
+      <span class="cert-badge__issuer">{{ cert.issuer }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- FEATURED PROJECT -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Featured Project</p>
+        <h2>ReRhythm — AI Career Coach</h2>
+      </div>
+      <a href="/projects/" class="btn btn--ghost btn--sm">All projects &rarr;</a>
+    </div>
+
+    <a href="/projects/" class="rr-spotlight">
+      <div class="rr-spotlight__img-wrap">
+        <img src="/assets/img/gallery/reRhythm resume upload.png"
+             alt="ReRhythm resume upload screen"
+             loading="lazy" class="rr-spotlight__img" />
+        <div class="rr-spotlight__overlay"><span>View Project &rarr;</span></div>
+      </div>
+      <div class="rr-spotlight__body">
+        <p class="rr-spotlight__award">🏆 Second runner-up &mdash; AWS Competition, UTA Symposium 2026</p>
+        <p class="rr-spotlight__desc">AI-powered career coaching platform that parses your resume with AWS Textract and generates a personalised 28-day roadmap via AWS Bedrock (Claude). Built on ECS Fargate, DynamoDB, and CloudFormation.</p>
+        <div class="tag-list">
+          <span class="tag">AWS Bedrock</span>
+          <span class="tag">Textract</span>
+          <span class="tag">ECS Fargate</span>
+          <span class="tag">.NET</span>
+          <span class="tag">DynamoDB</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- GALLERY PREVIEW -->
 <section class="section container">
   <div class="section-header">
     <div>
@@ -87,70 +171,45 @@ fontPreload: true
   </div>
 </section>
 
+<!-- BLOG -->
 <section class="section section--alt">
   <div class="container">
-    <p class="eyebrow">Certifications</p>
-    <h2>Microsoft Azure certified</h2>
-    <div class="cert-row">
-      {% for cert in site.certifications %}
-      <div class="cert-badge">
-        <span class="cert-badge__code" style="color:{{ cert.color }}">{{ cert.code }}</span>
-        <span class="cert-badge__name">{{ cert.name }}</span>
-        <span class="cert-badge__issuer">{{ cert.issuer }}</span>
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Writing</p>
+        <h2>Latest from the blog</h2>
       </div>
+      <a href="/writing/" class="btn btn--ghost btn--sm">All posts &rarr;</a>
+    </div>
+    <div class="post-list">
+      {% for post in collections.posts %}
+      {% if loop.index <= 3 %}
+      <a class="post-card" href="{{ post.url }}">
+        <img class="post-card__img" src="{{ post.data.tags | postImage }}" alt="{{ post.data.title }}" loading="lazy" />
+        <div class="post-card__body">
+          <p class="post-card__date">{{ post.date | readableDate }}</p>
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.description }}</p>
+        </div>
+      </a>
+      {% endif %}
+      {% else %}
+      <p>No posts yet.</p>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section container">
-  <div class="section-header">
-    <div>
-      <p class="eyebrow">Featured Project</p>
-      <h2>ReRhythm — AI Career Coach</h2>
-    </div>
-    <a href="/projects/" class="btn btn--ghost btn--sm">All projects &rarr;</a>
-  </div>
-
-  <a href="/projects/" class="rr-spotlight">
-    <div class="rr-spotlight__img-wrap">
-      <img src="/assets/img/gallery/reRhythm resume upload.png"
-           alt="ReRhythm resume upload screen"
-           loading="lazy" class="rr-spotlight__img" />
-      <div class="rr-spotlight__overlay"><span>View Project &rarr;</span></div>
-    </div>
-    <div class="rr-spotlight__body">
-      <p class="rr-spotlight__award">🏆 Second runner-up &mdash; AWS Competition, UTA Symposium 2026</p>
-      <p class="rr-spotlight__desc">AI-powered career coaching platform that parses your resume with AWS Textract and generates a personalised 28-day roadmap via AWS Bedrock (Claude). Built on ECS Fargate, DynamoDB, and CloudFormation.</p>
-      <div class="tag-list">
-        <span class="tag">AWS Bedrock</span>
-        <span class="tag">Textract</span>
-        <span class="tag">ECS Fargate</span>
-        <span class="tag">.NET</span>
-        <span class="tag">DynamoDB</span>
-      </div>
-    </div>
-  </a>
-</section>
-
-<section class="section container">
-  <p class="eyebrow">Blogs</p>
-  <h2>Latest from the blog</h2>
-  <div class="post-list">
-    {% for post in collections.posts %}
-    {% if loop.index <= 3 %}
-    <a class="post-card" href="{{ post.url }}">
-      <img class="post-card__img" src="{{ post.data.tags | postImage }}" alt="{{ post.data.title }}" loading="lazy" />
-      <div class="post-card__body">
-        <p class="post-card__date">{{ post.date | readableDate }}</p>
-        <h3>{{ post.data.title }}</h3>
-        <p>{{ post.data.description }}</p>
-      </div>
-    </a>
-    {% endif %}
-    {% else %}
-    <p>No posts yet.</p>
+<!-- FAQ — AEO / Answer Engine Optimisation -->
+<section class="section container" id="faq">
+  <p class="eyebrow">FAQ</p>
+  <h2>Common questions</h2>
+  <div class="faq-list">
+    {% for item in site.faq %}
+    <details class="faq-item">
+      <summary class="faq-item__q">{{ item.q }}</summary>
+      <p class="faq-item__a">{{ item.a }}</p>
+    </details>
     {% endfor %}
   </div>
-  <a href="/writing/" class="btn btn--ghost mt-2">All posts →</a>
 </section>

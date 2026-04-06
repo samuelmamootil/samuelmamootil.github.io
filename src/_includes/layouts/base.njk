@@ -7,7 +7,7 @@
   <meta name="description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta name="author" content="{{ site.author }}" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="keywords" content="Samuel Mamootil, cloud engineer, DevOps engineer, platform engineer, cloud architect, AWS architect, Azure architect, GCP engineer, Terraform engineer, Kubernetes engineer, DevOps expert, AI infrastructure engineer, MLOps engineer, GenAI engineer, agentic AI infrastructure, cloud migration expert, FinOps engineer, cloud cost optimization, GitOps engineer, ArgoCD, AWS CDK, OpenTofu, serverless engineer, AWS Lambda, Azure Functions, Helm charts, Bicep IaC, Azure OpenAI engineer, international student USA, OPT engineer, H1B cloud engineer, sponsorship available, actively seeking cloud roles, green card engineer, master student cloud, UTA student, University of Texas Arlington, cloud computing expert, infrastructure as code, CI/CD expert, Docker Kubernetes, EKS AKS GKE, ECS Fargate, AWS SageMaker, Azure Machine Learning, AWS Bedrock, cloud security expert, zero trust networking, IAM expert, OIDC federation, web developer Arlington TX, site reliability engineer, SRE, platform engineering, enterprise cloud, multi-cloud architect, cloud engineer Texas, DevOps engineer Arlington TX" />
+  <meta name="keywords" content="Samuel Mamootil, Samuel Raju Mamootil, cloud engineer, DevOps engineer, platform engineer, site reliability engineer, SRE, cloud architect, AWS architect, Azure architect, GCP engineer, Terraform engineer, Kubernetes engineer, DevOps expert, AI infrastructure engineer, MLOps engineer, cloud migration expert, infrastructure as code, CI/CD expert, Docker Kubernetes, EKS AKS GKE, ECS Fargate, AWS SageMaker, Azure Machine Learning, AWS Bedrock, cloud security expert, zero trust networking, IAM expert, OIDC federation, Azure landing zones, Helm charts, multi-cloud architect, cloud engineer Texas, DevOps engineer Arlington TX, Azure DevOps engineer Arlington TX, site reliability engineer Arlington TX, cloud engineer portfolio Azure AWS Terraform, multi-cloud migration case study, Azure landing zone DevOps case study, AWS data engineering infrastructure case study, Samuel Mamootil DevOps, Samuel Mamootil Azure, Samuel Mamootil cloud engineer, Samuel Mamootil GitHub, UTA student, University of Texas Arlington" />
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
   <!-- Open Graph -->
@@ -38,8 +38,8 @@
         "@id": "{{ site.url }}/#person",
         "name": "Samuel Mamootil",
         "url": "{{ site.url }}",
-        "jobTitle": "Senior Cloud & Platform Engineer",
-        "description": "Senior Cloud & Platform Engineer and DevOps expert with 7+ years of experience across AWS, Azure, and GCP. Master's student at University of Texas at Arlington. Specialises in cloud architecture, Terraform, Kubernetes, AI/ML infrastructure, and enterprise cloud migrations.",
+        "jobTitle": "Cloud & Platform Engineer",
+        "description": "Samuel Mamootil (Samuel Raju Mamootil) is a Cloud and Platform Engineer based in Arlington, TX. He specialises in AWS, Microsoft Azure, GCP, Terraform, Kubernetes, DevOps, and AI/ML infrastructure. He has delivered enterprise cloud migrations and platform engineering programs at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Azure certified at Solutions Architect Expert, DevOps Engineer Expert, and Administrator Associate levels.",
         "image": "https://github.com/samuelmamootil.png",
         "email": "samuelrajumamootil@gmail.com",
         "sameAs": [
@@ -104,6 +104,36 @@
           "query-input": "required name=search_term_string"
         }
       }
+      {% if page.url == '/' %}
+      ,{
+        "@type": "FAQPage",
+        "@id": "{{ site.url }}/#faq",
+        "mainEntity": [
+          {% for item in site.faq %}
+          {
+            "@type": "Question",
+            "name": "{{ item.q | replace('"', '&quot;') }}",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "{{ item.a | replace('"', '&quot;') }}"
+            }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+      {% endif %}
+      {% if layout == 'layouts/casestudy.njk' %}
+      ,{
+        "@type": "Article",
+        "@id": "{{ site.url }}{{ page.url }}#article",
+        "headline": "{{ headline }}",
+        "description": "{{ pageDescription if pageDescription else site.description }}",
+        "url": "{{ site.url }}{{ page.url }}",
+        "author": { "@id": "{{ site.url }}/#person" },
+        "publisher": { "@id": "{{ site.url }}/#person" },
+        "isPartOf": { "@id": "{{ site.url }}/#website" }
+      }
+      {% endif %}
       {% if layout == 'layouts/post.njk' %}
       ,{
         "@type": "BlogPosting",
@@ -151,9 +181,10 @@
     <div class="nav__inner">
       <a class="nav__logo" href="/">SM</a>
       <ul class="nav__links">
-        <li><a href="/experience/">Work Experience</a></li>
+        <li><a href="/work/">Case Studies</a></li>
+        <li><a href="/experience/">Experience</a></li>
         <li><a href="/projects/">Projects</a></li>
-        <li><a href="/writing/">Blogs</a></li>
+        <li><a href="/writing/">Writing</a></li>
         <li><a href="/gallery/">Gallery</a></li>
         <li><a href="/media/">Visibility</a></li>
         <li><a href="{{ site.resume }}" class="resume-track">Resume</a></li>
@@ -164,9 +195,10 @@
 
   <!-- MOBILE DRAWER -->
   <div class="nav__drawer" id="navDrawer">
-    <a href="/experience/">Work Experience</a>
+    <a href="/work/">Case Studies</a>
+    <a href="/experience/">Experience</a>
     <a href="/projects/">Projects</a>
-    <a href="/writing/">Blogs</a>
+    <a href="/writing/">Writing</a>
     <a href="/gallery/">Gallery</a>
     <a href="/media/">Visibility</a>
     <a href="{{ site.resume }}" class="resume-track">Resume</a>
