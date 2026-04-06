@@ -71,7 +71,6 @@ jobs:
               "keyLocation": "https://samuelmamootil.github.io/a1b2c3d4e1b2c3d4e1b2c3d4e1b2c3d4.txt",
               "urlList": [
                 "https://samuelmamootil.github.io/",
-                "https://samuelmamootil.github.io/experience/",
                 "https://samuelmamootil.github.io/work/",
                 "https://samuelmamootil.github.io/work/wipro/",
                 "https://samuelmamootil.github.io/work/ibm/",
@@ -98,3 +97,6 @@ jobs:
                 "https://samuelmamootil.github.io/writing/digital-transformation-bpr-data-governance/"
               ]
             }'
+          # Also ping Bing directly
+          curl -s "https://www.bing.com/indexnow?url=https://samuelmamootil.github.io/&key=a1b2c3d4e1b2c3d4e1b2c3d4e1b2c3d4"
+          echo "IndexNow pings sent"
