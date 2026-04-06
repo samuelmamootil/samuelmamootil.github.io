@@ -1899,3 +1899,25 @@ a.cs-meta-value:hover { text-decoration: underline; }
   border-top: 1px solid var(--border);
   padding-top: .85rem;
 }
+
+/* ── Case study detail timeline tweaks ──────────────────── */
+.cs-detail-timeline { margin-top: 0; }
+.cs-section-title {
+  font-size: .75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--accent); margin-bottom: .6rem;
+}
+.cs-marker--section { background: var(--accent-2); }
+
+/* ── Hero name H1 + subheadline ─────────────────────────── */
+.hero__headline {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800; line-height: 1.05;
+  color: var(--text); margin-bottom: .5rem;
+  letter-spacing: -.03em;
+}
+.hero__subheadline {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 600; line-height: 1.25;
+  color: var(--text-muted); margin-bottom: 1.2rem;
+}

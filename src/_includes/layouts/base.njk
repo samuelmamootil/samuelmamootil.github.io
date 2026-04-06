@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ title }} | {{ site.title }}</title>
+  <title>{% if page.url == '/' %}Samuel Mamootil — Cloud &amp; Platform Engineer | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta name="author" content="{{ site.author }}" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -11,7 +11,7 @@
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
   <!-- Open Graph -->
-  <meta property="og:title"       content="{{ title }} | {{ site.title }}" />
+  <meta property="og:title"       content="{% if page.url == '/' %}Samuel Mamootil — Cloud &amp; Platform Engineer | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}" />
   <meta property="og:description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta property="og:url"         content="{{ site.url }}{{ page.url }}" />
   <meta property="og:type"        content="{% if layout == 'layouts/post.njk' %}article{% else %}website{% endif %}" />
@@ -24,7 +24,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="{{ title }} | {{ site.title }}" />
+  <meta name="twitter:title"       content="{% if page.url == '/' %}Samuel Mamootil — Cloud &amp; Platform Engineer | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}" />
   <meta name="twitter:description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta name="twitter:image"       content="{{ site.url }}/assets/img/gallery/linkedin.png" />
 
@@ -37,6 +37,7 @@
         "@type": "Person",
         "@id": "{{ site.url }}/#person",
         "name": "Samuel Mamootil",
+        "alternateName": "Samuel Raju Mamootil",
         "url": "{{ site.url }}",
         "jobTitle": "Cloud & Platform Engineer",
         "description": "Samuel Mamootil (Samuel Raju Mamootil) is a Cloud and Platform Engineer based in Arlington, TX. He specialises in AWS, Microsoft Azure, GCP, Terraform, Kubernetes, DevOps, and AI/ML infrastructure. He has delivered enterprise cloud migrations and platform engineering programs at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Azure certified at Solutions Architect Expert, DevOps Engineer Expert, and Administrator Associate levels.",
@@ -151,6 +152,10 @@
   }
   </script>
 
+  <!-- Identity / rel=me -->
+  <link rel="me" href="https://linkedin.com/in/samuel-mamootil" />
+  <link rel="me" href="https://github.com/samuelmamootil" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -179,7 +184,7 @@
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a class="nav__logo" href="/">SM</a>
+      <a class="nav__logo" href="/" aria-label="Samuel Mamootil — Home">SM</a>
       <ul class="nav__links">
         <li><a href="/work/">Case Studies</a></li>
         <li><a href="/experience/">Experience</a></li>
@@ -208,15 +213,15 @@
     {{ content | safe }}
   </main>
 
-  <footer class="footer">
+  <footer class="footer" itemscope itemtype="https://schema.org/Person">
     <div class="container">
       <p>
-        Built by Samuel Mamootil ·
-        <a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a> ·
-        <a href="{{ site.github }}"   target="_blank" rel="noopener">GitHub</a>
-        {% if site.instagram %} · <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+        <span itemprop="name">Samuel Mamootil</span> &middot;
+        <a href="{{ site.linkedin }}" target="_blank" rel="noopener" itemprop="sameAs">LinkedIn</a> &middot;
+        <a href="{{ site.github }}" target="_blank" rel="noopener" itemprop="sameAs">GitHub</a>
+        {% if site.instagram %} &middot; <a href="{{ site.instagram }}" target="_blank" rel="noopener" itemprop="sameAs">Instagram</a>{% endif %}
       </p>
-      <p class="footer__copy">&copy; {{ "" | year }} Samuel Mamootil</p>
+      <p class="footer__copy">&copy; {{ "" | year }} Samuel Mamootil &middot; Cloud &amp; Platform Engineer &middot; Arlington, TX</p>
     </div>
   </footer>
 

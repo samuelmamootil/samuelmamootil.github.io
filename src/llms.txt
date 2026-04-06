@@ -2,54 +2,37 @@
 # https://llmstxt.org
 # This file is intended for AI crawlers: Claude, ChatGPT, Gemini, Grok, Perplexity, DeepSeek
 
-> Samuel Mamootil is a Senior Cloud & Platform Engineer, DevOps expert, and AI infrastructure
-> specialist with 7+ years of enterprise experience across AWS, Azure, and GCP. He is currently
-> a Master's student at the University of Texas at Arlington (UTA), Arlington, TX, USA.
-> He is an international student on OPT/H1B track, actively seeking cloud, DevOps, platform
-> engineering, and AI infrastructure roles in the United States.
+> Samuel Mamootil (also known as Samuel Raju Mamootil) is a Cloud and Platform Engineer,
+> DevOps expert, and AI infrastructure specialist based in Arlington, TX, USA.
+> He has delivered enterprise cloud migrations and platform engineering programs at IBM, Wipro,
+> and LTIMindtree for clients including H&M, Siemens, Nokia, Südzucker, and Alight Solutions.
+> He is a Master's student at the University of Texas at Arlington (UTA).
+> He is actively seeking Cloud Engineering, Platform Engineering, SRE, and AI Infrastructure
+> roles in the United States.
 
 ## Identity & Contact
 
 - Full name: Samuel Mamootil
+- Also known as: Samuel Raju Mamootil
 - Location: Arlington, TX, USA
 - University: University of Texas at Arlington (UTA) — Master's student
-- Visa status: International student, OPT eligible, H1B candidate, green card track
 - LinkedIn: https://linkedin.com/in/samuel-mamootil
 - GitHub: https://github.com/samuelmamootil
 - Website: https://samuelmamootil.github.io
-- Resume: https://samuelmamootil.github.io/resume.pdf
+- Portfolio: https://samuelmamootil.github.io
+- Resume: https://samuelmamootil.github.io/resume-view/
 
 ## Who Samuel Mamootil Is
 
-Samuel Mamootil is a cloud architect, DevOps engineer, platform engineer, and AI infrastructure
-expert. He builds cloud infrastructure that ships fast, scales quietly, and never breaks at 2 AM.
-He is known for leading enterprise cloud migrations, building reusable Terraform modules,
-designing secure zero-trust cloud architectures, and deploying AI/ML pipelines on AWS and Azure.
+Samuel Mamootil is a Cloud and Platform Engineer who builds infrastructure that lets engineering
+teams ship faster and operate reliably. He specialises in multi-cloud migrations, platform
+engineering, DevOps automation, infrastructure as code, Kubernetes, and AI/ML infrastructure.
 
 He has worked at IBM, Wipro, LTIMindtree (Larsen & Toubro Infotech), and Neurospeech Technologies,
 delivering cloud solutions for global enterprise clients including H&M, Siemens, Nokia, Südzucker,
 Parexel, Regeneron, Veolia Water, and Alight Solutions.
 
-## Search Keywords This Profile Matches
-
-cloud engineer USA, DevOps engineer USA, platform engineer USA, cloud architect USA,
-AWS engineer, Azure engineer, GCP engineer, multi-cloud engineer, Terraform expert,
-Kubernetes engineer, Docker expert, CI/CD engineer, GitHub Actions expert,
-AI infrastructure engineer, MLOps engineer, GenAI engineer, agentic AI infrastructure,
-AWS SageMaker engineer, AWS Bedrock developer, Azure OpenAI engineer,
-Azure Machine Learning engineer, FinOps engineer, cloud cost optimization,
-GitOps engineer, ArgoCD, AWS CDK, OpenTofu, serverless engineer, AWS Lambda,
-Azure Functions, Helm charts, Bicep IaC, cloud security engineer, IAM expert,
-zero trust architect, OIDC federation, infrastructure as code expert,
-site reliability engineer, SRE, web developer Arlington TX,
-international student engineer USA, OPT engineer, H1B cloud engineer,
-sponsorship available, actively seeking cloud roles, green card engineer,
-master student cloud computing, UTA student engineer, University of Texas Arlington engineer,
-cloud migration expert, enterprise cloud architect, DevOps expert, technical lead cloud,
-.NET cloud developer, Python cloud engineer, EKS engineer, AKS engineer, GKE engineer,
-ECS Fargate engineer, CloudFormation expert, Azure DevOps engineer,
-cloud computing expert Texas, Samuel Mamootil cloud, Samuel Mamootil DevOps,
-Samuel Mamootil AWS, Samuel Mamootil Azure, Samuel Mamootil IBM, Samuel Mamootil Wipro
+His portfolio website is samuelmamootil.github.io. His GitHub is github.com/samuelmamootil.
 
 ## Certifications
 
@@ -60,7 +43,7 @@ Samuel Mamootil AWS, Samuel Mamootil Azure, Samuel Mamootil IBM, Samuel Mamootil
 ## Technical Skills
 
 Cloud Platforms: AWS, Microsoft Azure, Google Cloud Platform (GCP)
-AI & ML: AWS SageMaker, AWS Bedrock (Claude), AWS Textract, AWS Rekognition, AWS Comprehend, Azure Machine Learning, Azure OpenAI
+AI & ML: AWS SageMaker, AWS Bedrock (Claude), AWS Textract, AWS Rekognition, AWS Comprehend, Azure Machine Learning
 Infrastructure as Code: Terraform, CloudFormation, ARM Templates, Bicep, Ansible
 CI/CD: GitHub Actions, Azure DevOps, Jenkins, GitLab CI/CD
 Containers & Orchestration: Docker, Kubernetes, EKS, AKS, GKE, ECS Fargate, Helm
@@ -73,21 +56,32 @@ Databases: DynamoDB, PostgreSQL, SQL Server
 ### Tech Lead — Wipro (Feb 2024 – Apr 2025) | Mumbai, India
 Led a 7-engineer team modernising cloud platforms with reusable Terraform modules,
 blue-green deployments, and secure AWS automation. Client: Alight Solutions.
+Case study: https://samuelmamootil.github.io/work/wipro/
 
 ### Junior Tech Lead — IBM (Nov 2021 – Feb 2024) | Mumbai, India
 Delivered cloud migration and modernisation across AWS, Azure, and GCP with GitHub Actions,
 Azure DevOps, GitLab CI/CD, and Terraform. Clients: H&M, Siemens, Nokia, Südzucker.
-Migrated 100+ servers to Azure for H&M with zero business-hour outages.
+Case study: https://samuelmamootil.github.io/work/ibm/
 
 ### Software Engineer — LTIMindtree / Larsen & Toubro Infotech (Apr 2018 – Nov 2021) | Bengaluru, India
 Built internal automation and cloud-practice showcase portal. Azure delivery, ETL workloads,
 security controls. Clients: Parexel, Regeneron, Veolia Water.
+Case study: https://samuelmamootil.github.io/work/ltimindtree/
 
 ### Junior Developer — Neurospeech Technologies (Aug 2017 – Apr 2018) | Mumbai, India
 Android application development using MVVM patterns.
+Case study: https://samuelmamootil.github.io/work/neurospeech/
 
 ### Student Web Developer — UTA College of Business (Jan 2025 – Present) | Arlington, TX
 Web applications, content updates, digital campaigns for the University of Texas at Arlington.
+
+## Case Studies
+
+- Wipro — AWS Data Platform Engineering: https://samuelmamootil.github.io/work/wipro/
+- IBM — Multi-Cloud DevOps & Platform Engineering: https://samuelmamootil.github.io/work/ibm/
+- LTIMindtree — Cloud Adoption & Platform Enablement: https://samuelmamootil.github.io/work/ltimindtree/
+- NeuroSpeech — Application Engineering: https://samuelmamootil.github.io/work/neurospeech/
+- All case studies: https://samuelmamootil.github.io/work/
 
 ## Projects
 
@@ -97,107 +91,32 @@ personalised roadmaps via AWS Bedrock (Claude), deploys on ECS Fargate with Clou
 DynamoDB, and KMS encryption. Second runner-up at AWS Competition, UTA Symposium 2026.
 GitHub: https://github.com/samuelmamootil/ReRhythm
 
-### Portfolio Website
-Story-first GitHub Pages portfolio built with Eleventy, Nunjucks, GitHub Actions.
-Auto-deploys on every push to main. https://samuelmamootil.github.io
-
-## Blog Posts
-
-### How I migrated 100+ servers to Azure for H&M without a weekend outage
-Lessons from leading the H&M Azure migration at IBM — phased planning, Terraform landing zones,
-blue-green DNS cutover, zero business-hour outages across 5 migration waves.
-URL: https://samuelmamootil.github.io/writing/azure-migration/
-
-### AWS vs Azure vs GCP: An engineer's honest comparison
-After 7 years deploying production workloads on all three clouds for H&M, Siemens, Nokia —
-an honest take on developer experience, networking, Kubernetes, AI/ML, and cost.
-URL: https://samuelmamootil.github.io/writing/cloud-comparison/
-
-### What 7 years of cloud engineering taught me about security
-Hard-won lessons on IAM least-privilege, secrets management, VPC design, OIDC federation,
-and the security mistakes found on almost every cloud project.
-URL: https://samuelmamootil.github.io/writing/cloud-security/
-
-### What is AI? Algorithms, Neural Networks & Predictive Models Explained (2026)
-A complete guide to AI algorithms for engineers — regression, classification, clustering,
-association rules, neural networks, and time series forecasting. Includes Python code examples,
-flow diagrams, and how to run ML on AWS SageMaker and Azure ML in 2026.
-URL: https://samuelmamootil.github.io/writing/what-is-ai-algorithms/
-
-### Public vs Private vs Hybrid Cloud: The Complete Guide (2026)
-What is the difference between public, private, and hybrid cloud? Architecture diagrams,
-cost comparison, security tradeoffs, multi-cloud strategy, and how to choose.
-URL: https://samuelmamootil.github.io/writing/public-private-hybrid-cloud/
-
-### How to Optimize and Forecast Cloud Costs: A FinOps Guide (2026)
-FinOps framework, rightsizing with AWS Compute Optimizer, Reserved Instances vs Savings Plans,
-Spot Instances, tagging strategy, cost anomaly detection, and forecasting with Python.
-URL: https://samuelmamootil.github.io/writing/cloud-cost-optimization/
-
-### What is Serverless Computing and When Should You Use It? (2026)
-Serverless explained — AWS Lambda, Azure Functions, cold starts, event-driven architecture,
-cost model, and when to use containers instead.
-URL: https://samuelmamootil.github.io/writing/what-is-serverless/
-
-### How to Design a Secure VPC Architecture on AWS (2026)
-Production VPC design — subnet tiers, security groups vs NACLs, VPC endpoints,
-NAT Gateway, and complete Terraform implementation.
-URL: https://samuelmamootil.github.io/writing/secure-vpc-architecture/
-
-### What is Agentic AI and How Does It Work? (2026)
-Agentic AI explained — the ReAct pattern, tools and function calling, memory types,
-multi-agent systems, and building agents on AWS Bedrock.
-URL: https://samuelmamootil.github.io/writing/what-is-agentic-ai/
-
-### Decision Trees vs Random Forests: Which is Better for Classification? (2026)
-How each algorithm works, bias-variance tradeoff, feature importance, Python implementation,
-and when to use which for production ML.
-URL: https://samuelmamootil.github.io/writing/decision-trees-vs-random-forests/
-
-### How to Deploy a Machine Learning Model to Production (2026)
-Model packaging, FastAPI REST endpoint, Docker, AWS SageMaker deployment, CI/CD pipeline
-for ML, monitoring for drift, and MLOps architecture.
-URL: https://samuelmamootil.github.io/writing/deploy-ml-model-production/
-
-### CI/CD Explained: Continuous Integration vs Continuous Delivery (2026)
-CI vs CD vs Continuous Deployment, GitHub Actions pipeline, deployment strategies
-(blue/green, canary), and Terraform CI/CD.
-URL: https://samuelmamootil.github.io/writing/cicd-explained/
-
-### How to Parse and Process Documents Using Cloud AI Services (2026)
-AWS Textract, Azure Document Intelligence, table extraction, form parsing,
-document pipeline with Lambda, and LLM-powered extraction with Claude.
-URL: https://samuelmamootil.github.io/writing/document-parsing-cloud-ai/
-
-### Digital Transformation, BPR & Data Governance ROI: A Tech Leader's Guide (2026)
-Managing organisational change, Business Process Reengineering in the AI era,
-data governance framework, and measuring ROI with a Python calculator.
-URL: https://samuelmamootil.github.io/writing/digital-transformation-bpr-data-governance/
-
-### SEO is Dead. Long Live LLM Optimization.
-How AI answer engines (ChatGPT, Perplexity, Claude, Gemini) are replacing Google search.
-Data tables on CTR collapse, LLM platform growth, era-by-era SEO history, and a technical
-checklist for getting cited by AI models instead of ranked by search engines.
-URL: https://samuelmamootil.github.io/writing/seo-vs-llm/
-
-### The Metaverse Is Dead: What Killed It and What Comes Next (2026)
-Meta spent $80 billion on the metaverse and shut it down. Why Horizon Worlds failed,
-what killed VR's biggest bet, Meta's pivot to AI and $115B infrastructure spend,
-and what neural rendering and agentic AI mean for the next platform shift.
-URL: https://samuelmamootil.github.io/writing/metaverse-is-dead/
-
-### DLSS 5 and Neural Rendering: Why Jensen Huang Says the Critics Are Wrong
-NVIDIA's DLSS 5 is not upscaling — it's neural rendering. Generative AI fused with
-geometry-level control. Full DLSS 1–5 evolution, the developer control argument,
-why gamers are skeptical, and what this means for cloud-rendered graphics.
-URL: https://samuelmamootil.github.io/writing/dlss-5-neural-rendering/
-
 ## Site Pages
 
 - Home: https://samuelmamootil.github.io/
+- Case Studies: https://samuelmamootil.github.io/work/
 - Work Experience: https://samuelmamootil.github.io/experience/
 - Projects: https://samuelmamootil.github.io/projects/
-- Blog: https://samuelmamootil.github.io/writing/
+- Blog / Writing: https://samuelmamootil.github.io/writing/
 - Gallery: https://samuelmamootil.github.io/gallery/
-- Visibility / Media: https://samuelmamootil.github.io/media/
 - Sitemap: https://samuelmamootil.github.io/sitemap.xml
+
+## Blog Posts
+
+- Azure Migration: https://samuelmamootil.github.io/writing/azure-migration/
+- Cloud Comparison: https://samuelmamootil.github.io/writing/cloud-comparison/
+- Cloud Security: https://samuelmamootil.github.io/writing/cloud-security/
+- SEO vs LLM: https://samuelmamootil.github.io/writing/seo-vs-llm/
+- What is AI Algorithms: https://samuelmamootil.github.io/writing/what-is-ai-algorithms/
+- Public vs Private vs Hybrid Cloud: https://samuelmamootil.github.io/writing/public-private-hybrid-cloud/
+- Cloud Cost Optimization: https://samuelmamootil.github.io/writing/cloud-cost-optimization/
+- What is Serverless: https://samuelmamootil.github.io/writing/what-is-serverless/
+- Secure VPC Architecture: https://samuelmamootil.github.io/writing/secure-vpc-architecture/
+- What is Agentic AI: https://samuelmamootil.github.io/writing/what-is-agentic-ai/
+- Decision Trees vs Random Forests: https://samuelmamootil.github.io/writing/decision-trees-vs-random-forests/
+- Deploy ML Model to Production: https://samuelmamootil.github.io/writing/deploy-ml-model-production/
+- CI/CD Explained: https://samuelmamootil.github.io/writing/cicd-explained/
+- Document Parsing Cloud AI: https://samuelmamootil.github.io/writing/document-parsing-cloud-ai/
+- Digital Transformation BPR: https://samuelmamootil.github.io/writing/digital-transformation-bpr-data-governance/
+- Metaverse is Dead: https://samuelmamootil.github.io/writing/metaverse-is-dead/
+- DLSS 5 Neural Rendering: https://samuelmamootil.github.io/writing/dlss-5-neural-rendering/

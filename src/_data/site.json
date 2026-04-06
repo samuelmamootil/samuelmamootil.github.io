@@ -12,9 +12,9 @@
   "instagram": "",
   "resume": "/resume-view/",
   "heroHeadline": "Cloud migrations shipped. Platforms standardised. Teams unblocked.",
-  "heroIntro": "I build cloud infrastructure that removes friction — from multi-cloud landing zones and Kubernetes platforms to AWS data pipelines and AI-powered applications. I've delivered across IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Open to Cloud Engineering, Platform Engineering, SRE, and AI Infrastructure roles.",
+  "heroIntro": "I build cloud infrastructure that removes friction — from multi-cloud landing zones and Kubernetes platforms to AWS data pipelines and AI-powered applications. Delivered across IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Open to Cloud Engineering, Platform Engineering, SRE, and AI Infrastructure roles.",
   "story": [
-    "I'm Samuel Mamootil — a Cloud and Platform Engineer based in Arlington, TX. I've spent my career building the infrastructure layer that lets engineering teams move fast without breaking things.",
+    "Samuel Mamootil is a Cloud and Platform Engineer based in Arlington, TX — building the infrastructure layer that lets engineering teams move fast without breaking things.",
     "At IBM, I led multi-cloud modernisation for enterprise clients across Azure, AWS, and GCP — designing landing zones, building Helm-based Kubernetes platforms, and delivering CI/CD pipelines that teams actually use. At Wipro, I led a 7-engineer team building reusable Terraform modules and AWS data platform infrastructure for Alight Solutions.",
     "Right now I'm finishing my Master's at UTA, building ReRhythm (an AI career coach on AWS Bedrock that placed 2nd at the UTA Analytics Symposium), and actively looking for Cloud, Platform Engineering, SRE, and AI Infrastructure roles in the US."
   ],
@@ -62,6 +62,14 @@
     {
       "q": "What is Samuel Mamootil's GitHub?",
       "a": "Samuel Mamootil's GitHub profile is github.com/samuelmamootil. His portfolio website is samuelmamootil.github.io."
+    },
+    {
+      "q": "Who is Samuel the cloud engineer?",
+      "a": "Samuel refers to Samuel Mamootil, a Cloud and Platform Engineer based in Arlington, TX. He specialises in AWS, Azure, GCP, Terraform, Kubernetes, and DevOps. His portfolio is at samuelmamootil.github.io."
+    },
+    {
+      "q": "Where can I find Samuel Mamootil's portfolio?",
+      "a": "Samuel Mamootil's portfolio is at samuelmamootil.github.io. It includes cloud engineering case studies from IBM, Wipro, and LTIMindtree, plus projects, blog posts, and a resume."
     }
   ]
 }

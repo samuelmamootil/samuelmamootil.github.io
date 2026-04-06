@@ -9,24 +9,28 @@ pageDescription: "Technical case studies from Samuel Mamootil's cloud engineerin
   <h1>Case Studies</h1>
   <p class="lead">Each role below is presented as a case study — showing the business context, technical challenge, architecture decisions, what I owned, and what changed as a result. This is the depth behind the resume.</p>
 
-  <div class="cs-index-grid">
+  <div class="timeline">
     {% for cs in casestudies %}
-    <a class="cs-card" href="/work/{{ cs.slug }}/">
-      <div class="cs-card__header">
-        <span class="cs-card__logo" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
-        <div>
-          <p class="cs-card__eyebrow">{{ cs.eyebrow }}</p>
-          <h2 class="cs-card__company">{{ cs.company }}</h2>
-          <p class="cs-card__role">{{ cs.role }}</p>
-          <p class="cs-card__period">{{ cs.period }}</p>
+    <div class="timeline__item">
+      <div class="timeline__marker"></div>
+      <div class="timeline__card">
+        <div class="timeline__header">
+          <span class="company-logo-text" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
+          <div>
+            <h2 class="timeline__role">{{ cs.company }}</h2>
+            <p class="timeline__company">
+              <a href="{{ cs.companyUrl }}" target="_blank" rel="noopener">{{ cs.role }}</a>
+              &middot; {{ cs.location }} &middot; <span class="timeline__period">{{ cs.period }}</span>
+            </p>
+          </div>
         </div>
+        <p class="timeline__summary">{{ cs.headline }}</p>
+        <div class="tag-list" style="margin-bottom:.75rem;">
+          {% for t in cs.tags | slice(0, 5) %}<span class="tag">{{ t }}</span>{% endfor %}
+        </div>
+        <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read case study &rarr;</a>
       </div>
-      <p class="cs-card__headline">{{ cs.headline }}</p>
-      <div class="tag-list">
-        {% for t in cs.tags | slice(0, 5) %}<span class="tag">{{ t }}</span>{% endfor %}
-      </div>
-      <span class="cs-card__cta">Read case study →</span>
-    </a>
+    </div>
     {% endfor %}
   </div>
 </section>

@@ -3,53 +3,62 @@ layout: layouts/base.njk
 ---
 <article>
 
-  <section class="cs-hero">
-    <div class="container">
-      <a href="/work/" class="post-back">← Case Studies</a>
-      <p class="eyebrow">{{ eyebrow }}</p>
-      <h1>{{ headline }}</h1>
-      <div class="cs-hero__meta">
-        <span class="cs-meta-item">
-          <span class="cs-meta-label">Company</span>
-          <a href="{{ companyUrl }}" target="_blank" rel="noopener" class="cs-meta-value">{{ company }}</a>
-        </span>
-        <span class="cs-meta-item">
-          <span class="cs-meta-label">Role</span>
-          <span class="cs-meta-value">{{ role }}</span>
-        </span>
-        <span class="cs-meta-item">
-          <span class="cs-meta-label">Period</span>
-          <span class="cs-meta-value">{{ period }}</span>
-        </span>
-        <span class="cs-meta-item">
-          <span class="cs-meta-label">Location</span>
-          <span class="cs-meta-value">{{ location }}</span>
-        </span>
-      </div>
-      <div class="tag-list cs-hero__tags">
-        {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
+  <section class="section container">
+    <a href="/work/" class="post-back">← Case Studies</a>
+    <p class="eyebrow">{{ eyebrow }}</p>
+
+    <div class="timeline" style="margin-top:1.5rem;">
+      <div class="timeline__item">
+        <div class="timeline__marker"></div>
+        <div class="timeline__card">
+
+          <!-- Header — matches experience page exactly -->
+          <div class="timeline__header">
+            <span class="company-logo-text" style="background:{{ logoColor }}">{{ logoText }}</span>
+            <div>
+              <h1 class="timeline__role" style="font-size:1.25rem;">{{ company }}</h1>
+              <p class="timeline__company">
+                <a href="{{ companyUrl }}" target="_blank" rel="noopener">{{ role }}</a>
+                &middot; {{ location }} &middot; <span class="timeline__period">{{ period }}</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Headline -->
+          <p class="timeline__summary" style="font-size:1rem;color:var(--text);font-weight:500;margin-bottom:1rem;">{{ headline }}</p>
+
+          <!-- Tags -->
+          <div class="tag-list" style="margin-bottom:1.25rem;">
+            {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
+          </div>
+
+        </div>
       </div>
     </div>
-  </section>
 
-  <div class="cs-body container">
+    <!-- Case study sections — styled as timeline cards -->
+    <div class="timeline cs-detail-timeline">
 
-    <div class="cs-grid">
-
-      <div class="cs-main">
-
-        <section class="cs-section">
-          <h2>Business Context</h2>
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <h2 class="cs-section-title">Business Context</h2>
           <p>{{ context }}</p>
-        </section>
+        </div>
+      </div>
 
-        <section class="cs-section">
-          <h2>The Challenge</h2>
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <h2 class="cs-section-title">The Challenge</h2>
           <p>{{ challenge }}</p>
-        </section>
+        </div>
+      </div>
 
-        <section class="cs-section">
-          <h2>Approach &amp; Architecture</h2>
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <h2 class="cs-section-title">Approach &amp; Architecture</h2>
           <p>{{ approach }}</p>
           {% if architecture %}
           <div class="cs-arch-block">
@@ -57,48 +66,62 @@ layout: layouts/base.njk
             <p>{{ architecture }}</p>
           </div>
           {% endif %}
-        </section>
-
-        <section class="cs-section">
-          <h2>What I Owned</h2>
-          <ul class="cs-list">
-            {% for item in owned %}<li>{{ item }}</li>{% endfor %}
-          </ul>
-        </section>
-
-        <section class="cs-section">
-          <h2>Outcomes</h2>
-          <ul class="cs-list cs-list--outcomes">
-            {% for item in outcomes %}<li>{{ item }}</li>{% endfor %}
-          </ul>
-        </section>
-
-        {% if lessons %}
-        <section class="cs-section">
-          <h2>Lessons Learned</h2>
-          <blockquote class="cs-quote">{{ lessons }}</blockquote>
-        </section>
-        {% endif %}
-
+        </div>
       </div>
 
-      <aside class="cs-sidebar">
-        <div class="cs-sidebar__card">
-          <p class="cs-sidebar__label">Tools &amp; Stack</p>
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <h2 class="cs-section-title">Tools &amp; Stack</h2>
           <div class="tag-list">
             {% for t in tools %}<span class="tag">{{ t }}</span>{% endfor %}
           </div>
         </div>
-        <div class="cs-sidebar__card">
-          <p class="cs-sidebar__label">Explore more</p>
-          <a href="/work/" class="btn btn--ghost btn--sm" style="width:100%;justify-content:center;">All Case Studies</a>
-          <a href="/experience/" class="btn btn--ghost btn--sm" style="width:100%;justify-content:center;margin-top:.5rem;">Full Experience</a>
-          <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" style="width:100%;justify-content:center;margin-top:.5rem;">LinkedIn</a>
+      </div>
+
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <h2 class="cs-section-title">What I Owned</h2>
+          <ul class="cs-list">
+            {% for item in owned %}<li>{{ item }}</li>{% endfor %}
+          </ul>
         </div>
-      </aside>
+      </div>
+
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <h2 class="cs-section-title">Outcomes</h2>
+          <ul class="cs-list cs-list--outcomes">
+            {% for item in outcomes %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      {% if lessons %}
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <h2 class="cs-section-title">Lessons Learned</h2>
+          <blockquote class="cs-quote">{{ lessons }}</blockquote>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="timeline__item">
+        <div class="timeline__marker cs-marker--section"></div>
+        <div class="timeline__card">
+          <p class="cs-section-title" style="margin-bottom:.75rem;">Explore more</p>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+            <a href="/work/" class="btn btn--ghost btn--sm">All Case Studies</a>
+            <a href="/experience/" class="btn btn--ghost btn--sm">Full Experience</a>
+            <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">LinkedIn</a>
+          </div>
+        </div>
+      </div>
 
     </div>
-
-  </div>
+  </section>
 
 </article>

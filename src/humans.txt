@@ -1,9 +1,11 @@
 /* TEAM */
 Name: Samuel Mamootil
-Role: Cloud & Platform Engineer
+Also known as: Samuel Raju Mamootil
+Role: Cloud & Platform Engineer — AWS, Azure, GCP, Terraform, Kubernetes, DevOps
 Location: Arlington, TX, USA
 LinkedIn: https://linkedin.com/in/samuel-mamootil
 GitHub: https://github.com/samuelmamootil
+Portfolio: https://samuelmamootil.github.io
 
 /* SITE */
 Built with: Eleventy (11ty), Nunjucks, GitHub Actions

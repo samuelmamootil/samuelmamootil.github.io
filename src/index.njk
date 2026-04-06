@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-title: Home
+title: Samuel Mamootil — Cloud & Platform Engineer
 pageDescription: "Samuel Mamootil — Cloud & Platform Engineer in Arlington, TX. AWS, Azure, GCP, Terraform, Kubernetes, DevOps. Case studies from IBM, Wipro, and LTIMindtree. Azure certified. Open to Cloud, SRE, and Platform Engineering roles."
 fontPreload: true
 ---
@@ -9,7 +9,8 @@ fontPreload: true
   <div class="hero__inner container">
     <div class="hero__text">
       <p class="eyebrow">Cloud · Platform Engineering · DevOps · SRE · AI Infrastructure</p>
-      <h1 class="hero__headline">{{ site.heroHeadline }}</h1>
+      <h1 class="hero__headline">Samuel Mamootil</h1>
+      <p class="hero__subheadline">{{ site.heroHeadline }}</p>
       <p class="hero__intro">{{ site.heroIntro }}</p>
       <div id="weatherWidget" class="weather-widget" hidden>
         <div class="weather-widget__current">
@@ -46,23 +47,28 @@ fontPreload: true
     </div>
     <p style="max-width:640px;margin-bottom:2rem;">Each role is presented as a case study — business context, technical challenge, architecture, what I owned, and what changed. This is the depth behind the resume.</p>
 
-    <div class="cs-index-grid">
+    <div class="timeline">
       {% for cs in casestudies %}
-      <a class="cs-card" href="/work/{{ cs.slug }}/">
-        <div class="cs-card__header">
-          <span class="cs-card__logo" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
-          <div>
-            <p class="cs-card__eyebrow">{{ cs.eyebrow }}</p>
-            <h3 class="cs-card__company">{{ cs.company }}</h3>
-            <p class="cs-card__period">{{ cs.period }}</p>
+      <div class="timeline__item">
+        <div class="timeline__marker"></div>
+        <div class="timeline__card">
+          <div class="timeline__header">
+            <span class="company-logo-text" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
+            <div>
+              <h3 class="timeline__role">{{ cs.company }}</h3>
+              <p class="timeline__company">
+                <a href="{{ cs.companyUrl }}" target="_blank" rel="noopener">{{ cs.role }}</a>
+                &middot; <span class="timeline__period">{{ cs.period }}</span>
+              </p>
+            </div>
           </div>
+          <p class="timeline__summary">{{ cs.headline }}</p>
+          <div class="tag-list" style="margin-bottom:.75rem;">
+            {% for t in cs.tags | slice(0, 4) %}<span class="tag">{{ t }}</span>{% endfor %}
+          </div>
+          <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read case study &rarr;</a>
         </div>
-        <p class="cs-card__headline">{{ cs.headline }}</p>
-        <div class="tag-list">
-          {% for t in cs.tags | slice(0, 4) %}<span class="tag">{{ t }}</span>{% endfor %}
-        </div>
-        <span class="cs-card__cta">Read case study →</span>
-      </a>
+      </div>
       {% endfor %}
     </div>
   </div>
@@ -70,8 +76,8 @@ fontPreload: true
 
 <!-- ABOUT -->
 <section class="section container" id="about">
-  <p class="eyebrow">About</p>
-  <h2>The short version</h2>
+  <p class="eyebrow">About Samuel Mamootil</p>
+  <h2>Cloud &amp; Platform Engineer, Arlington TX</h2>
   <div class="story-grid">
     {% for line in site.story %}<p>{{ line }}</p>{% endfor %}
   </div>
