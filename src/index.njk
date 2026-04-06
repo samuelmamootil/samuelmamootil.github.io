@@ -48,7 +48,7 @@ fontPreload: true
     <p style="max-width:640px;margin-bottom:2rem;">Each role is presented as a case study — business context, technical challenge, architecture, what I owned, and what changed. This is the depth behind the resume.</p>
 
     <div class="timeline">
-      {% for cs in casestudies %}
+      {% set cs = casestudies[0] %}
       <div class="timeline__item">
         <div class="timeline__marker"></div>
         <div class="timeline__card">
@@ -69,7 +69,6 @@ fontPreload: true
           <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read case study &rarr;</a>
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
 </section>
