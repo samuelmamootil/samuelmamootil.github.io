@@ -1,0 +1,73 @@
+[
+  {
+    "role": "Student Web Developer (Part-time)",
+    "company": "UTA College of Business",
+    "location": "Arlington, TX",
+    "period": "Jan 2025 – Present",
+    "summary": "Maintain web applications, update content, and support high-visibility digital campaigns and college events.",
+    "logoText": "UTA",
+    "logoColor": "#BF5700",
+    "logoUrl": "",
+    "stack": [],
+    "clients": []
+  },
+  {
+    "role": "Tech Lead",
+    "company": "Wipro",
+    "location": "Mumbai, India",
+    "period": "Feb 2024 – Apr 2025",
+    "summary": "Led a 7-engineer team modernizing cloud platforms with reusable Terraform modules, blue-green deployments, and secure AWS automation.",
+    "logoText": "Wipro",
+    "logoColor": "#9b1c1c",
+    "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/wipro.svg",
+    "stack": [],
+    "clients": [
+      "Alight Solutions"
+    ]
+  },
+  {
+    "role": "Junior Tech Lead",
+    "company": "IBM",
+    "location": "Mumbai, India",
+    "period": "Nov 2021 – Feb 2024",
+    "summary": "Delivered cloud migration and modernization across AWS, Azure, and GCP with GitHub Actions, Azure DevOps, GitLab CI/CD, and Terraform.",
+    "logoText": "IBM",
+    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    "logoColor": "#1F70C1",
+    "stack": [],
+    "clients": [
+      "H&M",
+      "Siemens",
+      "Nokia",
+      "Südzucker"
+    ]
+  },
+  {
+    "role": "Software Engineer",
+    "company": "Larsen & Toubro Infotech Ltd. (now LTIMindtree)",
+    "location": "Bengaluru, India",
+    "period": "Apr 2018 – Nov 2021",
+    "summary": "Built internal automation and a cloud-practice showcase portal; supported Azure delivery, ETL workloads, and security controls.",
+    "logoText": "LTM",
+    "logoUrl": "",
+    "logoColor": "#e05b2b",
+    "stack": [],
+    "clients": [
+      "Parexel",
+      "Regeneron",
+      "Veolia Water"
+    ]
+  },
+  {
+    "role": "Junior Developer",
+    "company": "Neurospeech Technologies",
+    "location": "Mumbai, India",
+    "period": "Aug 2017 – Apr 2018",
+    "summary": "Developed Android applications using MVVM patterns and maintainable UI components.",
+    "logoText": "N",
+    "logoColor": "#0a0a0a",
+    "logoUrl": "",
+    "stack": [],
+    "clients": []
+  }
+]
