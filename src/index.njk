@@ -23,7 +23,7 @@ fontPreload: true
         <div id="weatherForecast" class="weather-widget__forecast"></div>
       </div>
       <div class="hero__cta">
-        <a href="/work/" class="btn">View Case Studies</a>
+        <a href="/work/" class="btn">View Experience</a>
         <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
       </div>
     </div>
@@ -35,17 +35,17 @@ fontPreload: true
   </div>
 </section>
 
-<!-- CASE STUDIES -->
-<section class="section section--alt" id="case-studies">
+<!-- EXPERIENCE -->
+<section class="section section--alt" id="experience">
   <div class="container">
     <div class="section-header">
       <div>
         <p class="eyebrow">Selected Work</p>
-        <h2>Case Studies</h2>
+        <h2>Experience</h2>
       </div>
       <a href="/work/" class="btn btn--ghost btn--sm">All experience &rarr;</a>
     </div>
-    <p style="max-width:640px;margin-bottom:2rem;">Each role is presented as a case study — business context, technical challenge, architecture, what I owned, and what changed. This is the depth behind the resume.</p>
+    <p style="max-width:640px;margin-bottom:2rem;">Each role is presented with the business context, technical challenge, architecture, what I owned, and what changed. This is the depth behind the resume.</p>
 
     <div class="timeline">
       {% set cs = casestudies[0] %}
@@ -66,7 +66,7 @@ fontPreload: true
           <div class="tag-list" style="margin-bottom:.75rem;">
             {% for t in cs.tags | slice(0, 4) %}<span class="tag">{{ t }}</span>{% endfor %}
           </div>
-          <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read case study &rarr;</a>
+          <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read more &rarr;</a>
         </div>
       </div>
     </div>
