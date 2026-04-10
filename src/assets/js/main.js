@@ -19,9 +19,6 @@ function track(event, props) {
   if (typeof umami !== "undefined") umami.track(event, props || {});
 }
 
-// ── Sheet URL ─────────────────────────────────────────────
-const SHEET_URL = document.body.dataset.sheetUrl;
-
 // ── Device / browser fingerprint ─────────────────────────
 function getDevice() {
   const ua = navigator.userAgent;
@@ -134,20 +131,9 @@ async function buildPayload(extra) {
   }, extra || {});
 }
 
-// ── Send to Google Sheet ──────────────────────────────────
-function sendToSheet(payload) {
-  if (!SHEET_URL) return;
-  let url;
-  try { url = new URL(SHEET_URL, window.location.origin); }
-  catch (_) { return; }
-  if (!["script.google.com"].includes(url.hostname)) return;
-  navigator.sendBeacon(url.toString(), JSON.stringify(payload));
-}
-
 // ── Page visit ────────────────────────────────────────────
 (async () => {
   const payload = await buildPayload({ event: "page-visit" });
-  sendToSheet(payload);
   track("page-visit", payload);
 })();
 
@@ -173,7 +159,6 @@ function sendToSheet(payload) {
 document.querySelectorAll(".resume-track").forEach((link) => {
   link.addEventListener("click", async () => {
     const payload = await buildPayload({ event: "resume-view", referrer: window.location.pathname, page: "/resume" });
-    sendToSheet(payload);
     track("resume-view", payload);
   });
 });
