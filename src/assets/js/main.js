@@ -51,12 +51,12 @@ function getOS() {
 
 function getScreenInfo() {
   return {
-    screen_res:    `${screen.width}x${screen.height}`,
-    viewport:      `${window.innerWidth}x${window.innerHeight}`,
-    pixel_ratio:   window.devicePixelRatio || 1,
-    color_depth:   screen.colorDepth || "",
-    touch:         navigator.maxTouchPoints > 0 ? "yes" : "no",
-    orientation:   screen.orientation ? screen.orientation.type : (window.innerWidth > window.innerHeight ? "landscape" : "portrait"),
+    screen_res:  screen.width + "x" + screen.height,
+    viewport:    window.innerWidth + "x" + window.innerHeight,
+    pixel_ratio: window.devicePixelRatio || 1,
+    color_depth: screen.colorDepth || "",
+    touch:       navigator.maxTouchPoints > 0 ? "yes" : "no",
+    orientation: screen.orientation ? screen.orientation.type : (window.innerWidth > window.innerHeight ? "landscape" : "portrait"),
   };
 }
 
@@ -64,48 +64,45 @@ function getConnectionInfo() {
   const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   if (!conn) return { connection: "unknown" };
   return {
-    connection:      conn.effectiveType || conn.type || "unknown",
-    downlink_mbps:   conn.downlink      || "",
-    save_data:       conn.saveData      ? "yes" : "no",
+    connection:    conn.effectiveType || conn.type || "unknown",
+    downlink_mbps: conn.downlink  || "",
+    save_data:     conn.saveData  ? "yes" : "no",
   };
 }
 
 function getPageInfo() {
   return {
-    page:        window.location.pathname,
-    referrer:    document.referrer || "direct",
-    title:       document.title,
-    lang:        navigator.language || "",
-    timezone:    Intl.DateTimeFormat().resolvedOptions().timeZone || "",
-    local_hour:  new Date().getHours(),
-    local_day:   ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][new Date().getDay()],
+    page:       window.location.pathname,
+    referrer:   document.referrer || "direct",
+    title:      document.title,
+    lang:       navigator.language || "",
+    timezone:   Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+    local_hour: new Date().getHours(),
+    local_day:  ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][new Date().getDay()],
   };
 }
 
-// ── Full geo from ipinfo.io ───────────────────────────────
+// ── Geo + IP via ipinfo.io (supports browser CORS, no token needed for basic fields) ──
 async function getGeo() {
   const cached = sessionStorage.getItem("geo_full");
   if (cached) return JSON.parse(cached);
   try {
-    // ip-api.com — free, no token needed, returns full ISP + org data
-    const res = await fetch("https://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query");
+    const res = await fetch("https://ipinfo.io/json");
     if (!res.ok) return {};
     const d = await res.json();
-    if (d.status !== "success") return {};
+    const [lat, lon] = (d.loc || ",").split(",").map(Number);
     const geo = {
-      ip:           d.query      || "",
-      city:         d.city       || "",
-      region:       d.regionName || "",
-      region_code:  d.region     || "",
-      country:      d.countryCode|| "",
-      country_name: d.country    || "",
-      postal:       d.zip        || "",
-      timezone:     d.timezone   || "",
-      isp:          d.isp        || "",
-      org:          d.org        || "",
-      as:           d.as         || "",
-      latitude:     d.lat        || "",
-      longitude:    d.lon        || "",
+      ip:           d.ip       || "",
+      city:         d.city     || "",
+      region:       d.region   || "",
+      country:      d.country  || "",
+      country_name: d.country  || "",
+      postal:       d.postal   || "",
+      timezone:     d.timezone || "",
+      isp:          d.org      || "",   // ipinfo returns org field e.g. "AS7922 Comcast"
+      hostname:     d.hostname || "",
+      latitude:     lat        || "",
+      longitude:    lon        || "",
     };
     sessionStorage.setItem("geo_full", JSON.stringify(geo));
     return geo;
@@ -114,25 +111,26 @@ async function getGeo() {
 
 // ── Build full enriched payload ───────────────────────────
 async function buildPayload(extra) {
-  const geo    = await getGeo();
-  const screen = getScreenInfo();
-  const conn   = getConnectionInfo();
-  const page   = getPageInfo();
-  return Object.assign({}, page, screen, conn, {
-    ip:          geo.ip        || "",
-    city:        geo.city      || "",
-    region:      geo.region    || "",
-    country:      geo.country      || ",`r`n country_name: geo.country_name || ",`r`n    region_code:  geo.region_code  || "",
-    postal:      geo.postal    || "",
-    timezone:    geo.timezone  || page.timezone || "",
-    isp:         geo.org       || "",
-    hostname:    geo.hostname  || "",
-    lat:         geo.latitude  || "",
-    lon:         geo.longitude || "",
-    device:      getDevice(),
-    os:          getOS(),
-    browser:     getBrowser(),
-    ua:          navigator.userAgent.slice(0, 200),
+  const geo  = await getGeo();
+  const scrn = getScreenInfo();
+  const conn = getConnectionInfo();
+  const pg   = getPageInfo();
+  return Object.assign({}, pg, scrn, conn, {
+    ip:           geo.ip           || "",
+    city:         geo.city         || "",
+    region:       geo.region       || "",
+    country:      geo.country      || "",
+    country_name: geo.country_name || "",
+    postal:       geo.postal       || "",
+    timezone:     geo.timezone     || pg.timezone || "",
+    isp:          geo.isp          || "",
+    hostname:     geo.hostname     || "",
+    lat:          String(geo.latitude  || ""),
+    lon:          String(geo.longitude || ""),
+    device:       getDevice(),
+    os:           getOS(),
+    browser:      getBrowser(),
+    ua:           navigator.userAgent.slice(0, 200),
   }, extra || {});
 }
 
@@ -146,11 +144,29 @@ function sendToSheet(payload) {
   navigator.sendBeacon(url.toString(), JSON.stringify(payload));
 }
 
-// ── Page visit (fires on every page load) ─────────────────
+// ── Page visit ────────────────────────────────────────────
 (async () => {
   const payload = await buildPayload({ event: "page-visit" });
   sendToSheet(payload);
   track("page-visit", payload);
+})();
+
+// ── visitor-ip Umami event — IP visible in event properties
+(async () => {
+  const geo = await getGeo();
+  if (!geo.ip) return;
+  track("visitor-ip", {
+    ip:       geo.ip,
+    isp:      geo.isp,
+    hostname: geo.hostname,
+    city:     geo.city,
+    region:   geo.region,
+    country:  geo.country_name,
+    postal:   geo.postal,
+    timezone: geo.timezone,
+    lat:      String(geo.latitude),
+    lon:      String(geo.longitude),
+  });
 })();
 
 // ── Resume click ──────────────────────────────────────────
@@ -221,7 +237,7 @@ document.querySelectorAll(".footer a").forEach((a) => {
   });
 });
 
-// ── Visibility / media card clicks ───────────────────────
+// ── Media card clicks ─────────────────────────────────────
 document.querySelectorAll(".li-card, .media-card a").forEach((el) => {
   el.addEventListener("click", () => {
     const card  = el.closest(".media-card");
@@ -230,7 +246,7 @@ document.querySelectorAll(".li-card, .media-card a").forEach((el) => {
   });
 });
 
-// ── Award card views ──────────────────────────────────────
+// ── Award card clicks ─────────────────────────────────────
 document.querySelectorAll(".award-card").forEach((card) => {
   card.addEventListener("click", () => {
     const title = card.querySelector(".award-card__title");
@@ -256,12 +272,11 @@ document.querySelectorAll(".contact-aside__item a").forEach((a) => {
   });
 });
 
-// ── Section visibility (Intersection Observer) ───────────
+// ── Section visibility ────────────────────────────────────
 (function () {
   if (!window.IntersectionObserver) return;
-  const sections = document.querySelectorAll("section[id]");
   const seen = new Set();
-  const obs = new IntersectionObserver((entries) => {
+  const obs  = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && !seen.has(entry.target.id)) {
         seen.add(entry.target.id);
@@ -269,7 +284,7 @@ document.querySelectorAll(".contact-aside__item a").forEach((a) => {
       }
     });
   }, { threshold: 0.3 });
-  sections.forEach((s) => obs.observe(s));
+  document.querySelectorAll("section[id]").forEach((s) => obs.observe(s));
 })();
 
 // ── Scroll depth ──────────────────────────────────────────
@@ -277,9 +292,9 @@ document.querySelectorAll(".contact-aside__item a").forEach((a) => {
   const marks = [25, 50, 75, 100];
   const fired = new Set();
   window.addEventListener("scroll", () => {
-    const scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+    const pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
     marks.forEach((m) => {
-      if (scrolled >= m && !fired.has(m)) {
+      if (pct >= m && !fired.has(m)) {
         fired.add(m);
         track("scroll-depth", { depth: m + "%", page: window.location.pathname });
       }
@@ -290,9 +305,7 @@ document.querySelectorAll(".contact-aside__item a").forEach((a) => {
 // ── Time on page ──────────────────────────────────────────
 (function () {
   [30, 60, 120, 300].forEach((secs) => {
-    setTimeout(() => {
-      track("time-on-page", { seconds: secs, page: window.location.pathname });
-    }, secs * 1000);
+    setTimeout(() => track("time-on-page", { seconds: secs, page: window.location.pathname }), secs * 1000);
   });
 })();
 
@@ -300,14 +313,11 @@ document.querySelectorAll(".contact-aside__item a").forEach((a) => {
 (function () {
   let fired = false;
   document.addEventListener("mouseleave", (e) => {
-    if (e.clientY <= 0 && !fired) {
-      fired = true;
-      track("exit-intent", { page: window.location.pathname });
-    }
+    if (e.clientY <= 0 && !fired) { fired = true; track("exit-intent", { page: window.location.pathname }); }
   });
 })();
 
-// ── Copy to clipboard detection ───────────────────────────
+// ── Copy detection ────────────────────────────────────────
 document.addEventListener("copy", () => {
   const sel = window.getSelection() ? window.getSelection().toString().slice(0, 100) : "";
   track("text-copy", { text: sel, page: window.location.pathname });
@@ -334,12 +344,9 @@ if (weatherWidget) {
     80: "Showers", 81: "Rain showers", 82: "Heavy showers",
     95: "Thunderstorm", 96: "Thunderstorm", 99: "Thunderstorm",
   };
-
   const FAHRENHEIT_COUNTRIES = new Set(["US", "LR", "MM"]);
   function usesFahrenheit(cc) { return FAHRENHEIT_COUNTRIES.has((cc || "").toUpperCase()); }
-
-  let wxData = null;
-  let useFahrenheit = false;
+  let wxData = null, useFahrenheit = false;
   function toF(c) { return Math.round(c * 9 / 5 + 32); }
 
   function renderWeather() {
@@ -348,7 +355,7 @@ if (weatherWidget) {
     const temp = useFahrenheit ? toF(tempC) : tempC;
     const unit = useFahrenheit ? "°F" : "°C";
     document.getElementById("weatherIcon").textContent = icons[code] || "🌤️";
-    document.getElementById("weatherTemp").textContent = `${temp}${unit}`;
+    document.getElementById("weatherTemp").textContent = temp + unit;
     document.getElementById("weatherCity").textContent = city || "";
     document.getElementById("weatherDesc").textContent = descs[code] || "";
     const forecastEl = document.getElementById("weatherForecast");
@@ -356,7 +363,7 @@ if (weatherWidget) {
       forecastEl.innerHTML = forecast.map(d => {
         const hi = useFahrenheit ? toF(d.hi) : d.hi;
         const lo = useFahrenheit ? toF(d.lo) : d.lo;
-        return `<span class="wx-day"><span class="wx-day__label">${d.label}</span><span class="wx-day__icon">${icons[d.code] || "🌤️"}</span><span class="wx-day__range">${hi}/${lo}${unit}</span></span>`;
+        return '<span class="wx-day"><span class="wx-day__label">' + d.label + '</span><span class="wx-day__icon">' + (icons[d.code] || "🌤️") + '</span><span class="wx-day__range">' + hi + "/" + lo + unit + "</span></span>";
       }).join("");
     }
     weatherWidget.hidden = false;
@@ -374,14 +381,12 @@ if (weatherWidget) {
       if (coordCache) {
         ({ lat, lon, city, country } = JSON.parse(coordCache));
       } else {
-        const res = await fetch("https://ipinfo.io/json?token=");
-        if (res.ok) {
-          const d = await res.json();
-          [lat, lon] = (d.loc || ",").split(",").map(Number);
-          city    = d.city    || "";
-          country = d.country || "";
-          sessionStorage.setItem("wx_coords", JSON.stringify({ lat, lon, city, country }));
-        }
+        const geo = await getGeo();
+        lat     = geo.latitude;
+        lon     = geo.longitude;
+        city    = geo.city    || "";
+        country = geo.country || "";
+        if (lat && lon) sessionStorage.setItem("wx_coords", JSON.stringify({ lat, lon, city, country }));
       }
       if (!lat || !lon) return;
       let wx;
@@ -390,14 +395,14 @@ if (weatherWidget) {
         wx = JSON.parse(cachedWx);
       } else {
         wx = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=celsius&timezone=auto&forecast_days=4`
+          "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=celsius&timezone=auto&forecast_days=4"
         ).then(r => r.json());
         sessionStorage.setItem("wx", JSON.stringify(wx));
       }
       const tempC = Math.round(wx.current_weather.temperature);
       const code  = wx.current_weather.weathercode;
       const days  = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-      const forecast = (wx.daily?.time || []).slice(1, 4).map((dateStr, i) => ({
+      const forecast = (wx.daily && wx.daily.time ? wx.daily.time : []).slice(1, 4).map((dateStr, i) => ({
         label: days[new Date(dateStr).getDay()],
         code:  wx.daily.weathercode[i + 1],
         hi:    Math.round(wx.daily.temperature_2m_max[i + 1]),
@@ -420,13 +425,13 @@ const lightboxCap   = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
 function openLightbox(card) {
-  lightboxImg.src               = card.dataset.image;
-  lightboxImg.alt               = card.dataset.title;
-  lightboxTitle.textContent     = card.dataset.title;
-  lightboxDate.textContent      = card.dataset.date;
-  lightboxCap.textContent       = card.dataset.caption;
+  lightboxImg.src              = card.dataset.image;
+  lightboxImg.alt              = card.dataset.title;
+  lightboxTitle.textContent    = card.dataset.title;
+  lightboxDate.textContent     = card.dataset.date;
+  lightboxCap.textContent      = card.dataset.caption;
   lightbox.classList.add("open");
-  document.body.style.overflow  = "hidden";
+  document.body.style.overflow = "hidden";
 }
 function closeLightbox() {
   lightbox.classList.remove("open");
@@ -449,17 +454,12 @@ document.body.appendChild(tooltip);
 document.querySelectorAll(".instax__caption").forEach(function (el) {
   const fullText = el.closest(".instax").dataset.caption;
   if (!fullText) return;
-  el.addEventListener("mouseenter", function () {
-    tooltip.textContent = fullText;
-    tooltip.classList.add("visible");
-  });
-  el.addEventListener("mousemove", function (e) {
+  el.addEventListener("mouseenter", function () { tooltip.textContent = fullText; tooltip.classList.add("visible"); });
+  el.addEventListener("mousemove",  function (e) {
     tooltip.style.left = (e.clientX - tooltip.offsetWidth / 2) + "px";
     tooltip.style.top  = (e.clientY - 48) + "px";
   });
-  el.addEventListener("mouseleave", function () {
-    tooltip.classList.remove("visible");
-  });
+  el.addEventListener("mouseleave", function () { tooltip.classList.remove("visible"); });
 });
 
 // ── Hero role typewriter ──────────────────────────────────
@@ -470,7 +470,8 @@ document.querySelectorAll(".instax__caption").forEach(function (el) {
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (REDUCED) {
     el.textContent = roles.join(" · ");
-    document.querySelector(".hero__cursor")?.remove();
+    var cur = document.querySelector(".hero__cursor");
+    if (cur) cur.remove();
     return;
   }
   const TYPE_SPEED = 68, DELETE_SPEED = 36, PAUSE_FULL = 1900, PAUSE_EMPTY = 380;
@@ -496,19 +497,16 @@ document.querySelectorAll(".instax__caption").forEach(function (el) {
   const success = form ? form.querySelector("[data-fs-success]") : null;
   const errBox  = form ? form.querySelector("[data-fs-error]:not([data-fs-error='name']):not([data-fs-error='email']):not([data-fs-error='message'])") : null;
   if (!form) return;
-
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
     btn.disabled = true;
     btn.textContent = "Sending...";
-    if (errBox)  { errBox.textContent = "";  errBox.style.display  = "none"; }
+    if (errBox)  { errBox.textContent = "";  errBox.style.display = "none"; }
     if (success) { success.style.display = "none"; }
     try {
       const res  = await fetch("https://formspree.io/f/mnjokoon", {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
+        method: "POST", body: new FormData(form), headers: { Accept: "application/json" },
       });
       const data = await res.json();
       if (res.ok) {
@@ -525,27 +523,5 @@ document.querySelectorAll(".instax__caption").forEach(function (el) {
       btn.disabled = false;
       btn.textContent = "Send message";
     }
-  });
-})();
-
-
-// ── visitor-ip Umami event ────────────────────────────────
-// Fires once per session — IP appears as a named event property
-// in Umami dashboard under Events > visitor-ip
-(async () => {
-  const geo = await getGeo();
-  if (!geo.ip) return;
-  track("visitor-ip", {
-    ip:       geo.ip,
-    isp:      geo.isp,
-    org:      geo.org,
-    as_num:   geo.as,
-    city:     geo.city,
-    region:   geo.region,
-    country:  geo.country_name,
-    postal:   geo.postal,
-    timezone: geo.timezone,
-    lat:      String(geo.latitude),
-    lon:      String(geo.longitude),
   });
 })();
