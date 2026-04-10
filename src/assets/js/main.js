@@ -37,7 +37,6 @@ async function getGeo() {
       latitude,
       longitude,
     };
-    // Cache only non-sensitive fields to avoid storing precise coordinates in clear text.
     sessionStorage.setItem(
       "geo",
       JSON.stringify({
@@ -241,7 +240,6 @@ if (weatherWidget) {
     95: "Thunderstorm", 96: "Thunderstorm", 99: "Thunderstorm",
   };
 
-  // Only US, Liberia (LR), and Myanmar (MM) use °F
   const FAHRENHEIT_COUNTRIES = new Set(["US", "LR", "MM"]);
   function usesFahrenheit(countryCode) { return FAHRENHEIT_COUNTRIES.has((countryCode || "").toUpperCase()); }
 
@@ -261,7 +259,6 @@ if (weatherWidget) {
     document.getElementById("weatherCity").textContent = city || "";
     document.getElementById("weatherDesc").textContent = descs[code] || "";
 
-    // Forecast days
     const forecastEl = document.getElementById("weatherForecast");
     if (forecastEl && forecast) {
       forecastEl.innerHTML = forecast.map(d => {
@@ -274,7 +271,6 @@ if (weatherWidget) {
     weatherWidget.hidden = false;
   }
 
-  // Toggle °C / °F on temp click
   document.getElementById("weatherTemp").addEventListener("click", () => {
     useFahrenheit = !useFahrenheit;
     renderWeather();
@@ -282,14 +278,12 @@ if (weatherWidget) {
 
   (async () => {
     try {
-      // Get coords — use dedicated cache key that preserves lat/lon
       let lat, lon, city, country;
       const coordCache = sessionStorage.getItem("wx_coords");
       if (coordCache) {
         ({ lat, lon, city, country } = JSON.parse(coordCache));
       } else {
         const geo = await getGeo();
-        // getGeo() strips lat/lon from its own cache — re-fetch coords directly
         const res = await fetch("https://ipinfo.io/json?token=");
         if (res.ok) {
           const d = await res.json();
@@ -315,7 +309,6 @@ if (weatherWidget) {
       const tempC = Math.round(wx.current_weather.temperature);
       const code  = wx.current_weather.weathercode;
 
-      // Build 3-day forecast (skip today = index 0)
       const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
       const forecast = (wx.daily?.time || []).slice(1, 4).map((dateStr, i) => ({
         label: days[new Date(dateStr).getDay()],
@@ -430,43 +423,21 @@ document.querySelectorAll('.instax__caption').forEach(function (el) {
   setTimeout(tick, 700);
 })();
 
-// ── Contact form ──────────────────────────────────────────
+// ── Contact form (Formspree AJAX SDK) ────────────────────
 (function () {
-  const form   = document.getElementById("contactForm");
-  const btn    = document.getElementById("contactSubmit");
-  const status = document.getElementById("contactStatus");
+  const form = document.getElementById("contactForm");
   if (!form) return;
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
+  window.formspree = window.formspree || function () {
+    (formspree.q = formspree.q || []).push(arguments);
+  };
 
-    btn.disabled = true;
-    btn.textContent = "Sending…";
-    status.textContent = "";
-    status.className = "contact-form__status";
+  formspree("initForm", {
+    formElement: "#contactForm",
+    formId: "mnjokoon",
+  });
 
-    try {
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        status.textContent = "✓ Message sent — I'll get back to you soon.";
-        status.classList.add("contact-form__status--ok");
-        form.reset();
-        track("contact-form-submit", { page: window.location.pathname });
-      } else {
-        throw new Error("server");
-      }
-    } catch (_) {
-      status.textContent = "Something went wrong. Please email me directly.";
-      status.classList.add("contact-form__status--error");
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Send message";
-    }
+  form.addEventListener("fs:success", function () {
+    track("contact-form-submit", { page: window.location.pathname });
   });
 })();
