@@ -429,3 +429,44 @@ document.querySelectorAll('.instax__caption').forEach(function (el) {
 
   setTimeout(tick, 700);
 })();
+
+// ── Contact form ──────────────────────────────────────────
+(function () {
+  const form   = document.getElementById("contactForm");
+  const btn    = document.getElementById("contactSubmit");
+  const status = document.getElementById("contactStatus");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    status.textContent = "";
+    status.className = "contact-form__status";
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        status.textContent = "✓ Message sent — I'll get back to you soon.";
+        status.classList.add("contact-form__status--ok");
+        form.reset();
+        track("contact-form-submit", { page: window.location.pathname });
+      } else {
+        throw new Error("server");
+      }
+    } catch (_) {
+      status.textContent = "Something went wrong. Please email me directly.";
+      status.classList.add("contact-form__status--error");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Send message";
+    }
+  });
+})();

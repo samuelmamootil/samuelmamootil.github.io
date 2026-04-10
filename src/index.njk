@@ -27,8 +27,8 @@ fontPreload: true
       </div>
       <div class="hero__cta">
         <a href="/work/" class="btn">View Experience</a>
+        <a href="#contact" class="btn btn--ghost">Get in touch</a>
         <a href="{{ site.resume }}" class="btn btn--ghost resume-track">Resume</a>
-        <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
       </div>
     </div>
     <div class="hero__avatar">
@@ -243,6 +243,71 @@ fontPreload: true
       {% else %}
       <p>No posts yet.</p>
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <p style="max-width:560px;margin-bottom:2rem;">Open to DevOps, Cloud Architecture, and ML Engineering roles in the US. Feel free to reach out about opportunities, collaborations, or just to connect.</p>
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpwzgvkq" method="POST" novalidate>
+        <div class="contact-form__row">
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" name="name" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contactSubject">Subject</label>
+          <input type="text" id="contactSubject" name="subject" placeholder="Role opportunity / Collaboration / Other" />
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" rows="5" placeholder="Tell me what you're working on..." required></textarea>
+        </div>
+        <div class="contact-form__footer">
+          <button type="submit" class="btn" id="contactSubmit">Send message</button>
+          <p class="contact-form__status" id="contactStatus" aria-live="polite"></p>
+        </div>
+      </form>
+      <div class="contact-aside">
+        <div class="contact-aside__item">
+          <span class="contact-aside__icon">✉️</span>
+          <div>
+            <p class="contact-aside__label">Email</p>
+            <a href="mailto:{{ site.email }}" class="contact-aside__value">{{ site.email }}</a>
+          </div>
+        </div>
+        <div class="contact-aside__item">
+          <span class="contact-aside__icon">💼</span>
+          <div>
+            <p class="contact-aside__label">LinkedIn</p>
+            <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="contact-aside__value">samuel-mamootil</a>
+          </div>
+        </div>
+        <div class="contact-aside__item">
+          <span class="contact-aside__icon">🐙</span>
+          <div>
+            <p class="contact-aside__label">GitHub</p>
+            <a href="{{ site.github }}" target="_blank" rel="noopener" class="contact-aside__value">samuelmamootil</a>
+          </div>
+        </div>
+        <div class="contact-aside__item">
+          <span class="contact-aside__icon">📍</span>
+          <div>
+            <p class="contact-aside__label">Location</p>
+            <p class="contact-aside__value">{{ site.location }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
