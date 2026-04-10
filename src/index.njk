@@ -1,16 +1,19 @@
 ---
 layout: layouts/base.njk
-title: Samuel Mamootil — Cloud & Platform Engineer
-pageDescription: "Samuel Mamootil — Cloud & Platform Engineer in Arlington, TX. AWS, Azure, GCP, Terraform, Kubernetes, DevOps. Case studies from IBM, Wipro, and LTIMindtree. Azure certified. Open to Cloud, SRE, and Platform Engineering roles."
+title: Samuel Mamootil — DevOps Engineer · Cloud Architect · ML Engineer | Portfolio
+pageDescription: "Samuel Mamootil is a DevOps Engineer, Cloud Architect, and Machine Learning Engineer in Arlington, TX. AWS, Azure, GCP, Terraform, Kubernetes, CI/CD, IaC, and AI infrastructure. Delivered at IBM, Wipro, and LTIMindtree. Azure certified. Open to DevOps, Cloud, and MLOps roles in the US."
 fontPreload: true
 ---
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero__inner container">
     <div class="hero__text">
-      <p class="eyebrow">Cloud · Platform Engineering · DevOps · SRE · AI Infrastructure</p>
+      <p class="eyebrow">DevOps · Cloud Architecture · Machine Learning · AI Infrastructure</p>
       <h1 class="hero__headline">Samuel Mamootil</h1>
-      <p class="hero__subheadline">{{ site.heroHeadline }}</p>
+      <p class="hero__subheadline" aria-label="DevOps Engineer · Machine Learning Engineer · Cloud Architect">
+        <span class="hero__role-static">I'm a </span><span id="heroRole" class="hero__role-typed" aria-hidden="true"></span><span class="hero__cursor" aria-hidden="true"></span>
+      </p>
       <p class="hero__intro">{{ site.heroIntro }}</p>
       <div id="weatherWidget" class="weather-widget" hidden>
         <div class="weather-widget__current">
@@ -24,14 +27,24 @@ fontPreload: true
       </div>
       <div class="hero__cta">
         <a href="/work/" class="btn">View Experience</a>
+        <a href="{{ site.resume }}" class="btn btn--ghost resume-track">Resume</a>
         <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
       </div>
     </div>
     <div class="hero__avatar">
       <img src="https://github.com/samuelmamootil.png"
-           alt="Samuel Mamootil — Cloud and Platform Engineer, Arlington TX"
+           alt="Samuel Mamootil — DevOps Engineer, Cloud Architect, and Machine Learning Engineer, Arlington TX"
            width="220" height="220" />
     </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section container" id="about">
+  <p class="eyebrow">About Samuel Mamootil</p>
+  <h2>DevOps Engineer · Cloud Architect · ML Engineer — Arlington, TX</h2>
+  <div class="story-grid">
+    {% for line in site.story %}<p>{{ line }}</p>{% endfor %}
   </div>
 </section>
 
@@ -45,8 +58,7 @@ fontPreload: true
       </div>
       <a href="/work/" class="btn btn--ghost btn--sm">All experience &rarr;</a>
     </div>
-    <p style="max-width:640px;margin-bottom:2rem;">Each role is presented with the business context, technical challenge, architecture, what I owned, and what changed. This is the depth behind the resume.</p>
-
+    <p style="max-width:640px;margin-bottom:2rem;">Each role is presented with the business context, technical challenge, architecture decisions, what I owned, and what changed. This is the depth behind the resume.</p>
     <div class="timeline">
       {% set cs = casestudies[0] %}
       <div class="timeline__item">
@@ -66,52 +78,83 @@ fontPreload: true
           <div class="tag-list" style="margin-bottom:.75rem;">
             {% for t in cs.tags | slice(0, 4) %}<span class="tag">{{ t }}</span>{% endfor %}
           </div>
-          <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read more &rarr;</a>
+          <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read case study &rarr;</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section container" id="about">
-  <p class="eyebrow">About Samuel Mamootil</p>
-  <h2>Cloud &amp; Platform Engineer, Arlington TX</h2>
-  <div class="story-grid">
-    {% for line in site.story %}<p>{{ line }}</p>{% endfor %}
+<!-- CAPABILITIES -->
+<section class="section container">
+  <p class="eyebrow">Capabilities</p>
+  <h2>Cloud, DevOps &amp; AI skills</h2>
+  <div class="skills-grid" style="margin-top:1.5rem;">
+    {% for category, items in site.skills %}
+    <div class="skill-card">
+      <h3>{{ category }}</h3>
+      <ul class="tag-list">
+        {% for item in items %}<li class="tag">{{ item }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
   </div>
 </section>
 
-<!-- CAPABILITIES -->
+<!-- CERTIFICATIONS -->
 <section class="section section--alt">
   <div class="container">
-    <p class="eyebrow">Capabilities</p>
-    <h2>What I work with</h2>
-    <div class="skills-grid">
-      {% for category, items in site.skills %}
-      <div class="skill-card">
-        <h3>{{ category }}</h3>
-        <ul class="tag-list">
-          {% for item in items %}<li class="tag">{{ item }}</li>{% endfor %}
-        </ul>
+    <p class="eyebrow">Certifications</p>
+    <h2>Microsoft Azure certified</h2>
+    <div class="cert-row">
+      {% for cert in site.certifications %}
+      <div class="cert-badge">
+        <span class="cert-badge__code" style="color:{{ cert.color }}">{{ cert.code }}</span>
+        <span class="cert-badge__name">{{ cert.name }}</span>
+        <span class="cert-badge__issuer">{{ cert.issuer }}</span>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section class="section container">
-  <p class="eyebrow">Certifications</p>
-  <h2>Microsoft Azure certified</h2>
-  <div class="cert-row">
-    {% for cert in site.certifications %}
-    <div class="cert-badge">
-      <span class="cert-badge__code" style="color:{{ cert.color }}">{{ cert.code }}</span>
-      <span class="cert-badge__name">{{ cert.name }}</span>
-      <span class="cert-badge__issuer">{{ cert.issuer }}</span>
+<!-- AWARDS -->
+<section class="section container" id="awards">
+  <p class="eyebrow">Awards &amp; Recognition</p>
+  <h2>Honors &amp; Awards</h2>
+  <p style="max-width:640px;margin-bottom:2rem;">Recognition received for cloud engineering delivery, enterprise migration programs, and AI product development across AWS and Azure.</p>
+  <div class="awards-list">
+
+    <div class="award-card">
+      <div class="award-card__icon">🏆</div>
+      <div class="award-card__body">
+        <p class="award-card__org">AWS Symposium · UTA Analytics Symposium 2026</p>
+        <h3 class="award-card__title">Second Runner-Up — AWS Competition</h3>
+        <p class="award-card__project">Project: ReRhythm</p>
+        <p class="award-card__desc">Designed and deployed ReRhythm, an AI-powered career coaching platform built on AWS. Architected the full cloud infrastructure using ECS Fargate, DynamoDB, CloudFormation, and AWS Bedrock (Claude) — earning second runner-up recognition at the University of Texas at Arlington Analytics Symposium AWS competition.</p>
+      </div>
     </div>
-    {% endfor %}
+
+    <div class="award-card">
+      <div class="award-card__icon">🥇</div>
+      <div class="award-card__body">
+        <p class="award-card__org">LTIMindtree · Best Team Award</p>
+        <h3 class="award-card__title">Best Team — Gold</h3>
+        <p class="award-card__project">Project: GenRE (Regeneron)</p>
+        <p class="award-card__desc">Led the secure migration of 100+ enterprise applications from on-premises infrastructure to Microsoft Azure using a structured lift-and-shift approach. Delivered at scale with zero data loss, enforcing security controls and compliance standards throughout — recognised with the Gold Best Team award for cloud modernisation impact.</p>
+      </div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-card__icon">🥉</div>
+      <div class="award-card__body">
+        <p class="award-card__org">LTIMindtree · Best Team Award</p>
+        <h3 class="award-card__title">Best Team — Bronze</h3>
+        <p class="award-card__project">Project: Parexel</p>
+        <p class="award-card__desc">Delivered secure, automated infrastructure deployments on Microsoft Azure using ARM templates and Azure DevOps pipelines. Received the Bronze Best Team award in recognition of deployment reliability, automation quality, and strong client satisfaction from Parexel.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -121,27 +164,27 @@ fontPreload: true
     <div class="section-header">
       <div>
         <p class="eyebrow">Featured Project</p>
-        <h2>ReRhythm — AI Career Coach</h2>
+        <h2>ReRhythm — AI Career Coach on AWS</h2>
       </div>
       <a href="/projects/" class="btn btn--ghost btn--sm">All projects &rarr;</a>
     </div>
-
     <a href="/projects/" class="rr-spotlight">
       <div class="rr-spotlight__img-wrap">
         <img src="/assets/img/gallery/reRhythm resume upload.png"
-             alt="ReRhythm resume upload screen"
+             alt="ReRhythm AI career coaching platform — resume upload screen"
              loading="lazy" class="rr-spotlight__img" />
         <div class="rr-spotlight__overlay"><span>View Project &rarr;</span></div>
       </div>
       <div class="rr-spotlight__body">
-        <p class="rr-spotlight__award">🏆 Second runner-up &mdash; AWS Competition, UTA Symposium 2026</p>
-        <p class="rr-spotlight__desc">AI-powered career coaching platform that parses your resume with AWS Textract and generates a personalised 28-day roadmap via AWS Bedrock (Claude). Built on ECS Fargate, DynamoDB, and CloudFormation.</p>
+        <p class="rr-spotlight__award">🏆 Second runner-up — AWS Competition, UTA Analytics Symposium 2026</p>
+        <p class="rr-spotlight__desc">ReRhythm is an AI-powered career coaching platform that parses resumes with AWS Textract and generates a personalised 28-day roadmap via AWS Bedrock (Claude). Built on ECS Fargate, DynamoDB, and CloudFormation — a full-stack cloud and AI engineering project from architecture to deployment.</p>
         <div class="tag-list">
           <span class="tag">AWS Bedrock</span>
           <span class="tag">Textract</span>
           <span class="tag">ECS Fargate</span>
           <span class="tag">.NET</span>
           <span class="tag">DynamoDB</span>
+          <span class="tag">CloudFormation</span>
         </div>
       </div>
     </a>
@@ -157,7 +200,6 @@ fontPreload: true
     </div>
     <a href="/gallery/" class="btn btn--ghost btn--sm">View all photos &rarr;</a>
   </div>
-
   <div class="hpt">
     <div class="hpt__line"></div>
     {% for item in gallery %}
@@ -182,7 +224,7 @@ fontPreload: true
     <div class="section-header">
       <div>
         <p class="eyebrow">Writing</p>
-        <h2>Latest from the blog</h2>
+        <h2>Cloud, DevOps &amp; AI — from the blog</h2>
       </div>
       <a href="/writing/" class="btn btn--ghost btn--sm">All posts &rarr;</a>
     </div>
@@ -205,7 +247,7 @@ fontPreload: true
   </div>
 </section>
 
-<!-- FAQ — AEO / Answer Engine Optimisation -->
+<!-- FAQ -->
 <section class="section container" id="faq">
   <p class="eyebrow">FAQ</p>
   <h2>Common questions</h2>

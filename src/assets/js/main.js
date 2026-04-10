@@ -386,3 +386,46 @@ document.querySelectorAll('.instax__caption').forEach(function (el) {
     tooltip.classList.remove('visible');
   });
 });
+
+// ── Hero role typewriter ──────────────────────────────────
+(function () {
+  const el = document.getElementById("heroRole");
+  if (!el) return;
+
+  const roles = ["DevOps Engineer", "Machine Learning Engineer", "Cloud Architect"];
+  const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (REDUCED) {
+    el.textContent = roles.join(" · ");
+    document.querySelector(".hero__cursor")?.remove();
+    return;
+  }
+
+  const TYPE_SPEED   = 68;
+  const DELETE_SPEED = 36;
+  const PAUSE_FULL   = 1900;
+  const PAUSE_EMPTY  = 380;
+
+  let roleIndex = 0, charIndex = 0, deleting = false;
+
+  function tick() {
+    const word = roles[roleIndex];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++charIndex);
+      if (charIndex === word.length) {
+        deleting = true;
+        return setTimeout(tick, PAUSE_FULL);
+      }
+    } else {
+      el.textContent = word.slice(0, --charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        return setTimeout(tick, PAUSE_EMPTY);
+      }
+    }
+    setTimeout(tick, deleting ? DELETE_SPEED : TYPE_SPEED);
+  }
+
+  setTimeout(tick, 700);
+})();
