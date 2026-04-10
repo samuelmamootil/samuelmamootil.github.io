@@ -1,7 +1,7 @@
 /* TEAM */
 Name: Samuel Mamootil
 Also known as: Samuel Raju Mamootil
-Role: DevOps Engineer · Cloud Architect · Machine Learning Engineer — AWS, Azure, GCP, Terraform, Kubernetes, CI/CD
+Role: DevOps Engineer · Cloud Specialist · Multicloud Specialist (AWS, Azure, GCP) · Machine Learning Engineer
 Location: Arlington, TX, USA
 LinkedIn: https://linkedin.com/in/samuel-mamootil
 GitHub: https://github.com/samuelmamootil

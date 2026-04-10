@@ -12,12 +12,12 @@
   "instagram": "",
   "resume": "/resume-view/",
   "heroHeadline": "Cloud migrations shipped. Platforms standardised. Teams unblocked.",
-  "heroIntro": "I build cloud infrastructure, DevOps pipelines, and AI-powered applications that remove friction at scale. Delivered across AWS, Azure, and GCP at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Open to DevOps Engineering, Cloud Architecture, MLOps, and Platform Engineering roles in the US.",
+  "heroIntro": "I build cloud infrastructure, DevOps pipelines, and AI-powered applications that remove friction at scale. Delivered across AWS, Azure, and GCP at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Open to DevOps Engineering, Cloud Specialist, Multicloud, MLOps, and Platform Engineering roles in the US.",
   "story": [
-    "Samuel Mamootil is a DevOps Engineer, Cloud Architect, and Machine Learning Engineer based in Arlington, TX — building the infrastructure layer that lets engineering teams move fast without breaking things.",
+    "Samuel Mamootil is a DevOps Engineer, Cloud Specialist, Multicloud Specialist (AWS, Azure, GCP), and Machine Learning Engineer based in Arlington, TX — building the infrastructure layer that lets engineering teams move fast without breaking things.",
     "At IBM, I led multi-cloud modernisation for enterprise clients across AWS, Azure, and GCP — designing landing zones, building Helm-based Kubernetes platforms, and delivering CI/CD pipelines that teams actually use. At Wipro, I led a 7-engineer team building reusable Terraform modules and AWS data platform infrastructure for Alight Solutions.",
     "At LTIMindtree, I migrated 100+ enterprise applications to Azure and deployed secure infrastructure for global clients including Parexel and Regeneron — earning two Best Team awards for delivery quality and client impact.",
-    "Right now I'm finishing my Master's at UTA, building ReRhythm (an AI career coach on AWS Bedrock that placed 2nd at the UTA Analytics Symposium), and actively looking for DevOps, Cloud Architecture, and ML Engineering roles in the US. My GitHub is github.com/samuelmamootil."
+    "Right now I'm finishing my Master's at UTA, building ReRhythm (an AI career coach on AWS Bedrock that placed 2nd at the UTA Analytics Symposium), and actively looking for DevOps, Cloud Specialist, Multicloud, and ML Engineering roles in the US. My GitHub is github.com/samuelmamootil."
   ],
   "strengths": [
     "Multi-cloud delivery across AWS, Azure, and GCP",
@@ -77,8 +77,8 @@
       "a": "Samuel Mamootil received Second Runner-Up at the UTA Analytics Symposium AWS competition for ReRhythm, an AI career coaching platform built on AWS Bedrock and ECS Fargate. He also received two LTIMindtree Best Team awards — Gold for the GenRE cloud migration program (100+ apps migrated to Azure) and Bronze for the Parexel Azure DevOps infrastructure project."
     },
     {
-      "q": "Is Samuel Mamootil a DevOps Engineer or Cloud Architect?",
-      "a": "Samuel Mamootil works across DevOps engineering, cloud architecture, and machine learning engineering. He has hands-on experience with CI/CD pipelines, Terraform IaC, Kubernetes, AWS, Azure, GCP, and AI/ML infrastructure including AWS SageMaker and AWS Bedrock."
+      "q": "Is Samuel Mamootil a DevOps Engineer or Cloud Specialist?",
+      "a": "Samuel Mamootil works across DevOps engineering, cloud specialisation, multicloud architecture (AWS, Azure, GCP), and machine learning engineering. He has hands-on experience with CI/CD pipelines, Terraform IaC, Kubernetes, AWS, Azure, GCP, and AI/ML infrastructure including AWS SageMaker and AWS Bedrock."
     },
     {
       "q": "What is Samuel Mamootil's GitHub username?",

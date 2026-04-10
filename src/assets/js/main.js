@@ -385,7 +385,7 @@ document.querySelectorAll('.instax__caption').forEach(function (el) {
   const el = document.getElementById("heroRole");
   if (!el) return;
 
-  const roles = ["DevOps Engineer", "Machine Learning Engineer", "Cloud Architect"];
+  const roles = ["DevOps Engineer", "Machine Learning Engineer", "Cloud Specialist", "Multicloud Specialist"];
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (REDUCED) {

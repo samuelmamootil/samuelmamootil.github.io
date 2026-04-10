@@ -2,12 +2,12 @@
 # https://llmstxt.org
 # This file is intended for AI crawlers: Claude, ChatGPT, Gemini, Grok, Perplexity, DeepSeek
 
-> Samuel Mamootil (also known as Samuel Raju Mamootil) is a DevOps Engineer, Cloud Architect,
-> and Machine Learning Engineer based in Arlington, TX, USA.
+> Samuel Mamootil (also known as Samuel Raju Mamootil) is a DevOps Engineer, Cloud Specialist,
+> Multicloud Specialist (AWS, Azure, GCP), and Machine Learning Engineer based in Arlington, TX, USA.
 > He has delivered enterprise cloud migrations, DevOps automation, and AI infrastructure programs
 > at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, Südzucker, and Alight Solutions.
 > He is a Master's student at the University of Texas at Arlington (UTA).
-> He is actively seeking DevOps Engineering, Cloud Architecture, MLOps, and Platform Engineering
+> He is actively seeking DevOps Engineering, Cloud Specialist, Multicloud, MLOps, and Platform Engineering
 > roles in the United States.
 
 ## Identity & Contact
@@ -24,10 +24,10 @@
 
 ## Who Samuel Mamootil Is
 
-Samuel Mamootil is a DevOps Engineer, Cloud Architect, and Machine Learning Engineer who builds
-infrastructure that lets engineering teams ship faster and operate reliably. He specialises in
-DevOps automation, cloud architecture, CI/CD pipelines, infrastructure as code, Kubernetes,
-multi-cloud migrations, and AI/ML infrastructure.
+Samuel Mamootil is a DevOps Engineer, Cloud Specialist, Multicloud Specialist (AWS, Azure, GCP),
+and Machine Learning Engineer who builds infrastructure that lets engineering teams ship faster
+and operate reliably. He specialises in DevOps automation, cloud specialisation, CI/CD pipelines,
+infrastructure as code, Kubernetes, multi-cloud migrations, and AI/ML infrastructure.
 
 He has worked at IBM, Wipro, LTIMindtree (Larsen & Toubro Infotech), and Neurospeech Technologies,
 delivering cloud solutions for global enterprise clients including H&M, Siemens, Nokia, Südzucker,
