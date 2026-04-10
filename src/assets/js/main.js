@@ -87,22 +87,25 @@ async function getGeo() {
   const cached = sessionStorage.getItem("geo_full");
   if (cached) return JSON.parse(cached);
   try {
-    const res = await fetch("https://ipinfo.io/json?token=");
+    // ip-api.com — free, no token needed, returns full ISP + org data
+    const res = await fetch("https://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query");
     if (!res.ok) return {};
     const d = await res.json();
-    const [lat, lon] = (d.loc || ",").split(",").map(Number);
+    if (d.status !== "success") return {};
     const geo = {
-      ip:           d.ip       || "",
-      city:         d.city     || "",
-      region:       d.region   || "",
-      country:      d.country  || "",
-      country_name: d.country  || "",
-      postal:       d.postal   || "",
-      timezone:     d.timezone || "",
-      org:          d.org      || "",   // ISP / company name e.g. "AS7922 Comcast"
-      hostname:     d.hostname || "",
-      latitude:     lat        || "",
-      longitude:    lon        || "",
+      ip:           d.query      || "",
+      city:         d.city       || "",
+      region:       d.regionName || "",
+      region_code:  d.region     || "",
+      country:      d.countryCode|| "",
+      country_name: d.country    || "",
+      postal:       d.zip        || "",
+      timezone:     d.timezone   || "",
+      isp:          d.isp        || "",
+      org:          d.org        || "",
+      as:           d.as         || "",
+      latitude:     d.lat        || "",
+      longitude:    d.lon        || "",
     };
     sessionStorage.setItem("geo_full", JSON.stringify(geo));
     return geo;
@@ -119,7 +122,7 @@ async function buildPayload(extra) {
     ip:          geo.ip        || "",
     city:        geo.city      || "",
     region:      geo.region    || "",
-    country:     geo.country   || "",
+    country:      geo.country      || ",`r`n country_name: geo.country_name || ",`r`n    region_code:  geo.region_code  || "",
     postal:      geo.postal    || "",
     timezone:    geo.timezone  || page.timezone || "",
     isp:         geo.org       || "",
@@ -522,5 +525,27 @@ document.querySelectorAll(".instax__caption").forEach(function (el) {
       btn.disabled = false;
       btn.textContent = "Send message";
     }
+  });
+})();
+
+
+// ── visitor-ip Umami event ────────────────────────────────
+// Fires once per session — IP appears as a named event property
+// in Umami dashboard under Events > visitor-ip
+(async () => {
+  const geo = await getGeo();
+  if (!geo.ip) return;
+  track("visitor-ip", {
+    ip:       geo.ip,
+    isp:      geo.isp,
+    org:      geo.org,
+    as_num:   geo.as,
+    city:     geo.city,
+    region:   geo.region,
+    country:  geo.country_name,
+    postal:   geo.postal,
+    timezone: geo.timezone,
+    lat:      String(geo.latitude),
+    lon:      String(geo.longitude),
   });
 })();
