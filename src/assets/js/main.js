@@ -1,4 +1,4 @@
-// Mobile nav
+// ── Mobile nav ────────────────────────────────────────────
 const toggle = document.getElementById("navToggle");
 const drawer = document.getElementById("navDrawer");
 if (toggle && drawer) {
@@ -14,42 +14,15 @@ document.querySelectorAll(".nav__drawer a").forEach((a) => {
   });
 });
 
-// ── Umami helper ──
+// ── Umami helper ──────────────────────────────────────────
 function track(event, props) {
   if (typeof umami !== "undefined") umami.track(event, props || {});
 }
 
-// ── Visitor + resume tracking ──
+// ── Sheet URL ─────────────────────────────────────────────
 const SHEET_URL = document.body.dataset.sheetUrl;
 
-async function getGeo() {
-  const cached = sessionStorage.getItem("geo");
-  if (cached) return JSON.parse(cached);
-  try {
-    const res = await fetch("https://ipinfo.io/json?token=");
-    if (!res.ok) return {};
-    const data = await res.json();
-    const [latitude, longitude] = (data.loc || ",").split(",").map(Number);
-    const geo = {
-      city:         data.city    || "",
-      country_name: data.country || "",
-      region:       data.region  || "",
-      latitude,
-      longitude,
-    };
-    sessionStorage.setItem(
-      "geo",
-      JSON.stringify({
-        city:         geo.city,
-        country_name: geo.country_name,
-        region:       geo.region,
-      }),
-    );
-    return geo;
-  }
-  catch (_) { return {}; }
-}
-
+// ── Device / browser fingerprint ─────────────────────────
 function getDevice() {
   const ua = navigator.userAgent;
   if (/Mobi|Android/i.test(ua)) return "Mobile";
@@ -76,78 +49,139 @@ function getOS() {
   return "Other";
 }
 
+function getScreenInfo() {
+  return {
+    screen_res:    `${screen.width}x${screen.height}`,
+    viewport:      `${window.innerWidth}x${window.innerHeight}`,
+    pixel_ratio:   window.devicePixelRatio || 1,
+    color_depth:   screen.colorDepth || "",
+    touch:         navigator.maxTouchPoints > 0 ? "yes" : "no",
+    orientation:   screen.orientation ? screen.orientation.type : (window.innerWidth > window.innerHeight ? "landscape" : "portrait"),
+  };
+}
+
+function getConnectionInfo() {
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (!conn) return { connection: "unknown" };
+  return {
+    connection:      conn.effectiveType || conn.type || "unknown",
+    downlink_mbps:   conn.downlink      || "",
+    save_data:       conn.saveData      ? "yes" : "no",
+  };
+}
+
+function getPageInfo() {
+  return {
+    page:        window.location.pathname,
+    referrer:    document.referrer || "direct",
+    title:       document.title,
+    lang:        navigator.language || "",
+    timezone:    Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+    local_hour:  new Date().getHours(),
+    local_day:   ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][new Date().getDay()],
+  };
+}
+
+// ── Full geo from ipinfo.io ───────────────────────────────
+async function getGeo() {
+  const cached = sessionStorage.getItem("geo_full");
+  if (cached) return JSON.parse(cached);
+  try {
+    const res = await fetch("https://ipinfo.io/json?token=");
+    if (!res.ok) return {};
+    const d = await res.json();
+    const [lat, lon] = (d.loc || ",").split(",").map(Number);
+    const geo = {
+      ip:           d.ip       || "",
+      city:         d.city     || "",
+      region:       d.region   || "",
+      country:      d.country  || "",
+      country_name: d.country  || "",
+      postal:       d.postal   || "",
+      timezone:     d.timezone || "",
+      org:          d.org      || "",   // ISP / company name e.g. "AS7922 Comcast"
+      hostname:     d.hostname || "",
+      latitude:     lat        || "",
+      longitude:    lon        || "",
+    };
+    sessionStorage.setItem("geo_full", JSON.stringify(geo));
+    return geo;
+  } catch (_) { return {}; }
+}
+
+// ── Build full enriched payload ───────────────────────────
+async function buildPayload(extra) {
+  const geo    = await getGeo();
+  const screen = getScreenInfo();
+  const conn   = getConnectionInfo();
+  const page   = getPageInfo();
+  return Object.assign({}, page, screen, conn, {
+    ip:          geo.ip        || "",
+    city:        geo.city      || "",
+    region:      geo.region    || "",
+    country:     geo.country   || "",
+    postal:      geo.postal    || "",
+    timezone:    geo.timezone  || page.timezone || "",
+    isp:         geo.org       || "",
+    hostname:    geo.hostname  || "",
+    lat:         geo.latitude  || "",
+    lon:         geo.longitude || "",
+    device:      getDevice(),
+    os:          getOS(),
+    browser:     getBrowser(),
+    ua:          navigator.userAgent.slice(0, 200),
+  }, extra || {});
+}
+
+// ── Send to Google Sheet ──────────────────────────────────
 function sendToSheet(payload) {
   if (!SHEET_URL) return;
   let url;
-  try {
-    url = new URL(SHEET_URL, window.location.origin);
-  }
-  catch (_) {
-    return;
-  }
-  const allowedHosts = ["script.google.com"];
-  if (!allowedHosts.includes(url.hostname)) return;
+  try { url = new URL(SHEET_URL, window.location.origin); }
+  catch (_) { return; }
+  if (!["script.google.com"].includes(url.hostname)) return;
   navigator.sendBeacon(url.toString(), JSON.stringify(payload));
 }
 
-// Fire on every page load
+// ── Page visit (fires on every page load) ─────────────────
 (async () => {
-  const geo = await getGeo();
-  const payload = {
-    page:     window.location.pathname,
-    referrer: document.referrer || "direct",
-    city:     geo.city         || "",
-    country:  geo.country_name || "",
-    region:   geo.region       || "",
-    device:   getDevice(),
-    os:       getOS(),
-    browser:  getBrowser(),
-  };
+  const payload = await buildPayload({ event: "page-visit" });
   sendToSheet(payload);
-  track("page-visit", { city: payload.city, country: payload.country });
+  track("page-visit", payload);
 })();
 
-// Resume click
+// ── Resume click ──────────────────────────────────────────
 document.querySelectorAll(".resume-track").forEach((link) => {
   link.addEventListener("click", async () => {
-    const geo = await getGeo();
-    const payload = {
-      page:     "/resume",
-      referrer: window.location.pathname,
-      city:     geo.city         || "",
-      country:  geo.country_name || "",
-      region:   geo.region       || "",
-      device:   getDevice(),
-      os:       getOS(),
-      browser:  getBrowser(),
-    };
+    const payload = await buildPayload({ event: "resume-view", referrer: window.location.pathname, page: "/resume" });
     sendToSheet(payload);
-    track("resume-view", { city: payload.city, country: payload.country });
+    track("resume-view", payload);
   });
 });
 
-// ── Nav clicks ──
+// ── Nav clicks ────────────────────────────────────────────
 document.querySelectorAll(".nav__links a, .nav__drawer a").forEach((a) => {
   a.addEventListener("click", () => {
-    track("nav-click", { label: a.textContent.trim(), href: a.getAttribute("href") });
+    track("nav-click", { label: a.textContent.trim(), href: a.getAttribute("href"), page: window.location.pathname });
   });
 });
 
-// ── Hero CTA ──
+// ── Hero CTA ──────────────────────────────────────────────
 document.querySelectorAll(".hero__cta a").forEach((a) => {
   a.addEventListener("click", () => {
-    track("hero-cta", { label: a.textContent.trim() });
+    track("hero-cta", { label: a.textContent.trim(), href: a.getAttribute("href"), page: window.location.pathname });
   });
 });
 
-// ── Gallery preview (homepage timeline cards) ──
+// ── Gallery preview ───────────────────────────────────────
 document.querySelectorAll(".hpt__card").forEach((card) => {
   card.addEventListener("click", () => {
-    track("gallery-preview-click", { title: card.querySelector(".hpt__title") ? card.querySelector(".hpt__title").textContent.trim() : "" });
+    const title = card.querySelector(".hpt__title");
+    track("gallery-preview-click", { title: title ? title.textContent.trim() : "", page: window.location.pathname });
   });
 });
 
-// ── Blog post cards (homepage + writing index) ──
+// ── Blog post cards ───────────────────────────────────────
 document.querySelectorAll(".post-card").forEach((card) => {
   card.addEventListener("click", () => {
     const title = card.querySelector("h2, h3");
@@ -155,45 +189,87 @@ document.querySelectorAll(".post-card").forEach((card) => {
   });
 });
 
-// ── Project links ──
+// ── Project links ─────────────────────────────────────────
 document.querySelectorAll(".project-card a").forEach((a) => {
   a.addEventListener("click", () => {
-    track("project-click", { name: a.textContent.trim() });
+    track("project-click", { name: a.textContent.trim(), page: window.location.pathname });
   });
 });
 
-// ── Company links in experience timeline ──
+// ── Company / timeline links ──────────────────────────────
 document.querySelectorAll(".timeline__company a").forEach((a) => {
   a.addEventListener("click", () => {
-    track("company-click", { company: a.textContent.trim() });
+    track("company-click", { company: a.textContent.trim(), page: window.location.pathname });
   });
 });
 
-// ── Reference LinkedIn links ──
+// ── Reference links ───────────────────────────────────────
 document.querySelectorAll(".ref-card__link").forEach((a) => {
   a.addEventListener("click", () => {
-    const name = a.closest(".ref-card").querySelector(".ref-card__name");
-    track("reference-click", { name: name ? name.textContent.trim() : "" });
+    const name = a.closest(".ref-card") ? a.closest(".ref-card").querySelector(".ref-card__name") : null;
+    track("reference-click", { name: name ? name.textContent.trim() : "", page: window.location.pathname });
   });
 });
 
-// ── Footer social links ──
+// ── Footer social links ───────────────────────────────────
 document.querySelectorAll(".footer a").forEach((a) => {
   a.addEventListener("click", () => {
-    track("social-click", { platform: a.textContent.trim() });
+    track("social-click", { platform: a.textContent.trim(), href: a.getAttribute("href") });
   });
 });
 
-// ── Visibility page — media card clicks ──
+// ── Visibility / media card clicks ───────────────────────
 document.querySelectorAll(".li-card, .media-card a").forEach((el) => {
   el.addEventListener("click", () => {
-    const card = el.closest(".media-card");
+    const card  = el.closest(".media-card");
     const label = card ? card.querySelector(".media-card__label") : null;
     track("media-click", { label: label ? label.textContent.trim() : "", type: card ? card.className.replace("media-card media-card--", "") : "" });
   });
 });
 
-// ── Scroll depth ──
+// ── Award card views ──────────────────────────────────────
+document.querySelectorAll(".award-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const title = card.querySelector(".award-card__title");
+    track("award-click", { title: title ? title.textContent.trim() : "", page: window.location.pathname });
+  });
+});
+
+// ── FAQ opens ─────────────────────────────────────────────
+document.querySelectorAll(".faq-item").forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (item.open) {
+      const q = item.querySelector(".faq-item__q");
+      track("faq-open", { question: q ? q.textContent.trim() : "", page: window.location.pathname });
+    }
+  });
+});
+
+// ── Contact aside link clicks ─────────────────────────────
+document.querySelectorAll(".contact-aside__item a").forEach((a) => {
+  a.addEventListener("click", () => {
+    const label = a.closest(".contact-aside__item") ? a.closest(".contact-aside__item").querySelector(".contact-aside__label") : null;
+    track("contact-aside-click", { channel: label ? label.textContent.trim() : "", href: a.getAttribute("href") });
+  });
+});
+
+// ── Section visibility (Intersection Observer) ───────────
+(function () {
+  if (!window.IntersectionObserver) return;
+  const sections = document.querySelectorAll("section[id]");
+  const seen = new Set();
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !seen.has(entry.target.id)) {
+        seen.add(entry.target.id);
+        track("section-view", { section: entry.target.id, page: window.location.pathname });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach((s) => obs.observe(s));
+})();
+
+// ── Scroll depth ──────────────────────────────────────────
 (function () {
   const marks = [25, 50, 75, 100];
   const fired = new Set();
@@ -208,17 +284,33 @@ document.querySelectorAll(".li-card, .media-card a").forEach((el) => {
   }, { passive: true });
 })();
 
-// ── Time on page ──
+// ── Time on page ──────────────────────────────────────────
 (function () {
-  [30, 60, 120].forEach((secs) => {
+  [30, 60, 120, 300].forEach((secs) => {
     setTimeout(() => {
       track("time-on-page", { seconds: secs, page: window.location.pathname });
     }, secs * 1000);
   });
 })();
 
+// ── Exit intent ───────────────────────────────────────────
+(function () {
+  let fired = false;
+  document.addEventListener("mouseleave", (e) => {
+    if (e.clientY <= 0 && !fired) {
+      fired = true;
+      track("exit-intent", { page: window.location.pathname });
+    }
+  });
+})();
 
-// ── Weather widget ──
+// ── Copy to clipboard detection ───────────────────────────
+document.addEventListener("copy", () => {
+  const sel = window.getSelection() ? window.getSelection().toString().slice(0, 100) : "";
+  track("text-copy", { text: sel, page: window.location.pathname });
+});
+
+// ── Weather widget ────────────────────────────────────────
 const weatherWidget = document.getElementById("weatherWidget");
 if (weatherWidget) {
   const icons = {
@@ -241,11 +333,10 @@ if (weatherWidget) {
   };
 
   const FAHRENHEIT_COUNTRIES = new Set(["US", "LR", "MM"]);
-  function usesFahrenheit(countryCode) { return FAHRENHEIT_COUNTRIES.has((countryCode || "").toUpperCase()); }
+  function usesFahrenheit(cc) { return FAHRENHEIT_COUNTRIES.has((cc || "").toUpperCase()); }
 
   let wxData = null;
   let useFahrenheit = false;
-
   function toF(c) { return Math.round(c * 9 / 5 + 32); }
 
   function renderWeather() {
@@ -253,12 +344,10 @@ if (weatherWidget) {
     const { tempC, code, city, forecast } = wxData;
     const temp = useFahrenheit ? toF(tempC) : tempC;
     const unit = useFahrenheit ? "°F" : "°C";
-
     document.getElementById("weatherIcon").textContent = icons[code] || "🌤️";
     document.getElementById("weatherTemp").textContent = `${temp}${unit}`;
     document.getElementById("weatherCity").textContent = city || "";
     document.getElementById("weatherDesc").textContent = descs[code] || "";
-
     const forecastEl = document.getElementById("weatherForecast");
     if (forecastEl && forecast) {
       forecastEl.innerHTML = forecast.map(d => {
@@ -267,7 +356,6 @@ if (weatherWidget) {
         return `<span class="wx-day"><span class="wx-day__label">${d.label}</span><span class="wx-day__icon">${icons[d.code] || "🌤️"}</span><span class="wx-day__range">${hi}/${lo}${unit}</span></span>`;
       }).join("");
     }
-
     weatherWidget.hidden = false;
   }
 
@@ -283,18 +371,16 @@ if (weatherWidget) {
       if (coordCache) {
         ({ lat, lon, city, country } = JSON.parse(coordCache));
       } else {
-        const geo = await getGeo();
         const res = await fetch("https://ipinfo.io/json?token=");
         if (res.ok) {
           const d = await res.json();
           [lat, lon] = (d.loc || ",").split(",").map(Number);
-          city = d.city || "";
-          const country = d.country || "";
+          city    = d.city    || "";
+          country = d.country || "";
           sessionStorage.setItem("wx_coords", JSON.stringify({ lat, lon, city, country }));
         }
       }
       if (!lat || !lon) return;
-
       let wx;
       const cachedWx = sessionStorage.getItem("wx");
       if (cachedWx) {
@@ -305,18 +391,15 @@ if (weatherWidget) {
         ).then(r => r.json());
         sessionStorage.setItem("wx", JSON.stringify(wx));
       }
-
       const tempC = Math.round(wx.current_weather.temperature);
       const code  = wx.current_weather.weathercode;
-
-      const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      const days  = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
       const forecast = (wx.daily?.time || []).slice(1, 4).map((dateStr, i) => ({
         label: days[new Date(dateStr).getDay()],
         code:  wx.daily.weathercode[i + 1],
         hi:    Math.round(wx.daily.temperature_2m_max[i + 1]),
         lo:    Math.round(wx.daily.temperature_2m_min[i + 1]),
       }));
-
       const coordData = JSON.parse(sessionStorage.getItem("wx_coords") || "{}");
       useFahrenheit = usesFahrenheit(country || coordData.country);
       wxData = { tempC, code, city, forecast };
@@ -325,7 +408,7 @@ if (weatherWidget) {
   })();
 }
 
-// ── Lightbox ──
+// ── Lightbox ──────────────────────────────────────────────
 const lightbox      = document.getElementById("lightbox");
 const lightboxImg   = document.getElementById("lightboxImg");
 const lightboxTitle = document.getElementById("lightboxTitle");
@@ -334,49 +417,45 @@ const lightboxCap   = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
 function openLightbox(card) {
-  lightboxImg.src       = card.dataset.image;
-  lightboxImg.alt       = card.dataset.title;
-  lightboxTitle.textContent = card.dataset.title;
-  lightboxDate.textContent  = card.dataset.date;
-  lightboxCap.textContent   = card.dataset.caption;
+  lightboxImg.src               = card.dataset.image;
+  lightboxImg.alt               = card.dataset.title;
+  lightboxTitle.textContent     = card.dataset.title;
+  lightboxDate.textContent      = card.dataset.date;
+  lightboxCap.textContent       = card.dataset.caption;
   lightbox.classList.add("open");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow  = "hidden";
 }
-
 function closeLightbox() {
   lightbox.classList.remove("open");
   document.body.style.overflow = "";
 }
-
 document.querySelectorAll(".instax").forEach((card) => {
-  card.addEventListener("click", () => openLightbox(card));
+  card.addEventListener("click", () => {
+    openLightbox(card);
+    track("gallery-lightbox-open", { title: card.dataset.title || "", page: window.location.pathname });
+  });
 });
-
 if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
 if (lightbox) lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
 if (lightbox) document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
 
-// ── Caption tooltip ──
-const tooltip = document.createElement('div');
-tooltip.className = 'gallery-tooltip';
+// ── Caption tooltip ───────────────────────────────────────
+const tooltip = document.createElement("div");
+tooltip.className = "gallery-tooltip";
 document.body.appendChild(tooltip);
-
-document.querySelectorAll('.instax__caption').forEach(function (el) {
-  const fullText = el.closest('.instax').dataset.caption;
+document.querySelectorAll(".instax__caption").forEach(function (el) {
+  const fullText = el.closest(".instax").dataset.caption;
   if (!fullText) return;
-
-  el.addEventListener('mouseenter', function (e) {
+  el.addEventListener("mouseenter", function () {
     tooltip.textContent = fullText;
-    tooltip.classList.add('visible');
+    tooltip.classList.add("visible");
   });
-
-  el.addEventListener('mousemove', function (e) {
-    tooltip.style.left = (e.clientX - tooltip.offsetWidth / 2) + 'px';
-    tooltip.style.top  = (e.clientY - 48) + 'px';
+  el.addEventListener("mousemove", function (e) {
+    tooltip.style.left = (e.clientX - tooltip.offsetWidth / 2) + "px";
+    tooltip.style.top  = (e.clientY - 48) + "px";
   });
-
-  el.addEventListener('mouseleave', function () {
-    tooltip.classList.remove('visible');
+  el.addEventListener("mouseleave", function () {
+    tooltip.classList.remove("visible");
   });
 });
 
@@ -384,46 +463,30 @@ document.querySelectorAll('.instax__caption').forEach(function (el) {
 (function () {
   const el = document.getElementById("heroRole");
   if (!el) return;
-
-  const roles = ["DevOps Engineer", "Machine Learning Engineer", "Cloud Specialist", "Multicloud Specialist"];
+  const roles   = ["DevOps Engineer", "Machine Learning Engineer", "Cloud Specialist", "Multicloud Specialist"];
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   if (REDUCED) {
     el.textContent = roles.join(" · ");
     document.querySelector(".hero__cursor")?.remove();
     return;
   }
-
-  const TYPE_SPEED   = 68;
-  const DELETE_SPEED = 36;
-  const PAUSE_FULL   = 1900;
-  const PAUSE_EMPTY  = 380;
-
+  const TYPE_SPEED = 68, DELETE_SPEED = 36, PAUSE_FULL = 1900, PAUSE_EMPTY = 380;
   let roleIndex = 0, charIndex = 0, deleting = false;
-
   function tick() {
     const word = roles[roleIndex];
     if (!deleting) {
       el.textContent = word.slice(0, ++charIndex);
-      if (charIndex === word.length) {
-        deleting = true;
-        return setTimeout(tick, PAUSE_FULL);
-      }
+      if (charIndex === word.length) { deleting = true; return setTimeout(tick, PAUSE_FULL); }
     } else {
       el.textContent = word.slice(0, --charIndex);
-      if (charIndex === 0) {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        return setTimeout(tick, PAUSE_EMPTY);
-      }
+      if (charIndex === 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; return setTimeout(tick, PAUSE_EMPTY); }
     }
     setTimeout(tick, deleting ? DELETE_SPEED : TYPE_SPEED);
   }
-
   setTimeout(tick, 700);
 })();
 
-// ── Contact form (Formspree AJAX SDK) ────────────────────
+// ── Contact form ──────────────────────────────────────────
 (function () {
   const form    = document.getElementById("contactForm");
   const btn     = document.getElementById("contactSubmit");
@@ -434,27 +497,23 @@ document.querySelectorAll('.instax__caption').forEach(function (el) {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
-
     btn.disabled = true;
     btn.textContent = "Sending...";
-    if (errBox) { errBox.textContent = ""; errBox.style.display = "none"; }
-    if (success) success.style.display = "none";
-
+    if (errBox)  { errBox.textContent = "";  errBox.style.display  = "none"; }
+    if (success) { success.style.display = "none"; }
     try {
-      const res = await fetch("https://formspree.io/f/mnjokoon", {
+      const res  = await fetch("https://formspree.io/f/mnjokoon", {
         method: "POST",
         body: new FormData(form),
         headers: { Accept: "application/json" },
       });
-
       const data = await res.json();
-
       if (res.ok) {
-        if (success) { success.style.display = "block"; }
+        if (success) success.style.display = "block";
         form.reset();
         track("contact-form-submit", { page: window.location.pathname });
       } else {
-        const msg = (data.errors || []).map(function(e){ return e.message; }).join(", ") || "Something went wrong. Please email me directly.";
+        const msg = (data.errors || []).map(function (err) { return err.message; }).join(", ") || "Something went wrong. Please email me directly.";
         if (errBox) { errBox.textContent = msg; errBox.style.display = "block"; }
       }
     } catch (_) {
