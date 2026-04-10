@@ -425,19 +425,43 @@ document.querySelectorAll('.instax__caption').forEach(function (el) {
 
 // ── Contact form (Formspree AJAX SDK) ────────────────────
 (function () {
-  const form = document.getElementById("contactForm");
+  const form    = document.getElementById("contactForm");
+  const btn     = document.getElementById("contactSubmit");
+  const success = form ? form.querySelector("[data-fs-success]") : null;
+  const errBox  = form ? form.querySelector("[data-fs-error]:not([data-fs-error='name']):not([data-fs-error='email']):not([data-fs-error='message'])") : null;
   if (!form) return;
 
-  window.formspree = window.formspree || function () {
-    (formspree.q = formspree.q || []).push(arguments);
-  };
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
 
-  formspree("initForm", {
-    formElement: "#contactForm",
-    formId: "mnjokoon",
-  });
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+    if (errBox) { errBox.textContent = ""; errBox.style.display = "none"; }
+    if (success) success.style.display = "none";
 
-  form.addEventListener("fs:success", function () {
-    track("contact-form-submit", { page: window.location.pathname });
+    try {
+      const res = await fetch("https://formspree.io/f/mnjokoon", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        if (success) { success.style.display = "block"; }
+        form.reset();
+        track("contact-form-submit", { page: window.location.pathname });
+      } else {
+        const msg = (data.errors || []).map(function(e){ return e.message; }).join(", ") || "Something went wrong. Please email me directly.";
+        if (errBox) { errBox.textContent = msg; errBox.style.display = "block"; }
+      }
+    } catch (_) {
+      if (errBox) { errBox.textContent = "Something went wrong. Please email me directly."; errBox.style.display = "block"; }
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Send message";
+    }
   });
 })();

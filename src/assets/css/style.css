@@ -1,8 +1,8 @@
-﻿/* ============================================================
+/* ============================================================
    MAIN STYLESHEET  |  portfolio
    ============================================================ */
 
-/* â”€â”€ TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── TOKENS ─────────────────────────────────────────────── */
 :root {
   --bg:         #f8fafc;
   --bg-alt:     #f1f5f9;
@@ -21,13 +21,13 @@
   --max-w:      1100px;
 }
 
-/* â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── RESET ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html  { scroll-behavior: smooth; }
 img   { max-width: 100%; display: block; }
 ul    { list-style: none; }
 
-/* â”€â”€ BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── BASE ────────────────────────────────────────────────── */
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -56,12 +56,12 @@ pre {
 }
 hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 
-/* â”€â”€ LAYOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LAYOUT ──────────────────────────────────────────────── */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
 .section   { padding: 4rem 0; }
 .section--alt { background: var(--bg-alt); }
 
-/* â”€â”€ TYPOGRAPHY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── TYPOGRAPHY ──────────────────────────────────────────── */
 h1 { font-size: clamp(2rem, 5vw, 3rem);     font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--text); }
 h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 600; margin-bottom: .75rem; color: var(--text); }
 h3 { font-size: 1.1rem;  font-weight: 600; margin-bottom: .4rem; color: var(--text); }
@@ -76,7 +76,7 @@ p:last-child { margin-bottom: 0; }
 }
 .mt-2 { margin-top: 2rem; }
 
-/* â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── BUTTONS ─────────────────────────────────────────────── */
 .btn {
   display: inline-flex; align-items: center; gap: .4rem;
   background: var(--accent); color: #fff;
@@ -99,7 +99,7 @@ p:last-child { margin-bottom: 0; }
 
 .btn--sm { padding: .35rem .85rem; font-size: .8rem; }
 
-/* â”€â”€ TAGS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── TAGS ────────────────────────────────────────────────── */
 .tag-list { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
 .tag {
   background: var(--surface-2);
@@ -110,7 +110,7 @@ p:last-child { margin-bottom: 0; }
 }
 .tag--subtle { background: transparent; }
 
-/* â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── NAV ─────────────────────────────────────────────────── */
 .nav {
   position: sticky; top: 0; z-index: 100;
   background: rgba(248,250,252,.92);
@@ -146,7 +146,7 @@ p:last-child { margin-bottom: 0; }
   .nav__toggle { display: block; }
 }
 
-/* â”€â”€ THEME TOGGLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── THEME TOGGLE ────────────────────────────────────────── */
 .theme-toggle { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; }
 .theme-toggle__track {
   width: 44px; height: 26px;
@@ -161,7 +161,7 @@ p:last-child { margin-bottom: 0; }
   box-shadow: 0 1px 4px rgba(0,0,0,.25);
 }
 
-/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── HERO ────────────────────────────────────────────────── */
 .hero { padding: 5rem 0 4rem; border-bottom: 1px solid var(--border); }
 .hero__inner {
   display: grid; grid-template-columns: 1fr auto;
@@ -195,10 +195,10 @@ p:last-child { margin-bottom: 0; }
   .weather-widget { justify-content: center; }
 }
 
-/* â”€â”€ STORY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── STORY ───────────────────────────────────────────────── */
 .story-grid { display: grid; gap: 1rem; max-width: 760px; }
 
-/* â”€â”€ SKILLS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SKILLS ──────────────────────────────────────────────── */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -218,7 +218,7 @@ p:last-child { margin-bottom: 0; }
   text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem;
 }
 
-/* â”€â”€ SECTION HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SECTION HEADER ────────────────────────────────────────── */
 .section-header {
   display: flex; align-items: flex-end;
   justify-content: space-between;
@@ -226,7 +226,7 @@ p:last-child { margin-bottom: 0; }
 }
 .section-header h2 { margin-bottom: 0; }
 
-/* â”€â”€ HORIZONTAL PHOTO TIMELINE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── HORIZONTAL PHOTO TIMELINE ────────────────────────────── */
 .hpt {
   position: relative;
   display: grid;
@@ -283,7 +283,7 @@ p:last-child { margin-bottom: 0; }
   box-shadow: 0 0 0 3px var(--border);
 }
 
-/* rectangular photo â€” flush to top of card */
+/* rectangular photo — flush to top of card */
 .hpt__avatar {
   width: 100%;
   height: 160px;
@@ -328,7 +328,7 @@ p:last-child { margin-bottom: 0; }
   .hpt__dot  { display: none; }
 }
 
-/* â”€â”€ AI CALLOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── AI CALLOUT ──────────────────────────────────────────── */
 .ai-callout-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; }
 .ai-card {
   background: var(--surface);
@@ -342,7 +342,7 @@ p:last-child { margin-bottom: 0; }
 .ai-card__icon { font-size: 1.8rem; margin-bottom: .75rem; }
 .ai-card h3 { color: var(--text); }
 
-/* â”€â”€ CERTIFICATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── CERTIFICATIONS ──────────────────────────────────────── */
 .cert-row { display: flex; flex-wrap: wrap; gap: 1rem; }
 .cert-badge {
   background: var(--surface);
@@ -357,7 +357,7 @@ p:last-child { margin-bottom: 0; }
 .cert-badge__name   { font-weight: 600; color: var(--text); font-size: .95rem; }
 .cert-badge__issuer { font-size: .8rem; color: var(--text-muted); }
 
-/* â”€â”€ TIMELINE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── TIMELINE ────────────────────────────────────────────── */
 .timeline {
   position: relative; padding-left: 1.75rem;
   border-left: 2px solid var(--border);
@@ -416,7 +416,7 @@ p:last-child { margin-bottom: 0; }
   .tag { font-size: .7rem; padding: .15rem .5rem; }
 }
 
-/* â”€â”€ PROJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PROJECTS ────────────────────────────────────────────── */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -439,7 +439,7 @@ p:last-child { margin-bottom: 0; }
 }
 .project-card__highlight { color: var(--success); font-weight: 500; font-size: .9rem; margin-top: .5rem; }
 
-/* â”€â”€ MEDIA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── MEDIA ───────────────────────────────────────────────── */
 .media-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -452,7 +452,7 @@ p:last-child { margin-bottom: 0; }
   padding: 1.5rem;
   box-shadow: 0 1px 4px rgba(0,0,0,.04);
 }
-/* â”€â”€ LINKEDIN CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LINKEDIN CARD ───────────────────────────────────────── */
 .li-card {
   display: block;
   margin-top: .75rem;
@@ -530,7 +530,7 @@ p:last-child { margin-bottom: 0; }
 .media-card__type  { font-size: .7rem; font-weight: 700; letter-spacing: .1em; color: var(--accent); }
 .media-card__label { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
 
-/* â”€â”€ REFERENCES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── REFERENCES ──────────────────────────────────────────── */
 .ref-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -557,7 +557,7 @@ p:last-child { margin-bottom: 0; }
 .ref-card__link    { font-size: .82rem; font-weight: 600; color: var(--accent); }
 .ref-card__link:hover { text-decoration: underline; }
 
-/* â”€â”€ BLOG POST LIST â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── BLOG POST LIST ──────────────────────────────────────── */
 .post-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
 .post-card {
   display: flex; flex-direction: row;
@@ -583,7 +583,7 @@ p:last-child { margin-bottom: 0; }
 .post-card__date    { font-size: .78rem; color: var(--text-muted); }
 .post-card:not(:has(.post-card__img)) .post-card__body { width: 100%; }
 
-/* â”€â”€ PROSE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PROSE ───────────────────────────────────────────────── */
 .prose h1, .prose h2, .prose h3 { color: var(--text); margin-top: 2rem; }
 .prose p                         { color: var(--text-muted); }
 .prose ul, .prose ol             { padding-left: 1.5rem; color: var(--text-muted); }
@@ -619,13 +619,13 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: 2rem;
 }
 
-/* â”€â”€ PHOTO WALL (Gallery) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── PHOTO WALL (Gallery) ────────────────────────────────── */
 .photo-wall {
   min-height: 100vh;
   padding: 4rem 3rem 6rem;
   position: relative;
 
-  /* Deep corkboard â€” layered for richness */
+  /* Deep corkboard — layered for richness */
   background-color: #2a1f14;
   background-image:
     /* fine noise grain */
@@ -645,7 +645,7 @@ p:last-child { margin-bottom: 0; }
       rgba(200,160,90,.015) 3px,
       rgba(200,160,90,.015) 4px
     ),
-    /* warm radial depth â€” light from top-centre */
+    /* warm radial depth — light from top-centre */
     radial-gradient(
       ellipse 80% 60% at 50% 0%,
       rgba(180,120,50,.18) 0%,
@@ -695,7 +695,7 @@ p:last-child { margin-bottom: 0; }
   column-gap: 2rem;
 }
 
-/* â”€â”€ Instax card â€” real postcard proportions â”€â”€ */
+/* ── Instax card — real postcard proportions ── */
 .instax {
   position: relative;
   background: #fdf8f0;
@@ -731,7 +731,7 @@ p:last-child { margin-bottom: 0; }
 .instax:nth-child(8n+7) { transform: rotate(-4deg);   margin-top: 25px; }
 .instax:nth-child(8n+8) { transform: rotate(2deg);    margin-top: 60px; }
 
-/* â”€â”€ Magnetic pin â€” now slightly different colors per item â”€â”€ */
+/* ── Magnetic pin — now slightly different colors per item ── */
 .instax__pin {
   position: absolute; top: -13px; left: 50%;
   transform: translateX(-50%);
@@ -751,7 +751,7 @@ p:last-child { margin-bottom: 0; }
   background: radial-gradient(circle at 35% 30%, #fff 0%, #10b981 40%, #065f46 100%);
 }
 
-/* â”€â”€ Photo frame â”€â”€ */
+/* ── Photo frame ── */
 .instax__frame {
   width: 100%;
   height: 160px;          /* taller, real postcard photo area */
@@ -766,7 +766,7 @@ p:last-child { margin-bottom: 0; }
   transition: opacity .3s;
 }
 
-/* â”€â”€ Label â”€â”€ */
+/* ── Label ── */
 .instax__label { text-align: center; padding: 0 .2rem; }
 .instax__date {
   display: block;
@@ -786,7 +786,7 @@ p:last-child { margin-bottom: 0; }
   cursor: help;
 }
 
-/* â”€â”€ Global floating tooltip â”€â”€ */
+/* ── Global floating tooltip ── */
 .gallery-tooltip {
   position: fixed;
   background: #111;
@@ -805,7 +805,7 @@ p:last-child { margin-bottom: 0; }
 }
 .gallery-tooltip.visible { opacity: 1; }
 
-/* â”€â”€ Responsive â”€â”€ */
+/* ── Responsive ── */
 @media (max-width: 900px) {
   .photo-wall__grid { columns: 3 160px; }
 }
@@ -819,7 +819,7 @@ p:last-child { margin-bottom: 0; }
   .instax { width: 170px; }
 }
 
-/* â”€â”€ LIGHTBOX â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LIGHTBOX ────────────────────────────────────────────── */
 .lightbox {
   display: none;
   position: fixed;
@@ -913,7 +913,7 @@ p:last-child { margin-bottom: 0; }
   .lightbox__card { padding: .75rem .75rem 1.5rem; border-radius: 14px; }
   .lightbox__title { font-size: 1.2rem; }
 }
-/* â”€â”€ MEDIA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── MEDIA ───────────────────────────────────────────────── */
 .media-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -947,7 +947,7 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: .75rem;
 }
 
-/* â”€â”€ Instagram embed container â€” clips the iframe overflow â”€â”€ */
+/* ── Instagram embed container — clips the iframe overflow ── */
 .media-card__embed {
   position: relative;
   width: 100%;
@@ -969,7 +969,7 @@ p:last-child { margin-bottom: 0; }
   border: none !important;
 }
 
-/* Both card types â€” same fixed height */
+/* Both card types — same fixed height */
 .media-card--instagram .media-card__embed,
 .media-card--reel .media-card__embed {
   aspect-ratio: 4 / 5;
@@ -995,7 +995,7 @@ p:last-child { margin-bottom: 0; }
   .section { padding: 2.5rem 0; }
 }
 
-/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── FOOTER ─────────────────────────────────────────────── */
 .footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; }
 .footer p { font-size: .88rem; color: var(--text-muted); }
 .footer a { color: var(--accent); font-weight: 500; }
@@ -1024,7 +1024,7 @@ p:last-child { margin-bottom: 0; }
 .wx-day__range { color: var(--text-muted); white-space: nowrap; }
 
 
-/* â”€â”€ Resume Gate â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Resume Gate ──────────────────────────────────────────────────────────── */
 
 .resume-gate { max-width: 640px; }
 
@@ -1123,10 +1123,10 @@ p:last-child { margin-bottom: 0; }
 
 .resume-gate__hint a { color: var(--accent); }
 
-/* Honeypot â€” visually hidden, not accessible to real users */
+/* Honeypot — visually hidden, not accessible to real users */
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
-/* â”€â”€ Table of Contents â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Table of Contents ───────────────────────────────────────────────────── */
 
 .toc {
   background: var(--surface);
@@ -1155,7 +1155,7 @@ p:last-child { margin-bottom: 0; }
 .toc a { color: var(--accent); text-decoration: none; }
 .toc a:hover { text-decoration: underline; }
 
-/* â”€â”€ Resume View â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Resume View ─────────────────────────────────────────── */
 
 .rv-wrap {
   max-width: 860px;
@@ -1291,7 +1291,7 @@ p:last-child { margin-bottom: 0; }
   .rv__job-header { flex-direction: column; gap: .1rem; }
 }
 
-/* â”€â”€ Print / Save as PDF â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Print / Save as PDF ─────────────────────────────────── */
 
 @media print {
   .no-print,
@@ -1326,7 +1326,7 @@ p:last-child { margin-bottom: 0; }
   .rv__section { page-break-inside: avoid; }
 }
 
-/* â”€â”€ Post back link â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Post back link ──────────────────────────────────────── */
 .post-back {
   display: inline-block;
   font-size: .85rem;
@@ -1338,7 +1338,7 @@ p:last-child { margin-bottom: 0; }
 }
 .post-back:hover { color: var(--accent); text-decoration: none; }
 
-/* â”€â”€ Photo Credits â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Photo Credits ───────────────────────────────────────── */
 .photo-credits {
   background: var(--surface);
   border-top: 1px solid var(--border);
@@ -1406,7 +1406,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 
-/* ── Featured Project Card ───────────────────────────────── */
+/* -- Featured Project Card --------------------------------- */
 .proj-featured {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1420,7 +1420,7 @@ p:last-child { margin-bottom: 0; }
   box-shadow: 0 2px 12px rgba(0,0,0,.06);
 }
 
-/* ── Slideshow ───────────────────────────────────────────── */
+/* -- Slideshow --------------------------------------------- */
 .proj-slideshow {
   position: relative;
   border-radius: 10px;
@@ -1544,7 +1544,7 @@ p:last-child { margin-bottom: 0; }
   .proj-featured { grid-template-columns: 1fr; }
 }
 
-/* ── ReRhythm Home Spotlight ─────────────────────────────── */
+/* -- ReRhythm Home Spotlight ------------------------------- */
 .rr-spotlight {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -1624,7 +1624,7 @@ p:last-child { margin-bottom: 0; }
   .rr-spotlight__body { padding: 1rem; }
 }
 
-/* ── Mobile slideshow fix ────────────────────────────────── */
+/* -- Mobile slideshow fix ---------------------------------- */
 @media (max-width: 480px) {
   .proj-slideshow__track { height: 220px; }
   .proj-slideshow__arrow { width: 28px; height: 28px; font-size: 1.1rem; }
@@ -1632,7 +1632,7 @@ p:last-child { margin-bottom: 0; }
   .proj-featured__title { font-size: 1.25rem; }
 }
 
-/* ── Press Card ──────────────────────────────────────────── */
+/* -- Press Card -------------------------------------------- */
 .press-card {
   margin-top: .75rem;
   border-left: 3px solid var(--accent);
@@ -1678,7 +1678,7 @@ p:last-child { margin-bottom: 0; }
   display: block;
 }
 
-/* ── CASE STUDY INDEX GRID ───────────────────────────────── */
+/* -- CASE STUDY INDEX GRID --------------------------------- */
 .cs-index-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1746,7 +1746,7 @@ p:last-child { margin-bottom: 0; }
 }
 .cs-card:hover .cs-card__cta { text-decoration: underline; }
 
-/* ── CASE STUDY PAGE ─────────────────────────────────────── */
+/* -- CASE STUDY PAGE --------------------------------------- */
 .cs-hero {
   padding: 4rem 0 3rem;
   border-bottom: 1px solid var(--border);
@@ -1821,11 +1821,11 @@ a.cs-meta-value:hover { text-decoration: underline; }
   font-size: .92rem; color: var(--text-muted); line-height: 1.6;
 }
 .cs-list li::before {
-  content: '→';
+  content: '?';
   position: absolute; left: 0;
   color: var(--accent); font-weight: 700;
 }
-.cs-list--outcomes li::before { content: '✓'; color: var(--success); }
+.cs-list--outcomes li::before { content: '?'; color: var(--success); }
 
 .cs-quote {
   border-left: 3px solid var(--accent-2);
@@ -1865,7 +1865,7 @@ a.cs-meta-value:hover { text-decoration: underline; }
   .cs-index-grid { grid-template-columns: 1fr; }
 }
 
-/* ── FAQ ─────────────────────────────────────────────────── */
+/* -- FAQ --------------------------------------------------- */
 .faq-list {
   display: flex; flex-direction: column; gap: .75rem;
   max-width: 760px; margin-top: 1.5rem;
@@ -1891,7 +1891,7 @@ a.cs-meta-value:hover { text-decoration: underline; }
   color: var(--accent); flex-shrink: 0;
   transition: transform .2s;
 }
-.faq-item[open] .faq-item__q::after { content: '−'; }
+.faq-item[open] .faq-item__q::after { content: '-'; }
 .faq-item__a {
   padding: 0 1.25rem 1rem;
   font-size: .9rem; color: var(--text-muted);
@@ -1900,7 +1900,7 @@ a.cs-meta-value:hover { text-decoration: underline; }
   padding-top: .85rem;
 }
 
-/* ── Case study detail timeline tweaks ──────────────────── */
+/* -- Case study detail timeline tweaks -------------------- */
 .cs-detail-timeline { margin-top: 0; }
 .cs-section-title {
   font-size: .75rem; font-weight: 700;
@@ -1909,7 +1909,7 @@ a.cs-meta-value:hover { text-decoration: underline; }
 }
 .cs-marker--section { background: var(--accent-2); }
 
-/* ── Hero name H1 + subheadline ─────────────────────────── */
+/* -- Hero name H1 + subheadline --------------------------- */
 .hero__headline {
   font-size: clamp(2.4rem, 6vw, 4rem);
   font-weight: 800; line-height: 1.05;
@@ -1922,7 +1922,7 @@ a.cs-meta-value:hover { text-decoration: underline; }
   color: var(--text-muted); margin-bottom: 1.2rem;
 }
 
-/* ── Hero typewriter ─────────────────────────────────────── */
+/* -- Hero typewriter --------------------------------------- */
 .hero__role-static { color: var(--text-muted); font-weight: 400; }
 .hero__role-typed  { color: var(--accent); font-weight: 700; }
 .hero__cursor {
@@ -1940,7 +1940,7 @@ a.cs-meta-value:hover { text-decoration: underline; }
   .hero__cursor { animation: none; opacity: 1; }
 }
 
-/* ── Awards & Recognition ────────────────────────────────── */
+/* -- Awards & Recognition ---------------------------------- */
 .awards-list {
   display: flex;
   flex-direction: column;
@@ -1985,7 +1985,7 @@ a.cs-meta-value:hover { text-decoration: underline; }
   .award-card { flex-direction: column; gap: .75rem; }
 }
 
-/* ── Contact section ─────────────────────────────────────── */
+/* -- Contact section --------------------------------------- */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -2087,23 +2087,4 @@ a.contact-aside__value:hover { text-decoration: underline; }
   .contact-aside { flex-direction: column; }
 }
 
-/* ── Formspree SDK state styles ──────────────────────────── */
-.contact-form__success {
-  display: none;
-  color: var(--success);
-  font-size: .92rem;
-  font-weight: 600;
-  padding: .75rem 1rem;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: 8px;
-  margin-bottom: .5rem;
-}
-[data-fs-success]:not(:empty) { display: block; }
-.contact-form__field-error {
-  font-size: .8rem;
-  color: #dc2626;
-  margin-top: .2rem;
-  display: block;
-}
-[data-fs-submit-btn]:disabled { opacity: .6; cursor: not-allowed; }
+/* -- Formspree state styles --------------------------------- */\n.contact-form__success {\n  display: none;\n  color: var(--success);\n  font-size: .92rem;\n  font-weight: 600;\n  padding: .75rem 1rem;\n  background: #f0fdf4;\n  border: 1px solid #bbf7d0;\n  border-radius: 8px;\n  margin-bottom: .5rem;\n}\n.contact-form__field-error {\n  font-size: .8rem;\n  color: #dc2626;\n  margin-top: .2rem;\n  display: block;\n}\nbutton:disabled { opacity: .6; cursor: not-allowed; }\n
