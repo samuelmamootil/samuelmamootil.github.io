@@ -451,7 +451,7 @@ document.querySelectorAll(".instax__caption").forEach(function (el) {
 (function () {
   const el = document.getElementById("heroRole");
   if (!el) return;
-  const roles   = ["DevOps Engineer", "Machine Learning Engineer", "Cloud Specialist", "Multicloud Specialist"];
+  const roles   = ["DevOps Engineer", "Cloud Specialist", "Site Reliability Engineer", "Multicloud Specialist"];
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (REDUCED) {
     el.textContent = roles.join(" · ");
