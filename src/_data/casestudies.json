@@ -8,28 +8,30 @@
     "location": "Mumbai, India",
     "logoText": "Wipro",
     "logoColor": "#9b1c1c",
-    "eyebrow": "AWS · Data Engineering · Infrastructure Automation",
-    "headline": "Enabling a cloud data platform that gave a global benefits provider reliable, automated infrastructure for its data workloads.",
-    "context": "Alight Solutions, a global HR and benefits technology company, needed a stable, scalable cloud data platform on AWS to support growing data engineering workloads. The existing infrastructure had gaps in automation, consistency, and operational reliability — slowing down the data engineering team's ability to ship.",
-    "challenge": "The team needed reusable, production-grade AWS infrastructure that could support Redshift clusters, Glue ETL jobs, and S3-based data pipelines — without requiring manual provisioning for every new workload. Deployment processes were inconsistent, and there was limited visibility into infrastructure state.",
-    "approach": "Led a 7-engineer team to design and deliver reusable Terraform modules for core AWS resources. Standardised the provisioning of Redshift, Glue, S3, and supporting IAM and networking components. Introduced blue-green deployment patterns to reduce deployment risk and implemented secure automation practices across the platform.",
-    "tools": ["AWS", "Terraform", "Amazon Redshift", "AWS Glue", "Amazon S3", "IAM", "VPC", "GitHub Actions", "Python"],
-    "architecture": "Modular Terraform codebase with environment-specific variable files. Redshift clusters provisioned behind private subnets with IAM role-based access. Glue jobs triggered via EventBridge schedules with S3 as the data lake layer. Blue-green deployment strategy applied to infrastructure changes to minimise blast radius.",
+    "eyebrow": "AWS · GitOps · Data Engineering · Infrastructure Automation",
+    "headline": "Enabling a cloud data platform that gave a global benefits provider reliable, automated infrastructure for its data workloads across 4 enterprise environments.",
+    "context": "Alight Solutions is a global benefits administration provider. The engagement required building a reliable, automated cloud data platform on AWS to support enterprise data workloads across multiple product teams.",
+    "challenge": "The platform needed standardized IaC, secure CI/CD pipelines, and scalable data engineering infrastructure — all while enforcing security across every layer of delivery across 4 enterprise environments.",
+    "approach": "Led a 7-member cloud and data engineering team as hands-on tech lead. Designed and built reusable Terraform modules for VPC endpoints, compute, and storage provisioning, standardizing infrastructure delivery across 10 product teams. Configured GitHub Actions CI/CD pipelines on GitOps principles — automating build, test, and deploy lifecycles from commit to production across 4 enterprise environments. Delivered data engineering infrastructure using AWS Glue, Redshift, Step Functions, and SageMaker. Integrated AWS Bedrock for AI-assisted platform capabilities. Enforced end-to-end security through IAM policies, VPC endpoint configurations, and CodeDeploy-managed release controls.",
+    "tools": ["AWS", "Terraform", "GitHub Actions", "CodeDeploy", "CodeCommit", "Step Functions", "AWS Glue", "Amazon Redshift", "AWS SageMaker", "AWS Bedrock", "GitOps", "IAM", "VPC Endpoints"],
+    "architecture": "Modular Terraform codebase with environment-specific variable files, standardizing provisioning across 10 product teams. GitHub Actions pipelines built on GitOps principles — commit-triggered builds flowing through test and deploy stages across 4 enterprise environments. Redshift clusters provisioned behind private subnets with IAM role-based access. Glue jobs orchestrated via Step Functions with S3 as the data lake layer. CodeDeploy managing release controls for consistent, auditable deployments.",
     "owned": [
-      "Technical leadership of a 7-engineer cloud and data platform team",
-      "Terraform module design and reusability standards",
-      "AWS infrastructure provisioning for Redshift, Glue, and S3 workloads",
-      "Secure automation patterns and IAM governance",
-      "Blue-green deployment strategy for infrastructure changes"
+      "Technical leadership of a 7-member cloud and data engineering team",
+      "Reusable Terraform module design for VPC endpoints, compute, and storage — standardizing delivery across 10 product teams",
+      "GitHub Actions CI/CD pipelines on GitOps principles across 4 enterprise environments",
+      "Data engineering infrastructure: AWS Glue, Redshift, Step Functions, SageMaker",
+      "AWS Bedrock integration for AI-assisted platform capabilities",
+      "End-to-end security enforcement via IAM policies, VPC endpoints, and CodeDeploy release controls"
     ],
     "outcomes": [
-      "Delivered reusable Terraform modules that reduced provisioning time for new data workloads",
-      "Standardised infrastructure across environments, reducing configuration drift",
-      "Blue-green deployment approach reduced deployment-related incidents",
-      "Data engineering team gained reliable, self-service infrastructure for pipeline development"
+      "Reusable Terraform modules reduced provisioning time for new data workloads across 10 product teams",
+      "GitOps pipelines standardized delivery across 4 enterprise environments, reducing configuration drift",
+      "CodeDeploy-managed releases improved deployment consistency and auditability",
+      "Data engineering team gained reliable, self-service infrastructure for pipeline development",
+      "AWS Bedrock integration enabled AI-assisted capabilities on the platform"
     ],
-    "lessons": "Reusability in IaC pays off fastest when the team agrees on module boundaries early. Investing in blue-green patterns for infrastructure — not just application deployments — meaningfully reduces operational risk.",
-    "tags": ["AWS", "Terraform", "Redshift", "Glue", "S3", "Data Platform", "IaC", "Blue-Green Deployment"]
+    "lessons": "Reusability in IaC pays off fastest when the team agrees on module boundaries early. GitOps principles applied to infrastructure — not just application code — give you the audit trail and rollback confidence that enterprise environments demand.",
+    "tags": ["AWS", "Terraform", "GitOps", "GitHub Actions", "Redshift", "Glue", "Step Functions", "SageMaker", "Bedrock", "CodeDeploy", "IaC", "Data Platform"]
   },
   {
     "slug": "ibm",
@@ -41,29 +43,30 @@
     "logoText": "IBM",
     "logoColor": "#1F70C1",
     "eyebrow": "Azure · AWS · GCP · Multi-Cloud Modernisation · Client Delivery",
-    "headline": "Accelerating cloud modernisation for global enterprise clients across Azure, AWS, and GCP — from landing zones to production-grade CI/CD pipelines.",
-    "context": "IBM's Azure Cloud Practice works with large enterprise clients to design and deliver cloud modernisation programs. Clients including H&M, Südzucker, Nokia, and Siemens needed to migrate workloads, establish cloud governance, and build repeatable DevOps delivery patterns across multiple cloud providers.",
-    "challenge": "Each client had different starting points — legacy on-premise workloads, inconsistent deployment practices, and limited cloud governance. The challenge was to deliver cloud migration and modernisation at enterprise scale while maintaining security, compliance, and operational consistency across Azure, AWS, and GCP.",
-    "approach": "Worked as a DevOps engineer and lead within IBM's Azure Cloud Practice. Delivered cloud migrations and modernisation engagements across multiple clients. Built and maintained Helm charts for Kubernetes workloads, designed Docker-based deployment pipelines, and implemented GitHub Actions and Azure DevOps CI/CD workflows. Established Azure landing zones and cloud governance frameworks. Built POCs to demonstrate technology stacks and best practices to client stakeholders.",
-    "tools": ["Azure", "AWS", "GCP", "Terraform", "Helm", "Kubernetes", "Docker", "GitHub Actions", "Azure DevOps", "GitLab CI/CD", "ARM Templates", "Bicep", "Azure Landing Zones"],
-    "architecture": "Multi-cloud delivery using Azure landing zones as the governance foundation. Kubernetes workloads managed via Helm charts with environment-specific value overrides. CI/CD pipelines built on GitHub Actions and Azure DevOps with staged deployment gates. Terraform used for infrastructure provisioning across all three cloud providers. POC environments spun up rapidly using modular IaC to demonstrate patterns to clients.",
+    "headline": "Accelerating cloud modernisation for global enterprise clients across Azure, AWS, and GCP — from landing zones and security remediation to production-grade CI/CD pipelines.",
+    "context": "Multi-client engagement covering cloud migration, security remediation, and platform modernization across Azure, AWS, and GCP for four enterprise clients across retail, manufacturing, telecoms, and agriculture sectors.",
+    "challenge": "Each client had different starting points — legacy on-premise workloads, inconsistent deployment practices, security debt, and limited cloud governance. The challenge was to deliver cloud migration and modernisation at enterprise scale while maintaining security, compliance, and operational consistency across three cloud providers.",
+    "approach": "Worked as a DevOps engineer and lead within IBM's Azure Cloud Practice across four concurrent client engagements. For H&M: drove cloud migration and security remediation for 100+ applications, enforcing tiered SLA remediation (High: 8 hrs, Medium: 48 hrs, Low: 7 days) via SonarQube and Coverity; provisioned Azure landing zones via Terraform; defined migration approach — lift-and-shift, modernization, and infrastructure upscale — alongside app owners; executed SQL-based data migration and migrated application code to GitHub. For Siemens: provisioned AWS Terraform landing zone and GitHub Actions pipelines; released containerized applications into AKS namespaces via Helm and ACR; secured all deployment workflows with OIDC authentication. For Südzucker: provisioned GCP landing zone via Terraform and GitHub Actions. For Nokia: supported Azure migration for a US government-aligned client under active security clearance (clearance expired 2024); delivered compliance-driven infrastructure under regulated enterprise requirements.",
+    "tools": ["Azure", "AWS", "GCP", "Terraform", "GitHub Actions", "Azure DevOps", "SonarQube", "Coverity", "Helm", "AKS", "ACR", "OIDC", "Private Endpoints", "Firewall Rules", "SQL", "GitLab CI/CD"],
+    "architecture": "Multi-cloud delivery using Azure landing zones as the governance foundation. H&M: Terraform-provisioned Azure infrastructure with private endpoints, firewall rules, and SonarQube/Coverity security scanning integrated into GitHub Actions pipelines. Siemens: AWS Terraform landing zone with containerized workloads deployed into AKS namespaces via Helm and ACR, OIDC-secured pipelines. Südzucker: GCP landing zone via Terraform and GitHub Actions. Nokia: compliance-driven Azure infrastructure under regulated enterprise requirements.",
     "owned": [
-      "End-to-end cloud migration delivery for enterprise clients",
-      "Helm chart design and Kubernetes deployment patterns",
-      "GitHub Actions and Azure DevOps pipeline implementation",
-      "Azure landing zone design and cloud governance frameworks",
-      "Client-facing POC development and technical storytelling",
+      "H&M: cloud migration and security remediation for 100+ applications — SonarQube, Coverity, tiered SLA enforcement",
+      "H&M: Azure landing zone provisioning via Terraform; migration approach definition across 100+ apps",
+      "H&M: SQL-based data migration and application code migration to GitHub",
+      "Siemens: AWS Terraform landing zone, AKS/Helm deployments, OIDC-secured GitHub Actions pipelines",
+      "Südzucker: GCP landing zone provisioning via Terraform and GitHub Actions",
+      "Nokia: compliance-driven Azure infrastructure delivery under active security clearance",
       "Multi-cloud Terraform provisioning across Azure, AWS, and GCP"
     ],
     "outcomes": [
-      "Delivered cloud migration and modernisation programs for H&M, Südzucker, Nokia, and Siemens",
+      "Delivered cloud migration and modernisation programs for H&M, Siemens, Nokia, and Südzucker",
+      "100+ H&M applications assessed and migrated with security remediation enforced via tiered SLA",
       "Established repeatable landing zone and governance patterns adopted across client engagements",
-      "Built POCs that accelerated client decision-making on cloud platform choices",
-      "Reduced deployment friction through standardised CI/CD pipeline templates",
+      "OIDC-secured Siemens pipelines eliminated credential-based deployment risks",
       "Enabled client teams to operate cloud workloads independently post-migration"
     ],
-    "lessons": "Enterprise cloud migrations succeed when governance is designed in from day one, not retrofitted. POCs are most effective when they answer a specific client question — not just demonstrate a technology.",
-    "tags": ["Azure", "AWS", "GCP", "Terraform", "Helm", "Kubernetes", "Docker", "GitHub Actions", "Azure DevOps", "Landing Zones", "Multi-Cloud", "DevOps"]
+    "lessons": "Enterprise cloud migrations succeed when governance is designed in from day one, not retrofitted. Security remediation at scale requires process discipline — tiered SLAs turn a backlog into a managed programme.",
+    "tags": ["Azure", "AWS", "GCP", "Terraform", "Helm", "AKS", "GitHub Actions", "SonarQube", "Coverity", "OIDC", "Landing Zones", "Multi-Cloud", "DevOps"]
   },
   {
     "slug": "ltimindtree",
@@ -74,28 +77,28 @@
     "location": "Bengaluru, India",
     "logoText": "LTM",
     "logoColor": "#e05b2b",
-    "eyebrow": "Azure · Terraform · Cloud Adoption · Internal Tooling",
-    "headline": "Building internal cloud capability and client-facing enablement tools that helped a global IT services firm demonstrate and deliver cloud adoption at scale.",
-    "context": "LTIMindtree (then Larsen & Toubro Infotech) was growing its cloud practice and needed to both deliver cloud adoption projects for clients and build internal tools that showcased technical capabilities. Clients including Parexel, Regeneron, and Veolia Water needed cloud migration support and operational cloud delivery.",
-    "challenge": "The cloud practice needed a way to communicate technical capabilities clearly to clients and prospects — while also delivering real cloud adoption work. Internal tooling was limited, and there was no centralised way to showcase the team's cloud skills and POC work.",
-    "approach": "Supported Azure delivery, ETL workloads, and security controls for client engagements. Built an internal web portal using PHP to showcase the cloud practice's capabilities, case studies, and technical skills to internal stakeholders and clients. Used Terraform to build POCs that demonstrated cloud infrastructure patterns and accelerated client conversations. Contributed to cloud migration strategies and lift-and-shift planning.",
-    "tools": ["Azure", "Terraform", "PHP", "Azure DevOps", "ETL", "Cloud Security", "IAM"],
-    "architecture": "Internal capability portal built in PHP, hosted on Azure, serving as a living showcase of the cloud practice's work. Terraform-based POC environments used to demonstrate Azure infrastructure patterns to clients. Azure DevOps pipelines for CI/CD on client delivery projects.",
+    "eyebrow": "Azure · AWS · Terraform · Cloud Adoption · DevOps",
+    "headline": "Delivering cloud infrastructure automation, migration, and DevOps pipelines across Azure and AWS for clients in pharmaceutical research, reinsurance, and utilities.",
+    "context": "Multi-client engagement delivering cloud infrastructure automation, migration, and DevOps pipelines across Azure and AWS for clients in pharmaceutical research, reinsurance, and utilities.",
+    "challenge": "Each client needed reliable, automated cloud delivery — from IaC-driven Azure provisioning and YAML pipeline management, to lift-and-shift migrations and AWS operational support — with security and compliance embedded throughout.",
+    "approach": "For Parexel: delivered Azure IaC automation using Terraform, ARM Templates, Bicep, and Ansible; managed Azure DevOps YAML pipelines and self-hosted VM environments. For GenRe: executed Azure lift-and-shift migration using ARM Templates and Blueprint-based landing zones; performed data transfer via Azure Direct Connect. For Veolia Water: supported AWS environment with CloudWatch monitoring and IAM access governance; managed EC2 and S3 deployments.",
+    "tools": ["Azure", "AWS", "Terraform", "ARM Templates", "Bicep", "Ansible", "Azure DevOps", "YAML Pipelines", "CloudWatch", "IAM", "EC2", "S3", "Azure Direct Connect"],
+    "architecture": "Parexel: Terraform, ARM Templates, and Bicep for Azure IaC; Azure DevOps YAML pipelines with self-hosted VM agents. GenRe: ARM Template and Blueprint-based Azure landing zones for lift-and-shift migration; Azure Direct Connect for data transfer. Veolia Water: AWS EC2 and S3 deployments with CloudWatch monitoring and IAM governance.",
     "owned": [
-      "Internal cloud practice web portal development (PHP)",
-      "Terraform POC development for client demonstrations",
-      "Azure cloud delivery support for Parexel, Regeneron, and Veolia Water",
-      "Lift-and-shift migration planning and execution support",
-      "ETL workload support and cloud security controls"
+      "Parexel: Azure IaC automation — Terraform, ARM Templates, Bicep, Ansible",
+      "Parexel: Azure DevOps YAML pipeline management and self-hosted VM environments",
+      "GenRe: Azure lift-and-shift migration via ARM Templates and Blueprint-based landing zones",
+      "GenRe: data transfer via Azure Direct Connect",
+      "Veolia Water: AWS EC2 and S3 deployments with CloudWatch monitoring and IAM governance"
     ],
     "outcomes": [
-      "Internal portal improved visibility of the cloud practice's capabilities to stakeholders and clients",
-      "Terraform POCs accelerated client onboarding and reduced time-to-decision on cloud adoption",
-      "Supported successful cloud migrations for multiple enterprise clients",
-      "Contributed to growing the cloud practice's delivery capacity and technical credibility"
+      "Delivered IaC-automated Azure infrastructure for Parexel, reducing manual provisioning overhead",
+      "Executed GenRe lift-and-shift migration to Azure with Blueprint-based governance",
+      "Veolia Water AWS environment stabilised with CloudWatch monitoring and IAM access controls",
+      "Contributed to growing the cloud practice's delivery capacity across three client verticals"
     ],
-    "lessons": "Internal tooling that makes a team's work visible is often undervalued — but it directly influences how clients and leadership perceive capability. Engineering communication is a real skill.",
-    "tags": ["Azure", "Terraform", "PHP", "Cloud Migration", "ETL", "Azure DevOps", "Cloud Security", "Internal Tooling"]
+    "lessons": "Lift-and-shift migrations succeed when landing zone governance is established before the first workload moves. IaC consistency across ARM, Bicep, and Terraform gives teams flexibility without sacrificing standardisation.",
+    "tags": ["Azure", "AWS", "Terraform", "ARM Templates", "Bicep", "Ansible", "Azure DevOps", "CloudWatch", "IAM", "Cloud Migration", "DevOps"]
   },
   {
     "slug": "neurospeech",
@@ -108,19 +111,19 @@
     "logoColor": "#0a0a0a",
     "eyebrow": "Android · MVVM · Application Engineering",
     "headline": "Building maintainable Android applications with clean architecture patterns at a product-focused software company.",
-    "context": "NeuroSpeech is a software product and services company focused on building technology solutions. As a junior developer, this was the foundation of a professional engineering career — learning to write production code, work within a team, and build software that real users depend on.",
-    "challenge": "Delivering Android application features that were maintainable, testable, and consistent with the team's architecture standards. The challenge was developing the discipline and engineering habits that would carry through an entire career.",
-    "approach": "Developed Android applications using MVVM architecture patterns. Built and maintained UI components with a focus on code readability and maintainability. Worked within a team codebase, following code review processes and engineering standards.",
+    "context": "Early-career role at a Mumbai-based software product and services company. This was the foundation of a professional engineering career — learning to write production code, work within a team, and build software that real users depend on.",
+    "challenge": "Delivering Android application features that were maintainable, testable, and consistent with the team's architecture standards across multiple client projects.",
+    "approach": "Developed Android applications using MVVM architecture patterns across multiple client projects. Built and maintained UI components with a focus on code readability and maintainability. Worked within a team codebase, following code review processes and engineering standards.",
     "tools": ["Android", "Java", "MVVM", "XML Layouts", "Git"],
     "architecture": "MVVM pattern separating UI, business logic, and data layers. Android UI components built with XML layouts and data binding. Version control via Git with team-based branching and code review.",
     "owned": [
-      "Android application feature development",
+      "Android application feature development across multiple client projects",
       "MVVM architecture implementation for UI components",
       "Code quality and maintainability within team standards",
       "Participation in code review and engineering processes"
     ],
     "outcomes": [
-      "Delivered Android application features that shipped to production",
+      "Delivered Android application features that shipped to production across client projects",
       "Developed foundational engineering habits — clean code, architecture discipline, team collaboration",
       "Built the technical foundation that enabled rapid growth into cloud and platform engineering roles"
     ],

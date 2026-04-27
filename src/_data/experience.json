@@ -16,7 +16,7 @@
     "company": "Wipro",
     "location": "Mumbai, India",
     "period": "Feb 2024 – Apr 2025",
-    "summary": "Led a 7-engineer team modernizing cloud platforms with reusable Terraform modules, blue-green deployments, and secure AWS automation.",
+    "summary": "Led a 7-engineer team building reusable Terraform modules, GitOps CI/CD pipelines, and data engineering infrastructure on AWS for Alight Solutions across 3 enterprise environments.",
     "logoText": "Wipro",
     "logoColor": "#9b1c1c",
     "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/wipro.svg",
@@ -47,14 +47,14 @@
     "company": "Larsen & Toubro Infotech Ltd. (now LTIMindtree)",
     "location": "Bengaluru, India",
     "period": "Apr 2018 – Nov 2021",
-    "summary": "Built internal automation and a cloud-practice showcase portal; supported Azure delivery, ETL workloads, and security controls.",
+    "summary": "Delivered Azure and AWS cloud infrastructure automation, lift-and-shift migrations, and DevOps pipelines for Parexel, GenRe, and Veolia Water.",
     "logoText": "LTM",
     "logoUrl": "",
     "logoColor": "#e05b2b",
     "stack": [],
     "clients": [
       "Parexel",
-      "Regeneron",
+      "GenRe",
       "Veolia Water"
     ]
   },

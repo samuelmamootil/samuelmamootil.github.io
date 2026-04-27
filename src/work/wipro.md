@@ -1,7 +1,7 @@
 ---
 layout: layouts/casestudy.njk
 title: "Wipro — Cloud Data Platform Engineering"
-pageDescription: "How Samuel Mamootil led a 7-engineer team at Wipro to build reusable AWS infrastructure for Redshift, Glue, and S3 data workloads — enabling reliable, automated cloud data platform delivery for Alight Solutions."
+pageDescription: "How Samuel Mamootil led a 7-member team at Wipro to build reusable Terraform modules, GitOps CI/CD pipelines, and data engineering infrastructure on AWS for Alight Solutions across 4 enterprise environments."
 company: Wipro
 companyUrl: "https://www.wipro.com/"
 role: "Tech Lead — Cloud & Data Platform Engineering"
@@ -9,42 +9,52 @@ period: "Feb 2024 – Apr 2025"
 location: "Mumbai, India"
 logoText: Wipro
 logoColor: "#9b1c1c"
-eyebrow: "AWS · Data Engineering · Infrastructure Automation"
-headline: "Enabling a cloud data platform that gave a global benefits provider reliable, automated infrastructure for its data workloads."
-context: "Alight Solutions, a global HR and benefits technology company, needed a stable, scalable cloud data platform on AWS to support growing data engineering workloads. The existing infrastructure had gaps in automation, consistency, and operational reliability — slowing down the data engineering team's ability to ship."
-challenge: "The team needed reusable, production-grade AWS infrastructure that could support Redshift clusters, Glue ETL jobs, and S3-based data pipelines — without requiring manual provisioning for every new workload. Deployment processes were inconsistent, and there was limited visibility into infrastructure state."
-approach: "Led a 7-engineer team to design and deliver reusable Terraform modules for core AWS resources. Standardised the provisioning of Redshift, Glue, S3, and supporting IAM and networking components. Introduced blue-green deployment patterns to reduce deployment risk and implemented secure automation practices across the platform."
+eyebrow: "AWS · GitOps · Data Engineering · Infrastructure Automation"
+headline: "Enabling a cloud data platform that gave a global benefits provider reliable, automated infrastructure for its data workloads across 4 enterprise environments."
+context: "Alight Solutions is a global benefits administration provider. The engagement required building a reliable, automated cloud data platform on AWS to support enterprise data workloads across multiple product teams."
+challenge: "The platform needed standardized IaC, secure CI/CD pipelines, and scalable data engineering infrastructure — all while enforcing security across every layer of delivery across 4 enterprise environments."
+approach: "Led a 7-member cloud and data engineering team as hands-on tech lead. Designed and built reusable Terraform modules for VPC endpoints, compute, and storage provisioning, standardizing infrastructure delivery across 10 product teams. Configured GitHub Actions CI/CD pipelines on GitOps principles — automating build, test, and deploy lifecycles from commit to production across 4 enterprise environments. Delivered data engineering infrastructure using AWS Glue, Redshift, Step Functions, and SageMaker. Integrated AWS Bedrock for AI-assisted platform capabilities. Enforced end-to-end security through IAM policies, VPC endpoint configurations, and CodeDeploy-managed release controls."
 tools:
   - AWS
   - Terraform
-  - Amazon Redshift
-  - AWS Glue
-  - Amazon S3
-  - IAM
-  - VPC
   - GitHub Actions
-  - Python
-architecture: "Modular Terraform codebase with environment-specific variable files. Redshift clusters provisioned behind private subnets with IAM role-based access. Glue jobs triggered via EventBridge schedules with S3 as the data lake layer. Blue-green deployment strategy applied to infrastructure changes to minimise blast radius."
+  - CodeDeploy
+  - CodeCommit
+  - Step Functions
+  - AWS Glue
+  - Amazon Redshift
+  - AWS SageMaker
+  - AWS Bedrock
+  - GitOps
+  - IAM
+  - VPC Endpoints
+architecture: "Modular Terraform codebase with environment-specific variable files, standardizing provisioning across 10 product teams. GitHub Actions pipelines built on GitOps principles — commit-triggered builds flowing through test and deploy stages across 4 enterprise environments. Redshift clusters provisioned behind private subnets with IAM role-based access. Glue jobs orchestrated via Step Functions with S3 as the data lake layer. CodeDeploy managing release controls for consistent, auditable deployments."
 owned:
-  - "Technical leadership of a 7-engineer cloud and data platform team"
-  - "Terraform module design and reusability standards"
-  - "AWS infrastructure provisioning for Redshift, Glue, and S3 workloads"
-  - "Secure automation patterns and IAM governance"
-  - "Blue-green deployment strategy for infrastructure changes"
+  - "Technical leadership of a 7-member cloud and data engineering team"
+  - "Reusable Terraform module design for VPC endpoints, compute, and storage — standardizing delivery across 10 product teams"
+  - "GitHub Actions CI/CD pipelines on GitOps principles across 4 enterprise environments"
+  - "Data engineering infrastructure: AWS Glue, Redshift, Step Functions, SageMaker"
+  - "AWS Bedrock integration for AI-assisted platform capabilities"
+  - "End-to-end security enforcement via IAM policies, VPC endpoints, and CodeDeploy release controls"
 outcomes:
-  - "Delivered reusable Terraform modules that reduced provisioning time for new data workloads"
-  - "Standardised infrastructure across environments, reducing configuration drift"
-  - "Blue-green deployment approach reduced deployment-related incidents"
+  - "Reusable Terraform modules reduced provisioning time for new data workloads across 10 product teams"
+  - "GitOps pipelines standardized delivery across 4 enterprise environments, reducing configuration drift"
+  - "CodeDeploy-managed releases improved deployment consistency and auditability"
   - "Data engineering team gained reliable, self-service infrastructure for pipeline development"
-lessons: "Reusability in IaC pays off fastest when the team agrees on module boundaries early. Investing in blue-green patterns for infrastructure — not just application deployments — meaningfully reduces operational risk."
+  - "AWS Bedrock integration enabled AI-assisted capabilities on the platform"
+lessons: "Reusability in IaC pays off fastest when the team agrees on module boundaries early. GitOps principles applied to infrastructure — not just application code — give you the audit trail and rollback confidence that enterprise environments demand."
 tags:
   - AWS
   - Terraform
+  - GitOps
+  - GitHub Actions
   - Redshift
   - Glue
-  - S3
-  - Data Platform
+  - Step Functions
+  - SageMaker
+  - Bedrock
+  - CodeDeploy
   - IaC
-  - Blue-Green Deployment
+  - Data Platform
 ---
 <!-- case study -->
