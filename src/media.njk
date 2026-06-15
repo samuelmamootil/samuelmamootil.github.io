@@ -3,6 +3,7 @@ layout: layouts/base.njk
 title: Visibility
 permalink: /media/
 ---
+{% import "icons.njk" as icons %}
 
 <section class="section container">
   <p class="eyebrow">Press &amp; features</p>
@@ -14,10 +15,10 @@ permalink: /media/
     <div class="media-card media-card--{{ item.type }}">
 
       <p class="media-card__type">
-        {% if item.type == "press" %}📰 PRESS
-        {% elif item.type == "reel" %}📹 REEL
-        {% elif item.type == "linkedin" %}💼 LINKEDIN
-        {% else %}📸 INSTAGRAM{% endif %}
+        {% if item.type == "press" %}{{ icons.icon("newspaper") }} PRESS
+        {% elif item.type == "reel" %}{{ icons.icon("video") }} REEL
+        {% elif item.type == "linkedin" %}{{ icons.icon("linkedin") }} LINKEDIN
+        {% else %}{{ icons.icon("image") }} INSTAGRAM{% endif %}
       </p>
       <p class="media-card__label">{{ item.label }}</p>
       <p class="media-card__desc">{{ item.description }}</p>

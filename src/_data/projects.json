@@ -3,7 +3,7 @@
     "name": "ReRhythm",
     "type": "Key Project",
     "summary": "Generative AI platform demonstrating enterprise AI capabilities with AWS Bedrock, Claude, ChromaDB, RAG, CloudFormation, and ECS. The platform ingests, processes, and analyzes complex document data to identify skill gaps and generate intelligent workflow recommendations.",
-    "highlight": "🏆 Second Runner Up - AWS Hackathon / UTA Symposium 2026",
+    "highlight": "Second Runner Up - AWS Hackathon / UTA Symposium 2026",
     "url": "https://github.com/samuelmamootil/ReRhythm",
     "tags": ["AWS Bedrock", "Claude", "ChromaDB", "RAG", "CloudFormation", "ECS"],
     "images": [

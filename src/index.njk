@@ -4,6 +4,7 @@ title: Samuel Mamootil - DevOps Engineer | Portfolio
 pageDescription: "Samuel Mamootil is a DevOps Engineer based in Austin, TX with 7+ years of AWS, Azure, GCP, Terraform, Python automation, CI/CD, DevSecOps, and cloud data platform experience. MS in Information Systems, UTA, May 2026."
 fontPreload: true
 ---
+{% import "icons.njk" as icons %}
 
 <!-- HERO -->
 <section class="hero">
@@ -11,20 +12,8 @@ fontPreload: true
     <div class="hero__text">
       <p class="eyebrow">DevOps · AWS Data Platform · Cloud Automation · DevSecOps · Multicloud</p>
       <h1 class="hero__headline">Samuel Mamootil</h1>
-      <p class="hero__subheadline" aria-label="DevOps Engineer · AWS Data Platform Engineer · Cloud Automation Engineer · DevSecOps Engineer">
-        <span class="hero__role-static">I'm a </span><span id="heroRole" class="hero__role-typed" aria-hidden="true"></span><span class="hero__cursor" aria-hidden="true"></span>
-      </p>
+      <p class="hero__subheadline">DevOps Engineer · AWS Data Platform · Cloud Automation · DevSecOps</p>
       <p class="hero__intro">{{ site.heroIntro }}</p>
-      <div id="weatherWidget" class="weather-widget" hidden>
-        <div class="weather-widget__current">
-          <span id="weatherIcon"></span>
-          <span id="weatherTemp" class="weather-widget__temp" title="Click to toggle °C / °F"></span>
-          <span id="weatherCity"></span>
-          <span class="weather-widget__sep">·</span>
-          <span id="weatherDesc"></span>
-        </div>
-        <div id="weatherForecast" class="weather-widget__forecast"></div>
-      </div>
       <div class="hero__cta">
         <a href="/work/" class="btn">View Experience</a>
         <a href="{{ site.resume }}" class="btn btn--ghost resume-track">Resume</a>
@@ -110,7 +99,7 @@ fontPreload: true
   <div class="awards-list">
 
     <div class="award-card">
-      <div class="award-card__icon">🏆</div>
+      <div class="award-card__icon">{{ icons.icon("award") }}</div>
       <div class="award-card__body">
         <p class="award-card__org">AWS Hackathon / UTA Symposium 2026</p>
         <h3 class="award-card__title">Second Runner Up - ReRhythm AI Application</h3>
@@ -120,7 +109,7 @@ fontPreload: true
     </div>
 
     <div class="award-card">
-      <div class="award-card__icon">🥇</div>
+      <div class="award-card__icon">{{ icons.icon("medal") }}</div>
       <div class="award-card__body">
         <p class="award-card__org">University of Texas at Arlington</p>
         <h3 class="award-card__title">Maverick Advantage Certificate of Distinction</h3>
@@ -130,7 +119,7 @@ fontPreload: true
     </div>
 
     <div class="award-card">
-      <div class="award-card__icon">🥉</div>
+      <div class="award-card__icon">{{ icons.icon("team") }}</div>
       <div class="award-card__body">
         <p class="award-card__org">LTIMindtree · Best Team Award</p>
         <h3 class="award-card__title">Best Team Award</h3>
@@ -160,7 +149,7 @@ fontPreload: true
         <div class="rr-spotlight__overlay"><span>View Project &rarr;</span></div>
       </div>
       <div class="rr-spotlight__body">
-        <p class="rr-spotlight__award">🏆 Second Runner Up - AWS Hackathon / UTA Symposium 2026</p>
+        <p class="rr-spotlight__award">Second Runner Up - AWS Hackathon / UTA Symposium 2026</p>
         <p class="rr-spotlight__desc">ReRhythm is a generative AI platform built with AWS Bedrock, Claude, ChromaDB, RAG, CloudFormation, and ECS. It ingests, processes, and analyzes complex document data to identify skill gaps and generate intelligent workflow recommendations.</p>
         <div class="tag-list">
           <span class="tag">AWS Bedrock</span>
@@ -269,28 +258,28 @@ fontPreload: true
       </form>
       <div class="contact-aside">
         <div class="contact-aside__item">
-          <span class="contact-aside__icon">✉️</span>
+          <span class="contact-aside__icon">{{ icons.icon("mail") }}</span>
           <div>
             <p class="contact-aside__label">Email</p>
             <a href="mailto:{{ site.email }}" class="contact-aside__value">{{ site.email }}</a>
           </div>
         </div>
         <div class="contact-aside__item">
-          <span class="contact-aside__icon">💼</span>
+          <span class="contact-aside__icon">{{ icons.icon("linkedin") }}</span>
           <div>
             <p class="contact-aside__label">LinkedIn</p>
             <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="contact-aside__value">samuel-mamootil</a>
           </div>
         </div>
         <div class="contact-aside__item">
-          <span class="contact-aside__icon">🐙</span>
+          <span class="contact-aside__icon">{{ icons.icon("code") }}</span>
           <div>
             <p class="contact-aside__label">GitHub</p>
             <a href="{{ site.github }}" target="_blank" rel="noopener" class="contact-aside__value">samuelmamootil</a>
           </div>
         </div>
         <div class="contact-aside__item">
-          <span class="contact-aside__icon">📍</span>
+          <span class="contact-aside__icon">{{ icons.icon("map-pin") }}</span>
           <div>
             <p class="contact-aside__label">Location</p>
             <p class="contact-aside__value">{{ site.location }}</p>
