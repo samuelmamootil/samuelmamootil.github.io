@@ -1,13 +1,17 @@
 /* TEAM */
 Name: Samuel Mamootil
 Also known as: Samuel Raju Mamootil
-Role: DevOps Engineer · Cloud Specialist · Multicloud Specialist (AWS, Azure, GCP) · Machine Learning Engineer
-Location: Arlington, TX, USA
+Role: DevOps Engineer | AWS Data Platform | Cloud Automation | DevSecOps
+Location: Austin, TX, USA
 LinkedIn: https://linkedin.com/in/samuel-mamootil
 GitHub: https://github.com/samuelmamootil
 Portfolio: https://samuelmamootil.github.io
 
+/* EDUCATION */
+MS Information Systems: University of Texas at Arlington, May 2026
+Graduate Business Analytics Certificate: University of Texas at Arlington, May 2026
+
 /* SITE */
-Built with: Eleventy (11ty), Nunjucks, GitHub Actions
+Built with: Eleventy (11ty), Nunjucks, GitHub Pages
 Hosted on: GitHub Pages
 Last updated: 2026

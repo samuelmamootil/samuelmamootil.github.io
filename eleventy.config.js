@@ -5,7 +5,6 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
-  eleventyConfig.addPassthroughCopy({ "src/resume.pdf": "resume.pdf" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/favicon-32x32.png": "favicon-32x32.png" });
   eleventyConfig.addPassthroughCopy({ "src/favicon-16x16.png": "favicon-16x16.png" });

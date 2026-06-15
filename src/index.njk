@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
-title: Samuel Mamootil — DevOps Engineer · Site Reliability Engineer · Cloud Specialist| Portfolio
-pageDescription: "Samuel Mamootil is a DevOps Engineer, Site Reliability Engineer, Cloud Specialist, and Multicloud Specialist (AWS, Azure, GCP) in Arlington, TX. Terraform, Kubernetes, CI/CD, IaC, and AI infrastructure. Delivered at IBM, Wipro, and LTIMindtree. Azure certified. Open to DevOps, Cloud, and SRE roles in the US."
+title: Samuel Mamootil - DevOps Engineer | Portfolio
+pageDescription: "Samuel Mamootil is a DevOps Engineer based in Austin, TX with 7+ years of AWS, Azure, GCP, Terraform, Python automation, CI/CD, DevSecOps, and cloud data platform experience. MS in Information Systems, UTA, May 2026."
 fontPreload: true
 ---
 
@@ -9,9 +9,9 @@ fontPreload: true
 <section class="hero">
   <div class="hero__inner container">
     <div class="hero__text">
-      <p class="eyebrow">DevOps · Cloud Specialist · Site Reliability · Multicloud (AWS, Azure, GCP)· AI Infrastructure</p>
+      <p class="eyebrow">DevOps · AWS Data Platform · Cloud Automation · DevSecOps · Multicloud</p>
       <h1 class="hero__headline">Samuel Mamootil</h1>
-      <p class="hero__subheadline" aria-label="DevOps Engineer · Site Reliability Engineer · Cloud Specialist  · Multicloud Specialist">
+      <p class="hero__subheadline" aria-label="DevOps Engineer · AWS Data Platform Engineer · Cloud Automation Engineer · DevSecOps Engineer">
         <span class="hero__role-static">I'm a </span><span id="heroRole" class="hero__role-typed" aria-hidden="true"></span><span class="hero__cursor" aria-hidden="true"></span>
       </p>
       <p class="hero__intro">{{ site.heroIntro }}</p>
@@ -34,7 +34,7 @@ fontPreload: true
     </div>
     <div class="hero__avatar">
       <img src="https://github.com/samuelmamootil.png"
-           alt="Samuel Mamootil — DevOps Engineer, Cloud Specialist, Site Reliability Engineer (AWS, Azure, GCP), Arlington TX"
+           alt="Samuel Mamootil - DevOps Engineer based in Austin, TX with AWS, Azure, and GCP experience"
            width="220" height="220" />
     </div>
   </div>
@@ -43,7 +43,7 @@ fontPreload: true
 <!-- ABOUT -->
 <section class="section container" id="about">
   <p class="eyebrow">About Samuel Mamootil</p>
-  <h2>DevOps Engineer · Cloud Specialist · Site Reliability Engineer — Arlington, TX</h2>
+  <h2>DevOps Engineer · Cloud Automation · AWS Data Platforms - Austin, TX</h2>
   <div class="story-grid">
     {% for line in site.story %}<p>{{ line }}</p>{% endfor %}
   </div>
@@ -89,7 +89,7 @@ fontPreload: true
 <!-- CAPABILITIES -->
 <section class="section container">
   <p class="eyebrow">Capabilities</p>
-  <h2>Cloud, DevOps &amp; AI skills</h2>
+  <h2>Cloud, DevOps &amp; data platform skills</h2>
   <div class="skills-grid" style="margin-top:1.5rem;">
     {% for category, items in site.skills %}
     <div class="skill-card">
@@ -99,23 +99,6 @@ fontPreload: true
       </ul>
     </div>
     {% endfor %}
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="section section--alt">
-  <div class="container">
-    <p class="eyebrow">Certifications</p>
-    <h2>Microsoft Azure certified</h2>
-    <div class="cert-row">
-      {% for cert in site.certifications %}
-      <div class="cert-badge">
-        <span class="cert-badge__code" style="color:{{ cert.color }}">{{ cert.code }}</span>
-        <span class="cert-badge__name">{{ cert.name }}</span>
-        <span class="cert-badge__issuer">{{ cert.issuer }}</span>
-      </div>
-      {% endfor %}
-    </div>
   </div>
 </section>
 
@@ -129,20 +112,20 @@ fontPreload: true
     <div class="award-card">
       <div class="award-card__icon">🏆</div>
       <div class="award-card__body">
-        <p class="award-card__org">AWS Symposium · UTA Analytics Symposium 2026</p>
-        <h3 class="award-card__title">Second Runner-Up — AWS Competition</h3>
+        <p class="award-card__org">AWS Hackathon / UTA Symposium 2026</p>
+        <h3 class="award-card__title">Second Runner Up - ReRhythm AI Application</h3>
         <p class="award-card__project">Project: ReRhythm</p>
-        <p class="award-card__desc">Designed and deployed ReRhythm, an AI-powered career coaching platform built on AWS. Architected the full cloud infrastructure using ECS Fargate, DynamoDB, CloudFormation, and AWS Bedrock (Claude) — earning second runner-up recognition at the University of Texas at Arlington Analytics Symposium AWS competition.</p>
+        <p class="award-card__desc">Built ReRhythm as a generative AI platform using AWS Bedrock, Claude, ChromaDB, RAG, CloudFormation, and ECS. The platform ingests and analyzes document data to identify skill gaps and generate intelligent workflow recommendations.</p>
       </div>
     </div>
 
     <div class="award-card">
       <div class="award-card__icon">🥇</div>
       <div class="award-card__body">
-        <p class="award-card__org">LTIMindtree · Best Team Award</p>
-        <h3 class="award-card__title">Best Team — Gold</h3>
-        <p class="award-card__project">Project: GenRE (Regeneron)</p>
-        <p class="award-card__desc">Led the secure migration of 100+ enterprise applications from on-premises infrastructure to Microsoft Azure using a structured lift-and-shift approach. Delivered at scale with zero data loss, enforcing security controls and compliance standards throughout — recognised with the Gold Best Team award for cloud modernisation impact.</p>
+        <p class="award-card__org">University of Texas at Arlington</p>
+        <h3 class="award-card__title">Maverick Advantage Certificate of Distinction</h3>
+        <p class="award-card__project">UTA 2026</p>
+        <p class="award-card__desc">Recognized by UTA in 2026 for completing the Maverick Advantage distinction.</p>
       </div>
     </div>
 
@@ -150,9 +133,9 @@ fontPreload: true
       <div class="award-card__icon">🥉</div>
       <div class="award-card__body">
         <p class="award-card__org">LTIMindtree · Best Team Award</p>
-        <h3 class="award-card__title">Best Team — Bronze</h3>
+        <h3 class="award-card__title">Best Team Award</h3>
         <p class="award-card__project">Project: Parexel</p>
-        <p class="award-card__desc">Delivered secure, automated infrastructure deployments on Microsoft Azure using ARM templates and Azure DevOps pipelines. Received the Bronze Best Team award in recognition of deployment reliability, automation quality, and strong client satisfaction from Parexel.</p>
+        <p class="award-card__desc">Received the LTIMindtree Best Team Award in 2019 for the Parexel project.</p>
       </div>
     </div>
 
@@ -165,7 +148,7 @@ fontPreload: true
     <div class="section-header">
       <div>
         <p class="eyebrow">Featured Project</p>
-        <h2>ReRhythm — AI Career Coach on AWS</h2>
+        <h2>ReRhythm - Generative AI Platform on AWS</h2>
       </div>
       <a href="/projects/" class="btn btn--ghost btn--sm">All projects &rarr;</a>
     </div>
@@ -177,15 +160,15 @@ fontPreload: true
         <div class="rr-spotlight__overlay"><span>View Project &rarr;</span></div>
       </div>
       <div class="rr-spotlight__body">
-        <p class="rr-spotlight__award">🏆 Second runner-up — AWS Competition, UTA Analytics Symposium 2026</p>
-        <p class="rr-spotlight__desc">ReRhythm is an AI-powered career coaching platform that parses resumes with AWS Textract and generates a personalised 28-day roadmap via AWS Bedrock (Claude). Built on ECS Fargate, DynamoDB, and CloudFormation — a full-stack cloud and AI engineering project from architecture to deployment.</p>
+        <p class="rr-spotlight__award">🏆 Second Runner Up - AWS Hackathon / UTA Symposium 2026</p>
+        <p class="rr-spotlight__desc">ReRhythm is a generative AI platform built with AWS Bedrock, Claude, ChromaDB, RAG, CloudFormation, and ECS. It ingests, processes, and analyzes complex document data to identify skill gaps and generate intelligent workflow recommendations.</p>
         <div class="tag-list">
           <span class="tag">AWS Bedrock</span>
-          <span class="tag">Textract</span>
-          <span class="tag">ECS Fargate</span>
-          <span class="tag">.NET</span>
-          <span class="tag">DynamoDB</span>
+          <span class="tag">Claude</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">RAG</span>
           <span class="tag">CloudFormation</span>
+          <span class="tag">ECS</span>
         </div>
       </div>
     </a>
@@ -253,7 +236,7 @@ fontPreload: true
   <div class="container">
     <p class="eyebrow">Contact</p>
     <h2>Get in touch</h2>
-    <p style="max-width:560px;margin-bottom:2rem;">Open to DevOps, Cloud Specialist, and Site Reliability Engineering roles in the US. Feel free to reach out about opportunities, collaborations, or just to connect.</p>
+    <p style="max-width:560px;margin-bottom:2rem;">Open to DevOps Engineering, Cloud Engineering, Data Platform, DevSecOps, and related roles in the US. Based in Austin, TX.</p>
     <div class="contact-grid">
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/mnjokoon" method="POST" novalidate data-email="{{ site.email }}">
         

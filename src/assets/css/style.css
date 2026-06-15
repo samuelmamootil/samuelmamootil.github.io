@@ -1840,11 +1840,11 @@ a.cs-meta-value:hover { text-decoration: underline; }
   font-size: .92rem; color: var(--text-muted); line-height: 1.6;
 }
 .cs-list li::before {
-  content: '?';
+  content: "\2022";
   position: absolute; left: 0;
   color: var(--accent); font-weight: 700;
 }
-.cs-list--outcomes li::before { content: '?'; color: var(--success); }
+.cs-list--outcomes li::before { content: "\2713"; color: var(--success); }
 
 .cs-quote {
   border-left: 3px solid var(--accent-2);
@@ -2106,4 +2106,22 @@ a.contact-aside__value:hover { text-decoration: underline; }
   .contact-aside { flex-direction: column; }
 }
 
-/* -- Formspree state styles --------------------------------- */\n.contact-form__success {\n  display: none;\n  color: var(--success);\n  font-size: .92rem;\n  font-weight: 600;\n  padding: .75rem 1rem;\n  background: #f0fdf4;\n  border: 1px solid #bbf7d0;\n  border-radius: 8px;\n  margin-bottom: .5rem;\n}\n.contact-form__field-error {\n  font-size: .8rem;\n  color: #dc2626;\n  margin-top: .2rem;\n  display: block;\n}\nbutton:disabled { opacity: .6; cursor: not-allowed; }\n
+/* -- Formspree state styles --------------------------------- */
+.contact-form__success {
+  display: none;
+  color: var(--success);
+  font-size: .92rem;
+  font-weight: 600;
+  padding: .75rem 1rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  margin-bottom: .5rem;
+}
+.contact-form__field-error {
+  font-size: .8rem;
+  color: #dc2626;
+  margin-top: .2rem;
+  display: block;
+}
+button:disabled { opacity: .6; cursor: not-allowed; }

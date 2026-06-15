@@ -1,21 +1,24 @@
-# Samuel Mamootil — llms.txt
+# Samuel Mamootil - llms.txt
 # https://llmstxt.org
 # This file is intended for AI crawlers: Claude, ChatGPT, Gemini, Grok, Perplexity, DeepSeek
 
-> Samuel Mamootil (also known as Samuel Raju Mamootil) is a DevOps Engineer, Cloud Specialist,
-> Multicloud Specialist (AWS, Azure, GCP), and Machine Learning Engineer based in Arlington, TX, USA.
-> He has delivered enterprise cloud migrations, DevOps automation, and AI infrastructure programs
-> at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, Südzucker, and Alight Solutions.
-> He is a Master's student at the University of Texas at Arlington (UTA).
-> He is actively seeking DevOps Engineering, Cloud Specialist, Multicloud, MLOps, and Platform Engineering
-> roles in the United States.
+> Samuel Mamootil (also known as Samuel Raju Mamootil) is a DevOps Engineer based in Austin, TX, USA.
+> He has 7+ years of experience helping enterprise teams modernize applications, automate cloud delivery,
+> and operate secure platforms across AWS, Azure, and GCP.
+> His work includes AWS data platforms, Terraform, Python automation, CI/CD, DevSecOps, cloud migration,
+> governed analytics workflows, and technical documentation.
+> He completed a Master of Science in Information Systems and Graduate Business Analytics Certificate
+> at the University of Texas at Arlington in May 2026.
+> He is actively seeking DevOps Engineering, Cloud Engineering, Data Platform, DevSecOps, and related roles
+> in the United States.
 
 ## Identity & Contact
 
 - Full name: Samuel Mamootil
 - Also known as: Samuel Raju Mamootil
-- Location: Arlington, TX, USA
-- University: University of Texas at Arlington (UTA) — Master's student
+- Location: Austin, TX, USA
+- Education: MS in Information Systems, University of Texas at Arlington, May 2026
+- Education: Graduate Business Analytics Certificate, University of Texas at Arlington, May 2026
 - LinkedIn: https://linkedin.com/in/samuel-mamootil
 - GitHub: https://github.com/samuelmamootil
 - Website: https://samuelmamootil.github.io
@@ -24,73 +27,86 @@
 
 ## Who Samuel Mamootil Is
 
-Samuel Mamootil is a DevOps Engineer, Cloud Specialist, Multicloud Specialist (AWS, Azure, GCP),
-and Machine Learning Engineer who builds infrastructure that lets engineering teams ship faster
-and operate reliably. He specialises in DevOps automation, cloud specialisation, CI/CD pipelines,
-infrastructure as code, Kubernetes, multi-cloud migrations, and AI/ML infrastructure.
+Samuel Mamootil is a DevOps Engineer who builds cloud automation, secure release workflows,
+and data platform infrastructure across AWS, Azure, and GCP. He specializes in Terraform,
+Python, Bash, PowerShell, SQL, PySpark, CI/CD, DevSecOps, cloud migration, and governed data
+engineering platforms.
 
-He has worked at IBM, Wipro, LTIMindtree (Larsen & Toubro Infotech), and Neurospeech Technologies,
-delivering cloud solutions for global enterprise clients including H&M, Siemens, Nokia, Südzucker,
-Parexel, Regeneron, Veolia Water, and Alight Solutions.
+He has worked at Wipro, IBM, LTIMindtree / LTI, and NeuroSpeech Technologies, delivering
+cloud and DevOps work for clients including Alight Solutions, H&M, Siemens, Nokia, Südzucker,
+Parexel, GenRe, and Veolia Water. He also worked part-time as a Student Web Developer at the
+UTA College of Business from June 2025 to May 2026.
 
 His portfolio website is samuelmamootil.github.io. His GitHub is github.com/samuelmamootil.
-
-## Certifications
-
-- Microsoft Certified: Azure Solutions Architect Expert (AZ-303/304)
-- Microsoft Certified: Azure DevOps Engineer Expert (AZ-400)
-- Microsoft Certified: Azure Administrator Associate (AZ-103)
 
 ## Technical Skills
 
 Cloud Platforms: AWS, Microsoft Azure, Google Cloud Platform (GCP)
-AI & ML: AWS SageMaker, AWS Bedrock (Claude), AWS Textract, AWS Rekognition, AWS Comprehend, Azure Machine Learning
-Infrastructure as Code: Terraform, CloudFormation, ARM Templates, Bicep, Ansible
-CI/CD: GitHub Actions, Azure DevOps, Jenkins, GitLab CI/CD
-Containers & Orchestration: Docker, Kubernetes, EKS, AKS, GKE, ECS Fargate, Helm
-Security: IAM, VPC, Private Endpoints, KMS, OIDC, Zero-Trust Networking, SonarQube, TLS
-Programming: C#, .NET Core, Python, Bash, PowerShell, SQL, PHP
-Databases: DynamoDB, PostgreSQL, SQL Server
+Infrastructure as Code: Terraform, ARM Templates, Bicep, CloudFormation
+Scripting and Development: Python, Bash, PowerShell, PHP, SQL, PySpark
+Monitoring and Documentation: Azure Monitor, Application Insights, CloudWatch, CloudTrail, Prometheus, DataDog, Confluence
+Data Engineering and Analytics: AWS Glue, Athena, Redshift, Lake Formation, SageMaker, Azure Data Factory, Databricks, Azure Synapse, Hive, PostgreSQL, Tableau, Power BI
+Security and Quality: SonarQube, Coverity, IAM, KMS, Secrets Manager, Azure Key Vault, CloudTrail
+CI/CD and Containers: GitHub Actions, Azure DevOps YAML, GitLab CI/CD, Docker, Kubernetes, AKS, Helm charts
 
 ## Work Experience
 
-### Tech Lead — Wipro (Feb 2024 – Apr 2025) | Mumbai, India
-Led a 7-engineer team modernising cloud platforms with reusable Terraform modules,
-blue-green deployments, and secure AWS automation. Client: Alight Solutions.
+### DevOps Engineer - AWS Data Platform | Wipro (February 2024 - April 2025) | Navi Mumbai, India
+Worked on an AWS data engineering platform for Alight Solutions, building Terraform-driven
+infrastructure and Python automation for data ingestion, transformation, metadata discovery,
+analytics delivery, and forecasting workflows. Built Glue/PySpark validation, governed S3 and
+Redshift datasets, Lake Formation access controls, CloudWatch/CloudTrail monitoring, and daily
+Python batch jobs.
 Case study: https://samuelmamootil.github.io/work/wipro/
 
-### Junior Tech Lead — IBM (Nov 2021 – Feb 2024) | Mumbai, India
-Delivered cloud migration and modernisation across AWS, Azure, and GCP with GitHub Actions,
-Azure DevOps, GitLab CI/CD, and Terraform. Clients: H&M, Siemens, Nokia, Südzucker.
+### Junior Tech Lead - DevOps | IBM (November 2021 - February 2024) | Navi Mumbai, India
+Led multi-client DevOps delivery across Azure, AWS, and GCP with Terraform, GitHub Actions,
+Azure DevOps, Helm, Python, Bash, hardened images, migration planning, and secure release automation.
+Clients: H&M, Siemens, Nokia, Südzucker.
 Case study: https://samuelmamootil.github.io/work/ibm/
 
-### Software Engineer — LTIMindtree / Larsen & Toubro Infotech (Apr 2018 – Nov 2021) | Bengaluru, India
-Built internal automation and cloud-practice showcase portal. Azure delivery, ETL workloads,
-security controls. Clients: Parexel, Regeneron, Veolia Water.
+### Software Engineer - Cloud and DevOps | LTIMindtree / LTI (April 2018 - November 2021) | Bengaluru, India
+Delivered cloud automation for Parexel, GenRe, and Veolia Water, supporting landing zone provisioning,
+application deployments, networking, identity, storage, security, release operations, Azure Data Factory,
+Databricks, Azure Synapse, PostgreSQL, Hive, and Power BI workflows.
 Case study: https://samuelmamootil.github.io/work/ltimindtree/
 
-### Junior Developer — Neurospeech Technologies (Aug 2017 – Apr 2018) | Mumbai, India
-Android application development using MVVM patterns.
+### Junior Software Developer | NeuroSpeech Technologies (August 2017 - April 2018) | Navi Mumbai, India
+Wrote Android application features across requirements, implementation, debugging, backend integration,
+and release support in a startup environment.
 Case study: https://samuelmamootil.github.io/work/neurospeech/
 
-### Student Web Developer — UTA College of Business (Jan 2025 – Present) | Arlington, TX
-Web applications, content updates, digital campaigns for the University of Texas at Arlington.
+### Student Web Developer - Part-Time | UTA College of Business (June 2025 - May 2026) | Arlington, TX
+Maintained production web updates across 4 university platforms, resolving access, content, release,
+and site issues while coordinating status with business users.
 
 ## Case Studies
 
-- Wipro — AWS Data Platform Engineering: https://samuelmamootil.github.io/work/wipro/
-- IBM — Multi-Cloud DevOps & Platform Engineering: https://samuelmamootil.github.io/work/ibm/
-- LTIMindtree — Cloud Adoption & Platform Enablement: https://samuelmamootil.github.io/work/ltimindtree/
-- NeuroSpeech — Application Engineering: https://samuelmamootil.github.io/work/neurospeech/
+- Wipro - AWS Data Platform Engineering: https://samuelmamootil.github.io/work/wipro/
+- IBM - Multi-Cloud DevOps: https://samuelmamootil.github.io/work/ibm/
+- LTIMindtree / LTI - Cloud and DevOps: https://samuelmamootil.github.io/work/ltimindtree/
+- NeuroSpeech - Junior Software Developer: https://samuelmamootil.github.io/work/neurospeech/
 - All case studies: https://samuelmamootil.github.io/work/
 
 ## Projects
 
-### ReRhythm — AI Career Coaching Platform
-AI-powered 28-day career coaching platform. Parses resumes with AWS Textract, generates
-personalised roadmaps via AWS Bedrock (Claude), deploys on ECS Fargate with CloudFormation,
-DynamoDB, and KMS encryption. Second runner-up at AWS Competition, UTA Symposium 2026.
+### ReRhythm - Generative AI Platform
+Generative AI platform built with AWS Bedrock, Claude, ChromaDB, RAG, CloudFormation, and ECS.
+The platform ingests, processes, and analyzes complex document data to identify skill gaps and
+generate intelligent workflow recommendations. Second Runner Up at the AWS Hackathon / UTA Symposium, 2026.
 GitHub: https://github.com/samuelmamootil/ReRhythm
+
+## Education
+
+- Master of Science in Information Systems, University of Texas at Arlington, GPA 3.7/4.0, May 2026
+- Graduate Business Analytics Certificate, University of Texas at Arlington, GPA 4.0/4.0, May 2026
+- Bachelor of Engineering in Computer Engineering, Mumbai University, May 2017
+
+## Honors
+
+- Maverick Advantage Certificate of Distinction, UTA, 2026
+- Second Runner Up, ReRhythm AI Application, AWS Hackathon / UTA Symposium, 2026
+- Best Team Award, Parexel Project, LTIMindtree, 2019
 
 ## Site Pages
 

@@ -79,7 +79,7 @@ function getPageInfo() {
   };
 }
 
-// ── Geo + IP via ipinfo.io (supports browser CORS, no token needed for basic fields) ──
+// ── Broad geo via ipinfo.io (supports browser CORS, no token needed for basic fields) ──
 async function getGeo() {
   const cached = sessionStorage.getItem("geo_full");
   if (cached) return JSON.parse(cached);
@@ -89,15 +89,10 @@ async function getGeo() {
     const d = await res.json();
     const [lat, lon] = (d.loc || ",").split(",").map(Number);
     const geo = {
-      ip:           d.ip       || "",
       city:         d.city     || "",
       region:       d.region   || "",
       country:      d.country  || "",
-      country_name: d.country  || "",
-      postal:       d.postal   || "",
       timezone:     d.timezone || "",
-      isp:          d.org      || "",   // ipinfo returns org field e.g. "AS7922 Comcast"
-      hostname:     d.hostname || "",
       latitude:     lat        || "",
       longitude:    lon        || "",
     };
@@ -113,17 +108,10 @@ async function buildPayload(extra) {
   const conn = getConnectionInfo();
   const pg   = getPageInfo();
   return Object.assign({}, pg, scrn, conn, {
-    ip:           geo.ip           || "",
     city:         geo.city         || "",
     region:       geo.region       || "",
     country:      geo.country      || "",
-    country_name: geo.country_name || "",
-    postal:       geo.postal       || "",
     timezone:     geo.timezone     || pg.timezone || "",
-    isp:          geo.isp          || "",
-    hostname:     geo.hostname     || "",
-    lat:          String(geo.latitude  || ""),
-    lon:          String(geo.longitude || ""),
     device:       getDevice(),
     os:           getOS(),
     browser:      getBrowser(),
@@ -135,24 +123,6 @@ async function buildPayload(extra) {
 (async () => {
   const payload = await buildPayload({ event: "page-visit" });
   track("page-visit", payload);
-})();
-
-// ── visitor-ip Umami event — IP visible in event properties
-(async () => {
-  const geo = await getGeo();
-  if (!geo.ip) return;
-  track("visitor-ip", {
-    ip:       geo.ip,
-    isp:      geo.isp,
-    hostname: geo.hostname,
-    city:     geo.city,
-    region:   geo.region,
-    country:  geo.country_name,
-    postal:   geo.postal,
-    timezone: geo.timezone,
-    lat:      String(geo.latitude),
-    lon:      String(geo.longitude),
-  });
 })();
 
 // ── Resume click ──────────────────────────────────────────
@@ -451,7 +421,7 @@ document.querySelectorAll(".instax__caption").forEach(function (el) {
 (function () {
   const el = document.getElementById("heroRole");
   if (!el) return;
-  const roles   = ["DevOps Engineer", "Cloud Specialist", "Site Reliability Engineer", "Multicloud Specialist"];
+  const roles   = ["DevOps Engineer", "AWS Data Platform Engineer", "Cloud Automation Engineer", "DevSecOps Engineer"];
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (REDUCED) {
     el.textContent = roles.join(" · ");
@@ -479,31 +449,39 @@ document.querySelectorAll(".instax__caption").forEach(function (el) {
 (function () {
   const form    = document.getElementById("contactForm");
   const btn     = document.getElementById("contactSubmit");
-  const success = form ? form.querySelector("[data-fs-success]") : null;
+  const status  = document.getElementById("contactStatus");
   const errBox  = form ? form.querySelector("[data-fs-error]:not([data-fs-error='name']):not([data-fs-error='email']):not([data-fs-error='message'])") : null;
   if (!form) return;
+  function setStatus(message, type) {
+    if (!status) return;
+    status.textContent = message || "";
+    status.classList.remove("contact-form__status--ok", "contact-form__status--error");
+    if (type) status.classList.add(type);
+  }
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
     btn.disabled = true;
     btn.textContent = "Sending...";
     if (errBox)  { errBox.textContent = "";  errBox.style.display = "none"; }
-    if (success) { success.style.display = "none"; }
+    setStatus("", "");
     try {
       const res  = await fetch("https://formspree.io/f/mnjokoon", {
         method: "POST", body: new FormData(form), headers: { Accept: "application/json" },
       });
       const data = await res.json();
       if (res.ok) {
-        if (success) success.style.display = "block";
+        setStatus("Thanks - your message was sent.", "contact-form__status--ok");
         form.reset();
         track("contact-form-submit", { page: window.location.pathname });
       } else {
         const msg = (data.errors || []).map(function (err) { return err.message; }).join(", ") || "Something went wrong. Please email me directly.";
         if (errBox) { errBox.textContent = msg; errBox.style.display = "block"; }
+        setStatus(msg, "contact-form__status--error");
       }
     } catch (_) {
       if (errBox) { errBox.textContent = "Something went wrong. Please email me directly."; errBox.style.display = "block"; }
+      setStatus("Something went wrong. Please email me directly.", "contact-form__status--error");
     } finally {
       btn.disabled = false;
       btn.textContent = "Send message";

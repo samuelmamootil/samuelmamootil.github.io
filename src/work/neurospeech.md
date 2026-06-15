@@ -1,41 +1,39 @@
 ---
 layout: layouts/casestudy.njk
-title: "NeuroSpeech — Application Engineering"
-pageDescription: "Samuel Mamootil's foundational engineering role at NeuroSpeech — building Android applications with MVVM architecture across multiple client projects, establishing clean code habits, and developing the engineering discipline that underpins a cloud and platform engineering career."
+title: "NeuroSpeech - Junior Software Developer"
+pageDescription: "How Samuel Mamootil wrote Android application features across requirements, implementation, debugging, backend integration, and release support at NeuroSpeech Technologies."
 company: NeuroSpeech
 companyUrl: "https://www.neurospeech.com/"
-role: "Junior Developer — Application Engineering"
-period: "Aug 2017 – Apr 2018"
-location: "Mumbai, India"
+role: "Junior Software Developer"
+period: "August 2017 - April 2018"
+location: "Navi Mumbai, India"
 logoText: NS
 logoColor: "#0a0a0a"
-eyebrow: "Android · MVVM · Application Engineering"
-headline: "Building maintainable Android applications with clean architecture patterns at a product-focused software company."
-context: "Early-career role at a Mumbai-based software product and services company. This was the foundation of a professional engineering career — learning to write production code, work within a team, and build software that real users depend on."
-challenge: "Delivering Android application features that were maintainable, testable, and consistent with the team's architecture standards across multiple client projects."
-approach: "Developed Android applications using MVVM architecture patterns across multiple client projects. Built and maintained UI components with a focus on code readability and maintainability. Worked within a team codebase, following code review processes and engineering standards."
+eyebrow: "Android | Startup Engineering | Application Development"
+headline: "Wrote Android application features across requirements, implementation, debugging, backend integration, and release support in a startup environment."
+context: "Early-career engineering role at a software product and services company in Navi Mumbai."
+challenge: "The work required quickly translating requirements into Android features while supporting debugging, backend integration, and release readiness in a startup environment."
+approach: "Built Android application features, collaborated through implementation and debugging, and supported backend integration and release activities."
 tools:
   - Android
   - Java
-  - MVVM
-  - XML Layouts
-  - Git
-architecture: "MVVM pattern separating UI, business logic, and data layers. Android UI components built with XML layouts and data binding. Version control via Git with team-based branching and code review."
+  - Backend Integration
+  - Debugging
+  - Release Support
+architecture: "Android application features connected to backend services, with release support handled in a small-team startup environment."
 owned:
-  - "Android application feature development across multiple client projects"
-  - "MVVM architecture implementation for UI components"
-  - "Code quality and maintainability within team standards"
-  - "Participation in code review and engineering processes"
+  - "Android application feature implementation"
+  - "Debugging and backend integration support"
+  - "Release support in a startup environment"
 outcomes:
-  - "Delivered Android application features that shipped to production across client projects"
-  - "Developed foundational engineering habits — clean code, architecture discipline, team collaboration"
-  - "Built the technical foundation that enabled rapid growth into cloud and platform engineering roles"
-lessons: "The habits formed in early engineering roles — clean architecture, code review discipline, and thinking about maintainability — compound over time. This is where the foundation was built."
+  - "Built production-oriented Android features across requirements, implementation, debugging, backend integration, and release support"
+  - "Developed foundational engineering habits that carried into later DevOps and cloud roles"
+lessons: "Early application development work built the debugging, release discipline, and user-focused engineering habits that later supported cloud and DevOps delivery."
 tags:
   - Android
   - Java
-  - MVVM
-  - Mobile Development
-  - Application Engineering
+  - Application Development
+  - Backend Integration
+  - Release Support
 ---
 <!-- case study -->

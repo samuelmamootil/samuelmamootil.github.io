@@ -1,24 +1,24 @@
 [
   {
     "name": "ReRhythm",
-    "type": "Competition Project",
-    "summary": "AI-powered 28-day career coaching platform — parses resumes with AWS Textract, generates personalised roadmaps via AWS Bedrock (Claude), deploys on ECS Fargate with CloudFormation, DynamoDB, and KMS.",
-    "highlight": "🏆 Second runner-up — AWS Competition, UTA Symposium 2026",
+    "type": "Key Project",
+    "summary": "Generative AI platform demonstrating enterprise AI capabilities with AWS Bedrock, Claude, ChromaDB, RAG, CloudFormation, and ECS. The platform ingests, processes, and analyzes complex document data to identify skill gaps and generate intelligent workflow recommendations.",
+    "highlight": "🏆 Second Runner Up - AWS Hackathon / UTA Symposium 2026",
     "url": "https://github.com/samuelmamootil/ReRhythm",
-    "tags": ["AWS Bedrock", "Textract", "ECS Fargate", ".NET", "GitHub Actions", "DynamoDB"],
+    "tags": ["AWS Bedrock", "Claude", "ChromaDB", "RAG", "CloudFormation", "ECS"],
     "images": [
-      { "src": "/assets/img/gallery/reRhythm architecture diagram.png",  "alt": "ReRhythm AWS architecture diagram",  "label": "Architecture" },
-      { "src": "/assets/img/gallery/reRhythm resume upload.png",        "alt": "ReRhythm resume upload screen",    "label": "Resume Upload" },
-      { "src": "/assets/img/gallery/reRhythm badges page.png",           "alt": "ReRhythm badges and progress page", "label": "Badges & Progress" }
+      { "src": "/assets/img/gallery/reRhythm architecture diagram.png", "alt": "ReRhythm AWS architecture diagram", "label": "Architecture" },
+      { "src": "/assets/img/gallery/reRhythm resume upload.png", "alt": "ReRhythm resume upload screen", "label": "Resume Upload" },
+      { "src": "/assets/img/gallery/reRhythm badges page.png", "alt": "ReRhythm badges and progress page", "label": "Badges & Progress" }
     ]
   },
   {
     "name": "Portfolio Website",
     "type": "Featured Web Project",
-    "summary": "My portfolio page showcasing my work and skills.",
+    "summary": "Personal portfolio built with Eleventy and GitHub Pages to present DevOps, cloud, data platform, writing, and project work.",
     "highlight": "This site.",
     "url": "https://samuelmamootil.github.io",
-    "tags": ["Eleventy", "GitHub Pages", "GitHub Actions", "Nunjucks"],
+    "tags": ["Eleventy", "GitHub Pages", "Nunjucks", "Portfolio"],
     "btnLabel": "View Live Project ↗",
     "images": [
       { "src": "/assets/img/gallery/samuelwebpagesnippet.png", "alt": "Portfolio site screenshot", "label": "Live Site" }

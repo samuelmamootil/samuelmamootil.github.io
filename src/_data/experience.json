@@ -1,73 +1,62 @@
 [
   {
-    "role": "Student Web Developer (Part-time)",
-    "company": "UTA College of Business",
-    "location": "Arlington, TX",
-    "period": "Jan 2025 – Present",
-    "summary": "Maintain web applications, update content, and support high-visibility digital campaigns and college events.",
-    "logoText": "UTA",
-    "logoColor": "#BF5700",
-    "logoUrl": "",
-    "stack": [],
-    "clients": []
-  },
-  {
-    "role": "Tech Lead",
+    "role": "DevOps Engineer - AWS Data Platform",
     "company": "Wipro",
-    "location": "Mumbai, India",
-    "period": "Feb 2024 – Apr 2025",
-    "summary": "Led a 7-engineer team building reusable Terraform modules, GitOps CI/CD pipelines, and data engineering infrastructure on AWS for Alight Solutions across 3 enterprise environments.",
+    "location": "Navi Mumbai, India",
+    "period": "February 2024 - April 2025",
+    "summary": "Worked on an AWS data engineering platform for Alight Solutions, building Terraform modules, Python automation, Glue/PySpark validation, S3 and Redshift datasets, Lake Formation controls, and CloudWatch/CloudTrail monitoring.",
     "logoText": "Wipro",
     "logoColor": "#9b1c1c",
     "logoUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/wipro.svg",
-    "stack": [],
-    "clients": [
-      "Alight Solutions"
-    ]
+    "stack": ["AWS", "Terraform", "Python", "Glue", "Athena", "Redshift", "Lake Formation"],
+    "clients": ["Alight Solutions"]
   },
   {
-    "role": "Junior Tech Lead",
+    "role": "Junior Tech Lead - DevOps",
     "company": "IBM",
-    "location": "Mumbai, India",
-    "period": "Nov 2021 – Feb 2024",
-    "summary": "Delivered cloud migration and modernization across AWS, Azure, and GCP with GitHub Actions, Azure DevOps, GitLab CI/CD, and Terraform.",
+    "location": "Navi Mumbai, India",
+    "period": "November 2021 - February 2024",
+    "summary": "Led multi-client DevOps delivery across Azure, AWS, and GCP, including Terraform, GitHub Actions, Azure DevOps, Helm, Python, Bash, hardened images, migration planning, and secure release automation.",
     "logoText": "IBM",
     "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
     "logoColor": "#1F70C1",
-    "stack": [],
-    "clients": [
-      "H&M",
-      "Siemens",
-      "Nokia",
-      "Südzucker"
-    ]
+    "stack": ["Azure", "AWS", "GCP", "Terraform", "GitHub Actions", "Azure DevOps", "Helm"],
+    "clients": ["H&M", "Siemens", "Nokia", "S\u00fcdzucker"]
   },
   {
-    "role": "Software Engineer",
-    "company": "Larsen & Toubro Infotech Ltd. (now LTIMindtree)",
+    "role": "Software Engineer - Cloud and DevOps",
+    "company": "LTIMindtree / LTI",
     "location": "Bengaluru, India",
-    "period": "Apr 2018 – Nov 2021",
-    "summary": "Delivered Azure and AWS cloud infrastructure automation, lift-and-shift migrations, and DevOps pipelines for Parexel, GenRe, and Veolia Water.",
+    "period": "April 2018 - November 2021",
+    "summary": "Delivered cloud automation for Parexel, GenRe, and Veolia Water, supporting landing zone provisioning, application deployments, networking, identity, storage, security, release operations, and Azure data platform workflows.",
     "logoText": "LTM",
     "logoUrl": "",
     "logoColor": "#e05b2b",
-    "stack": [],
-    "clients": [
-      "Parexel",
-      "GenRe",
-      "Veolia Water"
-    ]
+    "stack": ["Azure", "AWS", "Terraform", "ARM Templates", "Bicep", "Azure DevOps", "ADF", "Databricks"],
+    "clients": ["Parexel", "GenRe", "Veolia Water"]
   },
   {
-    "role": "Junior Developer",
-    "company": "Neurospeech Technologies",
-    "location": "Mumbai, India",
-    "period": "Aug 2017 – Apr 2018",
-    "summary": "Developed Android applications using MVVM patterns and maintainable UI components.",
-    "logoText": "N",
+    "role": "Junior Software Developer",
+    "company": "NeuroSpeech Technologies",
+    "location": "Navi Mumbai, India",
+    "period": "August 2017 - April 2018",
+    "summary": "Wrote Android application features across requirements, implementation, debugging, backend integration, and release support in a startup environment.",
+    "logoText": "NS",
     "logoColor": "#0a0a0a",
     "logoUrl": "",
-    "stack": [],
+    "stack": ["Android", "Java", "Backend Integration"],
+    "clients": []
+  },
+  {
+    "role": "Student Web Developer - Part-Time",
+    "company": "UTA College of Business",
+    "location": "Arlington, TX",
+    "period": "June 2025 - May 2026",
+    "summary": "Maintained production web updates across 4 university platforms, resolving access, content, release, and site issues while coordinating status with business users.",
+    "logoText": "UTA",
+    "logoColor": "#BF5700",
+    "logoUrl": "",
+    "stack": ["Web Updates", "Content", "Release Support"],
     "clients": []
   }
 ]

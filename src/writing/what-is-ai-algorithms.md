@@ -42,7 +42,7 @@ permalink: /writing/what-is-ai-algorithms/
     "@type": "Person",
     "name": "Samuel Mamootil",
     "url": "https://samuelmamootil.github.io",
-    "jobTitle": "Senior Cloud & Platform Engineer"
+    "jobTitle": "DevOps Engineer"
   },
   "datePublished": "2026-04-10",
   "dateModified": "2026-04-10",

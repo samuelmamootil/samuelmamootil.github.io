@@ -1,64 +1,60 @@
 {
   "title": "Samuel Mamootil",
-  "tagline": "Cloud & Platform Engineer — building infrastructure that lets teams ship faster and sleep better.",
-  "description": "Samuel Mamootil is a Cloud and Platform Engineer specialising in AWS, Azure, GCP, Terraform, Kubernetes, and DevOps. Azure certified. MS student at UTA Arlington, TX. Available for Cloud, Platform Engineering, SRE, and AI Infrastructure roles.",
+  "tagline": "DevOps Engineer - automating cloud delivery, data platforms, and secure releases.",
+  "description": "Samuel Mamootil is a DevOps Engineer based in Austin, TX with 7+ years of experience across AWS, Azure, GCP, Terraform, Python automation, CI/CD, DevSecOps, and cloud data platforms. He completed an MS in Information Systems and Graduate Business Analytics Certificate at the University of Texas at Arlington in May 2026.",
   "url": "https://samuelmamootil.github.io",
   "author": "Samuel Mamootil",
   "email": "samuelrajumamootil@gmail.com",
   "phone": "+1 512-563-0303",
-  "location": "Arlington, TX",
+  "location": "Austin, TX",
   "linkedin": "https://linkedin.com/in/samuel-mamootil",
   "github": "https://github.com/samuelmamootil",
   "instagram": "",
   "resume": "/resume-view/",
-  "heroHeadline": "Cloud migrations shipped. Platforms standardised. Teams unblocked.",
-  "heroIntro": "I build cloud infrastructure, DevOps pipelines, and AI-powered applications that remove friction at scale. Delivered across AWS, Azure, and GCP at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Open to DevOps Engineering, Cloud Specialist, Multicloud, MLOps, and Platform Engineering roles in the US.",
+  "heroHeadline": "Cloud delivery automated. Data platforms governed. Teams unblocked.",
+  "heroIntro": "I help enterprise teams modernize applications, automate cloud delivery, and operate secure platforms across AWS, Azure, and GCP. Most recently, I worked on an AWS data engineering platform for Alight Solutions, building Terraform-driven infrastructure, Python automation, governed data workflows, analytics delivery, and forecasting-ready pipelines.",
   "story": [
-    "Samuel Mamootil is a DevOps Engineer, Cloud Specialist, Multicloud Specialist (AWS, Azure, GCP), and Machine Learning Engineer based in Arlington, TX — building the infrastructure layer that lets engineering teams move fast without breaking things.",
-    "At IBM, I led multi-cloud modernisation for enterprise clients across AWS, Azure, and GCP — designing landing zones, building Helm-based Kubernetes platforms, and delivering CI/CD pipelines that teams actually use. At Wipro, I led a 7-engineer team building reusable Terraform modules and AWS data platform infrastructure for Alight Solutions.",
-    "At LTIMindtree, I migrated 100+ enterprise applications to Azure and deployed secure infrastructure for global clients including Parexel and Regeneron — earning two Best Team awards for delivery quality and client impact.",
-    "Right now I'm finishing my Master's at UTA, building ReRhythm (an AI career coach on AWS Bedrock that placed 2nd at the UTA Analytics Symposium), and actively looking for DevOps, Cloud Specialist, Multicloud, and ML Engineering roles in the US. My GitHub is github.com/samuelmamootil."
+    "Samuel Mamootil is a DevOps Engineer based in Austin, TX, with 7+ years of professional experience across cloud automation, DevSecOps, data platforms, and multi-cloud delivery.",
+    "At Wipro, I worked on an AWS data engineering platform for Alight Solutions, building reusable Terraform modules, Python automation, Glue and PySpark validation workflows, governed S3/Redshift datasets, Lake Formation controls, and CloudWatch/CloudTrail monitoring.",
+    "At IBM, I delivered DevOps and migration work for H&M, Siemens, Nokia, and S\u00fcdzucker across Azure, AWS, and GCP, including 100+ application migrations, CI/CD design, hardened images, private connectivity, security remediation, and technical documentation.",
+    "I completed my Master of Science in Information Systems and Graduate Business Analytics Certificate at the University of Texas at Arlington in May 2026, and built ReRhythm, a generative AI platform using AWS Bedrock, Claude, ChromaDB, RAG, CloudFormation, and ECS."
   ],
   "strengths": [
     "Multi-cloud delivery across AWS, Azure, and GCP",
-    "Platform standardisation with reusable Terraform modules",
-    "AI/ML infrastructure — SageMaker, Azure ML, Bedrock",
-    "Secure-by-default automation and zero-trust networking",
-    "Technical leadership and enterprise cloud migration programs"
+    "Infrastructure automation with Terraform, CloudFormation, ARM Templates, and Bicep",
+    "AWS data engineering with Glue, Athena, Redshift, Lake Formation, S3, Lambda, and Step Functions",
+    "DevSecOps quality gates, hardened deployment patterns, IAM, KMS, Secrets Manager, and Key Vault",
+    "Python, Bash, PowerShell, SQL, PySpark, and clear technical documentation"
   ],
   "skills": {
-    "Cloud": ["AWS", "Azure", "GCP"],
-    "AI / ML Infrastructure": ["AWS SageMaker", "AWS Bedrock", "Azure Machine Learning", "AWS Textract", "AWS Rekognition", "AWS Comprehend"],
-    "IaC & CI/CD": ["Terraform", "CloudFormation", "GitHub Actions", "Azure DevOps", "Jenkins", "Ansible", "GitLab CI/CD", "ARM Templates", "Bicep"],
-    "Containers": ["Docker", "Kubernetes", "EKS", "ECS Fargate", "Helm"],
-    "Security": ["IAM", "VPC/Private Endpoints", "Firewall Rules", "TLS", "SonarQube", "KMS", "OIDC"],
-    "Programming & Data": ["C#", ".NET Core", "Python", "Bash", "PowerShell", "SQL", "DynamoDB", "PostgreSQL", "PHP"]
+    "Cloud Platforms": ["AWS", "Azure", "GCP"],
+    "Infrastructure as Code": ["Terraform", "ARM Templates", "Bicep", "CloudFormation"],
+    "Scripting and Development": ["Python", "Bash", "PowerShell", "PHP", "SQL", "PySpark"],
+    "Monitoring and Documentation": ["Azure Monitor", "Application Insights", "CloudWatch", "CloudTrail", "Prometheus", "DataDog", "Confluence"],
+    "Data Engineering and Analytics": ["AWS Glue", "Athena", "Redshift", "Lake Formation", "SageMaker", "Azure Data Factory", "Databricks", "Azure Synapse", "Hive", "PostgreSQL", "Tableau", "Power BI"],
+    "Security and Quality": ["SonarQube", "Coverity", "IAM", "KMS", "Secrets Manager", "Azure Key Vault", "CloudTrail"],
+    "CI/CD and Containers": ["GitHub Actions", "Azure DevOps YAML", "GitLab CI/CD", "Docker", "Kubernetes", "AKS", "Helm charts"]
   },
-  "certifications": [
-    { "name": "Azure Solutions Architect Expert", "code": "AZ-303/304", "issuer": "Microsoft", "color": "#0078D4" },
-    { "name": "Azure DevOps Engineer Expert",     "code": "AZ-400",     "issuer": "Microsoft", "color": "#0078D4" },
-    { "name": "Azure Administrator Associate",    "code": "AZ-103",     "issuer": "Microsoft", "color": "#0078D4" }
-  ],
   "faq": [
     {
       "q": "Who is Samuel Mamootil?",
-      "a": "Samuel Mamootil (also known as Samuel Raju Mamootil) is a Cloud and Platform Engineer based in Arlington, Texas. He specialises in AWS, Microsoft Azure, GCP, Terraform, Kubernetes, and DevOps. He holds three Microsoft Azure certifications and is completing a Master's degree at the University of Texas at Arlington."
+      "a": "Samuel Mamootil, also known as Samuel Raju Mamootil, is a DevOps Engineer based in Austin, Texas. He has 7+ years of experience helping enterprise teams modernize applications, automate cloud delivery, and operate secure platforms across AWS, Azure, and GCP."
     },
     {
-      "q": "What does Samuel Mamootil specialise in?",
-      "a": "Samuel specialises in cloud platform engineering, DevOps, site reliability engineering, infrastructure as code (Terraform), Kubernetes, CI/CD pipelines, and AI/ML infrastructure. He has delivered multi-cloud migrations and platform engineering programs for enterprise clients at IBM, Wipro, and LTIMindtree."
+      "q": "What does Samuel Mamootil specialize in?",
+      "a": "Samuel specializes in DevOps engineering, infrastructure as code, CI/CD automation, AWS data platforms, DevSecOps, cloud migration, Python automation, and multi-cloud delivery across AWS, Azure, and GCP."
     },
     {
       "q": "What cloud platforms has Samuel Mamootil worked with?",
-      "a": "Samuel has hands-on experience across AWS, Microsoft Azure, and Google Cloud Platform (GCP). He is Microsoft Azure certified at the Solutions Architect Expert, DevOps Engineer Expert, and Administrator Associate levels."
+      "a": "Samuel has hands-on experience across AWS, Microsoft Azure, and Google Cloud Platform. His work includes Terraform modules, GitHub Actions, Azure DevOps YAML, AWS Glue, Athena, Redshift, Lake Formation, AKS, Helm, and cloud security controls."
     },
     {
       "q": "What companies has Samuel Mamootil worked for?",
-      "a": "Samuel has worked at Wipro (Tech Lead), IBM (Junior Tech Lead), LTIMindtree (Software Engineer), and NeuroSpeech (Junior Developer). His enterprise clients have included H&M, Siemens, Nokia, Südzucker, Alight Solutions, Parexel, Regeneron, and Veolia Water."
+      "a": "Samuel has worked at Wipro as a DevOps Engineer - AWS Data Platform, IBM as a Junior Tech Lead - DevOps, LTIMindtree / LTI as a Software Engineer - Cloud and DevOps, and NeuroSpeech Technologies as a Junior Software Developer. He also worked part-time as a Student Web Developer at the UTA College of Business from June 2025 to May 2026."
     },
     {
       "q": "Is Samuel Mamootil available for cloud engineering roles in the US?",
-      "a": "Yes. Samuel Mamootil is actively seeking Cloud Engineering, Platform Engineering, Site Reliability Engineering (SRE), and AI Infrastructure roles in the United States. He is based in Arlington, TX."
+      "a": "Yes. Samuel Mamootil is based in Austin, TX and is open to DevOps Engineering, Cloud Engineering, Data Platform, DevSecOps, and related roles in the United States."
     },
     {
       "q": "What is Samuel Mamootil's GitHub?",
@@ -66,19 +62,19 @@
     },
     {
       "q": "Who is Samuel the cloud engineer?",
-      "a": "Samuel refers to Samuel Mamootil, a Cloud and Platform Engineer based in Arlington, TX. He specialises in AWS, Azure, GCP, Terraform, Kubernetes, and DevOps. His portfolio is at samuelmamootil.github.io."
+      "a": "Samuel refers to Samuel Mamootil, a DevOps Engineer based in Austin, TX. He works across AWS, Azure, GCP, Terraform, Python automation, CI/CD, data engineering, and DevSecOps."
     },
     {
       "q": "Where can I find Samuel Mamootil's portfolio?",
-      "a": "Samuel Mamootil's portfolio is at samuelmamootil.github.io. It includes cloud engineering case studies from IBM, Wipro, and LTIMindtree, plus projects, blog posts, and a resume."
+      "a": "Samuel Mamootil's portfolio is at samuelmamootil.github.io. It includes case studies from Wipro, IBM, LTIMindtree, and NeuroSpeech, plus projects, writing, media, and a resume."
     },
     {
       "q": "What awards has Samuel Mamootil received?",
-      "a": "Samuel Mamootil received Second Runner-Up at the UTA Analytics Symposium AWS competition for ReRhythm, an AI career coaching platform built on AWS Bedrock and ECS Fargate. He also received two LTIMindtree Best Team awards — Gold for the GenRE cloud migration program (100+ apps migrated to Azure) and Bronze for the Parexel Azure DevOps infrastructure project."
+      "a": "Samuel Mamootil received the Maverick Advantage Certificate of Distinction from UTA in 2026, Second Runner Up for the ReRhythm AI application at the AWS Hackathon / UTA Symposium in 2026, and a Best Team Award for the Parexel project at LTIMindtree in 2019."
     },
     {
       "q": "Is Samuel Mamootil a DevOps Engineer or Cloud Specialist?",
-      "a": "Samuel Mamootil works across DevOps engineering, cloud specialisation, multicloud architecture (AWS, Azure, GCP), and machine learning engineering. He has hands-on experience with CI/CD pipelines, Terraform IaC, Kubernetes, AWS, Azure, GCP, and AI/ML infrastructure including AWS SageMaker and AWS Bedrock."
+      "a": "Samuel Mamootil is a DevOps Engineer with cloud specialist, multi-cloud, DevSecOps, and data platform experience across AWS, Azure, and GCP."
     },
     {
       "q": "What is Samuel Mamootil's GitHub username?",

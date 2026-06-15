@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.url == '/' %}Samuel Mamootil — DevOps Engineer · Cloud Specialist · Multicloud Specialist | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}</title>
+  <title>{% if page.url == '/' %}Samuel Mamootil - DevOps Engineer | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta name="author" content="{{ site.author }}" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="keywords" content="Samuel Mamootil, Samuel Raju Mamootil, cloud engineer, DevOps engineer, platform engineer, site reliability engineer, SRE, cloud architect, AWS architect, Azure architect, GCP engineer, Terraform engineer, Kubernetes engineer, DevOps expert, AI infrastructure engineer, MLOps engineer, cloud migration expert, infrastructure as code, CI/CD expert, Docker Kubernetes, EKS AKS GKE, ECS Fargate, AWS SageMaker, Azure Machine Learning, AWS Bedrock, cloud security expert, zero trust networking, IAM expert, OIDC federation, Azure landing zones, Helm charts, multi-cloud architect, cloud engineer Texas, DevOps engineer Arlington TX, Azure DevOps engineer Arlington TX, site reliability engineer Arlington TX, cloud engineer portfolio Azure AWS Terraform, multi-cloud migration case study, Azure landing zone DevOps case study, AWS data engineering infrastructure case study, Samuel Mamootil DevOps, Samuel Mamootil Azure, Samuel Mamootil cloud engineer, Samuel Mamootil GitHub, UTA student, University of Texas Arlington" />
+  <meta name="keywords" content="Samuel Mamootil, Samuel Raju Mamootil, DevOps engineer, cloud engineer, Austin TX DevOps engineer, AWS data platform engineer, Terraform engineer, Python automation engineer, CI/CD engineer, DevSecOps engineer, AWS Glue, Athena, Redshift, Lake Formation, Azure DevOps, GitHub Actions, Kubernetes, AKS, Helm, cloud migration, infrastructure as code, AWS Azure GCP, University of Texas at Arlington, UTA MS Information Systems" />
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
   <!-- Open Graph -->
-  <meta property="og:title"       content="{% if page.url == '/' %}Samuel Mamootil — DevOps Engineer · Cloud Specialist · Multicloud Specialist | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}" />
+  <meta property="og:title"       content="{% if page.url == '/' %}Samuel Mamootil - DevOps Engineer | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}" />
   <meta property="og:description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta property="og:url"         content="{{ site.url }}{{ page.url }}" />
   <meta property="og:type"        content="{% if layout == 'layouts/post.njk' %}article{% else %}website{% endif %}" />
@@ -24,7 +24,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="{% if page.url == '/' %}Samuel Mamootil — DevOps Engineer · Cloud Specialist · Multicloud Specialist | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}" />
+  <meta name="twitter:title"       content="{% if page.url == '/' %}Samuel Mamootil - DevOps Engineer | Portfolio{% else %}{{ title }} | {{ site.title }}{% endif %}" />
   <meta name="twitter:description" content="{{ pageDescription if pageDescription else (description if description else site.description) }}" />
   <meta name="twitter:image"       content="{{ site.url }}/assets/img/gallery/linkedin.png" />
 
@@ -39,8 +39,8 @@
         "name": "Samuel Mamootil",
         "alternateName": "Samuel Raju Mamootil",
         "url": "{{ site.url }}",
-        "jobTitle": ["DevOps Engineer", "Cloud Specialist", "Multicloud Specialist", "Machine Learning Engineer"],
-        "description": "Samuel Mamootil (Samuel Raju Mamootil) is a Cloud and Platform Engineer based in Arlington, TX. He specialises in AWS, Microsoft Azure, GCP, Terraform, Kubernetes, DevOps, and AI/ML infrastructure. He has delivered enterprise cloud migrations and platform engineering programs at IBM, Wipro, and LTIMindtree for clients including H&M, Siemens, Nokia, and Alight Solutions. Azure certified at Solutions Architect Expert, DevOps Engineer Expert, and Administrator Associate levels.",
+        "jobTitle": ["DevOps Engineer", "AWS Data Platform Engineer", "Cloud Automation Engineer", "DevSecOps Engineer"],
+        "description": "Samuel Mamootil (Samuel Raju Mamootil) is a DevOps Engineer based in Austin, TX with 7+ years of experience across AWS, Azure, GCP, Terraform, Python automation, CI/CD, DevSecOps, and cloud data platforms. He completed an MS in Information Systems and Graduate Business Analytics Certificate at the University of Texas at Arlington in May 2026.",
         "image": "https://github.com/samuelmamootil.png",
         "email": "samuelrajumamootil@gmail.com",
         "sameAs": [
@@ -51,46 +51,31 @@
         ],
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Arlington",
+          "addressLocality": "Austin",
           "addressRegion": "TX",
           "addressCountry": "US"
         },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "University of Texas at Arlington",
-          "sameAs": "https://www.uta.edu"
-        },
-        "worksFor": {
-          "@type": "Organization",
-          "name": "UTA College of Business"
-        },
-        "knowsAbout": [
-          "Cloud Architecture", "AWS", "Microsoft Azure", "Google Cloud Platform",
-          "DevOps", "Platform Engineering", "Terraform", "Kubernetes", "Docker",
-          "CI/CD", "GitHub Actions", "AI Infrastructure", "MLOps",
-          "AWS SageMaker", "AWS Bedrock", "Azure Machine Learning",
-          "Cloud Security", "IAM", "Zero Trust Networking", "Infrastructure as Code",
-          "Cloud Migration", "Site Reliability Engineering", "EKS", "ECS Fargate"
-        ],
-        "hasCredential": [
+        "alumniOf": [
           {
-            "@type": "EducationalOccupationalCredential",
-            "name": "Azure Solutions Architect Expert",
-            "credentialCategory": "Professional Certification",
-            "recognizedBy": { "@type": "Organization", "name": "Microsoft" }
+            "@type": "CollegeOrUniversity",
+            "name": "University of Texas at Arlington",
+            "sameAs": "https://www.uta.edu"
           },
           {
-            "@type": "EducationalOccupationalCredential",
-            "name": "Azure DevOps Engineer Expert",
-            "credentialCategory": "Professional Certification",
-            "recognizedBy": { "@type": "Organization", "name": "Microsoft" }
-          },
-          {
-            "@type": "EducationalOccupationalCredential",
-            "name": "Azure Administrator Associate",
-            "credentialCategory": "Professional Certification",
-            "recognizedBy": { "@type": "Organization", "name": "Microsoft" }
+            "@type": "CollegeOrUniversity",
+            "name": "Mumbai University"
           }
+        ],
+        "knowsAbout": [
+          "DevOps", "AWS", "Microsoft Azure", "Google Cloud Platform",
+          "Terraform", "CloudFormation", "ARM Templates", "Bicep",
+          "Python", "Bash", "PowerShell", "SQL", "PySpark",
+          "CI/CD", "GitHub Actions", "Azure DevOps", "GitLab CI/CD",
+          "AWS Glue", "Athena", "Redshift", "Lake Formation", "SageMaker",
+          "Azure Data Factory", "Databricks", "Azure Synapse", "PostgreSQL",
+          "Docker", "Kubernetes", "AKS", "Helm", "IAM", "KMS",
+          "Secrets Manager", "Azure Key Vault", "SonarQube", "Coverity",
+          "Cloud Migration", "DevSecOps", "Cloud Data Platforms"
         ]
       },
       {
@@ -186,7 +171,7 @@
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a class="nav__logo" href="/" aria-label="Samuel Mamootil — Home">SM</a>
+      <a class="nav__logo" href="/" aria-label="Samuel Mamootil - Home">SM</a>
       <ul class="nav__links">
         <li><a href="/work/">Experience</a></li>
         <li><a href="/projects/">Projects</a></li>
@@ -223,7 +208,7 @@
         <a href="{{ site.github }}" target="_blank" rel="noopener" itemprop="sameAs">GitHub</a>
         {% if site.instagram %} &middot; <a href="{{ site.instagram }}" target="_blank" rel="noopener" itemprop="sameAs">Instagram</a>{% endif %}
       </p>
-      <p class="footer__copy">&copy; {{ "" | year }} Samuel Mamootil &middot; DevOps Engineer &middot; Cloud Specialist &middot; Multicloud (AWS, Azure, GCP) &middot; Arlington, TX</p>
+      <p class="footer__copy">&copy; {{ "" | year }} Samuel Mamootil &middot; DevOps Engineer &middot; AWS Data Platform &middot; Multicloud (AWS, Azure, GCP) &middot; Austin, TX</p>
     </div>
   </footer>
 
