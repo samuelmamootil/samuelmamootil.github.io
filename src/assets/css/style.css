@@ -833,6 +833,23 @@ p:last-child { margin-bottom: 0; }
   font-size: 1.08rem;
   line-height: 1.75;
 }
+.gallery-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+.gallery-eyebrow svg,
+.gallery-feature__body time svg,
+.instax__date svg {
+  width: .95rem;
+  height: .95rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: 0 0 auto;
+}
 .gallery-feature {
   position: relative;
   display: block;
@@ -872,7 +889,9 @@ p:last-child { margin-bottom: 0; }
 .gallery-feature__body time,
 .instax__date,
 .lightbox__date {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
   color: var(--teal);
   font-size: .72rem;
   font-weight: 750;
@@ -940,8 +959,15 @@ p:last-child { margin-bottom: 0; }
   justify-content: center;
   color: #fff;
   background: var(--teal);
-  font-size: .78rem;
-  font-weight: 800;
+}
+.gallery-timeline__marker svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .gallery-timeline__item:nth-child(6n+1) .gallery-timeline__marker span { background: var(--sky); }
 .gallery-timeline__item:nth-child(6n+2) .gallery-timeline__marker span { background: var(--teal); }

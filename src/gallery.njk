@@ -3,11 +3,12 @@ layout: layouts/base.njk
 title: Gallery
 permalink: /gallery/
 ---
+{% import "icons.njk" as icons %}
 
 <section class="gallery-hero">
   <div class="container gallery-hero__inner">
     <div class="gallery-hero__copy">
-      <p class="eyebrow">Gallery</p>
+      <p class="eyebrow gallery-eyebrow">{{ icons.icon("camera") }} Gallery</p>
       <h1>Moments from the field</h1>
       <p>Hackathon work, university events, team moments, and the people around the cloud and data platform journey.</p>
     </div>
@@ -19,7 +20,7 @@ permalink: /gallery/
              data-title="{{ featured.title }}">
       <img src="{{ featured.image }}" alt="{{ featured.title }}" loading="eager" />
       <div class="gallery-feature__body">
-        <time>{{ featured.date | readableDate }}</time>
+        <time>{{ icons.icon("calendar") }} {{ featured.date | readableDate }}</time>
         <strong>{{ featured.caption }}</strong>
       </div>
     </article>
@@ -29,7 +30,7 @@ permalink: /gallery/
 <section class="gallery-section container">
   <div class="section-header">
     <div>
-      <p class="eyebrow">Photo Journal</p>
+      <p class="eyebrow gallery-eyebrow">{{ icons.icon("sparkle") }} Photo Journal</p>
       <h2>Selected highlights</h2>
     </div>
     <p class="gallery-section__count">{{ gallery.length }} photos</p>
@@ -43,7 +44,7 @@ permalink: /gallery/
              data-date="{{ item.date | readableDate }}"
              data-title="{{ item.title }}">
       <div class="gallery-timeline__marker">
-        <span>{{ loop.index }}</span>
+        <span>{{ icons.icon("image") }}</span>
       </div>
       <div class="gallery-timeline__card">
         <div class="gallery-timeline__media instax__frame">
@@ -53,7 +54,7 @@ permalink: /gallery/
         </div>
         <div class="gallery-timeline__body instax__label">
           {% if item.date %}
-            <time class="instax__date">{{ item.date | readableDate }}</time>
+            <time class="instax__date">{{ icons.icon("calendar") }} {{ item.date | readableDate }}</time>
           {% endif %}
           <h3 class="instax__title">{{ item.title }}</h3>
           <p class="instax__caption" title="{{ item.caption }}">{{ item.caption }}</p>
@@ -67,7 +68,7 @@ permalink: /gallery/
 <!-- PHOTO CREDITS -->
 <section class="section container gallery-credits">
   <div>
-    <p class="eyebrow">Photo credits</p>
+    <p class="eyebrow gallery-eyebrow">{{ icons.icon("camera") }} Photo credits</p>
     <h2>With gratitude to UTA College of Business</h2>
     <p>
       Several photos in this gallery were taken by the <strong>UTA College of Business</strong> photography team. All rights belong to their respective owners.
@@ -76,12 +77,12 @@ permalink: /gallery/
   <div class="gallery-credits__links">
     <a href="https://www.flickr.com/photos/utabusiness/albums/72177720332491623/"
        target="_blank" rel="noopener" class="btn btn--ghost btn--sm">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="12" r="4"/><circle cx="17" cy="12" r="4"/></svg>
+      {{ icons.icon("external-link") }}
       Flickr Album 1
     </a>
     <a href="https://www.flickr.com/photos/utabusiness/albums/72177720329911465/"
        target="_blank" rel="noopener" class="btn btn--ghost btn--sm">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="12" r="4"/><circle cx="17" cy="12" r="4"/></svg>
+      {{ icons.icon("external-link") }}
       Flickr Album 2
     </a>
   </div>
