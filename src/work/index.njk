@@ -3,34 +3,92 @@ layout: layouts/base.njk
 title: Experience
 pageDescription: "Samuel Mamootil's DevOps engineering career, with case studies from Wipro, IBM, LTIMindtree / LTI, and NeuroSpeech covering AWS data platforms, Azure, GCP, Terraform, CI/CD, DevSecOps, and cloud automation."
 ---
+{% import "icons.njk" as icons %}
+
+<section class="career-hero">
+  <div class="container career-hero__inner">
+    <div>
+      <p class="eyebrow career-eyebrow">{{ icons.icon("code") }} Career</p>
+      <h1>Work Experience</h1>
+      <p class="lead">A role-by-role view of what I built, automated, secured, and handed over across AWS, Azure, GCP, DevSecOps, and data platforms.</p>
+    </div>
+    <div class="career-proof">
+      <div class="career-proof__item">
+        <span>7+ yrs</span>
+        <p>Professional engineering experience</p>
+      </div>
+      <div class="career-proof__item">
+        <span>100+</span>
+        <p>Applications supported in cloud migration work</p>
+      </div>
+      <div class="career-proof__item">
+        <span>3 clouds</span>
+        <p>AWS, Azure, and GCP delivery</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section container">
-  <p class="eyebrow">Career</p>
-  <h1>Work Experience</h1>
-  <p class="lead">Each role below is presented as a case study — showing the business context, technical challenge, architecture decisions, what I owned, and what changed as a result. This is the depth behind the resume.</p>
+  <div class="section-header">
+    <div>
+      <p class="eyebrow career-eyebrow">{{ icons.icon("sparkle") }} Delivery Timeline</p>
+      <h2>Experience built through ownership</h2>
+    </div>
+  </div>
 
-  <div class="timeline">
+  <div class="experience-stack">
     {% for cs in casestudies %}
-    <div class="timeline__item">
-      <div class="timeline__marker"></div>
-      <div class="timeline__card">
-        <div class="timeline__header">
-          <span class="company-logo-text" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
+    <article class="experience-card">
+      <div class="experience-card__rail">
+        <span class="experience-card__dot">{{ loop.index }}</span>
+      </div>
+      <div class="experience-card__body">
+        <div class="experience-card__top">
+          <span class="company-logo-text experience-card__logo" style="background:{{ cs.logoColor }}">{{ cs.logoText }}</span>
           <div>
-            <h2 class="timeline__role">{{ cs.company }}</h2>
-            <p class="timeline__company">
+            <p class="experience-card__eyebrow">{{ cs.eyebrow }}</p>
+            <h3>{{ cs.company }}</h3>
+            <p class="experience-card__meta">
               <a href="{{ cs.companyUrl }}" target="_blank" rel="noopener">{{ cs.role }}</a>
-              &middot; {{ cs.location }} &middot; <span class="timeline__period">{{ cs.period }}</span>
+              <span>{{ cs.location }}</span>
+              <span>{{ cs.period }}</span>
             </p>
           </div>
         </div>
-        <p class="timeline__summary">{{ cs.headline }}</p>
-        <div class="tag-list" style="margin-bottom:.75rem;">
-          {% for t in cs.tags | slice(0, 5) %}<span class="tag">{{ t }}</span>{% endfor %}
+        <p class="experience-card__headline">{{ cs.headline }}</p>
+
+        <div class="experience-card__grid">
+          <div class="experience-card__panel">
+            <p class="experience-card__label">{{ icons.icon("code") }} What I owned</p>
+            <ul>
+              {% for item in cs.owned %}
+              {% if loop.index <= 2 %}
+              <li>{{ item }}</li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="experience-card__panel experience-card__panel--outcome">
+            <p class="experience-card__label">{{ icons.icon("sparkle") }} What changed</p>
+            <ul>
+              {% for item in cs.outcomes %}
+              {% if loop.index <= 2 %}
+              <li>{{ item }}</li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-        <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read case study &rarr;</a>
+
+        <div class="experience-card__footer">
+          <div class="tag-list">
+            {% for t in cs.tags | slice(0, 6) %}<span class="tag">{{ t }}</span>{% endfor %}
+          </div>
+          <a href="/work/{{ cs.slug }}/" class="btn btn--ghost btn--sm">Read case study &rarr;</a>
+        </div>
       </div>
-    </div>
+    </article>
     {% endfor %}
   </div>
 </section>
